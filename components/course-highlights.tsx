@@ -6,51 +6,51 @@ const courses = [
     title: 'Thai Herbs & Spices Cooking Class',
     date: 'NOV 12, 2025 4.00PM - 5.00 PM',
     dateBadge: { day: '11', month: 'NOV' },
-    image: '/sizzling-thai-stir-fry-in-wok-with-vegetables-and-.jpg',
+    image: '/mock-about.jpg',
   },
   {
     id: 2,
     title: 'Mastering Pad Thai',
     date: 'NOV 12, 2025 4.00PM - 5.00 PM',
     dateBadge: { day: '11', month: 'NOV' },
-    image: '/authentic-pad-thai-noodles-on-traditional-thai-cer.jpg',
+    image: '/mock-about.jpg',
   },
   {
     id: 3,
     title: 'Coconut & Curry Cooking Experience',
     date: 'NOV 12, 2025 4.00PM - 5.00 PM',
     dateBadge: { day: '11', month: 'NOV' },
-    image: '/thai-green-curry-in-coconut-bowl.jpg',
+    image: '/mock-about.jpg',
   },
   {
     id: 4,
     title: 'Thai Curry Masterclass',
     date: 'NOV 12, 2025 4.00PM - 5.00 PM',
     dateBadge: { day: '11', month: 'NOV' },
-    image: '/thai-red-curry-with-vegetables-in-traditional-bowl.jpg',
+    image: '/mock-about.jpg',
   },
   {
     id: 5,
     title: 'Thai Street Food Favorites',
     date: 'NOV 12, 2025 4.00PM - 5.00 PM',
     dateBadge: { day: '11', month: 'NOV' },
-    image: '/thai-street-food-stir-fry-in-blue-patterned-plate.jpg',
+    image: '/mock-about.jpg',
   },
   {
     id: 6,
     title: 'Sweet Thai Classics Workshop',
     date: 'NOV 12, 2025 4.00PM - 5.00 PM',
     dateBadge: { day: '11', month: 'NOV' },
-    image: '/colorful-thai-desserts-mango-sticky-rice-coconut.jpg',
+   image: '/mock-about.jpg',
   },
 ]
 
 export function CourseHighlights() {
   return (
-    <section className="py-16 bg-[#F5F1EC]">
+    <section className="py-18 bg-[#F5F1EC]">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex items-start justify-between mb-12">
-          <h2 className="font-serif text-5xl font-bold text-black">
+          <h2 className=" text-5xl font-bold text-black">
             Course Highlights
           </h2>
           <Link 
@@ -63,7 +63,7 @@ export function CourseHighlights() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course) => (
-            <div key={course.id} className="bg-white">
+            <div key={course.id} >
               <div className="relative">
                 <div className="absolute top-4 right-4 bg-white px-3 py-2 text-center leading-tight z-10">
                   <div className="text-2xl font-bold text-black">{course.dateBadge.day}</div>
@@ -72,7 +72,7 @@ export function CourseHighlights() {
                 <img
                   src={course.image || "/placeholder.svg"}
                   alt={course.title}
-                  className="w-full h-72 object-cover"
+                  className="w-full h-[400px] object-cover"
                 />
               </div>
               <div className="p-6 text-center">

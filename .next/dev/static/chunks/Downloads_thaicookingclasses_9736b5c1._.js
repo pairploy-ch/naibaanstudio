@@ -101,7 +101,7 @@ function Hero() {
                 className: "absolute inset-0 z-0",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: "/elegant-thai-restaurant-interior-with-warm-pendant.jpg",
+                        src: "/test-bg.jpg",
                         alt: "Thai cooking studio interior",
                         className: "w-full h-full object-cover"
                     }, void 0, false, {
@@ -123,10 +123,10 @@ function Hero() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative z-10 text-center px-6 max-w-4xl mx-auto",
+                className: "relative z-10 text-center px-6 max-w-7xl mx-auto",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "text-white font-serif text-5xl md:text-7xl font-bold mb-6 text-balance",
+                        className: "text-white text-5xl md:text-8xl font-semibold mb-6 text-balance",
                         children: "Experience Thailand Through Its Flavors"
                     }, void 0, false, {
                         fileName: "[project]/Downloads/thaicookingclasses/components/hero.tsx",
@@ -134,7 +134,7 @@ function Hero() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto text-balance leading-relaxed",
+                        className: "text-white/90 text-lg md:text-xl mb-8 max-w-6xl mx-auto text-balance leading-relaxed",
                         children: "Discover authentic Thai cooking in a serene, home-style studio. Learn traditional recipes, local ingredients, and regional culinary techniques from expert Thai chefs."
                     }, void 0, false, {
                         fileName: "[project]/Downloads/thaicookingclasses/components/hero.tsx",
@@ -144,8 +144,8 @@ function Hero() {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                         size: "lg",
                         variant: "outline",
-                        className: "bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white hover:text-primary text-lg px-8",
-                        children: "Learn More"
+                        className: "bg-white/10  text-white border-white/30 hover:bg-white hover:text-primary text-lg px-8",
+                        children: "Book a Class"
                     }, void 0, false, {
                         fileName: "[project]/Downloads/thaicookingclasses/components/hero.tsx",
                         lineNumber: 27,

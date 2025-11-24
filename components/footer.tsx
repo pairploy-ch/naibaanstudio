@@ -5,7 +5,7 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Contact */}
           <div>
-            <h3 className="font-serif text-xl font-bold mb-4">Contact</h3>
+            <h3 className=" text-2xl font-bold mb-4">Contact</h3>
             <div className="space-y-2 text-muted-foreground">
               <p>Tel: 348 554 3333</p>
               <p>Email: hello@thaiflavors.com</p>
@@ -13,8 +13,8 @@ export function Footer() {
           </div>
 
           {/* Hours */}
-          <div>
-            <h3 className="font-serif text-xl font-bold mb-4">Hours</h3>
+          <div style={{ justifySelf: 'center'}}>
+            <h3 className=" text-2xl font-bold mb-4">Hours</h3>
             <div className="space-y-2 text-muted-foreground">
               <p>Monday - Sunday</p>
               <p>8:00 am - 10:00 pm</p>
@@ -22,8 +22,8 @@ export function Footer() {
           </div>
 
           {/* Location */}
-          <div>
-            <h3 className="font-serif text-xl font-bold mb-4">Location</h3>
+          <div style={{ justifySelf: 'right'}}>
+            <h3 className=" text-2xl font-bold mb-4">Location</h3>
             <div className="space-y-2 text-muted-foreground">
               <p>No. 235 Niam Niam St, Phraya,</p>
               <p>Soi 108, Bangkok 10400, Thailand</p>
@@ -46,9 +46,9 @@ export function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="border-t py-6">
-        <p className="text-center text-muted-foreground text-sm">
-          Copyright Thai Flavors 2025
+      <div className="py-6 bg-[#130904] text-white">
+        <p className="text-center text-white text-sm">
+          Copyright © 2025 naibaan.com All rights reserved.
         </p>
       </div>
     </footer>
