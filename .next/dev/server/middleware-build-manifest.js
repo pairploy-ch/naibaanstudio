@@ -1,0 +1,51 @@
+globalThis.__BUILD_MANIFEST = {
+  "pages": {
+    "/_app": [
+      "static/chunks/503b1_next_dist_compiled_1f62f20c._.js",
+      "static/chunks/503b1_next_dist_shared_lib_bfba6f6f._.js",
+      "static/chunks/503b1_next_dist_client_b7f1ada8._.js",
+      "static/chunks/503b1_next_dist_f7f68dce._.js",
+      "static/chunks/503b1_next_app_9ac2a0af.js",
+      "static/chunks/[next]_entry_page-loader_ts_3b7695f2._.js",
+      "static/chunks/503b1_react-dom_56a26c97._.js",
+      "static/chunks/503b1_e99ad012._.js",
+      "static/chunks/[root-of-the-server]__4b52a50b._.js",
+      "static/chunks/Downloads_thaicookingclasses_pages__app_2da965e7._.js",
+      "static/chunks/turbopack-Downloads_thaicookingclasses_pages__app_ddc5c224._.js"
+    ],
+    "/_error": [
+      "static/chunks/503b1_next_dist_compiled_1f62f20c._.js",
+      "static/chunks/503b1_next_dist_shared_lib_48af88fa._.js",
+      "static/chunks/503b1_next_dist_client_b7f1ada8._.js",
+      "static/chunks/503b1_next_dist_dd1ef355._.js",
+      "static/chunks/503b1_next_error_caa78f47.js",
+      "static/chunks/[next]_entry_page-loader_ts_73682fd5._.js",
+      "static/chunks/503b1_react-dom_56a26c97._.js",
+      "static/chunks/503b1_e99ad012._.js",
+      "static/chunks/[root-of-the-server]__84541597._.js",
+      "static/chunks/Downloads_thaicookingclasses_pages__error_2da965e7._.js",
+      "static/chunks/turbopack-Downloads_thaicookingclasses_pages__error_cf1370ee._.js"
+    ]
+  },
+  "devFiles": [],
+  "polyfillFiles": [
+    "static/chunks/503b1_next_dist_build_polyfills_polyfill-nomodule.js"
+  ],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_54c54efb._.js",
+    "static/chunks/503b1_next_dist_compiled_react-dom_8198ad54._.js",
+    "static/chunks/503b1_next_dist_compiled_react-server-dom-turbopack_bf1b6588._.js",
+    "static/chunks/503b1_next_dist_compiled_next-devtools_index_c42f98d2.js",
+    "static/chunks/503b1_next_dist_compiled_7ef9bd99._.js",
+    "static/chunks/503b1_next_dist_client_fafffe92._.js",
+    "static/chunks/503b1_next_dist_a34d3156._.js",
+    "static/chunks/503b1_@swc_helpers_cjs_f57134bb._.js",
+    "static/chunks/Downloads_thaicookingclasses_a0ff3932._.js",
+    "static/chunks/turbopack-Downloads_thaicookingclasses_a744389f._.js"
+  ]
+};
+globalThis.__BUILD_MANIFEST.lowPriorityFiles = [
+"/static/" + process.env.__NEXT_BUILD_ID + "/_buildManifest.js",
+"/static/" + process.env.__NEXT_BUILD_ID + "/_ssgManifest.js"
+];

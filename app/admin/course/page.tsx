@@ -1,0 +1,670 @@
+'use client';
+
+import Link from 'next/link';
+import React, { useMemo, useState } from 'react';
+import { CalendarDays, Clock, Plus, Trash2, X } from 'lucide-react';
+import { useMenuManager } from '@/hooks/use-menu-manager';
+import { MenuItem } from '@/types/menu';
+
+type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+interface MenuAssignment {
+  id: string;
+  menuId: string;
+  isMainCourse: boolean;
+  isDessert: boolean;
+  timeSlot: 'morning' | 'afternoon' | 'custom';
+  customStart?: string;
+  customEnd?: string;
+}
+
+interface DaySchedule {
+  day: DayToken;
+  menus: MenuAssignment[];
+  capacity: number;
+  price: number;
+}
+
+interface GeneratedCourse {
+  id: string;
+  class_date: string;
+  session: string;
+  start_time: string;
+  end_time: string;
+  capacity: number;
+  price: number;
+  detail: string;
+  tag?: string;
+}
+
+type MenuMap = Map<string, MenuItem>;
+
+const DAY_NAMES: Record<DayToken, string> = {
+  Mon: 'Monday',
+  Tue: 'Tuesday',
+  Wed: 'Wednesday',
+  Thu: 'Thursday',
+  Fri: 'Friday',
+  Sat: 'Saturday',
+  Sun: 'Sunday'
+};
+
+const DAY_OFFSETS: Record<DayToken, number> = {
+  Mon: 0,
+  Tue: 1,
+  Wed: 2,
+  Thu: 3,
+  Fri: 4,
+  Sat: 5,
+  Sun: 6
+};
+
+const createId = () => Math.random().toString(36).slice(2, 10);
+
+const createInitialSchedule = (): DaySchedule[] => [
+  { day: 'Mon', menus: [], capacity: 12, price: 1800 },
+  { day: 'Tue', menus: [], capacity: 12, price: 1800 },
+  { day: 'Wed', menus: [], capacity: 10, price: 1900 },
+  { day: 'Thu', menus: [], capacity: 12, price: 1800 },
+  { day: 'Fri', menus: [], capacity: 14, price: 1850 },
+  { day: 'Sat', menus: [], capacity: 10, price: 2200 },
+  { day: 'Sun', menus: [], capacity: 10, price: 1750 }
+];
+
+const getCurrentWeekMonday = () => {
+  const today = new Date();
+  const day = today.getDay();
+  const diff = (day + 6) % 7;
+  today.setHours(0, 0, 0, 0);
+  today.setDate(today.getDate() - diff);
+  return today.toISOString().split('T')[0];
+};
+
+const formatDateRange = (start: string) => {
+  if (!start) return 'Select a start date';
+  const from = new Date(`${start}T00:00:00`);
+  const to = new Date(from);
+  to.setDate(to.getDate() + 6);
+  const format = (date: Date) =>
+    date.toLocaleDateString('th-TH', { day: 'numeric', month: 'short' });
+  return `${format(from)} - ${format(to)}`;
+};
+
+const getDateForDay = (startDate: string, day: DayToken) => {
+  if (!startDate) return '';
+  const base = new Date(`${startDate}T00:00:00`);
+  const offset = DAY_OFFSETS[day] ?? 0;
+  const target = new Date(base);
+  target.setDate(base.getDate() + offset);
+  return target.toISOString().split('T')[0];
+};
+
+const buildDetailHTML = (assignments: MenuAssignment[], menuMap: MenuMap) => {
+  const mainCourses: string[] = [];
+  const desserts: string[] = [];
+  const regular: string[] = [];
+
+  assignments.forEach((assignment) => {
+    const menu = menuMap.get(assignment.menuId);
+    const name = menu?.nameEn || menu?.nameTh || 'Unknown';
+    
+    if (assignment.isMainCourse) mainCourses.push(name);
+    if (assignment.isDessert) desserts.push(name);
+    if (!assignment.isMainCourse && !assignment.isDessert) regular.push(name);
+  });
+
+  const blocks: string[] = [];
+  if (mainCourses.length) {
+    blocks.push(`<strong>Main course</strong><ul>${mainCourses.map(n => `<li>${n}</li>`).join('')}</ul>`);
+  }
+  if (desserts.length) {
+    blocks.push(`<strong>Dessert</strong><ul>${desserts.map(n => `<li>${n}</li>`).join('')}</ul>`);
+  }
+  if (regular.length) {
+    blocks.push(`<strong>Other dishes</strong><ul>${regular.map(n => `<li>${n}</li>`).join('')}</ul>`);
+  }
+  
+  return blocks.join('');
+};
+
+const formatCourseDate = (dateStr: string) => {
+  if (!dateStr) return 'Date TBD';
+  const date = new Date(`${dateStr}T00:00:00`);
+  return date.toLocaleDateString('th-TH', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short'
+  });
+};
+
+export default function ManageCourses() {
+  const { menus, menuMap } = useMenuManager();
+  const [weekAnchor, setWeekAnchor] = useState<string>(getCurrentWeekMonday);
+  const [schedule, setSchedule] = useState<DaySchedule[]>(createInitialSchedule);
+  const [selectedDay, setSelectedDay] = useState<DayToken | null>(null);
+  
+  // Form state for adding menu
+  const [newMenuId, setNewMenuId] = useState<string>('');
+  const [newIsMainCourse, setNewIsMainCourse] = useState(false);
+  const [newIsDessert, setNewIsDessert] = useState(false);
+  const [newTimeSlot, setNewTimeSlot] = useState<'morning' | 'afternoon' | 'custom'>('morning');
+  const [newCustomStart, setNewCustomStart] = useState('09:00');
+  const [newCustomEnd, setNewCustomEnd] = useState('12:30');
+
+  const generatedCourses = useMemo(() => {
+    if (!weekAnchor) return [];
+
+    const courses: GeneratedCourse[] = [];
+
+    schedule.forEach((daySchedule) => {
+      const classDate = getDateForDay(weekAnchor, daySchedule.day);
+      
+      const morningMenus = daySchedule.menus.filter(m => m.timeSlot === 'morning');
+      const afternoonMenus = daySchedule.menus.filter(m => m.timeSlot === 'afternoon');
+      const customMenus = daySchedule.menus.filter(m => m.timeSlot === 'custom');
+
+      if (morningMenus.length > 0) {
+        courses.push({
+          id: `${daySchedule.day}-morning`,
+          class_date: classDate,
+          session: `${DAY_NAMES[daySchedule.day]} Morning Class`,
+          start_time: '09:00',
+          end_time: '12:30',
+          capacity: daySchedule.capacity,
+          price: daySchedule.price,
+          detail: buildDetailHTML(morningMenus, menuMap)
+        });
+      }
+
+      if (afternoonMenus.length > 0) {
+        courses.push({
+          id: `${daySchedule.day}-afternoon`,
+          class_date: classDate,
+          session: `${DAY_NAMES[daySchedule.day]} Afternoon Class`,
+          start_time: '14:00',
+          end_time: '17:30',
+          capacity: daySchedule.capacity,
+          price: daySchedule.price,
+          detail: buildDetailHTML(afternoonMenus, menuMap)
+        });
+      }
+
+      customMenus.forEach((menu) => {
+        courses.push({
+          id: `${daySchedule.day}-${menu.id}`,
+          class_date: classDate,
+          session: `${DAY_NAMES[daySchedule.day]} Custom Time`,
+          start_time: menu.customStart || '09:00',
+          end_time: menu.customEnd || '12:00',
+          capacity: daySchedule.capacity,
+          price: daySchedule.price,
+          detail: buildDetailHTML([menu], menuMap),
+          tag: 'Custom'
+        });
+      });
+    });
+
+    return courses;
+  }, [schedule, weekAnchor, menuMap]);
+
+  const selectedDaySchedule = selectedDay
+    ? schedule.find(s => s.day === selectedDay)
+    : null;
+
+  const handleUpdateDaySettings = (day: DayToken, updates: Partial<DaySchedule>) => {
+    setSchedule(prev =>
+      prev.map(s => (s.day === day ? { ...s, ...updates } : s))
+    );
+  };
+
+  const handleAddMenu = () => {
+    if (!selectedDay || !newMenuId) return;
+
+    const newAssignment: MenuAssignment = {
+      id: createId(),
+      menuId: newMenuId,
+      isMainCourse: newIsMainCourse,
+      isDessert: newIsDessert,
+      timeSlot: newTimeSlot,
+      customStart: newTimeSlot === 'custom' ? newCustomStart : undefined,
+      customEnd: newTimeSlot === 'custom' ? newCustomEnd : undefined
+    };
+
+    setSchedule(prev =>
+      prev.map(s =>
+        s.day === selectedDay
+          ? { ...s, menus: [...s.menus, newAssignment] }
+          : s
+      )
+    );
+
+    // Reset form
+    setNewMenuId('');
+    setNewIsMainCourse(false);
+    setNewIsDessert(false);
+    setNewTimeSlot('morning');
+  };
+
+  const handleRemoveMenu = (day: DayToken, menuId: string) => {
+    setSchedule(prev =>
+      prev.map(s =>
+        s.day === day
+          ? { ...s, menus: s.menus.filter(m => m.id !== menuId) }
+          : s
+      )
+    );
+  };
+
+  const sortedMenus = useMemo(() => {
+    return [...menus].sort((a, b) =>
+      (a.nameEn || a.nameTh).localeCompare(b.nameEn || b.nameTh, 'th')
+    );
+  }, [menus]);
+
+  return (
+    <div className="min-h-screen py-10" style={{ backgroundColor: '#f5f1ed' }}>
+      <div className="max-w-[95%] mx-auto space-y-10">
+        <header className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="uppercase tracking-[0.3em] text-xs" style={{ color: '#8b6f47' }}>
+              Thai cooking studio
+            </p>
+            <h1 className="text-4xl font-light" style={{ color: '#3d2817' }}>
+              Weekly course scheduler
+            </h1>
+            <p className="text-sm mt-2 max-w-2xl" style={{ color: '#7a5f3d' }}>
+              เลือกวันเพื่อจัดตารางเมนู กำหนดประเภท และเวลาสอน
+            </p>
+          </div>
+          <label className="flex items-center gap-3 px-4 py-2 rounded-xl border bg-white shadow-sm" style={{ borderColor: '#e5dcd4' }}>
+            <CalendarDays size={18} style={{ color: '#8b6f47' }} />
+            <div className="flex flex-col text-sm">
+              <span className="text-xs uppercase tracking-wide" style={{ color: '#b29373' }}>
+                Week anchor (Monday)
+              </span>
+              <input
+                type="date"
+                value={weekAnchor}
+                onChange={(e) => setWeekAnchor(e.target.value)}
+                className="text-base focus:outline-none"
+                style={{ color: '#3d2817' }}
+              />
+            </div>
+          </label>
+        </header>
+
+        {/* Weekly Overview */}
+        <section className="bg-white rounded-2xl shadow border" style={{ borderColor: '#e5dcd4' }}>
+          <div className="px-6 py-5 border-b" style={{ borderColor: '#e5dcd4' }}>
+            <h2 className="text-2xl font-light" style={{ color: '#3d2817' }}>
+              สัปดาห์นี้ (Mon–Sun)
+            </h2>
+            <p className="text-sm mt-1" style={{ color: '#7a5f3d' }}>
+              คลิกวันเพื่อจัดการเมนู
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 p-6">
+            {schedule.map((daySchedule) => (
+              <button
+                key={daySchedule.day}
+                onClick={() => setSelectedDay(daySchedule.day)}
+                className={`p-4 rounded-xl border-2 transition text-left ${
+                  selectedDay === daySchedule.day
+                    ? 'border-[#8b6f47] bg-[#fff7ef]'
+                    : 'border-[#e5dcd4] hover:border-[#d4c5b5]'
+                }`}
+              >
+                <p className="text-xs uppercase tracking-wide" style={{ color: '#8b6f47' }}>
+                  {daySchedule.day}
+                </p>
+                <p className="text-lg font-light mt-1" style={{ color: '#3d2817' }}>
+                  {DAY_NAMES[daySchedule.day]}
+                </p>
+                <p className="text-xs mt-2" style={{ color: '#b29373' }}>
+                  {daySchedule.menus.length} เมนู
+                </p>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* Day Editor */}
+        {selectedDay && selectedDaySchedule && (
+          <section className="bg-white rounded-2xl shadow border" style={{ borderColor: '#e5dcd4' }}>
+            <div className="flex items-center justify-between px-6 py-5 border-b" style={{ borderColor: '#e5dcd4' }}>
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#b29373' }}>
+                  จัดการเมนู
+                </p>
+                <h3 className="text-2xl font-light" style={{ color: '#3d2817' }}>
+                  {DAY_NAMES[selectedDay]}
+                </h3>
+              </div>
+              <button
+                onClick={() => setSelectedDay(null)}
+                className="p-2 rounded-lg hover:bg-[#f5f1ed]"
+              >
+                <X size={20} style={{ color: '#8b6f47' }} />
+              </button>
+            </div>
+
+            {/* Day Settings */}
+            <div className="px-6 py-4 bg-[#fffdf8] border-b" style={{ borderColor: '#e5dcd4' }}>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div>
+                  <label className="text-xs uppercase tracking-wide block mb-1" style={{ color: '#8b6f47' }}>
+                    Capacity (จำนวนคน)
+                  </label>
+                  <input
+                    type="number"
+                    value={selectedDaySchedule.capacity}
+                    onChange={(e) =>
+                      handleUpdateDaySettings(selectedDay, {
+                        capacity: Number(e.target.value) || 0
+                      })
+                    }
+                    className="w-full border rounded-lg px-3 py-2"
+                    style={{ borderColor: '#e5dcd4' }}
+                    min={0}
+                  />
+                </div>
+                <div>
+                  <label className="text-xs uppercase tracking-wide block mb-1" style={{ color: '#8b6f47' }}>
+                    Price (฿)
+                  </label>
+                  <input
+                    type="number"
+                    value={selectedDaySchedule.price}
+                    onChange={(e) =>
+                      handleUpdateDaySettings(selectedDay, {
+                        price: Number(e.target.value) || 0
+                      })
+                    }
+                    className="w-full border rounded-lg px-3 py-2"
+                    style={{ borderColor: '#e5dcd4' }}
+                    min={0}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Add Menu Form */}
+            <div className="px-6 py-5 space-y-4">
+              <h4 className="text-lg font-light" style={{ color: '#3d2817' }}>
+                เพิ่มเมนูใหม่
+              </h4>
+
+              <div>
+                <label className="text-xs uppercase tracking-wide block mb-2" style={{ color: '#8b6f47' }}>
+                  เลือกเมนู
+                </label>
+                <select
+                  value={newMenuId}
+                  onChange={(e) => setNewMenuId(e.target.value)}
+                  className="w-full border rounded-xl px-4 py-2 text-sm"
+                  style={{ borderColor: '#e5dcd4', backgroundColor: '#fffdfa' }}
+                >
+                  <option value="">เลือกเมนู...</option>
+                  {sortedMenus.map((menu) => (
+                    <option key={menu.id} value={menu.id}>
+                      {menu.nameEn || menu.nameTh} · {menu.nameTh}
+                    </option>
+                  ))}
+                </select>
+                <p className="text-xs mt-2" style={{ color: '#7a5f3d' }}>
+                  ต้องการเพิ่มเมนูใหม่?{' '}
+                  <Link href="/admin/menu" className="underline" style={{ color: '#8b6f47' }}>
+                    เปิดหน้าจัดการเมนู
+                  </Link>
+                </p>
+              </div>
+
+              <div>
+                <label className="text-xs uppercase tracking-wide block mb-2" style={{ color: '#8b6f47' }}>
+                  ประเภทเมนู
+                </label>
+                <div className="flex flex-wrap gap-3">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={newIsMainCourse}
+                      onChange={(e) => setNewIsMainCourse(e.target.checked)}
+                      className="w-4 h-4 rounded"
+                    />
+                    <span className="text-sm" style={{ color: '#3d2817' }}>Main Course</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={newIsDessert}
+                      onChange={(e) => setNewIsDessert(e.target.checked)}
+                      className="w-4 h-4 rounded"
+                    />
+                    <span className="text-sm" style={{ color: '#3d2817' }}>Dessert</span>
+                  </label>
+                </div>
+                <p className="text-xs mt-2" style={{ color: '#b29373' }}>
+                  ถ้าไม่ติ๊กจะถือว่าเป็นเมนูธรรมดา
+                </p>
+              </div>
+
+              <div>
+                <label className="text-xs uppercase tracking-wide block mb-2" style={{ color: '#8b6f47' }}>
+                  ช่วงเวลา
+                </label>
+                <div className="flex flex-wrap gap-3">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="timeSlot"
+                      value="morning"
+                      checked={newTimeSlot === 'morning'}
+                      onChange={(e) => setNewTimeSlot(e.target.value as any)}
+                      className="w-4 h-4"
+                    />
+                    <span className="text-sm" style={{ color: '#3d2817' }}>
+                      เช้า (09:00-12:30)
+                    </span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="timeSlot"
+                      value="afternoon"
+                      checked={newTimeSlot === 'afternoon'}
+                      onChange={(e) => setNewTimeSlot(e.target.value as any)}
+                      className="w-4 h-4"
+                    />
+                    <span className="text-sm" style={{ color: '#3d2817' }}>
+                      บ่าย (14:00-17:30)
+                    </span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="timeSlot"
+                      value="custom"
+                      checked={newTimeSlot === 'custom'}
+                      onChange={(e) => setNewTimeSlot(e.target.value as any)}
+                      className="w-4 h-4"
+                    />
+                    <span className="text-sm" style={{ color: '#3d2817' }}>
+                      กำหนดเอง
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              {newTimeSlot === 'custom' && (
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs uppercase tracking-wide block mb-1" style={{ color: '#8b6f47' }}>
+                      เวลาเริ่ม
+                    </label>
+                    <input
+                      type="time"
+                      value={newCustomStart}
+                      onChange={(e) => setNewCustomStart(e.target.value)}
+                      className="w-full border rounded-lg px-3 py-2"
+                      style={{ borderColor: '#e5dcd4' }}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs uppercase tracking-wide block mb-1" style={{ color: '#8b6f47' }}>
+                      เวลาจบ
+                    </label>
+                    <input
+                      type="time"
+                      value={newCustomEnd}
+                      onChange={(e) => setNewCustomEnd(e.target.value)}
+                      className="w-full border rounded-lg px-3 py-2"
+                      style={{ borderColor: '#e5dcd4' }}
+                    />
+                  </div>
+                </div>
+              )}
+
+              <button
+                onClick={handleAddMenu}
+                disabled={!newMenuId}
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm text-white disabled:opacity-50"
+                style={{ backgroundColor: '#3d2817' }}
+              >
+                <Plus size={16} />
+                เพิ่มเมนู
+              </button>
+            </div>
+
+            {/* Menu List */}
+            <div className="px-6 py-5 border-t" style={{ borderColor: '#e5dcd4' }}>
+              <h4 className="text-lg font-light mb-4" style={{ color: '#3d2817' }}>
+                เมนูที่เลือกไว้ ({selectedDaySchedule.menus.length})
+              </h4>
+
+              {selectedDaySchedule.menus.length === 0 ? (
+                <p className="text-sm italic text-center py-8" style={{ color: '#b29373' }}>
+                  ยังไม่มีเมนูสำหรับวันนี้
+                </p>
+              ) : (
+                <div className="space-y-3">
+                  {selectedDaySchedule.menus.map((assignment) => {
+                    const menu = menuMap.get(assignment.menuId);
+                    const menuName = menu?.nameEn || menu?.nameTh || 'Unknown';
+                    
+                    return (
+                      <div
+                        key={assignment.id}
+                        className="flex items-start justify-between gap-4 p-4 rounded-xl border"
+                        style={{ borderColor: '#f1e6db', backgroundColor: '#fffdf8' }}
+                      >
+                        <div className="flex-1">
+                          <p className="font-medium" style={{ color: '#3d2817' }}>
+                            {menuName}
+                          </p>
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            {assignment.isMainCourse && (
+                              <span className="text-xs px-2 py-0.5 rounded-full" style={{ backgroundColor: '#e8f5e9', color: '#2e7d32' }}>
+                                Main Course
+                              </span>
+                            )}
+                            {assignment.isDessert && (
+                              <span className="text-xs px-2 py-0.5 rounded-full" style={{ backgroundColor: '#fff3e0', color: '#e65100' }}>
+                                Dessert
+                              </span>
+                            )}
+                            {!assignment.isMainCourse && !assignment.isDessert && (
+                              <span className="text-xs px-2 py-0.5 rounded-full" style={{ backgroundColor: '#f5f1ed', color: '#8b6f47' }}>
+                                Regular
+                              </span>
+                            )}
+                            <span className="text-xs flex items-center gap-1" style={{ color: '#8b6f47' }}>
+                              <Clock size={12} />
+                              {assignment.timeSlot === 'morning' && '09:00-12:30'}
+                              {assignment.timeSlot === 'afternoon' && '14:00-17:30'}
+                              {assignment.timeSlot === 'custom' && `${assignment.customStart}-${assignment.customEnd}`}
+                            </span>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => handleRemoveMenu(selectedDay, assignment.id)}
+                          className="p-2 rounded-lg hover:bg-[#f3dfd7] transition"
+                          style={{ color: '#c1513b' }}
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* Generated Courses */}
+        <section className="bg-white rounded-2xl shadow border px-6 py-6" style={{ borderColor: '#e5dcd4' }}>
+          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between mb-5">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#b29373' }}>
+                Auto generated
+              </p>
+              <h3 className="text-2xl font-light" style={{ color: '#3d2817' }}>
+                คอร์สที่สร้างจากตาราง
+              </h3>
+            </div>
+            <div className="text-sm flex items-center gap-2" style={{ color: '#8b6f47' }}>
+              <CalendarDays size={16} />
+              <span>{formatDateRange(weekAnchor)}</span>
+            </div>
+          </div>
+
+          {generatedCourses.length === 0 ? (
+            <div className="border rounded-2xl px-4 py-6 text-center text-sm" style={{ borderColor: '#f1e6db', color: '#8b6f47' }}>
+              เพิ่มเมนูในตารางเพื่อดูคอร์สที่สร้างอัตโนมัติ
+            </div>
+          ) : (
+            <div className="grid gap-4 md:grid-cols-2">
+              {generatedCourses.map((course) => (
+                <div
+                  key={course.id}
+                  className="border rounded-2xl px-4 py-4 flex flex-col gap-2"
+                  style={{ borderColor: '#f1e6db', backgroundColor: '#fffdf8' }}
+                >
+                  <div className="flex items-center justify-between">
+                    <p className="text-base font-medium" style={{ color: '#3d2817' }}>
+                      {course.session}
+                    </p>
+                    {course.tag && (
+                      <span className="text-[11px] uppercase tracking-wide px-2 py-0.5 rounded-full" style={{ backgroundColor: '#f5d5d5', color: '#c1513b' }}>
+                        {course.tag}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm" style={{ color: '#8b6f47' }}>
+                    {formatCourseDate(course.class_date)} · {course.start_time} – {course.end_time}
+                  </p>
+                  <div className="flex gap-4 text-sm" style={{ color: '#7a5f3d' }}>
+                    <span>Capacity: {course.capacity} guests</span>
+                    <span>฿{course.price}</span>
+                  </div>
+                  {course.detail ? (
+                    <div
+                      className="text-sm space-y-1"
+                      style={{ color: '#3d2817' }}
+                      dangerouslySetInnerHTML={{ __html: course.detail }}
+                    />
+                  ) : (
+                    <p className="text-sm italic" style={{ color: '#b29373' }}>
+                      No menu details yet.
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      </div>
+    </div>
+  );
+}
