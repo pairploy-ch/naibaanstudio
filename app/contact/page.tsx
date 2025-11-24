@@ -103,7 +103,7 @@ export default function ContactPage() {
             width="100%"
             height="500"
             style={{ border: 0 }}
-            allowFullScreen=""
+            
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="rounded-md"

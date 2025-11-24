@@ -1,7 +1,7 @@
 export function Footer() {
   return (
-    <footer className="bg-background border-t">
-      <div className="container mx-auto px-6 py-12">
+    <footer className="bg-background">
+      <div className="container max-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Contact */}
           <div>

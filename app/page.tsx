@@ -4,7 +4,7 @@ import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { CourseHighlights } from "@/components/course-highlights";
 import { CTA } from "@/components/cta";
-import { Footer } from "@/components/footer";
+
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       <About />
       <CourseHighlights />
       <CTA />
-      <Footer />
+     
     </main>
   );
 }

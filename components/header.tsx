@@ -31,7 +31,7 @@ export default function Header() {
 
   return (
     <main>
-      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-gray-200">
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 ">
         <div className="max-w-[90%] mx-auto py-4 flex items-center justify-between">
           <Link href={isAdmin ? '/admin/dashboard' : '/'} className="flex items-center gap-2">
             <img src={'/logo-nb.png'} style={{ width: '150px' }} />
