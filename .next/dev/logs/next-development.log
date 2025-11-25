@@ -2286,3 +2286,20 @@ https://nextjs.org/docs/messages/module-not-found
 [04:06:27.866] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./Downloads/thaicookingclasses/app/admin/customer/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
 [04:06:27.868] Server  LOG      ✓ Compiled in 75ms
 [04:06:28.123] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:07:44.834] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:16:05.920] Server  LOG      ✓ Compiled in 143ms
+[05:52:07.115] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:57:55.319] Server  LOG      ✓ Compiled in 160ms
+[05:58:58.581] Server  LOG      ✓ Compiled in 40ms
+[05:59:26.757] Server  LOG      ✓ Compiled in 38ms
+[05:59:30.102] Server  LOG      ✓ Compiled in 45ms
+[05:59:36.379] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:01:33.952] Server  LOG      ✓ Compiled in 52ms
+[06:02:22.040] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:04:59.215] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:06:28.750] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:14:50.767] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:15:21.827] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:59:30.043] Server  LOG      ✓ Compiled in 133ms
+[07:01:22.800] Server  LOG      ✓ Compiled in 51ms
+[07:01:45.905] Server  LOG      ✓ Compiled in 67ms

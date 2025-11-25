@@ -383,7 +383,8 @@ const buildDetailHTML = (assignments, menuMap)=>{
 const formatCourseDate = (dateStr)=>{
     if (!dateStr) return 'Date TBD';
     const date = new Date(`${dateStr}T00:00:00`);
-    return date.toLocaleDateString('th-TH', {
+    // Changed locale to en-US
+    return date.toLocaleDateString('en-US', {
         weekday: 'short',
         day: 'numeric',
         month: 'short'
@@ -520,7 +521,7 @@ function ManageCourses() {
     const sortedMenus = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
         return [
             ...menus
-        ].sort((a, b)=>(a.nameEn || a.nameTh).localeCompare(b.nameEn || b.nameTh, 'th'));
+        ].sort((a, b)=>(a.nameEn || a.nameTh).localeCompare(b.nameEn || b.nameTh, 'en'));
     }, [
         menus
     ]);
@@ -550,12 +551,12 @@ function ManageCourses() {
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                            lineNumber: 290,
+                            lineNumber: 291,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                        lineNumber: 289,
+                        lineNumber: 290,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -578,7 +579,7 @@ function ManageCourses() {
                                         children: "Template Weekly (Mon–Sun)"
                                     }, void 0, false, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 302,
+                                        lineNumber: 301,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -589,20 +590,20 @@ function ManageCourses() {
                                         children: "This schedule repeats every week · Click on a day to manage the menu"
                                     }, void 0, false, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 305,
+                                        lineNumber: 304,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                lineNumber: 301,
+                                lineNumber: 300,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "jsx-865e71dbaaa19509" + " " + "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 p-6",
                                 children: schedule.map((daySchedule)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setSelectedDay(daySchedule.day),
-                                        className: "jsx-865e71dbaaa19509" + " " + `p-4 rounded-xl border-2 transition text-left ${selectedDay === daySchedule.day ? 'border-[#8b6f47] bg-[#fff7ef]' : 'border-[#e5dcd4] hover:border-[#d4c5b5]'}`,
+                                        className: "jsx-865e71dbaaa19509" + " " + `p-4  border-2 transition text-left ${selectedDay === daySchedule.day ? 'border-[#8b6f47] bg-[#fff7ef]' : 'border-[#e5dcd4] hover:border-[#d4c5b5]'}`,
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 style: {
@@ -612,7 +613,7 @@ function ManageCourses() {
                                                 children: daySchedule.day
                                             }, void 0, false, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 321,
+                                                lineNumber: 320,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -623,7 +624,7 @@ function ManageCourses() {
                                                 children: DAY_NAMES[daySchedule.day]
                                             }, void 0, false, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 324,
+                                                lineNumber: 323,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -633,28 +634,28 @@ function ManageCourses() {
                                                 className: "jsx-865e71dbaaa19509" + " " + "text-xs mt-2",
                                                 children: [
                                                     daySchedule.menus.length,
-                                                    " เมนู"
+                                                    " menus"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 327,
+                                                lineNumber: 326,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, daySchedule.day, true, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 312,
+                                        lineNumber: 311,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                lineNumber: 310,
+                                lineNumber: 309,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                        lineNumber: 300,
+                        lineNumber: 299,
                         columnNumber: 9
                     }, this),
                     selectedDay && selectedDaySchedule && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -677,10 +678,10 @@ function ManageCourses() {
                                                     color: '#b29373'
                                                 },
                                                 className: "jsx-865e71dbaaa19509" + " " + "text-xs uppercase tracking-[0.3em]",
-                                                children: "จัดการเมนู"
+                                                children: "Manage Menu"
                                             }, void 0, false, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 340,
+                                                lineNumber: 339,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -691,18 +692,18 @@ function ManageCourses() {
                                                 children: DAY_NAMES[selectedDay]
                                             }, void 0, false, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 343,
+                                                lineNumber: 342,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 339,
+                                        lineNumber: 338,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setSelectedDay(null),
-                                        className: "jsx-865e71dbaaa19509" + " " + "p-2 rounded-lg hover:bg-[#f5f1ed]",
+                                        className: "jsx-865e71dbaaa19509" + " " + "p-2  hover:bg-[#f5f1ed]",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
                                             size: 20,
                                             style: {
@@ -710,18 +711,18 @@ function ManageCourses() {
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                            lineNumber: 351,
+                                            lineNumber: 350,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 347,
+                                        lineNumber: 346,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                lineNumber: 338,
+                                lineNumber: 337,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -740,10 +741,10 @@ function ManageCourses() {
                                                         color: '#8b6f47'
                                                     },
                                                     className: "jsx-865e71dbaaa19509" + " " + "text-xs uppercase tracking-wide block mb-1",
-                                                    children: "Capacity (จำนวนคน)"
+                                                    children: "Capacity (people)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                    lineNumber: 359,
+                                                    lineNumber: 358,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -756,16 +757,16 @@ function ManageCourses() {
                                                         borderColor: '#e5dcd4'
                                                     },
                                                     min: 0,
-                                                    className: "jsx-865e71dbaaa19509" + " " + "w-full border rounded-lg px-3 py-2"
+                                                    className: "jsx-865e71dbaaa19509" + " " + "w-full border  px-3 py-2"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                    lineNumber: 362,
+                                                    lineNumber: 361,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                            lineNumber: 358,
+                                            lineNumber: 357,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -779,7 +780,7 @@ function ManageCourses() {
                                                     children: "Price (฿)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                    lineNumber: 376,
+                                                    lineNumber: 375,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -792,27 +793,27 @@ function ManageCourses() {
                                                         borderColor: '#e5dcd4'
                                                     },
                                                     min: 0,
-                                                    className: "jsx-865e71dbaaa19509" + " " + "w-full border rounded-lg px-3 py-2"
+                                                    className: "jsx-865e71dbaaa19509" + " " + "w-full border  px-3 py-2"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                    lineNumber: 379,
+                                                    lineNumber: 378,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                            lineNumber: 375,
+                                            lineNumber: 374,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                    lineNumber: 357,
+                                    lineNumber: 356,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                lineNumber: 356,
+                                lineNumber: 355,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -823,10 +824,10 @@ function ManageCourses() {
                                             color: '#3d2817'
                                         },
                                         className: "jsx-865e71dbaaa19509" + " " + "text-lg font-light",
-                                        children: "เพิ่มเมนูใหม่"
+                                        children: "Add New Menu"
                                     }, void 0, false, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 397,
+                                        lineNumber: 396,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -837,10 +838,10 @@ function ManageCourses() {
                                                     color: '#8b6f47'
                                                 },
                                                 className: "jsx-865e71dbaaa19509" + " " + "text-xs uppercase tracking-wide block mb-2",
-                                                children: "เลือกเมนู"
+                                                children: "Select Menu"
                                             }, void 0, false, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 402,
+                                                lineNumber: 401,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -850,34 +851,30 @@ function ManageCourses() {
                                                     borderColor: '#e5dcd4',
                                                     backgroundColor: '#fffdfa'
                                                 },
-                                                className: "jsx-865e71dbaaa19509" + " " + "w-full border rounded-xl px-4 py-2 text-sm",
+                                                className: "jsx-865e71dbaaa19509" + " " + "w-full border  px-4 py-2 text-sm",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         value: "",
                                                         className: "jsx-865e71dbaaa19509",
-                                                        children: "เลือกเมนู..."
+                                                        children: "Select menu..."
                                                     }, void 0, false, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 411,
+                                                        lineNumber: 410,
                                                         columnNumber: 19
                                                     }, this),
                                                     sortedMenus.map((menu)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                             value: menu.id,
                                                             className: "jsx-865e71dbaaa19509",
-                                                            children: [
-                                                                menu.nameEn || menu.nameTh,
-                                                                " · ",
-                                                                menu.nameTh
-                                                            ]
-                                                        }, menu.id, true, {
+                                                            children: menu.nameEn || menu.nameTh
+                                                        }, menu.id, false, {
                                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                            lineNumber: 413,
+                                                            lineNumber: 412,
                                                             columnNumber: 21
                                                         }, this))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 405,
+                                                lineNumber: 404,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -886,7 +883,7 @@ function ManageCourses() {
                                                 },
                                                 className: "jsx-865e71dbaaa19509" + " " + "text-xs mt-2",
                                                 children: [
-                                                    "ต้องการเพิ่มเมนูใหม่?",
+                                                    "Need to add a new menu?",
                                                     ' ',
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                                         href: "/admin/menu",
@@ -894,22 +891,22 @@ function ManageCourses() {
                                                         style: {
                                                             color: '#8b6f47'
                                                         },
-                                                        children: "เปิดหน้าจัดการเมนู"
+                                                        children: "Open Menu Manager"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 420,
+                                                        lineNumber: 419,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 418,
+                                                lineNumber: 417,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 401,
+                                        lineNumber: 400,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -920,10 +917,10 @@ function ManageCourses() {
                                                     color: '#8b6f47'
                                                 },
                                                 className: "jsx-865e71dbaaa19509" + " " + "text-xs uppercase tracking-wide block mb-2",
-                                                children: "ประเภทเมนู"
+                                                children: "Menu Type"
                                             }, void 0, false, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 427,
+                                                lineNumber: 426,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -936,10 +933,10 @@ function ManageCourses() {
                                                                 type: "checkbox",
                                                                 checked: newIsMainCourse,
                                                                 onChange: (e)=>setNewIsMainCourse(e.target.checked),
-                                                                className: "jsx-865e71dbaaa19509" + " " + "w-4 h-4 rounded"
+                                                                className: "jsx-865e71dbaaa19509" + " " + "w-4 h-4 "
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 432,
+                                                                lineNumber: 431,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -950,13 +947,13 @@ function ManageCourses() {
                                                                 children: "Main Course"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 438,
+                                                                lineNumber: 437,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 431,
+                                                        lineNumber: 430,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -966,10 +963,10 @@ function ManageCourses() {
                                                                 type: "checkbox",
                                                                 checked: newIsDessert,
                                                                 onChange: (e)=>setNewIsDessert(e.target.checked),
-                                                                className: "jsx-865e71dbaaa19509" + " " + "w-4 h-4 rounded"
+                                                                className: "jsx-865e71dbaaa19509" + " " + "w-4 h-4 "
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 441,
+                                                                lineNumber: 440,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -980,19 +977,19 @@ function ManageCourses() {
                                                                 children: "Dessert"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 447,
+                                                                lineNumber: 446,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 440,
+                                                        lineNumber: 439,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 430,
+                                                lineNumber: 429,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1000,16 +997,16 @@ function ManageCourses() {
                                                     color: '#b29373'
                                                 },
                                                 className: "jsx-865e71dbaaa19509" + " " + "text-xs mt-2",
-                                                children: "ถ้าไม่ติ๊กจะถือว่าเป็นเมนูธรรมดา"
+                                                children: "Standard dish if unchecked"
                                             }, void 0, false, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 450,
+                                                lineNumber: 449,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 426,
+                                        lineNumber: 425,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1020,10 +1017,10 @@ function ManageCourses() {
                                                     color: '#8b6f47'
                                                 },
                                                 className: "jsx-865e71dbaaa19509" + " " + "text-xs uppercase tracking-wide block mb-2",
-                                                children: "ช่วงเวลา"
+                                                children: "Time Slot"
                                             }, void 0, false, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 456,
+                                                lineNumber: 455,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1041,7 +1038,7 @@ function ManageCourses() {
                                                                 className: "jsx-865e71dbaaa19509" + " " + "w-4 h-4"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 461,
+                                                                lineNumber: 460,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1049,16 +1046,16 @@ function ManageCourses() {
                                                                     color: '#3d2817'
                                                                 },
                                                                 className: "jsx-865e71dbaaa19509" + " " + "text-sm",
-                                                                children: "เช้า (09:00-12:30)"
+                                                                children: "Morning (09:00-12:30)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 469,
+                                                                lineNumber: 468,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 460,
+                                                        lineNumber: 459,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1073,7 +1070,7 @@ function ManageCourses() {
                                                                 className: "jsx-865e71dbaaa19509" + " " + "w-4 h-4"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 474,
+                                                                lineNumber: 473,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1081,16 +1078,16 @@ function ManageCourses() {
                                                                     color: '#3d2817'
                                                                 },
                                                                 className: "jsx-865e71dbaaa19509" + " " + "text-sm",
-                                                                children: "บ่าย (14:00-17:30)"
+                                                                children: "Afternoon (14:00-17:30)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 482,
+                                                                lineNumber: 481,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 473,
+                                                        lineNumber: 472,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1105,7 +1102,7 @@ function ManageCourses() {
                                                                 className: "jsx-865e71dbaaa19509" + " " + "w-4 h-4"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 487,
+                                                                lineNumber: 486,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1113,28 +1110,28 @@ function ManageCourses() {
                                                                     color: '#3d2817'
                                                                 },
                                                                 className: "jsx-865e71dbaaa19509" + " " + "text-sm",
-                                                                children: "กำหนดเอง"
+                                                                children: "Custom"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 495,
+                                                                lineNumber: 494,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 486,
+                                                        lineNumber: 485,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 459,
+                                                lineNumber: 458,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 455,
+                                        lineNumber: 454,
                                         columnNumber: 15
                                     }, this),
                                     newTimeSlot === 'custom' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1148,10 +1145,10 @@ function ManageCourses() {
                                                             color: '#8b6f47'
                                                         },
                                                         className: "jsx-865e71dbaaa19509" + " " + "text-xs uppercase tracking-wide block mb-1",
-                                                        children: "เวลาเริ่ม"
+                                                        children: "Start Time"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 505,
+                                                        lineNumber: 504,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1161,16 +1158,16 @@ function ManageCourses() {
                                                         style: {
                                                             borderColor: '#e5dcd4'
                                                         },
-                                                        className: "jsx-865e71dbaaa19509" + " " + "w-full border rounded-lg px-3 py-2"
+                                                        className: "jsx-865e71dbaaa19509" + " " + "w-full border  px-3 py-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 508,
+                                                        lineNumber: 507,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 504,
+                                                lineNumber: 503,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1181,10 +1178,10 @@ function ManageCourses() {
                                                             color: '#8b6f47'
                                                         },
                                                         className: "jsx-865e71dbaaa19509" + " " + "text-xs uppercase tracking-wide block mb-1",
-                                                        children: "เวลาจบ"
+                                                        children: "End Time"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 517,
+                                                        lineNumber: 516,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1194,22 +1191,22 @@ function ManageCourses() {
                                                         style: {
                                                             borderColor: '#e5dcd4'
                                                         },
-                                                        className: "jsx-865e71dbaaa19509" + " " + "w-full border rounded-lg px-3 py-2"
+                                                        className: "jsx-865e71dbaaa19509" + " " + "w-full border  px-3 py-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 520,
+                                                        lineNumber: 519,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 516,
+                                                lineNumber: 515,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 503,
+                                        lineNumber: 502,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1218,26 +1215,26 @@ function ManageCourses() {
                                         style: {
                                             backgroundColor: '#3d2817'
                                         },
-                                        className: "jsx-865e71dbaaa19509" + " " + "inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm text-white disabled:opacity-50",
+                                        className: "jsx-865e71dbaaa19509" + " " + "inline-flex items-center gap-2 px-5 py-2  text-sm text-white disabled:opacity-50",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
                                                 size: 16
                                             }, void 0, false, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 537,
+                                                lineNumber: 536,
                                                 columnNumber: 17
                                             }, this),
-                                            "เพิ่มเมนู"
+                                            "Add Menu"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 531,
+                                        lineNumber: 530,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                lineNumber: 396,
+                                lineNumber: 395,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1252,13 +1249,13 @@ function ManageCourses() {
                                         },
                                         className: "jsx-865e71dbaaa19509" + " " + "text-lg font-light mb-4",
                                         children: [
-                                            "เมนูที่เลือกไว้ (",
+                                            "Selected Menus (",
                                             selectedDaySchedule.menus.length,
                                             ")"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 544,
+                                        lineNumber: 543,
                                         columnNumber: 15
                                     }, this),
                                     selectedDaySchedule.menus.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1266,10 +1263,10 @@ function ManageCourses() {
                                             color: '#b29373'
                                         },
                                         className: "jsx-865e71dbaaa19509" + " " + "text-sm italic text-center py-8",
-                                        children: "ยังไม่มีเมนูสำหรับวันนี้"
+                                        children: "No menus selected for this day yet"
                                     }, void 0, false, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 549,
+                                        lineNumber: 548,
                                         columnNumber: 17
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "jsx-865e71dbaaa19509" + " " + "space-y-3",
@@ -1281,7 +1278,7 @@ function ManageCourses() {
                                                     borderColor: '#f1e6db',
                                                     backgroundColor: '#fffdf8'
                                                 },
-                                                className: "jsx-865e71dbaaa19509" + " " + "flex items-start justify-between gap-4 p-4 rounded-xl border",
+                                                className: "jsx-865e71dbaaa19509" + " " + "flex items-start justify-between gap-4 p-4  border",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "jsx-865e71dbaaa19509" + " " + "flex-1",
@@ -1294,7 +1291,7 @@ function ManageCourses() {
                                                                 children: menuName
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 565,
+                                                                lineNumber: 564,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1305,11 +1302,11 @@ function ManageCourses() {
                                                                             backgroundColor: '#e8f5e9',
                                                                             color: '#2e7d32'
                                                                         },
-                                                                        className: "jsx-865e71dbaaa19509" + " " + "text-xs px-2 py-0.5 rounded-full",
+                                                                        className: "jsx-865e71dbaaa19509" + " " + "text-xs px-2 py-0.5 ",
                                                                         children: "Main Course"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                        lineNumber: 570,
+                                                                        lineNumber: 569,
                                                                         columnNumber: 31
                                                                     }, this),
                                                                     assignment.isDessert && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1317,11 +1314,11 @@ function ManageCourses() {
                                                                             backgroundColor: '#fff3e0',
                                                                             color: '#e65100'
                                                                         },
-                                                                        className: "jsx-865e71dbaaa19509" + " " + "text-xs px-2 py-0.5 rounded-full",
+                                                                        className: "jsx-865e71dbaaa19509" + " " + "text-xs px-2 py-0.5 ",
                                                                         children: "Dessert"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                        lineNumber: 575,
+                                                                        lineNumber: 574,
                                                                         columnNumber: 31
                                                                     }, this),
                                                                     !assignment.isMainCourse && !assignment.isDessert && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1329,11 +1326,11 @@ function ManageCourses() {
                                                                             backgroundColor: '#f5f1ed',
                                                                             color: '#8b6f47'
                                                                         },
-                                                                        className: "jsx-865e71dbaaa19509" + " " + "text-xs px-2 py-0.5 rounded-full",
+                                                                        className: "jsx-865e71dbaaa19509" + " " + "text-xs px-2 py-0.5 ",
                                                                         children: "Regular"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                        lineNumber: 580,
+                                                                        lineNumber: 579,
                                                                         columnNumber: 31
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1346,7 +1343,7 @@ function ManageCourses() {
                                                                                 size: 12
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                                lineNumber: 585,
+                                                                                lineNumber: 584,
                                                                                 columnNumber: 31
                                                                             }, this),
                                                                             assignment.timeSlot === 'morning' && '09:00-12:30',
@@ -1355,19 +1352,19 @@ function ManageCourses() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                        lineNumber: 584,
+                                                                        lineNumber: 583,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 568,
+                                                                lineNumber: 567,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 564,
+                                                        lineNumber: 563,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1375,41 +1372,41 @@ function ManageCourses() {
                                                         style: {
                                                             color: '#c1513b'
                                                         },
-                                                        className: "jsx-865e71dbaaa19509" + " " + "p-2 rounded-lg hover:bg-[#f3dfd7] transition",
+                                                        className: "jsx-865e71dbaaa19509" + " " + "p-2  hover:bg-[#f3dfd7] transition",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
                                                             size: 16
                                                         }, void 0, false, {
                                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                            lineNumber: 597,
+                                                            lineNumber: 596,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 592,
+                                                        lineNumber: 591,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, assignment.id, true, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 559,
+                                                lineNumber: 558,
                                                 columnNumber: 23
                                             }, this);
                                         })
                                     }, void 0, false, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 553,
+                                        lineNumber: 552,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                lineNumber: 543,
+                                lineNumber: 542,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                        lineNumber: 337,
+                        lineNumber: 336,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1420,33 +1417,20 @@ function ManageCourses() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "jsx-865e71dbaaa19509" + " " + "mb-5",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        style: {
-                                            color: '#b29373'
-                                        },
-                                        className: "jsx-865e71dbaaa19509" + " " + "text-xs uppercase tracking-[0.3em]",
-                                        children: "Preview calendar"
-                                    }, void 0, false, {
-                                        fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 611,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                        style: {
-                                            color: '#3d2817'
-                                        },
-                                        className: "jsx-865e71dbaaa19509" + " " + "text-2xl font-light",
-                                        children: "ปฏิทินคอร์สที่กำลังจะมาถึง"
-                                    }, void 0, false, {
-                                        fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 614,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                    style: {
+                                        color: '#3d2817'
+                                    },
+                                    className: "jsx-865e71dbaaa19509" + " " + "text-2xl font-light",
+                                    children: "Upcoming Course Calendar"
+                                }, void 0, false, {
+                                    fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
+                                    lineNumber: 611,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                lineNumber: 610,
+                                lineNumber: 609,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1471,28 +1455,28 @@ function ManageCourses() {
                                         setModalCourses(coursesOnDate);
                                     },
                                     height: "auto",
-                                    locale: "th",
+                                    locale: "en",
                                     buttonText: {
-                                        today: 'วันนี้',
-                                        month: 'เดือน',
-                                        week: 'สัปดาห์'
+                                        today: 'Today',
+                                        month: 'Month',
+                                        week: 'Week'
                                     },
                                     slotMinTime: "08:00:00",
                                     slotMaxTime: "19:00:00"
                                 }, void 0, false, {
                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                    lineNumber: 620,
+                                    lineNumber: 617,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                lineNumber: 619,
+                                lineNumber: 616,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                        lineNumber: 609,
+                        lineNumber: 608,
                         columnNumber: 9
                     }, this),
                     modalDate && modalCourses.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1509,7 +1493,7 @@ function ManageCourses() {
                                     style: {
                                         borderColor: '#e5dcd4'
                                     },
-                                    className: "jsx-865e71dbaaa19509" + " " + "sticky top-0 bg-white border-b px-6 py-5 flex items-center justify-between rounded-t-2xl",
+                                    className: "jsx-865e71dbaaa19509" + " " + "sticky top-0 bg-white border-b px-6 py-5 flex items-center justify-between ",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "jsx-865e71dbaaa19509",
@@ -1522,7 +1506,7 @@ function ManageCourses() {
                                                     children: "Course details"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                    lineNumber: 661,
+                                                    lineNumber: 658,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1533,18 +1517,18 @@ function ManageCourses() {
                                                     children: formatCourseDate(modalDate)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                    lineNumber: 664,
+                                                    lineNumber: 661,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                            lineNumber: 660,
+                                            lineNumber: 657,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             onClick: ()=>setModalDate(null),
-                                            className: "jsx-865e71dbaaa19509" + " " + "p-2 rounded-lg hover:bg-[#f5f1ed] transition",
+                                            className: "jsx-865e71dbaaa19509" + " " + "p-2  hover:bg-[#f5f1ed] transition",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
                                                 size: 24,
                                                 style: {
@@ -1552,18 +1536,18 @@ function ManageCourses() {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                lineNumber: 672,
+                                                lineNumber: 669,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                            lineNumber: 668,
+                                            lineNumber: 665,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                    lineNumber: 659,
+                                    lineNumber: 656,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1591,7 +1575,7 @@ function ManageCourses() {
                                                                         children: course.session
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                        lineNumber: 686,
+                                                                        lineNumber: 683,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     course.tag && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1599,17 +1583,17 @@ function ManageCourses() {
                                                                             backgroundColor: '#f5d5d5',
                                                                             color: '#c1513b'
                                                                         },
-                                                                        className: "jsx-865e71dbaaa19509" + " " + "text-xs uppercase tracking-wide px-2 py-1 rounded-full",
+                                                                        className: "jsx-865e71dbaaa19509" + " " + "text-xs uppercase tracking-wide px-2 py-1 ",
                                                                         children: course.tag
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                        lineNumber: 690,
+                                                                        lineNumber: 687,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 685,
+                                                                lineNumber: 682,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1622,7 +1606,7 @@ function ManageCourses() {
                                                                         size: 16
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                        lineNumber: 696,
+                                                                        lineNumber: 693,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1634,24 +1618,24 @@ function ManageCourses() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                        lineNumber: 697,
+                                                                        lineNumber: 694,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                lineNumber: 695,
+                                                                lineNumber: 692,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                        lineNumber: 684,
+                                                        lineNumber: 681,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                    lineNumber: 683,
+                                                    lineNumber: 680,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1672,7 +1656,7 @@ function ManageCourses() {
                                                                     children: "Capacity"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                    lineNumber: 704,
+                                                                    lineNumber: 701,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1683,13 +1667,13 @@ function ManageCourses() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                    lineNumber: 707,
+                                                                    lineNumber: 704,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                            lineNumber: 703,
+                                                            lineNumber: 700,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1703,7 +1687,7 @@ function ManageCourses() {
                                                                     children: "Price"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                    lineNumber: 710,
+                                                                    lineNumber: 707,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1714,19 +1698,19 @@ function ManageCourses() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                                    lineNumber: 713,
+                                                                    lineNumber: 710,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                            lineNumber: 709,
+                                                            lineNumber: 706,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                    lineNumber: 702,
+                                                    lineNumber: 699,
                                                     columnNumber: 21
                                                 }, this),
                                                 course.detail && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1743,7 +1727,7 @@ function ManageCourses() {
                                                             children: "Menu"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                            lineNumber: 719,
+                                                            lineNumber: 716,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1756,63 +1740,63 @@ function ManageCourses() {
                                                             className: "jsx-865e71dbaaa19509" + " " + "prose prose-sm max-w-none"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                            lineNumber: 722,
+                                                            lineNumber: 719,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                                    lineNumber: 718,
+                                                    lineNumber: 715,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, course.id, true, {
                                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                            lineNumber: 678,
+                                            lineNumber: 675,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                    lineNumber: 676,
+                                    lineNumber: 673,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     style: {
                                         borderColor: '#e5dcd4'
                                     },
-                                    className: "jsx-865e71dbaaa19509" + " " + "sticky bottom-0 bg-white border-t px-6 py-4 flex justify-end rounded-b-2xl",
+                                    className: "jsx-865e71dbaaa19509" + " " + "sticky bottom-0 bg-white border-t px-6 py-4 flex justify-end ",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: ()=>setModalDate(null),
                                         style: {
                                             backgroundColor: '#3d2817'
                                         },
-                                        className: "jsx-865e71dbaaa19509" + " " + "px-6 py-2 rounded-full text-sm font-medium text-white",
-                                        children: "ปิด"
+                                        className: "jsx-865e71dbaaa19509" + " " + "px-6 py-2  text-sm font-medium text-white",
+                                        children: "Close"
                                     }, void 0, false, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                        lineNumber: 734,
+                                        lineNumber: 731,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                                    lineNumber: 733,
+                                    lineNumber: 730,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                            lineNumber: 654,
+                            lineNumber: 651,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                        lineNumber: 650,
+                        lineNumber: 647,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-                lineNumber: 288,
+                lineNumber: 289,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1822,7 +1806,7 @@ function ManageCourses() {
         ]
     }, void 0, true, {
         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
-        lineNumber: 287,
+        lineNumber: 288,
         columnNumber: 5
     }, this);
 }

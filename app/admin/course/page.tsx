@@ -130,7 +130,8 @@ const buildDetailHTML = (assignments: MenuAssignment[], menuMap: MenuMap) => {
 const formatCourseDate = (dateStr: string) => {
   if (!dateStr) return 'Date TBD';
   const date = new Date(`${dateStr}T00:00:00`);
-  return date.toLocaleDateString('th-TH', {
+  // Changed locale to en-US
+  return date.toLocaleDateString('en-US', {
     weekday: 'short',
     day: 'numeric',
     month: 'short'
@@ -279,7 +280,7 @@ export default function ManageCourses() {
 
   const sortedMenus = useMemo(() => {
     return [...menus].sort((a, b) =>
-      (a.nameEn || a.nameTh).localeCompare(b.nameEn || b.nameTh, 'th')
+      (a.nameEn || a.nameTh).localeCompare(b.nameEn || b.nameTh, 'en')
     );
   }, [menus]);
 
@@ -288,11 +289,9 @@ export default function ManageCourses() {
       <div className="max-w-[90%] mx-auto space-y-10">
         <header className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
-          
             <h1 className="text-4xl font-light" style={{ color: '#3d2817' }}>
               Weekly course template
             </h1>
-      
           </div>
         </header>
 
@@ -312,7 +311,7 @@ export default function ManageCourses() {
               <button
                 key={daySchedule.day}
                 onClick={() => setSelectedDay(daySchedule.day)}
-                className={`p-4 rounded-xl border-2 transition text-left ${
+                className={`p-4  border-2 transition text-left ${
                   selectedDay === daySchedule.day
                     ? 'border-[#8b6f47] bg-[#fff7ef]'
                     : 'border-[#e5dcd4] hover:border-[#d4c5b5]'
@@ -325,7 +324,7 @@ export default function ManageCourses() {
                   {DAY_NAMES[daySchedule.day]}
                 </p>
                 <p className="text-xs mt-2" style={{ color: '#b29373' }}>
-                  {daySchedule.menus.length} เมนู
+                  {daySchedule.menus.length} menus
                 </p>
               </button>
             ))}
@@ -338,7 +337,7 @@ export default function ManageCourses() {
             <div className="flex items-center justify-between px-6 py-5 border-b" style={{ borderColor: '#e5dcd4' }}>
               <div>
                 <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#b29373' }}>
-                  จัดการเมนู
+                  Manage Menu
                 </p>
                 <h3 className="text-2xl font-light" style={{ color: '#3d2817' }}>
                   {DAY_NAMES[selectedDay]}
@@ -346,7 +345,7 @@ export default function ManageCourses() {
               </div>
               <button
                 onClick={() => setSelectedDay(null)}
-                className="p-2 rounded-lg hover:bg-[#f5f1ed]"
+                className="p-2  hover:bg-[#f5f1ed]"
               >
                 <X size={20} style={{ color: '#8b6f47' }} />
               </button>
@@ -357,7 +356,7 @@ export default function ManageCourses() {
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="text-xs uppercase tracking-wide block mb-1" style={{ color: '#8b6f47' }}>
-                    Capacity (จำนวนคน)
+                    Capacity (people)
                   </label>
                   <input
                     type="number"
@@ -367,7 +366,7 @@ export default function ManageCourses() {
                         capacity: Number(e.target.value) || 0
                       })
                     }
-                    className="w-full border rounded-lg px-3 py-2"
+                    className="w-full border  px-3 py-2"
                     style={{ borderColor: '#e5dcd4' }}
                     min={0}
                   />
@@ -384,7 +383,7 @@ export default function ManageCourses() {
                         price: Number(e.target.value) || 0
                       })
                     }
-                    className="w-full border rounded-lg px-3 py-2"
+                    className="w-full border  px-3 py-2"
                     style={{ borderColor: '#e5dcd4' }}
                     min={0}
                   />
@@ -395,37 +394,37 @@ export default function ManageCourses() {
             {/* Add Menu Form */}
             <div className="px-6 py-5 space-y-4">
               <h4 className="text-lg font-light" style={{ color: '#3d2817' }}>
-                เพิ่มเมนูใหม่
+                Add New Menu
               </h4>
 
               <div>
                 <label className="text-xs uppercase tracking-wide block mb-2" style={{ color: '#8b6f47' }}>
-                  เลือกเมนู
+                  Select Menu
                 </label>
                 <select
                   value={newMenuId}
                   onChange={(e) => setNewMenuId(e.target.value)}
-                  className="w-full border rounded-xl px-4 py-2 text-sm"
+                  className="w-full border  px-4 py-2 text-sm"
                   style={{ borderColor: '#e5dcd4', backgroundColor: '#fffdfa' }}
                 >
-                  <option value="">เลือกเมนู...</option>
+                  <option value="">Select menu...</option>
                   {sortedMenus.map((menu) => (
                     <option key={menu.id} value={menu.id}>
-                      {menu.nameEn || menu.nameTh} · {menu.nameTh}
+                      {menu.nameEn || menu.nameTh}
                     </option>
                   ))}
                 </select>
                 <p className="text-xs mt-2" style={{ color: '#7a5f3d' }}>
-                  ต้องการเพิ่มเมนูใหม่?{' '}
+                  Need to add a new menu?{' '}
                   <Link href="/admin/menu" className="underline" style={{ color: '#8b6f47' }}>
-                    เปิดหน้าจัดการเมนู
+                    Open Menu Manager
                   </Link>
                 </p>
               </div>
 
               <div>
                 <label className="text-xs uppercase tracking-wide block mb-2" style={{ color: '#8b6f47' }}>
-                  ประเภทเมนู
+                  Menu Type
                 </label>
                 <div className="flex flex-wrap gap-3">
                   <label className="flex items-center gap-2 cursor-pointer">
@@ -433,7 +432,7 @@ export default function ManageCourses() {
                       type="checkbox"
                       checked={newIsMainCourse}
                       onChange={(e) => setNewIsMainCourse(e.target.checked)}
-                      className="w-4 h-4 rounded"
+                      className="w-4 h-4 "
                     />
                     <span className="text-sm" style={{ color: '#3d2817' }}>Main Course</span>
                   </label>
@@ -442,19 +441,19 @@ export default function ManageCourses() {
                       type="checkbox"
                       checked={newIsDessert}
                       onChange={(e) => setNewIsDessert(e.target.checked)}
-                      className="w-4 h-4 rounded"
+                      className="w-4 h-4 "
                     />
                     <span className="text-sm" style={{ color: '#3d2817' }}>Dessert</span>
                   </label>
                 </div>
                 <p className="text-xs mt-2" style={{ color: '#b29373' }}>
-                  ถ้าไม่ติ๊กจะถือว่าเป็นเมนูธรรมดา
+                  Standard dish if unchecked
                 </p>
               </div>
 
               <div>
                 <label className="text-xs uppercase tracking-wide block mb-2" style={{ color: '#8b6f47' }}>
-                  ช่วงเวลา
+                  Time Slot
                 </label>
                 <div className="flex flex-wrap gap-3">
                   <label className="flex items-center gap-2 cursor-pointer">
@@ -467,7 +466,7 @@ export default function ManageCourses() {
                       className="w-4 h-4"
                     />
                     <span className="text-sm" style={{ color: '#3d2817' }}>
-                      เช้า (09:00-12:30)
+                      Morning (09:00-12:30)
                     </span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer">
@@ -480,7 +479,7 @@ export default function ManageCourses() {
                       className="w-4 h-4"
                     />
                     <span className="text-sm" style={{ color: '#3d2817' }}>
-                      บ่าย (14:00-17:30)
+                      Afternoon (14:00-17:30)
                     </span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer">
@@ -493,7 +492,7 @@ export default function ManageCourses() {
                       className="w-4 h-4"
                     />
                     <span className="text-sm" style={{ color: '#3d2817' }}>
-                      กำหนดเอง
+                      Custom
                     </span>
                   </label>
                 </div>
@@ -503,25 +502,25 @@ export default function ManageCourses() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="text-xs uppercase tracking-wide block mb-1" style={{ color: '#8b6f47' }}>
-                      เวลาเริ่ม
+                      Start Time
                     </label>
                     <input
                       type="time"
                       value={newCustomStart}
                       onChange={(e) => setNewCustomStart(e.target.value)}
-                      className="w-full border rounded-lg px-3 py-2"
+                      className="w-full border  px-3 py-2"
                       style={{ borderColor: '#e5dcd4' }}
                     />
                   </div>
                   <div>
                     <label className="text-xs uppercase tracking-wide block mb-1" style={{ color: '#8b6f47' }}>
-                      เวลาจบ
+                      End Time
                     </label>
                     <input
                       type="time"
                       value={newCustomEnd}
                       onChange={(e) => setNewCustomEnd(e.target.value)}
-                      className="w-full border rounded-lg px-3 py-2"
+                      className="w-full border  px-3 py-2"
                       style={{ borderColor: '#e5dcd4' }}
                     />
                   </div>
@@ -531,23 +530,23 @@ export default function ManageCourses() {
               <button
                 onClick={handleAddMenu}
                 disabled={!newMenuId}
-                className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm text-white disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-5 py-2  text-sm text-white disabled:opacity-50"
                 style={{ backgroundColor: '#3d2817' }}
               >
                 <Plus size={16} />
-                เพิ่มเมนู
+                Add Menu
               </button>
             </div>
 
             {/* Menu List */}
             <div className="px-6 py-5 border-t" style={{ borderColor: '#e5dcd4' }}>
               <h4 className="text-lg font-light mb-4" style={{ color: '#3d2817' }}>
-                เมนูที่เลือกไว้ ({selectedDaySchedule.menus.length})
+                Selected Menus ({selectedDaySchedule.menus.length})
               </h4>
 
               {selectedDaySchedule.menus.length === 0 ? (
                 <p className="text-sm italic text-center py-8" style={{ color: '#b29373' }}>
-                  ยังไม่มีเมนูสำหรับวันนี้
+                  No menus selected for this day yet
                 </p>
               ) : (
                 <div className="space-y-3">
@@ -558,7 +557,7 @@ export default function ManageCourses() {
                     return (
                       <div
                         key={assignment.id}
-                        className="flex items-start justify-between gap-4 p-4 rounded-xl border"
+                        className="flex items-start justify-between gap-4 p-4  border"
                         style={{ borderColor: '#f1e6db', backgroundColor: '#fffdf8' }}
                       >
                         <div className="flex-1">
@@ -567,17 +566,17 @@ export default function ManageCourses() {
                           </p>
                           <div className="flex flex-wrap gap-2 mt-2">
                             {assignment.isMainCourse && (
-                              <span className="text-xs px-2 py-0.5 rounded-full" style={{ backgroundColor: '#e8f5e9', color: '#2e7d32' }}>
+                              <span className="text-xs px-2 py-0.5 " style={{ backgroundColor: '#e8f5e9', color: '#2e7d32' }}>
                                 Main Course
                               </span>
                             )}
                             {assignment.isDessert && (
-                              <span className="text-xs px-2 py-0.5 rounded-full" style={{ backgroundColor: '#fff3e0', color: '#e65100' }}>
+                              <span className="text-xs px-2 py-0.5 " style={{ backgroundColor: '#fff3e0', color: '#e65100' }}>
                                 Dessert
                               </span>
                             )}
                             {!assignment.isMainCourse && !assignment.isDessert && (
-                              <span className="text-xs px-2 py-0.5 rounded-full" style={{ backgroundColor: '#f5f1ed', color: '#8b6f47' }}>
+                              <span className="text-xs px-2 py-0.5 " style={{ backgroundColor: '#f5f1ed', color: '#8b6f47' }}>
                                 Regular
                               </span>
                             )}
@@ -591,7 +590,7 @@ export default function ManageCourses() {
                         </div>
                         <button
                           onClick={() => handleRemoveMenu(selectedDay, assignment.id)}
-                          className="p-2 rounded-lg hover:bg-[#f3dfd7] transition"
+                          className="p-2  hover:bg-[#f3dfd7] transition"
                           style={{ color: '#c1513b' }}
                         >
                           <Trash2 size={16} />
@@ -608,11 +607,9 @@ export default function ManageCourses() {
         {/* FullCalendar View */}
         <section className="bg-white  shadow border p-6" style={{ borderColor: '#e5dcd4' }}>
           <div className="mb-5">
-            <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#b29373' }}>
-              Preview calendar
-            </p>
+      
             <h3 className="text-2xl font-light" style={{ color: '#3d2817' }}>
-              ปฏิทินคอร์สที่กำลังจะมาถึง
+              Upcoming Course Calendar
             </h3>
           </div>
 
@@ -633,11 +630,11 @@ export default function ManageCourses() {
                 setModalCourses(coursesOnDate);
               }}
               height="auto"
-              locale="th"
+              locale="en"
               buttonText={{
-                today: 'วันนี้',
-                month: 'เดือน',
-                week: 'สัปดาห์'
+                today: 'Today',
+                month: 'Month',
+                week: 'Week'
               }}
               slotMinTime="08:00:00"
               slotMaxTime="19:00:00"
@@ -656,7 +653,7 @@ export default function ManageCourses() {
               onClick={(e) => e.stopPropagation()}
               style={{ borderColor: '#e5dcd4' }}
             >
-              <div className="sticky top-0 bg-white border-b px-6 py-5 flex items-center justify-between rounded-t-2xl" style={{ borderColor: '#e5dcd4' }}>
+              <div className="sticky top-0 bg-white border-b px-6 py-5 flex items-center justify-between " style={{ borderColor: '#e5dcd4' }}>
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#b29373' }}>
                     Course details
@@ -667,7 +664,7 @@ export default function ManageCourses() {
                 </div>
                 <button
                   onClick={() => setModalDate(null)}
-                  className="p-2 rounded-lg hover:bg-[#f5f1ed] transition"
+                  className="p-2  hover:bg-[#f5f1ed] transition"
                 >
                   <X size={24} style={{ color: '#8b6f47' }} />
                 </button>
@@ -687,7 +684,7 @@ export default function ManageCourses() {
                             {course.session}
                           </h4>
                           {course.tag && (
-                            <span className="text-xs uppercase tracking-wide px-2 py-1 rounded-full" style={{ backgroundColor: '#f5d5d5', color: '#c1513b' }}>
+                            <span className="text-xs uppercase tracking-wide px-2 py-1 " style={{ backgroundColor: '#f5d5d5', color: '#c1513b' }}>
                               {course.tag}
                             </span>
                           )}
@@ -730,13 +727,13 @@ export default function ManageCourses() {
                 ))}
               </div>
 
-              <div className="sticky bottom-0 bg-white border-t px-6 py-4 flex justify-end rounded-b-2xl" style={{ borderColor: '#e5dcd4' }}>
+              <div className="sticky bottom-0 bg-white border-t px-6 py-4 flex justify-end " style={{ borderColor: '#e5dcd4' }}>
                 <button
                   onClick={() => setModalDate(null)}
-                  className="px-6 py-2 rounded-full text-sm font-medium text-white"
+                  className="px-6 py-2  text-sm font-medium text-white"
                   style={{ backgroundColor: '#3d2817' }}
                 >
-                  ปิด
+                  Close
                 </button>
               </div>
             </div>
