@@ -27,3 +27,2262 @@ Parsing ecmascript source code failed
 Expected '</', got '}'
 [00:29:13.663] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:30:56.844] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:25:01.571] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.574] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.577] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.580] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.584] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.586] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.588] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.591] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.593] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.596] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.597] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.600] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.602] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.604] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.605] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.607] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.624] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.626] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.628] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.630] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.632] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.634] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.636] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.638] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.643] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.645] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.648] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.649] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.652] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.654] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.656] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.658] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.662] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.664] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.667] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.668] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.670] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.672] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.673] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.676] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.677] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.679] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.681] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.682] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.685] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.686] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.687] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:01.689] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:02.121] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:02.121] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:02.121] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:02.121] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:12.253] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.261] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.264] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.266] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.267] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.269] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.271] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.274] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.275] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.277] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.279] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.280] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.282] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.284] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.285] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.287] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.293] Server  LOG      ✓ Compiled in 36ms
+[01:25:12.297] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.298] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.301] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.302] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.304] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.305] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.307] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.308] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.310] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.312] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.320] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.323] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.324] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.325] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.327] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:12.328] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:25:13.126] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:13.126] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:13.126] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:13.126] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:30.119] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:30.119] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:30.120] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:30.120] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:30.120] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@fullcalendar/daygrid'
+   7 | import { MenuItem } from '@/types/menu';
+   8 | import FullCalendar from '@fullcalendar/react';
+>  9 | import dayGridPlugin from '@fullcalendar/daygrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:30.120] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:11:1
+Module not found: Can't resolve '@fullcalendar/interaction'
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+> 11 | import interactionPlugin from '@fullcalendar/interaction';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+  14 |
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:30.120] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:8:1
+Module not found: Can't resolve '@fullcalendar/react'
+   6 | import { useMenuManager } from '@/hooks/use-menu-manager';
+   7 | import { MenuItem } from '@/types/menu';
+>  8 | import FullCalendar from '@fullcalendar/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+  10 | import timeGridPlugin from '@fullcalendar/timegrid';
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:25:30.120] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:10:1
+Module not found: Can't resolve '@fullcalendar/timegrid'
+   8 | import FullCalendar from '@fullcalendar/react';
+   9 | import dayGridPlugin from '@fullcalendar/daygrid';
+> 10 | import timeGridPlugin from '@fullcalendar/timegrid';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import interactionPlugin from '@fullcalendar/interaction';
+  12 |
+  13 | type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[02:08:28.985] Server  LOG      ✓ Compiled in 124ms
+[03:24:35.848] Server  LOG      ✓ Compiled in 0ms
+[03:24:36.080] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:24:45.316] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:24:54.710] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:25:39.904] Server  LOG      ✓ Compiled in 73ms
+[03:25:43.531] Server  LOG      ✓ Compiled in 50ms
+[03:25:59.746] Server  LOG      ✓ Compiled in 46ms
+[03:26:06.351] Server  LOG      ✓ Compiled in 49ms
+[03:27:07.364] Server  LOG      ✓ Compiled in 73ms
+[03:27:37.789] Server  LOG      ✓ Compiled in 44ms
+[03:27:59.437] Server  LOG      ✓ Compiled in 51ms
+[03:34:57.911] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:34:58.683] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:35:30.620] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:06:27.866] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./Downloads/thaicookingclasses/app/admin/customer/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[04:06:27.868] Server  LOG      ✓ Compiled in 75ms
+[04:06:28.123] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

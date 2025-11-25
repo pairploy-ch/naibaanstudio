@@ -1,10 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useRef, useEffect } from 'react';
 import { CalendarDays, Clock, Plus, Trash2, X } from 'lucide-react';
 import { useMenuManager } from '@/hooks/use-menu-manager';
 import { MenuItem } from '@/types/menu';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
 type DayToken = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
 
@@ -71,31 +75,27 @@ const createInitialSchedule = (): DaySchedule[] => [
   { day: 'Sun', menus: [], capacity: 10, price: 1750 }
 ];
 
-const getCurrentWeekMonday = () => {
+const getUpcomingWeeks = (numWeeks: number = 8) => {
+  const weeks: Date[] = [];
   const today = new Date();
   const day = today.getDay();
   const diff = (day + 6) % 7;
   today.setHours(0, 0, 0, 0);
   today.setDate(today.getDate() - diff);
-  return today.toISOString().split('T')[0];
+  
+  for (let i = 0; i < numWeeks; i++) {
+    const monday = new Date(today);
+    monday.setDate(today.getDate() + (i * 7));
+    weeks.push(monday);
+  }
+  
+  return weeks;
 };
 
-const formatDateRange = (start: string) => {
-  if (!start) return 'Select a start date';
-  const from = new Date(`${start}T00:00:00`);
-  const to = new Date(from);
-  to.setDate(to.getDate() + 6);
-  const format = (date: Date) =>
-    date.toLocaleDateString('th-TH', { day: 'numeric', month: 'short' });
-  return `${format(from)} - ${format(to)}`;
-};
-
-const getDateForDay = (startDate: string, day: DayToken) => {
-  if (!startDate) return '';
-  const base = new Date(`${startDate}T00:00:00`);
+const getDateForDay = (monday: Date, day: DayToken) => {
   const offset = DAY_OFFSETS[day] ?? 0;
-  const target = new Date(base);
-  target.setDate(base.getDate() + offset);
+  const target = new Date(monday);
+  target.setDate(monday.getDate() + offset);
   return target.toISOString().split('T')[0];
 };
 
@@ -139,9 +139,11 @@ const formatCourseDate = (dateStr: string) => {
 
 export default function ManageCourses() {
   const { menus, menuMap } = useMenuManager();
-  const [weekAnchor, setWeekAnchor] = useState<string>(getCurrentWeekMonday);
   const [schedule, setSchedule] = useState<DaySchedule[]>(createInitialSchedule);
   const [selectedDay, setSelectedDay] = useState<DayToken | null>(null);
+  const [numWeeksToShow] = useState(8);
+  const [modalDate, setModalDate] = useState<string | null>(null);
+  const [modalCourses, setModalCourses] = useState<GeneratedCourse[]>([]);
   
   // Form state for adding menu
   const [newMenuId, setNewMenuId] = useState<string>('');
@@ -151,61 +153,81 @@ export default function ManageCourses() {
   const [newCustomStart, setNewCustomStart] = useState('09:00');
   const [newCustomEnd, setNewCustomEnd] = useState('12:30');
 
-  const generatedCourses = useMemo(() => {
-    if (!weekAnchor) return [];
+  const upcomingWeeks = useMemo(() => getUpcomingWeeks(numWeeksToShow), [numWeeksToShow]);
 
+  const generatedCourses = useMemo(() => {
     const courses: GeneratedCourse[] = [];
 
-    schedule.forEach((daySchedule) => {
-      const classDate = getDateForDay(weekAnchor, daySchedule.day);
-      
-      const morningMenus = daySchedule.menus.filter(m => m.timeSlot === 'morning');
-      const afternoonMenus = daySchedule.menus.filter(m => m.timeSlot === 'afternoon');
-      const customMenus = daySchedule.menus.filter(m => m.timeSlot === 'custom');
+    upcomingWeeks.forEach((monday) => {
+      schedule.forEach((daySchedule) => {
+        const classDate = getDateForDay(monday, daySchedule.day);
+        
+        const morningMenus = daySchedule.menus.filter(m => m.timeSlot === 'morning');
+        const afternoonMenus = daySchedule.menus.filter(m => m.timeSlot === 'afternoon');
+        const customMenus = daySchedule.menus.filter(m => m.timeSlot === 'custom');
 
-      if (morningMenus.length > 0) {
-        courses.push({
-          id: `${daySchedule.day}-morning`,
-          class_date: classDate,
-          session: `${DAY_NAMES[daySchedule.day]} Morning Class`,
-          start_time: '09:00',
-          end_time: '12:30',
-          capacity: daySchedule.capacity,
-          price: daySchedule.price,
-          detail: buildDetailHTML(morningMenus, menuMap)
-        });
-      }
+        if (morningMenus.length > 0) {
+          courses.push({
+            id: `${classDate}-morning`,
+            class_date: classDate,
+            session: `${DAY_NAMES[daySchedule.day]} Morning Class`,
+            start_time: '09:00',
+            end_time: '12:30',
+            capacity: daySchedule.capacity,
+            price: daySchedule.price,
+            detail: buildDetailHTML(morningMenus, menuMap)
+          });
+        }
 
-      if (afternoonMenus.length > 0) {
-        courses.push({
-          id: `${daySchedule.day}-afternoon`,
-          class_date: classDate,
-          session: `${DAY_NAMES[daySchedule.day]} Afternoon Class`,
-          start_time: '14:00',
-          end_time: '17:30',
-          capacity: daySchedule.capacity,
-          price: daySchedule.price,
-          detail: buildDetailHTML(afternoonMenus, menuMap)
-        });
-      }
+        if (afternoonMenus.length > 0) {
+          courses.push({
+            id: `${classDate}-afternoon`,
+            class_date: classDate,
+            session: `${DAY_NAMES[daySchedule.day]} Afternoon Class`,
+            start_time: '14:00',
+            end_time: '17:30',
+            capacity: daySchedule.capacity,
+            price: daySchedule.price,
+            detail: buildDetailHTML(afternoonMenus, menuMap)
+          });
+        }
 
-      customMenus.forEach((menu) => {
-        courses.push({
-          id: `${daySchedule.day}-${menu.id}`,
-          class_date: classDate,
-          session: `${DAY_NAMES[daySchedule.day]} Custom Time`,
-          start_time: menu.customStart || '09:00',
-          end_time: menu.customEnd || '12:00',
-          capacity: daySchedule.capacity,
-          price: daySchedule.price,
-          detail: buildDetailHTML([menu], menuMap),
-          tag: 'Custom'
+        customMenus.forEach((menu) => {
+          courses.push({
+            id: `${classDate}-${menu.id}`,
+            class_date: classDate,
+            session: `${DAY_NAMES[daySchedule.day]} Custom Time`,
+            start_time: menu.customStart || '09:00',
+            end_time: menu.customEnd || '12:00',
+            capacity: daySchedule.capacity,
+            price: daySchedule.price,
+            detail: buildDetailHTML([menu], menuMap),
+            tag: 'Custom'
+          });
         });
       });
     });
 
     return courses;
-  }, [schedule, weekAnchor, menuMap]);
+  }, [schedule, upcomingWeeks, menuMap]);
+
+  // Convert courses to FullCalendar events
+  const calendarEvents = useMemo(() => {
+    return generatedCourses.map(course => ({
+      id: course.id,
+      title: `${course.session} (${course.capacity} ppl, ฿${course.price})`,
+      start: `${course.class_date}T${course.start_time}:00`,
+      end: `${course.class_date}T${course.end_time}:00`,
+      backgroundColor: course.tag === 'Custom' ? '#c1513b' : '#8b6f47',
+      borderColor: course.tag === 'Custom' ? '#c1513b' : '#8b6f47',
+      extendedProps: {
+        detail: course.detail,
+        capacity: course.capacity,
+        price: course.price,
+        tag: course.tag
+      }
+    }));
+  }, [generatedCourses]);
 
   const selectedDaySchedule = selectedDay
     ? schedule.find(s => s.day === selectedDay)
@@ -262,45 +284,26 @@ export default function ManageCourses() {
   }, [menus]);
 
   return (
-    <div className="min-h-screen py-10" style={{ backgroundColor: '#f5f1ed' }}>
-      <div className="max-w-[95%] mx-auto space-y-10">
+    <div className=" py-10" style={{ backgroundColor: '#f5f1ed' }}>
+      <div className="max-w-[90%] mx-auto space-y-10">
         <header className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="uppercase tracking-[0.3em] text-xs" style={{ color: '#8b6f47' }}>
-              Thai cooking studio
-            </p>
+          
             <h1 className="text-4xl font-light" style={{ color: '#3d2817' }}>
-              Weekly course scheduler
+              Weekly course template
             </h1>
-            <p className="text-sm mt-2 max-w-2xl" style={{ color: '#7a5f3d' }}>
-              เลือกวันเพื่อจัดตารางเมนู กำหนดประเภท และเวลาสอน
-            </p>
+      
           </div>
-          <label className="flex items-center gap-3 px-4 py-2 rounded-xl border bg-white shadow-sm" style={{ borderColor: '#e5dcd4' }}>
-            <CalendarDays size={18} style={{ color: '#8b6f47' }} />
-            <div className="flex flex-col text-sm">
-              <span className="text-xs uppercase tracking-wide" style={{ color: '#b29373' }}>
-                Week anchor (Monday)
-              </span>
-              <input
-                type="date"
-                value={weekAnchor}
-                onChange={(e) => setWeekAnchor(e.target.value)}
-                className="text-base focus:outline-none"
-                style={{ color: '#3d2817' }}
-              />
-            </div>
-          </label>
         </header>
 
         {/* Weekly Overview */}
-        <section className="bg-white rounded-2xl shadow border" style={{ borderColor: '#e5dcd4' }}>
+        <section className="bg-white  shadow border" style={{ borderColor: '#e5dcd4' }}>
           <div className="px-6 py-5 border-b" style={{ borderColor: '#e5dcd4' }}>
             <h2 className="text-2xl font-light" style={{ color: '#3d2817' }}>
-              สัปดาห์นี้ (Mon–Sun)
+              Template Weekly (Mon–Sun)
             </h2>
             <p className="text-sm mt-1" style={{ color: '#7a5f3d' }}>
-              คลิกวันเพื่อจัดการเมนู
+              This schedule repeats every week · Click on a day to manage the menu
             </p>
           </div>
 
@@ -331,7 +334,7 @@ export default function ManageCourses() {
 
         {/* Day Editor */}
         {selectedDay && selectedDaySchedule && (
-          <section className="bg-white rounded-2xl shadow border" style={{ borderColor: '#e5dcd4' }}>
+          <section className="bg-white  shadow border" style={{ borderColor: '#e5dcd4' }}>
             <div className="flex items-center justify-between px-6 py-5 border-b" style={{ borderColor: '#e5dcd4' }}>
               <div>
                 <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#b29373' }}>
@@ -602,69 +605,203 @@ export default function ManageCourses() {
           </section>
         )}
 
-        {/* Generated Courses */}
-        <section className="bg-white rounded-2xl shadow border px-6 py-6" style={{ borderColor: '#e5dcd4' }}>
-          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between mb-5">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#b29373' }}>
-                Auto generated
-              </p>
-              <h3 className="text-2xl font-light" style={{ color: '#3d2817' }}>
-                คอร์สที่สร้างจากตาราง
-              </h3>
-            </div>
-            <div className="text-sm flex items-center gap-2" style={{ color: '#8b6f47' }}>
-              <CalendarDays size={16} />
-              <span>{formatDateRange(weekAnchor)}</span>
-            </div>
+        {/* FullCalendar View */}
+        <section className="bg-white  shadow border p-6" style={{ borderColor: '#e5dcd4' }}>
+          <div className="mb-5">
+            <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#b29373' }}>
+              Preview calendar
+            </p>
+            <h3 className="text-2xl font-light" style={{ color: '#3d2817' }}>
+              ปฏิทินคอร์สที่กำลังจะมาถึง
+            </h3>
           </div>
 
-          {generatedCourses.length === 0 ? (
-            <div className="border rounded-2xl px-4 py-6 text-center text-sm" style={{ borderColor: '#f1e6db', color: '#8b6f47' }}>
-              เพิ่มเมนูในตารางเพื่อดูคอร์สที่สร้างอัตโนมัติ
-            </div>
-          ) : (
-            <div className="grid gap-4 md:grid-cols-2">
-              {generatedCourses.map((course) => (
-                <div
-                  key={course.id}
-                  className="border rounded-2xl px-4 py-4 flex flex-col gap-2"
-                  style={{ borderColor: '#f1e6db', backgroundColor: '#fffdf8' }}
+          <div className="fullcalendar-wrapper">
+            <FullCalendar
+              plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+              initialView="dayGridMonth"
+              headerToolbar={{
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek'
+              }}
+              events={calendarEvents}
+              eventClick={(info) => {
+                const clickedDate = info.event.startStr.split('T')[0];
+                const coursesOnDate = generatedCourses.filter(c => c.class_date === clickedDate);
+                setModalDate(clickedDate);
+                setModalCourses(coursesOnDate);
+              }}
+              height="auto"
+              locale="th"
+              buttonText={{
+                today: 'วันนี้',
+                month: 'เดือน',
+                week: 'สัปดาห์'
+              }}
+              slotMinTime="08:00:00"
+              slotMaxTime="19:00:00"
+            />
+          </div>
+        </section>
+
+        {/* Modal for Course Details */}
+        {modalDate && modalCourses.length > 0 && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            onClick={() => setModalDate(null)}
+          >
+            <div 
+              className="bg-white  shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+              style={{ borderColor: '#e5dcd4' }}
+            >
+              <div className="sticky top-0 bg-white border-b px-6 py-5 flex items-center justify-between rounded-t-2xl" style={{ borderColor: '#e5dcd4' }}>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#b29373' }}>
+                    Course details
+                  </p>
+                  <h3 className="text-2xl font-light" style={{ color: '#3d2817' }}>
+                    {formatCourseDate(modalDate)}
+                  </h3>
+                </div>
+                <button
+                  onClick={() => setModalDate(null)}
+                  className="p-2 rounded-lg hover:bg-[#f5f1ed] transition"
                 >
-                  <div className="flex items-center justify-between">
-                    <p className="text-base font-medium" style={{ color: '#3d2817' }}>
-                      {course.session}
-                    </p>
-                    {course.tag && (
-                      <span className="text-[11px] uppercase tracking-wide px-2 py-0.5 rounded-full" style={{ backgroundColor: '#f5d5d5', color: '#c1513b' }}>
-                        {course.tag}
-                      </span>
+                  <X size={24} style={{ color: '#8b6f47' }} />
+                </button>
+              </div>
+
+              <div className="p-6 space-y-6">
+                {modalCourses.map((course) => (
+                  <div
+                    key={course.id}
+                    className="border  p-5 space-y-4"
+                    style={{ borderColor: '#f1e6db', backgroundColor: '#fffdf8' }}
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h4 className="text-xl font-medium" style={{ color: '#3d2817' }}>
+                            {course.session}
+                          </h4>
+                          {course.tag && (
+                            <span className="text-xs uppercase tracking-wide px-2 py-1 rounded-full" style={{ backgroundColor: '#f5d5d5', color: '#c1513b' }}>
+                              {course.tag}
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2 text-sm" style={{ color: '#8b6f47' }}>
+                          <Clock size={16} />
+                          <span>{course.start_time} – {course.end_time}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-6 text-sm pt-2 border-t" style={{ borderColor: '#f1e6db', color: '#7a5f3d' }}>
+                      <div>
+                        <span className="text-xs uppercase tracking-wide block mb-1" style={{ color: '#b29373' }}>
+                          Capacity
+                        </span>
+                        <span className="font-medium">{course.capacity} people</span>
+                      </div>
+                      <div>
+                        <span className="text-xs uppercase tracking-wide block mb-1" style={{ color: '#b29373' }}>
+                          Price
+                        </span>
+                        <span className="font-medium">฿{course.price}</span>
+                      </div>
+                    </div>
+
+                    {course.detail && (
+                      <div className="pt-2 border-t" style={{ borderColor: '#f1e6db' }}>
+                        <p className="text-xs uppercase tracking-wide mb-3" style={{ color: '#b29373' }}>
+                          Menu
+                        </p>
+                        <div
+                          className="prose prose-sm max-w-none"
+                          style={{ color: '#3d2817' }}
+                          dangerouslySetInnerHTML={{ __html: course.detail }}
+                        />
+                      </div>
                     )}
                   </div>
-                  <p className="text-sm" style={{ color: '#8b6f47' }}>
-                    {formatCourseDate(course.class_date)} · {course.start_time} – {course.end_time}
-                  </p>
-                  <div className="flex gap-4 text-sm" style={{ color: '#7a5f3d' }}>
-                    <span>Capacity: {course.capacity} guests</span>
-                    <span>฿{course.price}</span>
-                  </div>
-                  {course.detail ? (
-                    <div
-                      className="text-sm space-y-1"
-                      style={{ color: '#3d2817' }}
-                      dangerouslySetInnerHTML={{ __html: course.detail }}
-                    />
-                  ) : (
-                    <p className="text-sm italic" style={{ color: '#b29373' }}>
-                      No menu details yet.
-                    </p>
-                  )}
-                </div>
-              ))}
+                ))}
+              </div>
+
+              <div className="sticky bottom-0 bg-white border-t px-6 py-4 flex justify-end rounded-b-2xl" style={{ borderColor: '#e5dcd4' }}>
+                <button
+                  onClick={() => setModalDate(null)}
+                  className="px-6 py-2 rounded-full text-sm font-medium text-white"
+                  style={{ backgroundColor: '#3d2817' }}
+                >
+                  ปิด
+                </button>
+              </div>
             </div>
-          )}
-        </section>
+          </div>
+        )}
       </div>
+
+      <style jsx global>{`
+        .fullcalendar-wrapper {
+          font-family: inherit;
+        }
+        .fc {
+          --fc-border-color: #e5dcd4;
+          --fc-button-bg-color: #3d2817;
+          --fc-button-border-color: #3d2817;
+          --fc-button-hover-bg-color: #5a4029;
+          --fc-button-hover-border-color: #5a4029;
+          --fc-button-active-bg-color: #2a1c0f;
+          --fc-button-active-border-color: #2a1c0f;
+          --fc-today-bg-color: #fff7ef;
+        }
+        .fc .fc-button {
+          text-transform: none;
+          font-size: 0.875rem;
+          padding: 0.5rem 1rem;
+        }
+        .fc .fc-toolbar-title {
+          font-size: 1.5rem;
+          font-weight: 300;
+          color: #3d2817;
+        }
+        .fc .fc-col-header-cell {
+          background-color: #fffdf8;
+          font-weight: 500;
+          color: #8b6f47;
+          text-transform: uppercase;
+          font-size: 0.75rem;
+          letter-spacing: 0.05em;
+        }
+        .fc .fc-daygrid-day-number {
+          color: #3d2817;
+          padding: 0.5rem;
+        }
+        .fc .fc-event {
+          border-radius: 6px;
+          padding: 2px 4px;
+          font-size: 0.75rem;
+          cursor: pointer;
+        }
+        .fc .fc-event:hover {
+          opacity: 0.85;
+        }
+        .prose ul {
+          list-style-type: disc;
+          padding-left: 1.5rem;
+          margin-top: 0.5rem;
+        }
+        .prose li {
+          margin-top: 0.25rem;
+        }
+        .prose strong {
+          color: #3d2817;
+          font-weight: 600;
+        }
+      `}</style>
     </div>
   );
 }

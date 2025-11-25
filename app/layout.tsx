@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import './globals.css'
 import HeaderSwitcher from '@/components/HeaderSwitcher'
-import { Footer } from '@/components/footer'
+import LayoutWrapper from '@/components/LayoutWrapper'
 
 /* --- Font Setup --- */
 const playfair = Playfair_Display({ 
@@ -49,9 +49,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-       <HeaderSwitcher />
-        {children}
-        <Footer />
+        {/* Header แสดงทุกหน้า */}
+        <HeaderSwitcher />
+
+        {/* Wrapper ซ่อน footer ถ้าเป็น admin */}
+        <LayoutWrapper>
+          {children}
+        </LayoutWrapper>
       </body>
     </html>
   )
