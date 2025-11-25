@@ -6,42 +6,42 @@ export default function AboutPage() {
   
 
       {/* Hero Section */}
-      <section className="px-6 md:px-12 py-12 md:py-16 bg-[#F6EFE7]">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+      <section className=" py-12 md:py-16 bg-[#F6EFE7]">
+        <div className=" mx-auto grid md:grid-cols-2 items-center">
           {/* Left: Text Content */}
-          <div>
-            <h1 className=" text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+          <div className="max-w-3xl mx-auto">
+            <h1 className=" text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Where authentic Thai flavors and family stories come alive.
             </h1>
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+            <p className="text-gray-700 text-base md:text-xl leading-relaxed mt-[50px]">
               We're a small, home-style cooking studio built on passion, stories, and flavors passed down through generations.
             </p>
           </div>
           {/* Right: Image */}
           <div>
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image.png-HdIMz61XYIDeu9b0DR5P2w2k7cgnP4.jpeg"
+              src="/mock-about-1.jpg"
               alt="Family cooking together in Thai kitchen"
-              className="w-full h-auto object-cover rounded-md"
+              className="w-full h-auto object-cover"
             />
           </div>
         </div>
       </section>
 
       {/* Middle Section - Alternating Layout */}
-      <section className="px-6 md:px-12 py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+      <section className=" py-12 md:py-16">
+        <div className="mx-auto grid md:grid-cols-2 items-center">
           {/* Left: Image */}
-          <div>
+          <div style={{width: '90%'}}>
             <img
-              src="/close-up-cooking-wok-with-ingredients.jpg"
+              src="/mock-about-2.jpg"
               alt="Cooking in wok with fresh ingredients"
-              className="w-full h-auto object-cover rounded-md"
+              className="w-full h-auto object-cover"
             />
           </div>
           {/* Right: Text Content */}
-          <div>
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed space-y-4">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-gray-700 text-base md:text-xl leading-relaxed space-y-4">
               <span className="block">Our journey began with the simple belief that food becomes truly meaningful when it carries history—recipes whispered from one generation to the next, techniques perfected at family kitchens, and the warmth that comes from sharing a meal with people you care about.</span>
               
               <span className="block">At our studio, we preserve these timeless Thai recipes and the little secrets that make them special—from the perfect balance of flavors to the traditional methods rarely found in modern kitchens. We don't just teach cooking; we share the heart behind each dish, the stories that shaped it, and the joy of creating something delicious with your own hands.</span>
@@ -53,7 +53,7 @@ export default function AboutPage() {
       </section>
 
       {/* Call-to-Action Section */}
-      <section className="px-6 md:px-12 py-12 md:py-16 bg-white text-center">
+      <section className=" py-12 md:py-16  text-center">
         <div className="max-w-3xl mx-auto">
           <p className=" text-2xl md:text-3xl text-gray-900 leading-relaxed">
             Whether you're here to master classic dishes, explore new tastes, or simply enjoy a heartfelt cooking experience—our doors, our woks, and our stories are open to you.
@@ -62,12 +62,13 @@ export default function AboutPage() {
       </section>
 
       {/* Bottom Image Section */}
-      <section className="px-6 md:px-12 pb-12 md:pb-16 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="pb-12 md:pb-16">
+        <div className="max-w-[90%] mx-auto">
           <img
             src="/rustic-thai-studio-interior-wooden-details-dining.jpg"
             alt="Thai cooking studio interior"
-            className="w-full h-auto object-cover rounded-md"
+            className="w-full object-cover"
+            style={{height: '800px'}}
           />
         </div>
       </section>

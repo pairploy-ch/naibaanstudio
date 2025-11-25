@@ -1,97 +1,29 @@
-[00:00:01.449] Server  LOG      ✓ Ready in 1283ms
-[00:00:04.365] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:13.152] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:16.237] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:21.742] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:37.680] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:40.933] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:10:31.392] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:11:10.161] Server  LOG      ✓ Compiled in 108ms
-[00:13:32.325] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:15:28.172] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:15:28.185] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:18:26.226] Server  LOG      ✓ Compiled in 43ms
-[00:28:15.271] Server  LOG      ✓ Compiled in 55ms
-[00:44:16.461] Server  LOG      ✓ Compiled in 38ms
-[00:44:43.782] Server  LOG      ✓ Compiled in 67ms
-[00:45:05.512] Server  LOG      ✓ Compiled in 48ms
-[00:45:17.128] Server  LOG      ✓ Compiled in 43ms
-[00:45:34.218] Server  LOG      ✓ Compiled in 77ms
-[00:45:59.909] Server  LOG      ✓ Compiled in 55ms
-[00:46:08.962] Server  LOG      ✓ Compiled in 65ms
-[00:47:23.339] Server  LOG      ✓ Compiled in 41ms
-[00:47:49.423] Server  LOG      ✓ Compiled in 26ms
-[00:48:08.524] Server  LOG      ✓ Compiled in 28ms
-[00:48:18.466] Server  LOG      ✓ Compiled in 53ms
-[00:49:12.479] Server  LOG      ✓ Compiled in 106ms
-[00:50:02.633] Server  LOG      ✓ Compiled in 31ms
-[00:50:21.668] Server  LOG      ✓ Compiled in 34ms
-[00:50:35.812] Server  LOG      ✓ Compiled in 57ms
-[00:50:49.562] Server  LOG      ✓ Compiled in 29ms
-[00:51:50.582] Server  LOG      ✓ Compiled in 34ms
-[00:52:39.098] Server  LOG      ✓ Compiled in 69ms
-[00:53:17.338] Server  LOG      ✓ Compiled in 67ms
-[00:53:52.277] Server  LOG      ✓ Compiled in 49ms
-[00:54:17.443] Server  LOG      ✓ Compiled in 33ms
-[00:56:10.237] Server  LOG      ✓ Compiled in 39ms
-[00:57:08.146] Server  LOG      ✓ Compiled in 75ms
-[00:57:32.545] Server  LOG      ✓ Compiled in 49ms
-[00:57:48.418] Server  LOG      ✓ Compiled in 98ms
-[00:58:03.779] Server  LOG      ✓ Compiled in 37ms
-[00:58:22.044] Server  LOG      ✓ Compiled in 58ms
-[00:58:26.109] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:58:33.032] Server  LOG      ✓ Compiled in 59ms
-[00:58:58.630] Server  LOG      ✓ Compiled in 66ms
-[00:59:04.636] Server  LOG      ✓ Compiled in 70ms
-[00:59:09.933] Server  LOG      ✓ Compiled in 67ms
-[00:59:40.723] Server  LOG      ✓ Compiled in 72ms
-[01:01:17.915] Server  LOG      ✓ Compiled in 42ms
-[01:01:32.861] Server  LOG      ✓ Compiled in 43ms
-[01:01:40.604] Server  LOG      ✓ Compiled in 32ms
-[01:01:49.395] Server  LOG      ✓ Compiled in 28ms
-[01:01:51.320] Server  LOG      ✓ Compiled in 37ms
-[01:02:12.922] Server  LOG      ✓ Compiled in 75ms
-[01:02:18.566] Server  LOG      ✓ Compiled in 30ms
-[01:02:29.242] Server  LOG      ✓ Compiled in 29ms
-[01:03:04.061] Server  LOG      ✓ Compiled in 66ms
-[01:03:39.702] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:03:54.562] Server  LOG      ✓ Compiled in 66ms
-[01:03:59.671] Server  LOG      ✓ Compiled in 38ms
-[01:04:02.831] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:04:11.605] Server  LOG      ✓ Compiled in 32ms
-[01:04:51.497] Server  LOG      ✓ Compiled in 28ms
-[01:08:21.051] Server  LOG      ✓ Compiled in 47ms
-[01:09:13.880] Server  LOG      ✓ Compiled in 71ms
-[01:09:14.962] Server  LOG      ✓ Compiled in 61ms
-[01:10:12.679] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:10:32.428] Server  LOG      ✓ Compiled in 38ms
-[01:11:39.411] Server  LOG      ✓ Compiled in 78ms
-[01:12:07.797] Server  LOG      ✓ Compiled in 61ms
-[01:15:18.761] Server  LOG      ✓ Compiled in 81ms
-[01:15:25.105] Server  LOG      ✓ Compiled in 36ms
-[01:15:42.228] Server  LOG      ✓ Compiled in 61ms
-[01:15:57.306] Server  LOG      ✓ Compiled in 32ms
-[01:16:20.434] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:20.434] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:20.434] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:20.434] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:25.341] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:25.341] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:25.341] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:25.342] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:29.295] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:29.295] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:29.295] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:29.295] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:29.295] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:29.295] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:38.609] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:38.609] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:38.609] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:16:38.609] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:17:23.604] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:19:13.175] Server  LOG      ✓ Compiled in 58ms
-[01:20:17.846] Server  LOG      ✓ Compiled in 42ms
-[01:20:40.033] Server  LOG      ✓ Compiled in 72ms
-[01:21:19.123] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:23:20.326] Server  LOG      ✓ Compiled in 115ms
+[00:00:00.915] Server  LOG      ✓ Ready in 636ms
+[00:00:16.215] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:20.226] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:58.121] Browser ERROR   Invalid DOM property `%s`. Did you mean `%s`? referrerpolicy referrerPolicy
+[00:04:11.277] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:37.980] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
+[00:06:37.980] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
+[00:06:37.980] Browser ERROR   uncaughtError: Error: link is a void element tag and must neither have `children` nor use `dangerouslySetInnerHTML`.
+[00:06:40.378] Server  ERROR   An empty string ("") was passed to the href attribute. To fix this, either do not render the element at all or pass null to href instead of an empty string.
+[00:06:40.534] Server  ERROR    ⨯ Error: link is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.
+[00:06:40.724] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:40.864] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
+[00:06:40.864] Browser ERROR   An empty string ("") was passed to the %s attribute. To fix this, either do not render the element at all or pass null to %s instead of an empty string. href href
+[00:06:40.864] Browser ERROR   uncaughtError: Error: link is a void element tag and must neither have `children` nor use `dangerouslySetInnerHTML`.
+[00:06:53.049] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:40.082] Server  LOG      ✓ Compiled in 44ms
+[00:21:25.125] Browser ERROR   ./Downloads/thaicookingclasses/app/about/page.tsx:35:31
+Parsing ecmascript source code failed
+  33 |         <div className="mx-auto grid md:grid-cols-2 items-center">
+  34 |           {/* Left: Image */}
+> 35 |           <div style={{width: }}>
+     |                               ^
+  36 |             <img
+  37 |               src="/mock-about-2.jpg"
+  38 |               alt="Cooking in wok with fresh ingredients"
+
+Expected '</', got '}'
+[00:29:13.663] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:30:56.844] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

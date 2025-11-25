@@ -65,40 +65,13 @@ export default function GalleryPage() {
   ]
 
   return (
-    <main className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
-              <span className="text-white font-serif text-sm font-bold">TF</span>
-            </div>
-            <span className="font-serif text-sm font-semibold text-gray-900">Thai Bahn</span>
-          </Link>
-          <div className="hidden md:flex items-center gap-12">
-            <Link href="/" className="text-gray-900 hover:text-gray-600 transition-colors text-sm">
-              Home
-            </Link>
-            <Link href="/about" className="text-gray-900 hover:text-gray-600 transition-colors text-sm">
-              About
-            </Link>
-            <Link href="/gallery" className="text-gray-900 font-semibold transition-colors text-sm">
-              Photo Gallery
-            </Link>
-            <Link href="#courses" className="text-gray-900 hover:text-gray-600 transition-colors text-sm">
-              Courses
-            </Link>
-            <Link href="/contact" className="text-gray-900 hover:text-gray-600 transition-colors text-sm">
-              Contact
-            </Link>
-          </div>
-        </div>
-      </nav>
+    <main className="min-h-screen bg-[#F6EFE7]">
+  
 
       {/* Hero Section */}
-      <section className="px-6 md:px-12 py-12 md:py-16 bg-white">
+      <section className="px-6 md:px-12 py-12 md:py-16 bg-[#F6EFE7]">
         <div className="max-w-7xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+          <h1 className=" text-4xl md:text-5xl font-bold text-gray-900 mb-2">
             Our Story in Pictures
           </h1>
           <p className="text-gray-600 text-lg">
@@ -108,7 +81,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Masonry Grid */}
-      <section className="px-6 md:px-12 py-12 md:py-20 bg-white">
+      <section className="px-6 md:px-12 py-12 md:py-20 bg-[#F6EFE7]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-max">
             {galleryImages.map((image, index) => (
@@ -125,18 +98,13 @@ export default function GalleryPage() {
       </section>
 
       {/* More Button */}
-      <section className="px-6 md:px-12 py-8 md:py-12 bg-white flex justify-center">
+      <section className="px-6 md:px-12 py-8 md:py-12 bg-[#F6EFE7] flex justify-center">
         <button className="px-12 py-3 bg-black text-white font-semibold hover:bg-gray-800 transition-colors">
           More
         </button>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-gray-200 bg-white px-6 md:px-12 py-6">
-        <div className="max-w-7xl mx-auto text-center text-gray-600 text-sm">
-          <p>Copyright 2025 thaibahn</p>
-        </div>
-      </footer>
+ 
     </main>
   )
 }

@@ -3,9 +3,7 @@
   "/about/page": "app/about/page.js",
   "/admin/course/page": "app/admin/course/page.js",
   "/admin/menu/page": "app/admin/menu/page.js",
-  "/checkout/page": "app/checkout/page.js",
   "/contact/page": "app/contact/page.js",
-  "/courses/[id]/page": "app/courses/[id]/page.js",
   "/courses/page": "app/courses/page.js",
   "/gallery/page": "app/gallery/page.js",
   "/page": "app/page.js"
