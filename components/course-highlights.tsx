@@ -48,7 +48,7 @@ const courses = [
 export function CourseHighlights() {
   return (
     <section className="py-18 bg-[#F5F1EC]">
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-6 max-w-[90%]">
         <div className="flex items-start justify-between mb-12">
           <h2 className=" text-5xl font-bold text-black">
             Course Highlights
@@ -72,7 +72,7 @@ export function CourseHighlights() {
                 <img
                   src={course.image || "/placeholder.svg"}
                   alt={course.title}
-                  className="w-full h-[400px] object-cover"
+                  className="w-full h-[500px] object-cover"
                 />
               </div>
               <div className="p-6 text-center">
