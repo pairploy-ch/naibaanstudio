@@ -124,7 +124,7 @@ export default function ManageMenuPage() {
   };
 
   return (
-    <div className="min-h-screen py-10" style={{ backgroundColor: '#f5f1ed' }}>
+    <div className="min-h-screen py-10 bg-[#F6EFE7]" >
       <div className="max-w-[90%] mx-auto space-y-8">
         <header className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>

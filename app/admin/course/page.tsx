@@ -285,7 +285,7 @@ export default function ManageCourses() {
   }, [menus]);
 
   return (
-    <div className=" py-10" style={{ backgroundColor: '#f5f1ed' }}>
+    <div className=" py-10 bg-[#F6EFE7]" >
       <div className="max-w-[90%] mx-auto space-y-10">
         <header className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>

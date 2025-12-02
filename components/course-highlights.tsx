@@ -47,18 +47,18 @@ const courses = [
 
 export function CourseHighlights() {
   return (
-    <section className="py-18 bg-[#F5F1EC]">
+    <section className="py-18 bg-[#F6EFE7]">
       <div className="container mx-auto px-6 max-w-[90%]">
         <div className="flex items-start justify-between mb-12">
           <h2 className=" text-5xl font-bold text-black">
-            Course Highlights
+            All Courses
           </h2>
-          <Link 
+          {/* <Link 
             href="#courses"
             className="text-black font-medium underline hover:opacity-70 transition-opacity"
           >
             View All Course
-          </Link>
+          </Link> */}
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

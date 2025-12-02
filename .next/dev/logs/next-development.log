@@ -1,10 +1,92 @@
-[00:00:00.960] Server  LOG      ✓ Ready in 679ms
-[00:00:07.395] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:11.144] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:15.343] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:53.839] Server  LOG      ✓ Compiled in 126ms
-[00:02:38.282] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:38.425] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+[00:00:01.579] Server  LOG      ✓ Ready in 1184ms
+[00:00:05.767] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:52.793] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:56.709] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:14.055] Server  ERROR    ⨯ TypeError: useState only works in Client Components. Add the "use client" directive at the top of the file to use it. Read more: https://nextjs.org/docs/messages/react-client-hook-in-server-component
+[00:05:15.068] Browser ERROR   uncaughtError: TypeError: useState only works in Client Components. Add the "use client" directive at the top of the file to use it. Read more: https://nextjs.org/docs/messages/react-client-hook-in-server-component
+[00:06:11.792] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:06:11.882] Server  ERROR    ⨯ TypeError: useState only works in Client Components. Add the "use client" directive at the top of the file to use it. Read more: https://nextjs.org/docs/messages/react-client-hook-in-server-component
+[00:06:12.160] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:13.067] Browser ERROR   uncaughtError: TypeError: useState only works in Client Components. Add the "use client" directive at the top of the file to use it. Read more: https://nextjs.org/docs/messages/react-client-hook-in-server-component
+[00:06:44.799] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:52.225] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:40.636] Server  LOG      ✓ Compiled in 60ms
+[00:07:48.517] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:45.542] Server  LOG      ✓ Compiled in 47ms
+[00:13:51.839] Server  LOG      ✓ Compiled in 44ms
+[00:14:01.475] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:35.759] Server  LOG      ✓ Compiled in 31ms
+[00:15:21.404] Server  LOG      ✓ Compiled in 90ms
+[00:15:33.951] Server  LOG      ✓ Compiled in 55ms
+[00:15:38.679] Server  LOG      ✓ Compiled in 41ms
+[00:15:38.793] Browser ERROR   ./Downloads/thaicookingclasses/app/gallery/page.tsx:65:8
+Parsing ecmascript source code failed
+  63 |       className: 'md:col-span-1 md:row-span-1'
+  64 |     },
+> 65 |     src: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d',
+     |        ^
+  66 |     {
+  67 |       src: 'https://images.unsplash.com/photo-1512058564366-18510be2db19',
+  68 |       alt: 'Thai food preparation',
+
+Expected ',', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/gallery/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/gallery/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/gallery/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/gallery/page.tsx [Server Component]
+[00:15:54.389] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:12.222] Server  LOG      ✓ Compiled in 29ms
+[00:19:14.590] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./Downloads/thaicookingclasses/app/courses/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:19:14.686] Server  LOG      ✓ Compiled in 92ms
+[00:19:14.952] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:47.340] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./Downloads/thaicookingclasses/app/courses/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:19:47.432] Server  LOG      ✓ Compiled in 63ms
+[00:19:47.754] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:53.280] Server  LOG      ✓ Compiled in 66ms
+[00:20:56.567] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:21:32.135] Server  LOG      ✓ Compiled in 45ms
+[00:21:32.223] Browser ERROR   uncaughtError: ReferenceError: paginatedCourses is not defined
+[00:21:37.739] Server  LOG      ✓ Compiled in 51ms
+[00:21:37.843] Browser ERROR   ./Downloads/thaicookingclasses/app/courses/page.tsx:10:10
+Parsing ecmascript source code failed
+   8 |
+   9 |
+> 10 |   return (
+     |          ^
+> 11 |
+     | ^
+> 12 |   )
+     | ^^^^
+  13 | }
+
+Parenthesized expression cannot be empty
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/page.tsx [Server Component]
+[00:21:43.184] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:21:43.619] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:22:22.287] Server  LOG      ✓ Compiled in 67ms
+[00:24:23.429] Server  LOG      ✓ Compiled in 66ms
+[00:24:29.232] Server  LOG      ✓ Compiled in 39ms
+[00:25:05.397] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:44.253] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:10.892] Server  LOG      ✓ Compiled in 58ms
+[00:27:41.189] Server  LOG      ✓ Compiled in 55ms
+[00:27:57.197] Server  LOG      ✓ Compiled in 58ms
+[00:28:44.040] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:51.679] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:51.886] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -34,7 +116,7 @@ https://react.dev/link/hydration-mismatch
                             <div>
                               <p>
                               <h3 className="text-3xl font-light mt-2" style={{color:"#3d2817"}}>
-+                               180
++                               184
 -                               215
                               ...
                             ...
@@ -43,9 +125,8 @@ https://react.dev/link/hydration-mismatch
             ...
           ...
 
-[00:02:48.566] Server  LOG      ✓ Compiled in 65ms
-[00:02:52.530] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:52.660] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+[00:28:53.976] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:54.153] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -75,8 +156,8 @@ https://react.dev/link/hydration-mismatch
                             <div>
                               <p>
                               <h3 className="text-3xl font-light mt-2" style={{color:"#3d2817"}}>
-+                               171
--                               182
++                               195
+-                               143
                               ...
                             ...
                         ...
@@ -84,125 +165,8 @@ https://react.dev/link/hydration-mismatch
             ...
           ...
 
-[00:10:15.753] Server  LOG      ✓ Compiled in 101ms
-[00:12:01.202] Server  LOG      ✓ Compiled in 150ms
-[00:12:16.423] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:12:16.569] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
-      <RedirectBoundary>
-        <RedirectErrorBoundary router={{...}}>
-          <InnerLayoutRouter url="/admin/das..." tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
-            <SegmentViewNode type="page" pagePath="/Downloads...">
-              <SegmentTrieNode>
-              <ClientPageRoot Component={function Index} serverProvidedParams={{...}}>
-                <Index params={Promise} searchParams={Promise}>
-                  <div className="min-h-scre..." style={{...}}>
-                    <div className="max-w-[90%...">
-                      <header>
-                      <div className="grid grid-...">
-                        <div className="bg-white p..." style={{...}}>
-                          <div className="flex items...">
-                            <div>
-                              <p>
-                              <h3 className="text-3xl font-light mt-2" style={{color:"#3d2817"}}>
-+                               164
--                               186
-                              ...
-                            ...
-                        ...
-                      ...
-            ...
-          ...
-
-[00:12:31.262] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:12:31.388] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
-      <RedirectBoundary>
-        <RedirectErrorBoundary router={{...}}>
-          <InnerLayoutRouter url="/admin/das..." tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
-            <SegmentViewNode type="page" pagePath="/Downloads...">
-              <SegmentTrieNode>
-              <ClientPageRoot Component={function Index} serverProvidedParams={{...}}>
-                <Index params={Promise} searchParams={Promise}>
-                  <div className="min-h-scre..." style={{...}}>
-                    <div className="max-w-[90%...">
-                      <header>
-                      <div className="grid grid-...">
-                        <div className="bg-white p..." style={{...}}>
-                          <div className="flex items...">
-                            <div>
-                              <p>
-                              <h3 className="text-3xl font-light mt-2" style={{color:"#3d2817"}}>
-+                               190
--                               202
-                              ...
-                            ...
-                        ...
-                      ...
-            ...
-          ...
-
-[00:12:34.013] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:12:34.138] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
-      <RedirectBoundary>
-        <RedirectErrorBoundary router={{...}}>
-          <InnerLayoutRouter url="/admin/das..." tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
-            <SegmentViewNode type="page" pagePath="/Downloads...">
-              <SegmentTrieNode>
-              <ClientPageRoot Component={function Index} serverProvidedParams={{...}}>
-                <Index params={Promise} searchParams={Promise}>
-                  <div className="min-h-scre..." style={{...}}>
-                    <div className="max-w-[90%...">
-                      <header>
-                      <div className="grid grid-...">
-                        <div className="bg-white p..." style={{...}}>
-                          <div className="flex items...">
-                            <div>
-                              <p>
-                              <h3 className="text-3xl font-light mt-2" style={{color:"#3d2817"}}>
-+                               199
--                               210
-                              ...
-                            ...
-                        ...
-                      ...
-            ...
-          ...
-
+[00:33:08.566] Server  LOG      ✓ Compiled in 66ms
+[00:33:41.226] Server  LOG      ✓ Compiled in 45ms
+[00:33:59.170] Server  LOG      ✓ Compiled in 75ms
+[00:34:07.532] Server  LOG      ✓ Compiled in 51ms
+[00:34:17.244] Server  LOG      ✓ Compiled in 38ms

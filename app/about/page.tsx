@@ -9,7 +9,7 @@ export default function AboutPage() {
       <section className=" py-12 md:py-16 bg-[#F6EFE7]">
         <div className=" mx-auto grid md:grid-cols-2 items-center">
           {/* Left: Text Content */}
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <h1 className=" text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Where authentic Thai flavors and family stories come alive.
             </h1>
@@ -40,7 +40,7 @@ export default function AboutPage() {
             />
           </div>
           {/* Right: Text Content */}
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <p className="text-gray-700 text-base md:text-xl leading-relaxed space-y-4">
               <span className="block">Our journey began with the simple belief that food becomes truly meaningful when it carries history—recipes whispered from one generation to the next, techniques perfected at family kitchens, and the warmth that comes from sharing a meal with people you care about.</span>
               

@@ -400,7 +400,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen py-10" style={{ backgroundColor: '#f5f1ed' }}>
+    <div className="min-h-screen py-10 bg-[#F6EFE7]" >
       <div className="max-w-[90%] mx-auto space-y-8">
         {/* Header */}
         <header className="flex flex-col gap-4">
