@@ -406,12 +406,12 @@ const Index = () => {
         <header className="flex flex-col gap-4">
           <div>
             <h1 className="text-4xl font-light flex items-center gap-3" style={{ color: '#3d2817' }}>
-              <ChefHat className="w-10 h-10" style={{ color: '#b29373' }} />
+              {/* <ChefHat className="w-10 h-10" style={{ color: '#b29373' }} /> */}
               Dashboard
             </h1>
-            <p className="text-sm mt-2" style={{ color: '#8b6f47' }}>
+            {/* <p className="text-sm mt-2" style={{ color: '#8b6f47' }}>
               Overview of your Thai cooking class bookings and revenue
-            </p>
+            </p> */}
           </div>
         </header>
 
@@ -422,7 +422,9 @@ const Index = () => {
               <div>
                 <p className="text-xs uppercase tracking-[0.2em]" style={{ color: '#8b6f47' }}>Total Bookings</p>
                 <h3 className="text-3xl font-light mt-2" style={{ color: '#3d2817' }}>{stats.totalBookings}</h3>
-                <p className="text-xs mt-1" style={{ color: '#b29373' }}>Out of {stats.totalCapacity} total seats</p>
+                <p className="text-xs mt-1" style={{ color: '#b29373' }}>From confirmed bookings
+
+</p>
               </div>
               <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#e8f4f8' }}>
                 <Users className="w-6 h-6" style={{ color: '#5ba4c7' }} />
@@ -433,7 +435,7 @@ const Index = () => {
           <div className="bg-white p-6 shadow border" style={{ borderColor: '#e5dcd4' }}>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs uppercase tracking-[0.2em]" style={{ color: '#8b6f47' }}>Expected Revenue</p>
+                <p className="text-xs uppercase tracking-[0.2em]" style={{ color: '#8b6f47' }}>Revenue</p>
                 <h3 className="text-3xl font-light mt-2" style={{ color: '#3d2817' }}>{formatPrice(stats.totalRevenue)}</h3>
                 <p className="text-xs mt-1" style={{ color: '#b29373' }}>From confirmed bookings</p>
               </div>
@@ -446,9 +448,11 @@ const Index = () => {
           <div className="bg-white p-6 shadow border" style={{ borderColor: '#e5dcd4' }}>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs uppercase tracking-[0.2em]" style={{ color: '#8b6f47' }}>Scheduled Courses</p>
+                <p className="text-xs uppercase tracking-[0.2em]" style={{ color: '#8b6f47' }}>TOTAL MENU</p>
                 <h3 className="text-3xl font-light mt-2" style={{ color: '#3d2817' }}>{stats.totalCourses}</h3>
-                <p className="text-xs mt-1" style={{ color: '#b29373' }}>Next 4 weeks</p>
+                <p className="text-xs mt-1" style={{ color: '#b29373' }}>From confirmed bookings
+
+</p>
               </div>
               <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#f3e5f5' }}>
                 <Calendar className="w-6 h-6" style={{ color: '#ab47bc' }} />
@@ -461,9 +465,9 @@ const Index = () => {
               <div>
                 <p className="text-xs uppercase tracking-[0.2em]" style={{ color: '#8b6f47' }}>Total Customers</p>
                 <h3 className="text-3xl font-light mt-2" style={{ color: '#3d2817' }}>{stats.totalBookings}</h3>
-                <p className="text-xs mt-1 font-medium" style={{ color: '#e67700' }}>
-                  {stats.nearlyFull} courses nearly full
-                </p>
+                          <p className="text-xs mt-1" style={{ color: '#b29373' }}>From confirmed bookings
+
+</p>
               </div>
               <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#fff4e6' }}>
                 <AlertCircle className="w-6 h-6" style={{ color: '#e67700' }} />
@@ -478,7 +482,7 @@ const Index = () => {
             <div className="flex flex-col gap-4">
               <div>
                 <h2 className="text-2xl font-light" style={{ color: '#3d2817' }}>Upcoming Courses</h2>
-                <p className="text-sm mt-1" style={{ color: '#8b6f47' }}>Next scheduled classes with booking status</p>
+                {/* <p className="text-sm mt-1" style={{ color: '#8b6f47' }}>Next scheduled classes with booking status</p> */}
               </div>
               
               {/* Search and Filters */}

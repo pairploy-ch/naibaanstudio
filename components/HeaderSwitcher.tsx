@@ -8,7 +8,7 @@ export default function HeaderSwitcher() {
   const pathname = usePathname()
 
 
-  if (pathname === '/') {
+  if (pathname === '/' || pathname === '/checkout') {
     return <HeaderHome />
   }
 

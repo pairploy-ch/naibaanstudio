@@ -3,46 +3,12 @@ import Link from 'next/link'
 const courses = [
   {
     id: 1,
-    title: 'Thai Herbs & Spices Cooking Class',
-    date: 'NOV 12, 2025 4.00PM - 5.00 PM',
-    dateBadge: { day: '11', month: 'NOV' },
+    title: 'Pad Thai, Tom Yum Soup, Red Curry & Banana in coconut milk',
+    date: 'DEC 8 2025, 9.00 AM - 12.30 PM / 2:00 PM - 5:30 PM ',
+    dateBadge: { day: '8', month: 'DEC' },
     image: '/mock-about.jpg',
   },
-  {
-    id: 2,
-    title: 'Mastering Pad Thai',
-    date: 'NOV 12, 2025 4.00PM - 5.00 PM',
-    dateBadge: { day: '11', month: 'NOV' },
-    image: '/mock-about.jpg',
-  },
-  {
-    id: 3,
-    title: 'Coconut & Curry Cooking Experience',
-    date: 'NOV 12, 2025 4.00PM - 5.00 PM',
-    dateBadge: { day: '11', month: 'NOV' },
-    image: '/mock-about.jpg',
-  },
-  {
-    id: 4,
-    title: 'Thai Curry Masterclass',
-    date: 'NOV 12, 2025 4.00PM - 5.00 PM',
-    dateBadge: { day: '11', month: 'NOV' },
-    image: '/mock-about.jpg',
-  },
-  {
-    id: 5,
-    title: 'Thai Street Food Favorites',
-    date: 'NOV 12, 2025 4.00PM - 5.00 PM',
-    dateBadge: { day: '11', month: 'NOV' },
-    image: '/mock-about.jpg',
-  },
-  {
-    id: 6,
-    title: 'Sweet Thai Classics Workshop',
-    date: 'NOV 12, 2025 4.00PM - 5.00 PM',
-    dateBadge: { day: '11', month: 'NOV' },
-   image: '/mock-about.jpg',
-  },
+
 ]
 
 export function CourseHighlights() {

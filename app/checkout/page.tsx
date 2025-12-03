@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { useState } from 'react'
-import { Footer } from '@/components/footer'
+
 
 export default function CheckoutPage() {
   const searchParams = useSearchParams()
@@ -25,14 +25,14 @@ export default function CheckoutPage() {
       <div 
         className="absolute inset-0 opacity-40"
         style={{
-          backgroundImage: 'url(/placeholder.svg?height=1080&width=1920&query=thai+cooking+kitchen+scene+warm+lighting)',
+          backgroundImage: 'url(/bg-test.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       />
 
-      <div className="relative container mx-auto px-6 py-12 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-8">
+      <div className="relative container mx-auto px-6 py-12 max-w-7xl ">
+        <div className="grid lg:grid-cols-2 gap-8 pt-30 pb-30">
           {/* Left Column - Billing Details */}
           <div className="bg-[#F5F1EC] p-8">
             <Link 
@@ -43,7 +43,7 @@ export default function CheckoutPage() {
               <span className="underline">Return to reservation</span>
             </Link>
 
-            <h1 className="font-serif text-4xl font-bold text-black mb-8">
+            <h1 className="text-4xl font-bold text-black mb-8">
               Billing Details
             </h1>
 
@@ -133,7 +133,7 @@ export default function CheckoutPage() {
 
           {/* Right Column - Your Order */}
           <div className="bg-[#F5F1EC] p-8">
-            <h2 className="font-serif text-4xl font-bold text-black mb-8">
+            <h2 className="text-4xl font-bold text-black mb-8">
               Your Order
             </h2>
 
@@ -177,9 +177,11 @@ export default function CheckoutPage() {
                     />
                     <span className="font-medium text-black">Credit Card</span>
                   </div>
-                  <div className="flex gap-2">
-                    <div className="w-10 h-6 rounded bg-gradient-to-r from-red-500 to-orange-500"></div>
-                    <div className="w-10 h-6 rounded bg-gradient-to-r from-red-600 to-yellow-500"></div>
+                  <div className="flex gap-4">
+                    <img src="/mastercard-logo.png" style={{ width:'40px'}} alt=""  />
+                      <img src="/visa-logo.png"style={{ width:'60px', height:'auto'}}  alt=""  />
+                    {/* <div className="w-10 h-6 rounded bg-gradient-to-r from-red-500 to-orange-500"></div> */}
+                    {/* <div className="w-10 h-6 rounded bg-gradient-to-r from-red-600 to-yellow-500"></div> */}
                   </div>
                 </label>
 
@@ -196,7 +198,7 @@ export default function CheckoutPage() {
                           className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                         />
                         <div className="absolute right-3 top-1/2 -translate-y-1/2 flex gap-1">
-                          <div className="w-6 h-4 rounded bg-gradient-to-r from-red-500 to-orange-500"></div>
+                           <img src="/mastercard-logo.png" style={{ width:'40px'}} alt=""  />
                         </div>
                       </div>
                     </div>
@@ -243,6 +245,7 @@ export default function CheckoutPage() {
               </div>
 
               <button
+              
                 type="submit"
                 className="w-full bg-black text-white py-4 font-medium hover:opacity-80 transition-opacity mt-8"
               >
@@ -253,7 +256,7 @@ export default function CheckoutPage() {
         </div>
       </div>
 
-      <Footer />
+    
     </div>
   )
 }
