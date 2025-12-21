@@ -8,3 +8,119 @@
 [01:44:19.838] Server  LOG      ✓ Compiled in 77ms
 [01:45:21.836] Server  LOG      ✓ Compiled in 53ms
 [01:45:35.179] Server  LOG      ✓ Compiled in 46ms
+[03:00:47.858] Server  LOG      ✓ Compiled in 92ms
+[03:00:51.447] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:10:11.659] Server  LOG      ✓ Compiled in 281ms
+[03:10:13.353] Browser ERROR   Failed to load menus: {"code":"42703","details":null,"hint":null,"message":"column menus.is_active does not exist"}
+[03:10:15.957] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:10:16.269] Browser ERROR   Failed to load menus: {"code":"42703","details":null,"hint":null,"message":"column menus.is_active does not exist"}
+[03:13:18.085] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:13:18.842] Browser ERROR   Failed to load menus: {"code":"42703","details":null,"hint":null,"message":"column menus.is_active does not exist"}
+[03:14:48.691] Server  LOG      ✓ Compiled in 71ms
+[03:14:49.553] Browser WARN    GoTrueClient@sb-peuiauimdwsqhdplqlyd-auth-token:1 (2.83.0) 2025-12-21T08:28:49.650Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[03:14:49.553] Browser LOG     Starting to load menus...
+[03:14:49.553] Browser LOG     Fetching menus from Supabase...
+[03:14:49.553] Browser ERROR   Supabase error: {"code":"42703","details":null,"hint":null,"message":"column menus.is_active does not exist"}
+[03:14:49.553] Browser ERROR   Service error: {}
+[03:14:49.553] Browser ERROR   Failed to load menus: {}
+[03:18:50.230] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:18:50.371] Browser LOG     Starting to load menus...
+[03:18:50.371] Browser LOG     Fetching menus from Supabase...
+[03:18:50.994] Browser ERROR   Supabase error: {"code":"42703","details":null,"hint":null,"message":"column menus.is_active does not exist"}
+[03:18:50.994] Browser ERROR   Service error: {}
+[03:18:50.994] Browser ERROR   Failed to load menus: {}
+[03:22:38.440] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:22:38.588] Browser LOG     Starting to load menus...
+[03:22:38.588] Browser LOG     Fetching menus from Supabase...
+[03:22:39.341] Browser LOG     Fetched menus: []
+[03:22:39.341] Browser LOG     Successfully loaded menus: 0 items
+[03:57:22.658] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:57:22.803] Browser LOG     Starting to load menus...
+[03:57:22.803] Browser LOG     Fetching menus from Supabase...
+[03:57:24.060] Browser LOG     Fetched menus: []
+[03:57:24.061] Browser LOG     Successfully loaded menus: 0 items
+[03:57:37.885] Browser LOG     Adding menu: {"name_en":"Pad Thai","name_th":"ผัดไทย"}
+[03:57:38.114] Browser ERROR   Supabase error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'image_url' column of 'menus' in the schema cache"}
+[03:57:38.114] Browser ERROR   Service error: {}
+[03:57:38.114] Browser ERROR   Error saving menu: {}
+[04:36:37.411] Server  LOG      ✓ Compiled in 93ms
+[04:36:37.796] Browser WARN    GoTrueClient@sb-peuiauimdwsqhdplqlyd-auth-token:1 (2.83.0) 2025-12-21T09:50:38.197Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[04:36:37.796] Browser LOG     Starting to load menus...
+[04:36:37.796] Browser LOG     Fetching menus from Supabase...
+[04:36:39.049] Browser LOG     Fetched menus: []
+[04:36:39.049] Browser LOG     Successfully loaded menus: 0 items
+[04:36:40.001] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:36:40.162] Browser LOG     Starting to load menus...
+[04:36:40.162] Browser LOG     Fetching menus from Supabase...
+[04:36:40.522] Browser LOG     Fetched menus: []
+[04:36:40.522] Browser LOG     Successfully loaded menus: 0 items
+[04:36:47.008] Browser LOG     Adding menu: {"name_en":"Pad Thai","name_th":"ผัดไทย"}
+[04:36:47.215] Browser ERROR   Supabase error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'image_url' column of 'menus' in the schema cache"}
+[04:36:47.215] Browser ERROR   Service error: {}
+[04:36:47.215] Browser ERROR   Error saving menu: {}
+[04:38:52.423] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:38:52.553] Browser LOG     Starting to load menus...
+[04:38:52.553] Browser LOG     Fetching menus from Supabase...
+[04:38:54.085] Browser LOG     Fetched menus: []
+[04:38:54.085] Browser LOG     Successfully loaded menus: 0 items
+[04:39:24.609] Browser LOG     Adding menu: {"name_en":"Pad Thai","name_th":"ผัดไทย"}
+[04:39:25.160] Browser ERROR   Supabase error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'image_url' column of 'menus' in the schema cache"}
+[04:39:25.160] Browser ERROR   Service error: {}
+[04:39:25.160] Browser ERROR   Error saving menu: {}
+[04:41:22.625] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:41:22.760] Browser LOG     Starting to load menus...
+[04:41:22.760] Browser LOG     Fetching menus from Supabase...
+[04:41:23.502] Browser LOG     Fetched menus: []
+[04:41:23.502] Browser LOG     Successfully loaded menus: 0 items
+[04:41:29.840] Browser LOG     Adding menu: {"name_en":"Pad Thai","name_th":"ผัดไทย"}
+[04:41:30.060] Browser ERROR   Supabase error: {"code":"42501","details":null,"hint":null,"message":"new row violates row-level security policy for table \"menus\""}
+[04:41:30.060] Browser ERROR   Service error: {}
+[04:41:30.060] Browser ERROR   Error saving menu: {}
+[04:47:12.290] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:47:12.433] Browser LOG     Starting to load menus...
+[04:47:12.433] Browser LOG     Fetching menus from Supabase...
+[04:47:13.227] Browser LOG     Fetched menus: []
+[04:47:13.227] Browser LOG     Successfully loaded menus: 0 items
+[04:47:29.193] Browser LOG     Adding menu: {"name_en":"Pad Thai","name_th":"ผัดไทย"}
+[04:47:29.365] Browser LOG     Added menu: {"created_at":"2025-12-21T10:01:30.239868+00:00","description":null,"id":2,"image_url":null,"is_active":null,"name_en":"Pad Thai","name_th":"ผัดไทย","tag":null}
+[04:47:35.709] Browser LOG     Updating menu: 2 {"name_en":"Pad Thai","name_th":"ผัดไทยfff"}
+[04:47:35.921] Browser LOG     Updated menu: {"created_at":"2025-12-21T10:01:30.239868+00:00","description":null,"id":2,"image_url":null,"is_active":null,"name_en":"Pad Thai","name_th":"ผัดไทยfff","tag":null}
+[04:47:38.775] Browser LOG     Deleting menu: 2
+[04:47:38.963] Browser LOG     Deleted menu: 2
+[04:47:43.594] Browser LOG     Adding menu: {"name_en":"dsf","name_th":"sdf"}
+[04:47:43.760] Browser LOG     Added menu: {"created_at":"2025-12-21T10:01:44.637457+00:00","description":null,"id":3,"image_url":null,"is_active":null,"name_en":"dsf","name_th":"sdf","tag":null}
+[07:32:07.586] Server  LOG      ✓ Compiled in 306ms
+[07:32:08.321] Browser WARN    GoTrueClient@sb-peuiauimdwsqhdplqlyd-auth-token:1 (2.83.0) 2025-12-21T12:46:08.623Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[07:32:17.305] Server  LOG      ✓ Compiled in 101ms
+[07:40:43.572] Server  LOG      ✓ Compiled in 78ms
+[07:40:44.333] Browser WARN    GoTrueClient@sb-peuiauimdwsqhdplqlyd-auth-token:2 (2.83.0) 2025-12-21T12:54:44.563Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[07:40:51.941] Server  LOG      ✓ Compiled in 68ms
+[10:05:09.032] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:49:35.853] Server  LOG      ✓ Compiled in 167ms
+[10:51:57.873] Server  LOG      ✓ Compiled in 56ms
+[10:52:00.949] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:53:18.138] Server  LOG      ✓ Compiled in 64ms
+[10:53:20.179] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:56:43.093] Server  LOG      ✓ Compiled in 117ms
+[10:56:50.427] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:58:30.120] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:58:31.049] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:58:34.891] Server  LOG      ✓ Compiled in 98ms
+[11:29:03.945] Server  LOG      ✓ Compiled in 66ms
+[11:31:51.289] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:32:16.655] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:32:55.177] Server  LOG      ✓ Compiled in 50ms
+[11:32:58.918] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[11:35:13.711] Server  LOG      ✓ Compiled in 73ms
+[11:38:06.485] Server  LOG      ✓ Compiled in 142ms
+[11:38:23.718] Server  LOG      ✓ Compiled in 75ms
+[12:07:44.487] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[12:10:23.390] Server  LOG      ✓ Compiled in 172ms
+[12:11:33.801] Server  LOG      ✓ Compiled in 43ms
+[12:15:04.518] Server  LOG      ✓ Compiled in 40ms
+[12:15:52.133] Server  LOG      ✓ Compiled in 67ms
+[12:16:00.790] Server  LOG      ✓ Compiled in 56ms
+[12:16:28.490] Server  LOG      ✓ Compiled in 38ms
+[12:16:32.073] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[12:16:42.074] Server  LOG      ✓ Compiled in 41ms
+[12:18:50.444] Server  LOG      ✓ Compiled in 49ms

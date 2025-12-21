@@ -756,7 +756,7 @@ export default function ManageCourses() {
                 className="text-lg font-light mb-4"
                 style={{ color: "#3d2817" }}
               >
-                Course Details
+                Course Detailsกก
               </h4>
 
               <div className="space-y-4">

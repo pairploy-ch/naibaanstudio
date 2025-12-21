@@ -5,65 +5,49 @@ import Calendar from "react-calendar"
 import "react-calendar/dist/Calendar.css"
 
 // --- Data Section ---
+// ฟังก์ชันสร้างข้อมูล availability สำหรับวันจันทร์ล่วงหน้า 3 เดือน
+const generateMondayAvailability = () => {
+  const availability: Record<string, Record<string, { available: number; total: number }>> = {}
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  
+  // คำนวณ 3 เดือนข้างหน้า
+  const endDate = new Date(today)
+  endDate.setMonth(endDate.getMonth() + 3)
+  
+  // หาวันจันทร์ถัดไป
+  let currentDate = new Date(today)
+  currentDate.setDate(currentDate.getDate() + 2) // เริ่มจากล่วงหน้า 2 วัน
+  
+  // ถ้าไม่ใช่วันจันทร์ ให้หาวันจันทร์ถัดไป
+  while (currentDate.getDay() !== 1) {
+    currentDate.setDate(currentDate.getDate() + 1)
+  }
+  
+  // วนลูปสร้างข้อมูลทุกวันจันทร์
+  while (currentDate <= endDate) {
+    const dateStr = currentDate.toISOString().split("T")[0]
+    
+    // สุ่มจำนวนที่นั่งว่าง (0-10)
+    const morningAvailable = Math.floor(Math.random() * 11)
+    const afternoonAvailable = Math.floor(Math.random() * 11)
+    
+    availability[dateStr] = {
+      morning: { available: morningAvailable, total: 10 },
+      afternoon: { available: afternoonAvailable, total: 10 },
+    }
+    
+    // ไปวันจันทร์ถัดไป (+7 วัน)
+    currentDate.setDate(currentDate.getDate() + 7)
+  }
+  
+  return availability
+}
+
 const courseAvailability: Record<string, Record<string, Record<string, { available: number; total: number }>>> = {
-  "1": {
-    "2025-11-30": {
-      morning: { available: 3, total: 10 },
-      afternoon: { available: 5, total: 10 },
-    },
-    "2025-12-07": {
-      morning: { available: 0, total: 10 },
-      afternoon: { available: 2, total: 10 },
-    },
-    "2025-12-14": {
-      morning: { available: 5, total: 10 },
-      afternoon: { available: 3, total: 10 },
-    },
-    "2025-12-21": {
-      morning: { available: 2, total: 10 },
-      afternoon: { available: 0, total: 10 },
-    },
-    "2025-12-28": {
-      morning: { available: 8, total: 10 },
-      afternoon: { available: 6, total: 10 },
-    },
-  },
-  "2": {
-    "2025-12-16": {
-      morning: { available: 2, total: 10 },
-      afternoon: { available: 4, total: 10 },
-    },
-    "2025-12-17": {
-      morning: { available: 4, total: 10 },
-      afternoon: { available: 3, total: 10 },
-    },
-    "2025-12-24": {
-      morning: { available: 0, total: 10 },
-      afternoon: { available: 5, total: 10 },
-    },
-    "2025-12-25": {
-      morning: { available: 6, total: 10 },
-      afternoon: { available: 2, total: 10 },
-    },
-  },
-  "3": {
-    "2025-12-14": {
-      morning: { available: 5, total: 10 },
-      afternoon: { available: 7, total: 10 },
-    },
-    "2025-12-15": {
-      morning: { available: 0, total: 10 },
-      afternoon: { available: 4, total: 10 },
-    },
-    "2025-12-21": {
-      morning: { available: 3, total: 10 },
-      afternoon: { available: 6, total: 10 },
-    },
-    "2025-12-22": {
-      morning: { available: 7, total: 10 },
-      afternoon: { available: 1, total: 10 },
-    },
-  },
+  "1": generateMondayAvailability(),
+  "2": generateMondayAvailability(),
+  "3": generateMondayAvailability(),
 }
 
 const TIME_SLOTS = [
@@ -72,10 +56,29 @@ const TIME_SLOTS = [
 ]
 
 const courseData: Record<string, any> = {
+  "1": {
+    title: "Pad Thai, Tom Yum Soup, Red Curry & Banana in coconut milk",
+    image: "https://www.allthaievent.com/images/event/25453.jpg",
+    description: `Experience the essence of Thai cuisine through four iconic dishes that represent the perfect balance of flavors Thailand is famous for. This comprehensive cooking class takes you on a culinary journey from the beloved street food classic Pad Thai, through the aromatic and spicy Tom Yum soup, to the rich and creamy Red Curry, and concludes with a traditional Thai dessert - sweet bananas in warm coconut milk.
+
+Each dish tells a story of Thai culture and showcases different cooking techniques that are fundamental to Thai cuisine. You'll master the art of balancing sweet, sour, salty, and spicy flavors while working with authentic Thai ingredients including tamarind, lemongrass, galangal, kaffir lime leaves, and Thai basil. This hands-on experience will equip you with the skills and confidence to recreate these restaurant-quality dishes in your own kitchen.`,
+    learningPoints: [
+      "Master the art of stir-frying Pad Thai noodles with traditional sauce and toppings",
+      "Create the perfect Tom Yum broth using fresh Thai herbs and aromatic spices",
+      "Prepare authentic Red Curry paste and achieve the ideal balance of heat and creaminess",
+      "Cook traditional Thai dessert - Bananas in coconut milk with palm sugar",
+      "Learn the Thai principle of balancing four essential flavors in every dish",
+      "Understand proper preparation and usage of key Thai ingredients like galangal, lemongrass, and kaffir lime leaves",
+    ],
+    experience: `Join us in our welcoming kitchen studio where you'll cook all four dishes from start to finish under the guidance of our experienced Thai chef. You'll work with fresh ingredients, traditional tools, and authentic techniques. At the end of the class, sit down to enjoy your homemade four-course Thai feast. Whether you're new to Thai cooking or looking to refine your skills, this class offers an immersive and delicious learning experience that celebrates the heart of Thai culinary tradition.`,
+    price: 2800,
+  },
   "2": {
     title: "Mastering Pad Thai",
     image: "/authentic-pad-thai-noodles-on-traditional-thai-cer.jpg",
-    description: `Pad Thai is more than just a delicious stir-fried noodle dish—it's a symbol of Thailand's culinary creativity and cultural heritage. Created nearly a century ago during a time of national transformation, Pad Thai was introduced as a unifying dish that celebrated local ingredients, balanced flavors, and the spirit of Thai cooking. Today, it remains one of the most beloved dishes in the world, known for its harmony of sweet, sour, salty, and savory notes.In this hands-on cooking session, you will learn the authentic method of preparing Pad Thai from scratch. We will guide you through the essential ingredients—from tamarind and palm sugar to dried shrimp, tofu, and fresh prawns—and show you how to balance flavors the Thai way. You'll also get to practice wok skills, sauce preparation, and plating techniques to recreate this classic dish confidently at home.`,
+    description: `Pad Thai is more than just a delicious stir-fried noodle dish—it's a symbol of Thailand's culinary creativity and cultural heritage. Created nearly a century ago during a time of national transformation, Pad Thai was introduced as a unifying dish that celebrated local ingredients, balanced flavors, and the spirit of Thai cooking. Today, it remains one of the most beloved dishes in the world, known for its harmony of sweet, sour, salty, and savory notes.
+
+In this hands-on cooking session, you will learn the authentic method of preparing Pad Thai from scratch. We will guide you through the essential ingredients—from tamarind and palm sugar to dried shrimp, tofu, and fresh prawns—and show you how to balance flavors the Thai way. You'll also get to practice wok skills, sauce preparation, and plating techniques to recreate this classic dish confidently at home.`,
     learningPoints: [
       "The origins and cultural significance of Pad Thai",
       "How to prepare traditional Pad Thai sauce using authentic Thai ingredients",
@@ -86,20 +89,6 @@ const courseData: Record<string, any> = {
     ],
     experience: `You'll cook in a cozy and friendly studio environment, guided by our local instructor. Whether you're a beginner or a passionate home cook, this class will help you understand what makes Pad Thai truly Thai. By the end, you'll enjoy your own freshly prepared dish—topped with lime, crushed peanuts, and that irresistible aroma only a sizzling wok can create.`,
     price: 3000,
-  },
-  "1": {
-    title: "Pad Thai, Tom Yum Soup, Red Curry & Banana in coconut milk",
-    image: "https://www.allthaievent.com/images/event/25453.jpg",
-    description: `Discover the aromatic world of Thai herbs and spices in this immersive cooking class. Learn how to identify, prepare, and use essential Thai ingredients like lemongrass, galangal, kaffir lime leaves, and Thai basil to create authentic flavors.`,
-    learningPoints: [
-      "Identification of essential Thai herbs and spices",
-      "Proper preparation and storage techniques",
-      "How to make traditional curry pastes from scratch",
-      "Balancing aromatic flavors in Thai cuisine",
-      "Creating herb-forward dishes like Tom Yum",
-    ],
-    experience: `Experience the vibrant aromatics of Thai cooking as you work with fresh herbs and spices. Our instructor will guide you through traditional techniques passed down through generations.`,
-    price: 2800,
   },
   "3": {
     title: "Coconut & Curry Cooking Experience",
@@ -123,7 +112,6 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
   const availability = courseAvailability[id] || courseAvailability["2"]
 
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
-  const [selectedTime, setSelectedTime] = useState<string | null>(null)
   const [quantity, setQuantity] = useState(1)
 
   const formatDate = (date: Date) => {
@@ -155,6 +143,21 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
 
   const tileDisabled = ({ date, view }: { date: Date; view: string }) => {
     if (view === "month") {
+      // คำนวณวันที่ล่วงหน้าอย่างน้อย 2 วัน
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+      const minBookingDate = new Date(today)
+      minBookingDate.setDate(today.getDate() + 2)
+      
+      // สร้าง date object สำหรับเปรียบเทียบ
+      const checkDate = new Date(date)
+      checkDate.setHours(0, 0, 0, 0)
+      
+      // ถ้าวันที่น้อยกว่าหรือเท่ากับวันที่ล่วงหน้า 2 วัน ให้ปิดการจอง
+      if (checkDate <= minBookingDate) {
+        return true
+      }
+      
       const dateStr = formatDate(date)
       const dayAvailability = availability[dateStr]
       if (dayAvailability) {
@@ -169,7 +172,6 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
 
   const handleDateChange = (value: Date) => {
     setSelectedDate(value)
-    setSelectedTime(null)
   }
 
   return (
@@ -220,55 +222,18 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
               onChange={(value) => handleDateChange(value as Date)}
               tileContent={tileContent}
               tileDisabled={tileDisabled}
-              minDate={new Date()}
+              minDate={(() => {
+                const today = new Date()
+                today.setHours(0, 0, 0, 0)
+                const minDate = new Date(today)
+                minDate.setDate(today.getDate() + 2)
+                return minDate
+              })()}
               className="border-2 border-black"
             />
           </div>
 
-          {selectedDate && (
-            <div className="mt-6 p-4 bg-white border border-black">
-              <p className="font-semibold text-black">
-                Selected Date:{" "}
-                {selectedDate.toLocaleDateString("en-US", {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </p>
 
-              <div className="mt-6">
-                <p className="font-semibold text-black mb-4">Select Time Slot:</p>
-                <div className="grid grid-cols-2 gap-4">
-                  {TIME_SLOTS.map((slot) => {
-                    const slotAvailability =
-                      availability[formatDate(selectedDate)]?.[slot.id as "morning" | "afternoon"]
-                    const slotFull = slotAvailability?.available === 0
-                    return (
-                      <button
-                        key={slot.id}
-                        onClick={() => setSelectedTime(slot.id)}
-                        disabled={slotFull}
-                        className={`p-4 border-2 rounded transition-all ${
-                          slotFull
-                            ? "border-gray-300 text-gray-400 bg-gray-100 cursor-not-allowed"
-                            : selectedTime === slot.id
-                              ? "border-black bg-black text-white"
-                              : "border-black text-black hover:bg-gray-100"
-                        }`}
-                      >
-                        <div className="font-semibold text-sm">{slot.label}</div>
-                        <div className="text-xs mt-1">{slot.time}</div>
-                        <div className="text-xs mt-2">
-                          {slotAvailability ? `${slotAvailability.available} seats` : "N/A"}
-                        </div>
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
-            </div>
-          )}
         </div>
 
         <hr className="border-black mb-16" />
@@ -288,11 +253,15 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
                 <span className="font-bold">{quantity}</span>
                 <button
                   onClick={() => {
-                    if (selectedDate && selectedTime) {
-                      const maxSeats =
-                        availability[formatDate(selectedDate)]?.[selectedTime as "morning" | "afternoon"]?.available ||
-                        1
-                      setQuantity(Math.min(maxSeats, quantity + 1))
+                    if (selectedDate) {
+                      const dateStr = formatDate(selectedDate)
+                      const dayAvailability = availability[dateStr]
+                      if (dayAvailability) {
+                        const totalAvailable = (dayAvailability.morning?.available || 0) + (dayAvailability.afternoon?.available || 0)
+                        setQuantity(Math.min(totalAvailable, quantity + 1))
+                      } else {
+                        setQuantity(quantity + 1)
+                      }
                     } else {
                       setQuantity(quantity + 1)
                     }
@@ -315,12 +284,12 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
             <div className="p-6 pt-0 flex justify-end">
               <Link
                 href={
-                  selectedDate && selectedTime
-                    ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&time=${selectedTime}&quantity=${quantity}&price=${course.price}&courseId=${id}`
+                  selectedDate
+                    ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&quantity=${quantity}&price=${course.price}&courseId=${id}`
                     : "#"
                 }
                 className={`bg-black text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
-                  !selectedDate || !selectedTime ? "opacity-50 pointer-events-none" : ""
+                  !selectedDate ? "opacity-50 pointer-events-none" : ""
                 }`}
               >
                 Checkout Now
