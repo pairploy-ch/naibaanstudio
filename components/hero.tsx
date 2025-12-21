@@ -24,9 +24,13 @@ export function Hero() {
           traditional recipes, local ingredients, and regional culinary
           techniques from expert Thai chefs.
         </p>
-        <button className="font-semibold inline-flex items-center gap-2 px-8 py-4 text-md text-white border border-white bg-none hover:bg-white hover:text-black transition-colors duration-300">
-          Book A Class
-        </button>
+      <a
+  href="#courses"
+  className="font-semibold inline-flex items-center gap-2 px-8 py-4 text-md text-white border border-white bg-none hover:bg-white hover:text-black transition-colors duration-300"
+>
+  Book A Class
+</a>
+
       </div>
     </section>
   );
