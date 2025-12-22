@@ -1,22 +1,386 @@
-[00:00:00.890] Server  LOG      ✓ Ready in 632ms
-[00:00:08.130] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:53.848] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:09.147] Browser WARN    GoTrueClient@sb-peuiauimdwsqhdplqlyd-auth-token:1 (2.83.0) 2025-12-22T07:15:13.862Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:08:09.147] Browser LOG     Starting to load menus...
-[00:08:09.147] Browser LOG     Fetching menus from Supabase...
-[00:08:09.147] Browser LOG     Starting to load menus...
-[00:08:09.147] Browser LOG     Fetching menus from Supabase...
-[00:08:09.888] Browser LOG     Fetched menus: []
-[00:08:09.888] Browser LOG     Successfully loaded menus: 0 items
-[00:08:10.071] Browser LOG     Fetched menus: []
-[00:08:10.071] Browser LOG     Successfully loaded menus: 0 items
-[00:08:14.238] Browser LOG     Starting to load menus...
-[00:08:14.238] Browser LOG     Fetching menus from Supabase...
-[00:08:14.238] Browser LOG     Starting to load menus...
-[00:08:14.238] Browser LOG     Fetching menus from Supabase...
-[00:08:14.725] Browser LOG     Fetched menus: []
-[00:08:14.725] Browser LOG     Successfully loaded menus: 0 items
-[00:08:14.934] Browser LOG     Fetched menus: []
-[00:08:14.934] Browser LOG     Successfully loaded menus: 0 items
-[00:21:04.345] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:21:40.917] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:01.241] Server  LOG      ✓ Ready in 925ms
+[00:00:12.068] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:13.359] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:16.796] Browser WARN    GoTrueClient@sb-peuiauimdwsqhdplqlyd-auth-token:1 (2.83.0) 2025-12-22T14:48:37.689Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:02:16.796] Browser LOG     Starting to load menus...
+[00:02:16.797] Browser LOG     Fetching menus from Supabase...
+[00:02:16.797] Browser LOG     Starting to load menus...
+[00:02:16.797] Browser LOG     Fetching menus from Supabase...
+[00:02:17.587] Browser LOG     Fetched menus: []
+[00:02:17.587] Browser LOG     Successfully loaded menus: 0 items
+[00:02:17.764] Browser LOG     Fetched menus: []
+[00:02:17.764] Browser LOG     Successfully loaded menus: 0 items
+[00:02:19.755] Browser LOG     Starting to load menus...
+[00:02:19.755] Browser LOG     Fetching menus from Supabase...
+[00:02:19.755] Browser LOG     Starting to load menus...
+[00:02:19.755] Browser LOG     Fetching menus from Supabase...
+[00:02:20.092] Browser LOG     Fetched menus: []
+[00:02:20.092] Browser LOG     Successfully loaded menus: 0 items
+[00:02:20.245] Browser LOG     Fetched menus: []
+[00:02:20.246] Browser LOG     Successfully loaded menus: 0 items
+[00:02:23.136] Browser LOG     Starting to load menus...
+[00:02:23.137] Browser LOG     Fetching menus from Supabase...
+[00:02:23.137] Browser LOG     Starting to load menus...
+[00:02:23.137] Browser LOG     Fetching menus from Supabase...
+[00:02:23.458] Browser LOG     Fetched menus: []
+[00:02:23.458] Browser LOG     Successfully loaded menus: 0 items
+[00:02:23.611] Browser LOG     Fetched menus: []
+[00:02:23.611] Browser LOG     Successfully loaded menus: 0 items
+[00:39:42.597] Server  LOG      ✓ Compiled in 214ms
+[00:39:45.015] Browser ERROR   Error fetching templates: {"code":"PGRST200","details":"Searched for a foreign key relationship between 'weekly_templates' and 'template_menus' in the schema 'public', but no matches were found.","hint":"Perhaps you meant 'weekly_template_days' instead of 'template_menus'.","message":"Could not find a relationship between 'weekly_templates' and 'template_menus' in the schema cache"}
+[00:40:10.828] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:40:12.834] Browser ERROR   Error fetching templates: {"code":"PGRST200","details":"Searched for a foreign key relationship between 'weekly_templates' and 'template_menus' in the schema 'public', but no matches were found.","hint":"Perhaps you meant 'weekly_template_days' instead of 'template_menus'.","message":"Could not find a relationship between 'weekly_templates' and 'template_menus' in the schema cache"}
+[00:40:54.216] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:40:56.257] Browser ERROR   Error fetching templates: {"code":"PGRST200","details":"Searched for a foreign key relationship between 'weekly_templates' and 'template_menus' in the schema 'public', but no matches were found.","hint":"Perhaps you meant 'weekly_template_days' instead of 'template_menus'.","message":"Could not find a relationship between 'weekly_templates' and 'template_menus' in the schema cache"}
+[00:45:38.000] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:45:40.585] Browser ERROR   Error fetching templates: {"code":"PGRST205","details":null,"hint":null,"message":"Could not find the table 'public.weekly_templates' in the schema cache"}
+[00:58:40.343] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:01:43.781] Server  LOG      ✓ Compiled in 76ms
+[01:01:48.220] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:03:09.516] Server  LOG      ✓ Compiled in 95ms
+[01:03:13.109] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:03:18.679] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.682] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.688] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.692] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.705] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.707] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.710] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.713] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.718] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.723] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.726] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.729] Server  ERROR    ⨯ ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[01:03:18.732] Server  LOG      ✓ Compiled in 146ms
+[01:03:18.837] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[01:03:19.015] Browser ERROR   ./Downloads/thaicookingclasses/app/admin/course/page.tsx:9:1
+Module not found: Can't resolve '@/lib/supabase/client'
+   7 | import timeGridPlugin from "@fullcalendar/timegrid"
+   8 | import interactionPlugin from "@fullcalendar/interaction"
+>  9 | import { getSupabaseBrowserClient } from "@/lib/supabase/client"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | // import { saveWeeklyTemplate, loadWeeklyTemplates } from "./actions/course-actions"
+  11 |
+  12 | type DayToken = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+
+Import map: aliased to relative './lib/supabase/client' inside of [project]/Downloads/thaicookingclasses
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/admin/course/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
