@@ -7,9 +7,9 @@ export function Footer() {
           <div>
             <h3 className=" text-2xl font-bold mb-4">Contact</h3>
             <div className="space-y-2 text-muted-foreground">
-              <p><u>Tel: +66 xxx xxxx</u></p>
+              <p><u>Tel: 0926100542, 0941656352</u></p>
               
-              <p><u>Email: doubleh.feb@gmail.com</u></p>
+              <p><u>Email: naibaanstudio@gmail.com</u></p>
             </div>
           </div>
 

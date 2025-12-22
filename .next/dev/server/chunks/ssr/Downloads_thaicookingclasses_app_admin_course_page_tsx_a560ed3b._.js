@@ -819,7 +819,7 @@ function ManageCourses() {
                                             color: "#3d2817"
                                         },
                                         className: "jsx-865e71dbaaa19509" + " " + "text-lg font-light mb-4",
-                                        children: "Course Detailsกก"
+                                        children: "Course Details"
                                     }, void 0, false, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/admin/course/page.tsx",
                                         lineNumber: 755,

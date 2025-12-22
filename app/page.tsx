@@ -4,6 +4,7 @@ import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { CourseHighlights } from "@/components/course-highlights";
 import { CTA } from "@/components/cta";
+import  Review  from "@/components/review";
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
 
       <About />
       <CourseHighlights />
+       <Review />
       <CTA />
      
     </main>

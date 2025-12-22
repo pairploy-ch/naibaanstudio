@@ -24,15 +24,15 @@ export default function ContactPage() {
             <div>
               <p className="text-gray-600 text-sm font-medium mb-2">tel</p>
               <a href="tel:+66" className="text-gray-900 font-semibold hover:text-gray-600 transition-colors">
-                +66 xxx xxxx
+                0926100542, 0941656352
               </a>
             </div>
 
             {/* Email */}
             <div>
               <p className="text-gray-600 text-sm font-medium mb-2">email</p>
-              <a href="mailto:doubleh.feb@gmail.com" className="text-gray-900 font-semibold hover:text-gray-600 transition-colors underline">
-                doubleh.feb@gmail.com
+              <a href="mailto:naibaanstudio@gmail.com" className="text-gray-900 font-semibold hover:text-gray-600 transition-colors underline">
+                naibaanstudio@gmail.com
               </a>
             </div>
 

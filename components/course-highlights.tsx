@@ -21,7 +21,7 @@ const courses = [
   },
   {
     id: 3,
-    title: 'Zero Waste Thai Cooking Course',
+    title: 'Zero Waste Cooking Course',
     description: 'Focuses on Zero Waste Thai cooking. Participants will learn how to prepare delicious Thai dishes',
     // date: 'DEC 22 2025, 9.00 AM - 12.30 PM / 2:00 PM - 5:30 PM',
     // dateBadge: { day: '22', month: 'DEC' },
@@ -30,7 +30,7 @@ const courses = [
   },
   {
     id: 4,
-    title: 'Single Dish Thai Cooking Course',
+    title: 'Single Dish Cooking Course',
     description: 'This short cooking class lasts 2–3 hours and is perfect for travelers with limited time. Participants will learn how to cook two iconic Thai dishes',
     // date: 'DEC 29 2025, 9.00 AM - 12.30 PM / 2:00 PM - 5:30 PM',
     // dateBadge: { day: '29', month: 'DEC' },
@@ -67,7 +67,7 @@ export function CourseHighlights() {
                 <h3 className="font-bold text-xl mb-2 text-black">
                   {course.title}
                 </h3>
-                <p className="text-black text-sm mb-3 opacity-80 h-[80px]">
+                <p className="text-black text-sm mb-3 opacity-80 h-[100px]">
                   {course.description}
                 </p>
                 {/* <p className="text-black text-sm mb-4">

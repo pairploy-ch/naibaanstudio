@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { Edit3, Plus, Trash2, Search } from 'lucide-react';
+import { Edit3, Plus, Trash2, Search, Loader2 } from 'lucide-react';
+import { supabase } from '@/lib/supabaseClient';
 
 interface Customer {
   id: string;
@@ -9,7 +10,10 @@ interface Customer {
   lastName: string;
   email: string;
   phone: string;
+  passportNum: string;
+  country: string;
   address: string;
+  created_at?: string;
 }
 
 interface CustomerFormState {
@@ -17,6 +21,8 @@ interface CustomerFormState {
   lastName: string;
   email: string;
   phone: string;
+  passportNum: string;
+  country: string;
   address: string;
 }
 
@@ -25,36 +31,59 @@ const emptyFormState: CustomerFormState = {
   lastName: '',
   email: '',
   phone: '',
+  passportNum: '',
+  country: '',
   address: ''
 };
 
 const ITEMS_PER_PAGE = 10;
 
 export default function ManageCustomerPage() {
-  const [customers, setCustomers] = useState<Customer[]>([
-    {
-      id: '1',
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john.doe@example.com',
-      phone: '081-234-5678',
-      address: '123 Sukhumvit Road, Khlong Toei, Bangkok 10110'
-    },
-    {
-      id: '2',
-      firstName: 'Jane',
-      lastName: 'Smith',
-      email: 'jane.smith@example.com',
-      phone: '082-345-6789',
-      address: '456 Rama IV Road, Pathum Wan, Bangkok 10330'
-    }
-  ]);
+  const [customers, setCustomers] = useState<Customer[]>([]);
+  const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [formState, setFormState] = useState<CustomerFormState>(emptyFormState);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [deleteConfirm, setDeleteConfirm] = useState<{ id: string; name: string } | null>(null);
+
+  // Fetch customers from Supabase
+  const fetchCustomers = async () => {
+    try {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from('customers')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+
+      // Map Supabase data to our Customer interface
+      const mappedData: Customer[] = (data || []).map(item => ({
+        id: item.id,
+        firstName: item.first_name || item.firstName || '',
+        lastName: item.last_name || item.lastName || '',
+        email: item.email || '',
+        phone: item.phone || '',
+        passportNum: item.passport_num || item.passportNum || '',
+        country: item.country || '',
+        address: item.address || '',
+        created_at: item.created_at
+      }));
+
+      setCustomers(mappedData);
+    } catch (error) {
+      console.error('Error fetching customers:', error);
+      alert('Failed to load customers. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCustomers();
+  }, []);
 
   const filteredCustomers = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -64,6 +93,8 @@ export default function ManageCustomerPage() {
         customer.lastName,
         customer.email,
         customer.phone,
+        customer.passportNum,
+        customer.country,
         customer.address
       ].join(' ').toLowerCase();
       return haystack.includes(query);
@@ -119,44 +150,77 @@ export default function ManageCustomerPage() {
       lastName: customer.lastName,
       email: customer.email,
       phone: customer.phone,
+      passportNum: customer.passportNum,
+      country: customer.country,
       address: customer.address
     });
     setShowForm(true);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!formState.firstName.trim() || !formState.lastName.trim() || !formState.email.trim()) return;
     
     const payload = {
-      firstName: formState.firstName.trim(),
-      lastName: formState.lastName.trim(),
+      first_name: formState.firstName.trim(),
+      last_name: formState.lastName.trim(),
       email: formState.email.trim(),
       phone: formState.phone.trim(),
+      passport_num: formState.passportNum.trim(),
+      country: formState.country.trim(),
       address: formState.address.trim()
     };
 
-    if (editingId) {
-      setCustomers(prev => prev.map(c => c.id === editingId ? { ...c, ...payload } : c));
-    } else {
-      const newCustomer: Customer = {
-        id: Date.now().toString(),
-        ...payload
-      };
-      setCustomers(prev => [...prev, newCustomer]);
+    try {
+      if (editingId) {
+        // Update existing customer
+        const { error } = await supabase
+          .from('customers')
+          .update(payload)
+          .eq('id', editingId);
+
+        if (error) throw error;
+      } else {
+        // Insert new customer
+        const { error } = await supabase
+          .from('customers')
+          .insert([payload]);
+
+        if (error) throw error;
+      }
+
+      // Refresh the customer list
+      await fetchCustomers();
+      
+      setShowForm(false);
+      setFormState(emptyFormState);
+      setEditingId(null);
+    } catch (error) {
+      console.error('Error saving customer:', error);
+      alert('Failed to save customer. Please try again.');
     }
-    setShowForm(false);
-    setFormState(emptyFormState);
-    setEditingId(null);
   };
 
   const handleDelete = (id: string, name: string) => {
     setDeleteConfirm({ id, name });
   };
 
-  const confirmDelete = () => {
+  const confirmDelete = async () => {
     if (deleteConfirm) {
-      setCustomers(prev => prev.filter(c => c.id !== deleteConfirm.id));
-      setDeleteConfirm(null);
+      try {
+        const { error } = await supabase
+          .from('customers')
+          .delete()
+          .eq('id', deleteConfirm.id);
+
+        if (error) throw error;
+
+        // Refresh the customer list
+        await fetchCustomers();
+        setDeleteConfirm(null);
+      } catch (error) {
+        console.error('Error deleting customer:', error);
+        alert('Failed to delete customer. Please try again.');
+      }
     }
   };
 
@@ -188,7 +252,7 @@ export default function ManageCustomerPage() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search customer by name, email, phone..."
+                placeholder="Search customer by name, email, phone, passport..."
                 className="w-full border pl-9 pr-4 py-2 text-sm"
                 style={{ borderColor: '#e5dcd4', backgroundColor: '#fffdfa' }}
               />
@@ -196,70 +260,84 @@ export default function ManageCustomerPage() {
           </div>
 
           <div className="pb-4">
-            <div className="overflow-x-auto border" style={{ borderColor: '#f1e6db' }}>
-              <table className="w-full text-sm">
-                <thead>
-                  <tr style={{ backgroundColor: '#f9f5f0', color: '#8b6f47' }}>
-                    <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Customer</th>
-                    <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Email</th>
-                    <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Phone</th>
-                    <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Address</th>
-                    <th className="px-4 py-3 text-right text-xs uppercase tracking-[0.2em]">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {paginatedCustomers.map((customer) => (
-                    <tr key={customer.id} className="border-t" style={{ borderColor: '#f1e6db' }}>
-                      <td className="px-4 py-3 align-middle">
-                        <div>
-                          <p className="font-medium" style={{ color: '#3d2817' }}>
-                            {customer.firstName} {customer.lastName}
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-4 py-3 align-middle" style={{ color: '#7a5f3d' }}>
-                        <p className="text-sm">{customer.email}</p>
-                      </td>
-                      <td className="px-4 py-3 align-middle" style={{ color: '#7a5f3d' }}>
-                        <p className="text-sm">{customer.phone}</p>
-                      </td>
-                      <td className="px-4 py-3 align-middle" style={{ color: '#7a5f3d' }}>
-                        {customer.address ? (
-                          <p className="max-w-md leading-relaxed text-sm">{customer.address}</p>
-                        ) : (
-                          <span className="italic text-gray-400">No address</span>
-                        )}
-                      </td>
-                      <td className="px-4 py-3 text-right align-middle">
-                        <div className="inline-flex gap-2">
-                          <button
-                            onClick={() => openEditForm(customer)}
-                            className="p-2 border hover:bg-[#f5f1ed]"
-                            style={{ color: '#3d2817', borderColor: '#f1e6db' }}
-                          >
-                            <Edit3 size={16} />
-                          </button>
-                          <button
-                            onClick={() => handleDelete(customer.id, `${customer.firstName} ${customer.lastName}`)}
-                            className="p-2 border hover:bg-[#fde8e4]"
-                            style={{ color: '#c1513b', borderColor: '#f1e6db' }}
-                          >
-                            <Trash2 size={16} />
-                          </button>
-                        </div>
-                      </td>
+            {loading ? (
+              <div className="flex items-center justify-center py-20">
+                <Loader2 size={32} className="animate-spin" style={{ color: '#3d2817' }} />
+              </div>
+            ) : (
+              <div className="overflow-x-auto border" style={{ borderColor: '#f1e6db' }}>
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr style={{ backgroundColor: '#f9f5f0', color: '#8b6f47' }}>
+                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Customer</th>
+                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Email</th>
+                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Phone</th>
+                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Passport</th>
+                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Country</th>
+                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Address</th>
+                      <th className="px-4 py-3 text-right text-xs uppercase tracking-[0.2em]">Actions</th>
                     </tr>
-                  ))}
-                  {sortedCustomers.length === 0 && (
-                    <tr>
-                      <td colSpan={5} className="px-4 py-10 text-center text-sm" style={{ color: '#8b6f47' }}>
-                        No customers match the current search.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody>
+                    {paginatedCustomers.map((customer) => (
+                      <tr key={customer.id} className="border-t" style={{ borderColor: '#f1e6db' }}>
+                        <td className="px-4 py-3 align-middle">
+                          <div>
+                            <p className="font-medium" style={{ color: '#3d2817' }}>
+                              {customer.firstName} {customer.lastName}
+                            </p>
+                          </div>
+                        </td>
+                        <td className="px-4 py-3 align-middle" style={{ color: '#7a5f3d' }}>
+                          <p className="text-sm">{customer.email}</p>
+                        </td>
+                        <td className="px-4 py-3 align-middle" style={{ color: '#7a5f3d' }}>
+                          <p className="text-sm">{customer.phone}</p>
+                        </td>
+                        <td className="px-4 py-3 align-middle" style={{ color: '#7a5f3d' }}>
+                          <p className="text-sm">{customer.passportNum || '-'}</p>
+                        </td>
+                        <td className="px-4 py-3 align-middle" style={{ color: '#7a5f3d' }}>
+                          <p className="text-sm">{customer.country || '-'}</p>
+                        </td>
+                        <td className="px-4 py-3 align-middle" style={{ color: '#7a5f3d' }}>
+                          {customer.address ? (
+                            <p className="max-w-md leading-relaxed text-sm">{customer.address}</p>
+                          ) : (
+                            <span className="italic text-gray-400">-</span>
+                          )}
+                        </td>
+                        <td className="px-4 py-3 text-right align-middle">
+                          <div className="inline-flex gap-2">
+                            <button
+                              onClick={() => openEditForm(customer)}
+                              className="p-2 border hover:bg-[#f5f1ed]"
+                              style={{ color: '#3d2817', borderColor: '#f1e6db' }}
+                            >
+                              <Edit3 size={16} />
+                            </button>
+                            <button
+                              onClick={() => handleDelete(customer.id, `${customer.firstName} ${customer.lastName}`)}
+                              className="p-2 border hover:bg-[#fde8e4]"
+                              style={{ color: '#c1513b', borderColor: '#f1e6db' }}
+                            >
+                              <Trash2 size={16} />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                    {sortedCustomers.length === 0 && (
+                      <tr>
+                        <td colSpan={7} className="px-4 py-10 text-center text-sm" style={{ color: '#8b6f47' }}>
+                          No customers match the current search.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            )}
             <div className="flex items-center justify-between text-xs mt-4 px-4" style={{ color: '#8b6f47' }}>
               <span>
                 <p className="text-xs text-right" style={{ color: '#8b6f47' }}>
@@ -306,7 +384,7 @@ export default function ManageCustomerPage() {
       </div>
 
       {showForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 px-4">
+        <div className="fixed inset-0 bg-black/50 bg-opacity-40 flex items-center justify-center z-50 px-4">
           <div className="bg-white shadow-xl max-w-lg w-full p-6 space-y-5" style={{ backgroundColor: '#fffaf4' }}>
             <div className="flex items-center justify-between">
               <div>
@@ -375,6 +453,36 @@ export default function ManageCustomerPage() {
                 />
               </div>
 
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
+                    Passport Num
+                  </label>
+                  <input
+                    type="text"
+                    value={formState.passportNum}
+                    onChange={(e) => setFormState((prev) => ({ ...prev, passportNum: e.target.value }))}
+                    className="w-full border px-4 py-2"
+                    style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
+                    placeholder="A12345678"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
+                    Country
+                  </label>
+                  <input
+                    type="text"
+                    value={formState.country}
+                    onChange={(e) => setFormState((prev) => ({ ...prev, country: e.target.value }))}
+                    className="w-full border px-4 py-2"
+                    style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
+                    placeholder="Thailand"
+                  />
+                </div>
+              </div>
+
               <div>
                 <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
                   Address
@@ -416,7 +524,7 @@ export default function ManageCustomerPage() {
       )}
 
       {deleteConfirm && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 px-4">
+        <div className="fixed inset-0 bg-black/50 bg-opacity-40 flex items-center justify-center z-50 px-4">
           <div className="bg-white shadow-xl max-w-md w-full p-6 space-y-5" style={{ backgroundColor: '#fffaf4' }}>
             <div>
               <h3 className="text-xl font-light mb-2" style={{ color: '#3d2817' }}>
