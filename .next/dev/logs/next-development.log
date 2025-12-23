@@ -393,3 +393,27 @@ https://nextjs.org/docs/messages/module-not-found
 [01:05:29.471] Browser LOG     Successfully loaded menus: 0 items
 [01:05:29.623] Browser LOG     Fetched menus: []
 [01:05:29.623] Browser LOG     Successfully loaded menus: 0 items
+[01:41:53.745] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:41:56.331] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:19:52.513] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:24:25.160] Server  LOG      ✓ Compiled in 137ms
+[23:24:37.903] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:24:39.866] Browser ERROR   Error fetching images: {"code":"PGRST205","details":null,"hint":null,"message":"Could not find the table 'public.gallery_images' in the schema cache"}
+[23:24:49.023] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:24:50.394] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:24:52.584] Browser ERROR   Error fetching images: {"code":"PGRST205","details":null,"hint":null,"message":"Could not find the table 'public.gallery_images' in the schema cache"}
+[23:24:53.829] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:24:55.462] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:24:56.734] Browser ERROR   Error fetching images: {"code":"PGRST205","details":null,"hint":null,"message":"Could not find the table 'public.gallery_images' in the schema cache"}
+[23:25:04.848] Server  LOG      ✓ Compiled in 43ms
+[23:26:09.976] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:27:31.781] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:28:01.068] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:28:38.374] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:29:55.558] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:31:44.176] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./Downloads/thaicookingclasses/app/admin/login/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[23:31:44.292] Server  LOG      ✓ Compiled in 103ms
+[23:31:44.487] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[23:32:34.335] Browser LOG     Login attempt: {"email":"super_admin","rememberMe":false}
+[25:15:44.594] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[25:15:51.283] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
