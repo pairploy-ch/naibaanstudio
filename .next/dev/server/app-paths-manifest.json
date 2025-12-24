@@ -3,5 +3,8 @@
   "/admin/booking/page": "app/admin/booking/page.js",
   "/admin/customer/page": "app/admin/customer/page.js",
   "/admin/dashboard/page": "app/admin/dashboard/page.js",
-  "/admin/login/page": "app/admin/login/page.js"
+  "/admin/gallery/page": "app/admin/gallery/page.js",
+  "/admin/login/page": "app/admin/login/page.js",
+  "/admin/menu/page": "app/admin/menu/page.js",
+  "/page": "app/page.js"
 }

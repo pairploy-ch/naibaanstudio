@@ -260,9 +260,7 @@ export default function ImageGalleryPage() {
             <h1 className="text-4xl font-light" style={{ color: '#3d2817' }}>
               Image Gallery
             </h1>
-            <p className="text-sm mt-2" style={{ color: '#8b6f47' }}>
-              Upload and manage your image collection
-            </p>
+          
           </div>
           <div className="flex flex-wrap gap-3">
             <button
