@@ -12,7 +12,7 @@ __turbopack_context__.s([
     "version",
     ()=>version
 ]);
-const version = '2.83.0'; //# sourceMappingURL=version.js.map
+const version = '2.89.0'; //# sourceMappingURL=version.js.map
 }),
 "[project]/Downloads/thaicookingclasses/node_modules/@supabase/auth-js/dist/module/lib/constants.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -94,6 +94,8 @@ const JWKS_TTL = 10 * 60 * 1000; // 10 minutes
     ()=>AuthInvalidJwtError,
     "AuthInvalidTokenResponseError",
     ()=>AuthInvalidTokenResponseError,
+    "AuthPKCECodeVerifierMissingError",
+    ()=>AuthPKCECodeVerifierMissingError,
     "AuthPKCEGrantCodeExchangeError",
     ()=>AuthPKCEGrantCodeExchangeError,
     "AuthRetryableFetchError",
@@ -112,6 +114,8 @@ const JWKS_TTL = 10 * 60 * 1000; // 10 minutes
     ()=>isAuthError,
     "isAuthImplicitGrantRedirectError",
     ()=>isAuthImplicitGrantRedirectError,
+    "isAuthPKCECodeVerifierMissingError",
+    ()=>isAuthPKCECodeVerifierMissingError,
     "isAuthRetryableFetchError",
     ()=>isAuthRetryableFetchError,
     "isAuthSessionMissingError",
@@ -206,6 +210,14 @@ class AuthPKCEGrantCodeExchangeError extends CustomAuthError {
             details: this.details
         };
     }
+}
+class AuthPKCECodeVerifierMissingError extends CustomAuthError {
+    constructor(){
+        super('PKCE code verifier not found in storage. ' + 'This can happen if the auth flow was initiated in a different browser or device, ' + 'or if the storage was cleared. For SSR frameworks (Next.js, SvelteKit, etc.), ' + 'use @supabase/ssr on both the server and client to store the code verifier in cookies.', 'AuthPKCECodeVerifierMissingError', 400, 'pkce_code_verifier_not_found');
+    }
+}
+function isAuthPKCECodeVerifierMissingError(error) {
+    return isAuthError(error) && error.name === 'AuthPKCECodeVerifierMissingError';
 }
 class AuthRetryableFetchError extends CustomAuthError {
     constructor(message, status){
@@ -1033,7 +1045,8 @@ const AMRMethods = [
     'anonymous',
     'sso/saml',
     'magiclink',
-    'web3'
+    'web3',
+    'oauth_provider/authorization_code'
 ];
 const FactorTypes = [
     'totp',
@@ -1711,7 +1724,7 @@ async function processLock(name, acquireTimeout, fn) {
         }),
         acquireTimeout >= 0 ? new Promise((_, reject)=>{
             setTimeout(()=>{
-                reject(new ProcessLockAcquireTimeoutError(`Acquring process lock with name "${name}" timed out`));
+                reject(new ProcessLockAcquireTimeoutError(`Acquiring process lock with name "${name}" timed out`));
             }, acquireTimeout);
         }) : null
     ].filter((x)=>x)).catch((e)=>{
@@ -2817,7 +2830,7 @@ class GoTrueClient {
         this.throwOnError = settings.throwOnError;
         if (settings.lock) {
             this.lock = settings.lock;
-        } else if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isBrowser"])() && ((_b = globalThis === null || globalThis === void 0 ? void 0 : globalThis.navigator) === null || _b === void 0 ? void 0 : _b.locks)) {
+        } else if (this.persistSession && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isBrowser"])() && ((_b = globalThis === null || globalThis === void 0 ? void 0 : globalThis.navigator) === null || _b === void 0 ? void 0 : _b.locks)) {
             this.lock = __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$locks$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["navigatorLock"];
         } else {
             this.lock = lockNoOp;
@@ -3099,6 +3112,7 @@ class GoTrueClient {
             }
             const { data, error } = res;
             if (error || !data) {
+                await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, `${this.storageKey}-code-verifier`);
                 return this._returnResult({
                     data: {
                         user: null,
@@ -3121,6 +3135,7 @@ class GoTrueClient {
                 error: null
             });
         } catch (error) {
+            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, `${this.storageKey}-code-verifier`);
             if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$errors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isAuthError"])(error)) {
                 return this._returnResult({
                     data: {
@@ -3516,6 +3531,9 @@ class GoTrueClient {
         const storageItem = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getItemAsync"])(this.storage, `${this.storageKey}-code-verifier`);
         const [codeVerifier, redirectType] = (storageItem !== null && storageItem !== void 0 ? storageItem : '').split('/');
         try {
+            if (!codeVerifier && this.flowType === 'pkce') {
+                throw new __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$errors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AuthPKCECodeVerifierMissingError"]();
+            }
             const { data, error } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$fetch$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["_request"])(this.fetch, 'POST', `${this.url}/token?grant_type=pkce`, {
                 headers: this.headers,
                 body: {
@@ -3550,6 +3568,7 @@ class GoTrueClient {
                 error
             });
         } catch (error) {
+            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, `${this.storageKey}-code-verifier`);
             if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$errors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isAuthError"])(error)) {
                 return this._returnResult({
                     data: {
@@ -3696,6 +3715,7 @@ class GoTrueClient {
             }
             throw new __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$errors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AuthInvalidCredentialsError"]('You must provide either an email or phone number.');
         } catch (error) {
+            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, `${this.storageKey}-code-verifier`);
             if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$errors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isAuthError"])(error)) {
                 return this._returnResult({
                     data: {
@@ -3809,6 +3829,7 @@ class GoTrueClient {
             }
             return this._returnResult(result);
         } catch (error) {
+            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, `${this.storageKey}-code-verifier`);
             if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$errors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isAuthError"])(error)) {
                 return this._returnResult({
                     data: null,
@@ -4100,6 +4121,9 @@ class GoTrueClient {
         const result = await this._acquireLock(-1, async ()=>{
             return await this._getUser();
         });
+        if (result.data.user) {
+            this.suppressGetSessionWarning = true;
+        }
         return result;
     }
     async _getUser(jwt) {
@@ -4199,6 +4223,7 @@ class GoTrueClient {
                 });
             });
         } catch (error) {
+            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, `${this.storageKey}-code-verifier`);
             if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$errors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isAuthError"])(error)) {
                 return this._returnResult({
                     data: {
@@ -4458,7 +4483,14 @@ class GoTrueClient {
     }
     /**
      * Checks if the current URL contains parameters given by an implicit oauth grant flow (https://www.rfc-editor.org/rfc/rfc6749.html#section-4.2)
+     *
+     * If `detectSessionInUrl` is a function, it will be called with the URL and params to determine
+     * if the URL should be processed as a Supabase auth callback. This allows users to exclude
+     * URLs from other OAuth providers (e.g., Facebook Login) that also return access_token in the fragment.
      */ _isImplicitGrantCallback(params) {
+        if (typeof this.detectSessionInUrl === 'function') {
+            return this.detectSessionInUrl(new URL(window.location.href), params);
+        }
         return Boolean(params.access_token || params.error_description);
     }
     /**
@@ -4582,6 +4614,7 @@ class GoTrueClient {
                 redirectTo: options.redirectTo
             });
         } catch (error) {
+            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, `${this.storageKey}-code-verifier`);
             if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$errors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isAuthError"])(error)) {
                 return this._returnResult({
                     data: null,
@@ -4711,6 +4744,7 @@ class GoTrueClient {
                     error
                 });
             } catch (error) {
+                await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, `${this.storageKey}-code-verifier`);
                 if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$errors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isAuthError"])(error)) {
                     return this._returnResult({
                         data: {
@@ -4982,6 +5016,7 @@ class GoTrueClient {
         // _saveSession is always called whenever a new session has been acquired
         // so we can safely suppress the warning returned by future getSession calls
         this.suppressGetSessionWarning = true;
+        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, `${this.storageKey}-code-verifier`);
         // Create a shallow copy to work with, to avoid mutating the original session object if it's used elsewhere
         const sessionToProcess = Object.assign({}, session);
         const userIsProxy = sessionToProcess.user && sessionToProcess.user.__isUserNotAvailableProxy === true;
@@ -5013,6 +5048,7 @@ class GoTrueClient {
     }
     async _removeSession() {
         this._debug('#_removeSession()');
+        this.suppressGetSessionWarning = false;
         await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, this.storageKey);
         await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, this.storageKey + '-code-verifier');
         await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeItemAsync"])(this.storage, this.storageKey + '-user');
@@ -5717,17 +5753,18 @@ class GoTrueClient {
                         error: new __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$errors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AuthSessionMissingError"]()
                     });
                 }
-                return await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$fetch$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["_request"])(this.fetch, 'DELETE', `${this.url}/user/oauth/grants`, {
+                await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$fetch$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["_request"])(this.fetch, 'DELETE', `${this.url}/user/oauth/grants`, {
                     headers: this.headers,
                     jwt: session.access_token,
                     query: {
                         client_id: options.clientId
                     },
-                    xform: ()=>({
-                            data: {},
-                            error: null
-                        })
+                    noResolveJson: true
                 });
+                return {
+                    data: {},
+                    error: null
+                };
             });
         } catch (error) {
             if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f40$supabase$2f$auth$2d$js$2f$dist$2f$module$2f$lib$2f$errors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isAuthError"])(error)) {

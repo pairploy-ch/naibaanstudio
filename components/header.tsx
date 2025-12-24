@@ -1,18 +1,30 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation' // เพิ่ม useRouter
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs' // เพิ่ม Supabase
 
 export default function Header() {
   const pathname = usePathname()
+  const router = useRouter() // เรียกใช้งาน router
+  const supabase = createClientComponentClient() // เรียกใช้งาน supabase client
 
-  // Utility to check whether the current link is active
   const isActive = (href: string) => pathname === href
-
-  // Determine whether we are inside the admin area
   const isAdmin = pathname.startsWith('/admin')
 
-  // Menu entries based on the current area
+  // --- ฟังก์ชันสำหรับ Logout ---
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut()
+    
+    if (error) {
+      console.error('Error logging out:', error.message)
+    } else {
+      // เมื่อ Logout สำเร็จ ให้ไปหน้า Login และ refresh เพื่อให้ middleware ทำงาน
+      router.push('/admin/login')
+      router.refresh()
+    }
+  }
+
   const menuItems = isAdmin
     ? [
         { name: 'Course', href: '/admin/course' },
@@ -31,10 +43,10 @@ export default function Header() {
 
   return (
     <main>
-      <nav className="sticky top-0 z-50 bg-[#F6EFE7] ">
+      <nav className="sticky top-0 z-50 bg-[#F6EFE7]">
         <div className="max-w-[90%] mx-auto py-4 flex items-center justify-between">
           <Link href={isAdmin ? '/admin/dashboard' : '/'} className="flex items-center gap-2">
-            <img src={'/logo-nb.png'} style={{ width: '150px' }} />
+            <img src={'/logo-nb.png'} style={{ width: '150px' }} alt="Logo" />
           </Link>
 
           <div className="hidden md:flex items-center gap-12">
@@ -49,6 +61,16 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+
+            {/* --- แสดงปุ่ม Logout เฉพาะตอนอยู่ในหน้า Admin เท่านั้น --- */}
+            {isAdmin && (
+              <button 
+                onClick={handleLogout}
+                className="font-semibold"
+              >
+                Logout
+              </button>
+            )}
           </div>
         </div>
       </nav>

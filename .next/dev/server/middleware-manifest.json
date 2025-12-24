@@ -1,6 +1,40 @@
 {
   "version": 3,
-  "middleware": {},
-  "sortedMiddleware": [],
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/Downloads_thaicookingclasses_6149bf65._.js",
+        "server/edge/chunks/node_modules_@opentelemetry_api_build_esm_4557a825._.js",
+        "server/edge/chunks/503b1_@supabase_auth-js_dist_module_5b8aa8a0._.js",
+        "server/edge/chunks/503b1_b9b37772._.js",
+        "server/edge/chunks/[root-of-the-server]__f65291ea._.js",
+        "server/edge/chunks/turbopack-Downloads_thaicookingclasses_edge-wrapper_550e70b5.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/admin(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
+          "originalSource": "/admin/:path*"
+        },
+        {
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/login(\\\\.json)?[\\/#\\?]?$",
+          "originalSource": "/login"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "YDsfrT5Ah3Aq3ne+CvXqe/vMu/tHKE/rc+SoCpcsJ9w=",
+        "__NEXT_PREVIEW_MODE_ID": "078b6abc5119235e09cfde99ab8cf09d",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "1da4d3fcc2f41ee974c603b10e9820c1f69835c421f557530103055dc34ff96e",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "f139b44dc41fbf1a6dbae438f1068fe606fba058b720221627056004ab52e6fe"
+      }
+    }
+  },
+  "sortedMiddleware": [
+    "/"
+  ],
   "functions": {}
 }

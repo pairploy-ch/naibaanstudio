@@ -2,7 +2,8 @@
     script: typeof document === "object" ? document.currentScript : undefined,
     chunks: [
   "static/chunks/[root-of-the-server]__0346921d._.css",
-  "static/chunks/Downloads_thaicookingclasses_4d78763f._.js"
+  "static/chunks/503b1_815aab94._.js",
+  "static/chunks/Downloads_thaicookingclasses_components_084c0942._.js"
 ],
     source: "dynamic"
 });

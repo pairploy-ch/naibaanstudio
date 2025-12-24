@@ -19,7 +19,7 @@ const inter = Inter({
 
 /* --- Metadata --- */
 export const metadata: Metadata = {
-  title: 'Nai Baan - Authentic Thai Cooking Classes in Thailand',
+  title: 'Nai Baan Studio',
   description:
     'Discover authentic Thai cooking in a cozy home-style studio. Learn traditional Thai recipes, cooking techniques, and cultural insights from expert chefs.',
   keywords: [
