@@ -4,10 +4,10 @@
 
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { supabase } from '@/lib/supabaseClient';
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const searchParams = useSearchParams()
   const courseName = searchParams.get('course') || 'Mastering Pad Thai Class'
   const date = searchParams.get('date') || '17/12/2025'
@@ -654,5 +654,17 @@ export default function CheckoutPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#8B7355] flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    }>
+      <CheckoutContent />
+    </Suspense>
   )
 }
