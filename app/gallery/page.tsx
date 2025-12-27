@@ -1,104 +1,42 @@
+"use client";
 
- "use client"
-import Link from 'next/link'
-import React from 'react'
+import React from "react";
+import Image from "next/image";
 
 export default function GalleryPage() {
-  const [visibleCount, setVisibleCount] = React.useState(12)
-  
+  const [visibleCount, setVisibleCount] = React.useState(12);
+  const [loadedImages, setLoadedImages] = React.useState<Set<number>>(new Set());
+
   const allGalleryImages = [
-    {
-      src: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d',
-      alt: 'Two people cooking together',
-      className: 'md:col-span-1 md:row-span-1'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c',
-      alt: 'Group cooking class',
-      className: 'md:col-span-2 md:row-span-1'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1559847844-5315695dadae',
-      alt: 'Close-up cooking in wok',
-      className: 'md:col-span-1 md:row-span-1'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1556910096-6f5e72db6803',
-      alt: 'Cooking class with instructor',
-      className: 'md:col-span-2 md:row-span-2'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1',
-      alt: 'People enjoying meal',
-      className: 'md:col-span-1 md:row-span-1'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1556911220-bff31c812dba',
-      alt: 'Preparing ingredients',
-      className: 'md:col-span-1 md:row-span-1'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0',
-      alt: 'Group cooking and laughing',
-      className: 'md:col-span-1 md:row-span-1'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1559314809-0d155014e29e',
-      alt: 'Thai pad thai dish',
-      className: 'md:col-span-1 md:row-span-1'
-    },
-    {
-          src: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d',
-      alt: 'Two people at cooking class',
-      className: 'md:col-span-1 md:row-span-1'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1529042410759-befb1204b468',
-      alt: 'Large group enjoying food',
-      className: 'md:col-span-2 md:row-span-1'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd',
-      alt: 'Thai curry dish',
-      className: 'md:col-span-1 md:row-span-1'
-    },
-    // {
-    //    src: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d',
-    //   alt: 'Couple cooking together',
-    //   className: 'md:col-span-1 md:row-span-1'
-    // },
-    // {
-    //   src: 'https://images.unsplash.com/photo-1512058564366-18510be2db19',
-    //   alt: 'Thai food preparation',
-    //   className: 'md:col-span-1 md:row-span-1'
-    // },
-    // {
-    //   src: 'https://images.unsplash.com/photo-1551218808-94e220e084d2',
-    //   alt: 'Fresh ingredients',
-    //   className: 'md:col-span-1 md:row-span-1'
-    // },
-    // {
-    //   src: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe',
-    //   alt: 'Cooking process',
-    //   className: 'md:col-span-2 md:row-span-1'
-    // },
-    // {
-    //   src: 'https://images.unsplash.com/photo-1516684732162-798a0062be99',
-    //   alt: 'Asian cuisine',
-    //   className: 'md:col-span-1 md:row-span-1'
-    // },
-  ]
-  
-  const galleryImages = allGalleryImages.slice(0, visibleCount)
-  
+    { src: "/album/1.jpeg", alt: "Two people cooking together", className: "md:col-span-1 md:row-span-1" },
+    { src: "/album/2.jpeg", alt: "Group cooking class", className: "md:col-span-2 md:row-span-1" },
+    { src: "/album/3.jpeg", alt: "Close-up cooking in wok", className: "md:col-span-1 md:row-span-1" },
+    { src: "/album/4.jpeg", alt: "Cooking class with instructor", className: "md:col-span-2 md:row-span-2" },
+    { src: "/album/5.jpeg", alt: "People enjoying meal", className: "md:col-span-1 md:row-span-1" },
+    { src: "/album/6.jpeg", alt: "Preparing ingredients", className: "md:col-span-1 md:row-span-1" },
+    { src: "/album/7.jpeg", alt: "Group cooking and laughing", className: "md:col-span-1 md:row-span-1" },
+    { src: "/album/8.jpeg", alt: "Thai pad thai dish", className: "md:col-span-1 md:row-span-1" },
+    { src: "/album/9.jpeg", alt: "Two people at cooking class", className: "md:col-span-1 md:row-span-1" },
+    { src: "/album/10.jpeg", alt: "Large group enjoying food", className: "md:col-span-2 md:row-span-1" },
+    { src: "/album/11.jpeg", alt: "Thai curry dish", className: "md:col-span-1 md:row-span-1" },
+  ];
+
+  const galleryImages = allGalleryImages.slice(0, visibleCount);
+
   const handleLoadMore = () => {
-    setVisibleCount(prev => Math.min(prev + 8, allGalleryImages.length))
-  }
+    setVisibleCount((prev) =>
+      Math.min(prev + 6, allGalleryImages.length)
+    );
+  };
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages((prev) => new Set(prev).add(index));
+  };
 
   return (
     <main className="min-h-screen bg-[#F6EFE7]">
       {/* Hero Section */}
-      <section className="px-6 md:px-12 py-12 md:py-16 bg-[#F6EFE7]">
+      <section className="max-w-[90%] py-6 pt-10">
         <div className="max-w-[90%] mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
             Our Story in Pictures
@@ -109,16 +47,35 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Masonry Grid */}
-      <section className="py-12 md:py-12 bg-[#F6EFE7]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-max">
+      {/* Gallery Grid */}
+      <section className="py-12">
+        <div className="max-w-[90%] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[250px]">
             {galleryImages.map((image, index) => (
-              <div key={index} className={`overflow-hidden bg-gray-100 ${image.className}`}>
-                <img
-                  src={image.src || "/placeholder.svg"}
+              <div
+                key={index}
+                className={`relative overflow-hidden bg-gray-100 ${image.className}`}
+              >
+                {/* Loading Skeleton */}
+                {!loadedImages.has(index) && (
+                  <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%]">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-12 h-12 border-4 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+                    </div>
+                  </div>
+                )}
+                
+                <Image
+                  src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  className={`object-cover transition-all duration-500 hover:scale-105 ${
+                    loadedImages.has(index) ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  priority={index < 4} // โหลด 4 รูปแรกก่อน
+                  quality={85}
+                  onLoad={() => handleImageLoad(index)}
                 />
               </div>
             ))}
@@ -126,10 +83,10 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* More Button */}
+      {/* Load More */}
       {visibleCount < allGalleryImages.length && (
-        <section className="px-6 md:px-12 py-8 md:py-12 bg-[#F6EFE7] flex justify-center">
-          <button 
+        <section className="flex justify-center py-10">
+          <button
             onClick={handleLoadMore}
             className="px-12 py-3 bg-black text-white font-semibold hover:bg-gray-800 transition-colors"
           >
@@ -138,5 +95,5 @@ export default function GalleryPage() {
         </section>
       )}
     </main>
-  )
+  );
 }

@@ -9,7 +9,7 @@ export function Footer() {
             <div className="space-y-2 text-muted-foreground">
               <p><u>Tel: 0926100542, 0941656352</u></p>
               
-              <p><u>Email: naibaanstudio@gmail.com</u></p>
+              <p><u>Email: info@naibaanstudio.com</u></p>
             </div>
           </div>
 

@@ -3,7 +3,7 @@ import Link from 'next/link'
 const courses = [
   {
     id: 1,
-    title: 'Half-Day Thai Cooking Course',
+    title: 'Half-Day Cooking Course',
     description: '4–5 classic Thai dishes, including popular everyday meals, main courses, traditional Thai dishes, and a Thai dessert',
     // date: 'DEC 8 2025, 9.00 AM - 12.30 PM / 2:00 PM - 5:30 PM',
     // dateBadge: { day: '8', month: 'DEC' },

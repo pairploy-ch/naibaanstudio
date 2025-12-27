@@ -14,34 +14,34 @@ const courses = [
     image:
       'https://images.squarespace-cdn.com/content/v1/6871a043c41d0a698827bbcc/387e965e-14b1-49a9-b774-7a07eb09db9d/thai-food-banner.jpeg',
   },
-  {
-    id: 2,
-    title: 'Vegan Thai Delights',
-    description:
-      'Green Curry with Tofu, Vegetable Spring Rolls, Mango Sticky Rice',
-    date: '2.00 PM - 5.30 PM',
-    category: 'vegan',
-    image:
-      'https://images.squarespace-cdn.com/content/v1/6871a043c41d0a698827bbcc/387e965e-14b1-49a9-b774-7a07eb09db9d/thai-food-banner.jpeg',
-  },
-  {
-    id: 3,
-    title: 'Zero Waste Cooking',
-    description: 'Sustainable Thai cuisine using every part of ingredients',
-    date: '9.00 AM - 12.30 PM',
-    category: 'zero-waste',
-    image:
-      'https://images.squarespace-cdn.com/content/v1/6871a043c41d0a698827bbcc/387e965e-14b1-49a9-b774-7a07eb09db9d/thai-food-banner.jpeg',
-  },
-  {
-    id: 4,
-    title: 'Master Pad Thai',
-    description: 'Perfect your Pad Thai technique in this focused class',
-    date: '2.00 PM - 5.30 PM',
-    category: 'single-dish',
-    image:
-      'https://images.squarespace-cdn.com/content/v1/6871a043c41d0a698827bbcc/387e965e-14b1-49a9-b774-7a07eb09db9d/thai-food-banner.jpeg',
-  },
+  // {
+  //   id: 2,
+  //   title: 'Vegan Thai Delights',
+  //   description:
+  //     'Green Curry with Tofu, Vegetable Spring Rolls, Mango Sticky Rice',
+  //   date: '2.00 PM - 5.30 PM',
+  //   category: 'vegan',
+  //   image:
+  //     'https://images.squarespace-cdn.com/content/v1/6871a043c41d0a698827bbcc/387e965e-14b1-49a9-b774-7a07eb09db9d/thai-food-banner.jpeg',
+  // },
+  // {
+  //   id: 3,
+  //   title: 'Zero Waste Cooking',
+  //   description: 'Sustainable Thai cuisine using every part of ingredients',
+  //   date: '9.00 AM - 12.30 PM',
+  //   category: 'zero-waste',
+  //   image:
+  //     'https://images.squarespace-cdn.com/content/v1/6871a043c41d0a698827bbcc/387e965e-14b1-49a9-b774-7a07eb09db9d/thai-food-banner.jpeg',
+  // },
+  // {
+  //   id: 4,
+  //   title: 'Master Pad Thai',
+  //   description: 'Perfect your Pad Thai technique in this focused class',
+  //   date: '2.00 PM - 5.30 PM',
+  //   category: 'single-dish',
+  //   image:
+  //     'https://images.squarespace-cdn.com/content/v1/6871a043c41d0a698827bbcc/387e965e-14b1-49a9-b774-7a07eb09db9d/thai-food-banner.jpeg',
+  // },
 ]
 
 export default function CoursesClient() {

@@ -31,8 +31,8 @@ export default function ContactPage() {
             {/* Email */}
             <div>
               <p className="text-gray-600 text-sm font-medium mb-2">email</p>
-              <a href="mailto:naibaanstudio@gmail.com" className="text-gray-900 font-semibold hover:text-gray-600 transition-colors underline">
-                naibaanstudio@gmail.com
+              <a href="mailto:info@naibaanstudio.com" className="text-gray-900 font-semibold hover:text-gray-600 transition-colors underline">
+                info@naibaanstudio.com
               </a>
             </div>
 
