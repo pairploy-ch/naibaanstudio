@@ -2,6 +2,7 @@
 "[project]/Downloads/thaicookingclasses/node_modules/react-dom/cjs/react-dom.development.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
+var __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Downloads/thaicookingclasses/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 /**
  * @license React
  * react-dom.development.js
@@ -10,8 +11,7 @@
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */ var __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Downloads/thaicookingclasses/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
-"use strict";
+ */ "use strict";
 "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function noop() {}
     function testStringCoercion(value) {
@@ -173,7 +173,7 @@
     exports.useFormStatus = function() {
         return resolveDispatcher().useHostTransitionStatus();
     };
-    exports.version = "19.2.0";
+    exports.version = "19.2.3";
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
 }();
 }),
@@ -214,6 +214,7 @@ else {
 "[project]/Downloads/thaicookingclasses/node_modules/react-dom/cjs/react-dom-client.development.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
+var __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Downloads/thaicookingclasses/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 /**
  * @license React
  * react-dom-client.development.js
@@ -224,8 +225,7 @@ else {
  * LICENSE file in the root directory of this source tree.
  */ /*
  Modernizr 3.0.0pre (Custom Build) | MIT
-*/ var __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Downloads/thaicookingclasses/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
-"use strict";
+*/ "use strict";
 "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function findHook(fiber, id) {
         for(fiber = fiber.memoizedState; null !== fiber && 0 < id;)fiber = fiber.next, id--;
@@ -15263,7 +15263,7 @@ else {
     };
     (function() {
         var isomorphicReactPackageVersion = React.version;
-        if ("19.2.0" !== isomorphicReactPackageVersion) throw Error('Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.2.0\nLearn more: https://react.dev/warnings/version-mismatch"));
+        if ("19.2.3" !== isomorphicReactPackageVersion) throw Error('Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.2.3\nLearn more: https://react.dev/warnings/version-mismatch"));
     })();
     "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error("React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://react.dev/link/react-polyfills");
     ReactDOMSharedInternals.findDOMNode = function(componentOrElement) {
@@ -15281,10 +15281,10 @@ else {
     if (!function() {
         var internals = {
             bundleType: 1,
-            version: "19.2.0",
+            version: "19.2.3",
             rendererPackageName: "react-dom",
             currentDispatcherRef: ReactSharedInternals,
-            reconcilerVersion: "19.2.0"
+            reconcilerVersion: "19.2.3"
         };
         internals.overrideHookState = overrideHookState;
         internals.overrideHookStateDeletePath = overrideHookStateDeletePath;
@@ -15338,7 +15338,7 @@ else {
         listenToAllSupportedEvents(container);
         return new ReactDOMHydrationRoot(initialChildren);
     };
-    exports.version = "19.2.0";
+    exports.version = "19.2.3";
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
 }();
 }),

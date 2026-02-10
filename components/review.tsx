@@ -101,14 +101,16 @@ export default function CustomerReview() {
           Hear what our students have to say about their cooking experience
         </p>
 
+        <p className='text-center'>No Reviews Yet</p>
+
         {/* Reviews Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        {/* <div className="grid md:grid-cols-3 gap-8 mb-12">
           {currentReviews.map((review) => (
             <div
               key={review.id}
               className="bg-white border-2 border-black p-6 flex flex-col"
             >
-              {/* Header */}
+            
               <div className="flex items-center gap-4 mb-4">
                 <img
                   src={review.image}
@@ -121,24 +123,24 @@ export default function CustomerReview() {
                 </div>
               </div>
 
-              {/* Rating */}
+        
               <div className="mb-4">
                 <StarRating rating={review.rating} />
               </div>
 
-              {/* Review Text */}
+            
               <p className="text-black leading-relaxed mb-4 flex-grow">
                 "{review.review}"
               </p>
 
-              {/* Date */}
+     
               <p className="text-sm text-gray-500 italic">{review.date}</p>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Navigation */}
-        <div className="flex items-center justify-center gap-6">
+        {/* <div className="flex items-center justify-center gap-6">
           <button
             onClick={prevReviews}
             className="w-12 h-12 border-2 border-black bg-white hover:bg-black hover:text-white transition-colors flex items-center justify-center font-bold text-xl"
@@ -164,10 +166,10 @@ export default function CustomerReview() {
           >
             →
           </button>
-        </div>
+        </div> */}
 
         {/* Summary Stats */}
-        <div className="mt-16 border-t-2 border-black pt-12">
+        {/* <div className="mt-16 border-t-2 border-black pt-12">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-5xl font-bold text-black mb-2">500+</div>
@@ -185,7 +187,7 @@ export default function CustomerReview() {
               <div className="text-lg text-gray-600">Would Recommend</div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

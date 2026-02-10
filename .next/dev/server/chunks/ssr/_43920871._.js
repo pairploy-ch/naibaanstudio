@@ -109,6 +109,7 @@ Object.defineProperty(exports, "__esModule", {
     NEXT_BUILTIN_DOCUMENT: null,
     NEXT_FONT_MANIFEST: null,
     PAGES_MANIFEST: null,
+    PHASE_ANALYZE: null,
     PHASE_DEVELOPMENT_SERVER: null,
     PHASE_EXPORT: null,
     PHASE_INFO: null,
@@ -265,6 +266,9 @@ _export(exports, {
     PAGES_MANIFEST: function() {
         return PAGES_MANIFEST;
     },
+    PHASE_ANALYZE: function() {
+        return PHASE_ANALYZE;
+    },
     PHASE_DEVELOPMENT_SERVER: function() {
         return PHASE_DEVELOPMENT_SERVER;
     },
@@ -391,6 +395,7 @@ var AdapterOutputType = /*#__PURE__*/ function(AdapterOutputType) {
     return AdapterOutputType;
 }({});
 const PHASE_EXPORT = 'phase-export';
+const PHASE_ANALYZE = 'phase-analyze';
 const PHASE_PRODUCTION_BUILD = 'phase-production-build';
 const PHASE_PRODUCTION_SERVER = 'phase-production-server';
 const PHASE_DEVELOPMENT_SERVER = 'phase-development-server';
@@ -409,7 +414,7 @@ const EXPORT_DETAIL = 'export-detail.json';
 const PRERENDER_MANIFEST = 'prerender-manifest.json';
 const ROUTES_MANIFEST = 'routes-manifest.json';
 const IMAGES_MANIFEST = 'images-manifest.json';
-const SERVER_FILES_MANIFEST = 'required-server-files.json';
+const SERVER_FILES_MANIFEST = 'required-server-files';
 const DEV_CLIENT_PAGES_MANIFEST = '_devPagesManifest.json';
 const MIDDLEWARE_MANIFEST = 'middleware-manifest.json';
 const TURBOPACK_CLIENT_MIDDLEWARE_MANIFEST = '_clientMiddlewareManifest.json';
@@ -779,6 +784,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 0 && (module.exports = {
     DEFAULT_SEGMENT_KEY: null,
+    NOT_FOUND_SEGMENT_KEY: null,
     PAGE_SEGMENT_KEY: null,
     addSearchParamsIfPageSegment: null,
     computeSelectedLayoutSegment: null,
@@ -796,6 +802,9 @@ function _export(target, all) {
 _export(exports, {
     DEFAULT_SEGMENT_KEY: function() {
         return DEFAULT_SEGMENT_KEY;
+    },
+    NOT_FOUND_SEGMENT_KEY: function() {
+        return NOT_FOUND_SEGMENT_KEY;
     },
     PAGE_SEGMENT_KEY: function() {
         return PAGE_SEGMENT_KEY;
@@ -867,7 +876,8 @@ function getSelectedLayoutSegmentPath(tree, parallelRouteKey, first = true, segm
     return getSelectedLayoutSegmentPath(node, parallelRouteKey, false, segmentPath);
 }
 const PAGE_SEGMENT_KEY = '__PAGE__';
-const DEFAULT_SEGMENT_KEY = '__DEFAULT__'; //# sourceMappingURL=segment.js.map
+const DEFAULT_SEGMENT_KEY = '__DEFAULT__';
+const NOT_FOUND_SEGMENT_KEY = '/_not-found'; //# sourceMappingURL=segment.js.map
 }),
 "[project]/Downloads/thaicookingclasses/node_modules/next/dist/shared/lib/router/utils/app-paths.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1868,6 +1878,11 @@ var ROOT_CONTEXT = new BaseContext(); //# sourceMappingURL=context.js.map
 "[project]/node_modules/@opentelemetry/api/build/esm/context/NoopContextManager.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "NoopContextManager",
+    ()=>NoopContextManager
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/context/context.js [ssr] (ecmascript)");
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -1882,12 +1897,7 @@ var ROOT_CONTEXT = new BaseContext(); //# sourceMappingURL=context.js.map
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "NoopContextManager",
-    ()=>NoopContextManager
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/context/context.js [ssr] (ecmascript)");
-var __read = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__read || function(o, n) {
+ */ var __read = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__read || function(o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
     var i = m.call(o), r, ar = [], e;
@@ -1995,6 +2005,12 @@ var VERSION = '1.9.0'; //# sourceMappingURL=version.js.map
 "[project]/node_modules/@opentelemetry/api/build/esm/internal/semver.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "_makeCompatibilityCheck",
+    ()=>_makeCompatibilityCheck,
+    "isCompatible",
+    ()=>isCompatible
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -2009,13 +2025,7 @@ var VERSION = '1.9.0'; //# sourceMappingURL=version.js.map
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "_makeCompatibilityCheck",
-    ()=>_makeCompatibilityCheck,
-    "isCompatible",
-    ()=>isCompatible
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/version.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/version.js [ssr] (ecmascript)");
 ;
 var re = /^(\d+)\.(\d+)\.(\d+)(-(.+))?$/;
 function _makeCompatibilityCheck(ownVersion) {
@@ -2094,6 +2104,14 @@ var isCompatible = _makeCompatibilityCheck(__TURBOPACK__imported__module__$5b$pr
 "[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "getGlobal",
+    ()=>getGlobal,
+    "registerGlobal",
+    ()=>registerGlobal,
+    "unregisterGlobal",
+    ()=>unregisterGlobal
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -2108,15 +2126,7 @@ var isCompatible = _makeCompatibilityCheck(__TURBOPACK__imported__module__$5b$pr
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "getGlobal",
-    ()=>getGlobal,
-    "registerGlobal",
-    ()=>registerGlobal,
-    "unregisterGlobal",
-    ()=>unregisterGlobal
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$platform$2f$node$2f$globalThis$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/platform/node/globalThis.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$platform$2f$node$2f$globalThis$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/platform/node/globalThis.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/version.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$semver$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/semver.js [ssr] (ecmascript)");
 ;
@@ -2168,6 +2178,11 @@ function unregisterGlobal(type, diag) {
 "[project]/node_modules/@opentelemetry/api/build/esm/diag/ComponentLogger.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "DiagComponentLogger",
+    ()=>DiagComponentLogger
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)");
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -2182,12 +2197,7 @@ function unregisterGlobal(type, diag) {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "DiagComponentLogger",
-    ()=>DiagComponentLogger
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)");
-var __read = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__read || function(o, n) {
+ */ var __read = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__read || function(o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
     var i = m.call(o), r, ar = [], e;
@@ -2318,6 +2328,10 @@ var DiagLogLevel;
 "[project]/node_modules/@opentelemetry/api/build/esm/diag/internal/logLevelLogger.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "createLogLevelDiagLogger",
+    ()=>createLogLevelDiagLogger
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -2332,11 +2346,7 @@ var DiagLogLevel;
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "createLogLevelDiagLogger",
-    ()=>createLogLevelDiagLogger
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/diag/types.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/diag/types.js [ssr] (ecmascript)");
 ;
 function createLogLevelDiagLogger(maxLevel, logger) {
     if (maxLevel < __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagLogLevel"].NONE) {
@@ -2365,6 +2375,14 @@ function createLogLevelDiagLogger(maxLevel, logger) {
 "[project]/node_modules/@opentelemetry/api/build/esm/api/diag.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "DiagAPI",
+    ()=>DiagAPI
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$ComponentLogger$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/diag/ComponentLogger.js [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$internal$2f$logLevelLogger$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/diag/internal/logLevelLogger.js [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/diag/types.js [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)");
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -2379,15 +2397,7 @@ function createLogLevelDiagLogger(maxLevel, logger) {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "DiagAPI",
-    ()=>DiagAPI
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$ComponentLogger$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/diag/ComponentLogger.js [ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$internal$2f$logLevelLogger$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/diag/internal/logLevelLogger.js [ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/diag/types.js [ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)");
-var __read = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__read || function(o, n) {
+ */ var __read = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__read || function(o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
     var i = m.call(o), r, ar = [], e;
@@ -2500,6 +2510,13 @@ var API_NAME = 'diag';
 "[project]/node_modules/@opentelemetry/api/build/esm/api/context.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "ContextAPI",
+    ()=>ContextAPI
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$NoopContextManager$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/context/NoopContextManager.js [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/diag.js [ssr] (ecmascript)");
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -2514,14 +2531,7 @@ var API_NAME = 'diag';
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "ContextAPI",
-    ()=>ContextAPI
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$NoopContextManager$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/context/NoopContextManager.js [ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/diag.js [ssr] (ecmascript)");
-var __read = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__read || function(o, n) {
+ */ var __read = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__read || function(o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
     var i = m.call(o), r, ar = [], e;
@@ -2618,6 +2628,10 @@ var NOOP_CONTEXT_MANAGER = new __TURBOPACK__imported__module__$5b$project$5d2f$n
 "[project]/node_modules/@opentelemetry/api/build/esm/context-api.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "context",
+    ()=>context
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -2634,10 +2648,6 @@ var NOOP_CONTEXT_MANAGER = new __TURBOPACK__imported__module__$5b$project$5d2f$n
  * limitations under the License.
  */ // Split module-level variable definition into separate files to allow
 // tree-shaking on each api instance.
-__turbopack_context__.s([
-    "context",
-    ()=>context
-]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/context.js [ssr] (ecmascript)");
 ;
 var context = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["ContextAPI"].getInstance(); //# sourceMappingURL=context-api.js.map
@@ -2645,6 +2655,10 @@ var context = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$
 "[project]/node_modules/@opentelemetry/api/build/esm/diag-api.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "diag",
+    ()=>diag
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -2661,10 +2675,6 @@ var context = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$
  * limitations under the License.
  */ // Split module-level variable definition into separate files to allow
 // tree-shaking on each api instance.
-__turbopack_context__.s([
-    "diag",
-    ()=>diag
-]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/diag.js [ssr] (ecmascript)");
 ;
 var diag = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagAPI"].instance(); //# sourceMappingURL=diag-api.js.map
@@ -2672,21 +2682,7 @@ var diag = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$ope
 "[project]/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeter.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+__turbopack_context__.s([
     "NOOP_COUNTER_METRIC",
     ()=>NOOP_COUNTER_METRIC,
     "NOOP_GAUGE_METRIC",
@@ -2726,7 +2722,21 @@ var diag = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$ope
     "createNoopMeter",
     ()=>createNoopMeter
 ]);
-var __extends = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__extends || function() {
+/*
+ * Copyright The OpenTelemetry Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ var __extends = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__extends || function() {
     var extendStatics = function(d, b) {
         extendStatics = Object.setPrototypeOf || ({
             __proto__: []
@@ -2882,6 +2892,12 @@ function createNoopMeter() {
 "[project]/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeterProvider.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "NOOP_METER_PROVIDER",
+    ()=>NOOP_METER_PROVIDER,
+    "NoopMeterProvider",
+    ()=>NoopMeterProvider
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -2896,13 +2912,7 @@ function createNoopMeter() {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "NOOP_METER_PROVIDER",
-    ()=>NOOP_METER_PROVIDER,
-    "NoopMeterProvider",
-    ()=>NoopMeterProvider
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2f$NoopMeter$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeter.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2f$NoopMeter$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeter.js [ssr] (ecmascript)");
 ;
 /**
  * An implementation of the {@link MeterProvider} which returns an impotent Meter
@@ -2920,6 +2930,10 @@ var NOOP_METER_PROVIDER = new NoopMeterProvider(); //# sourceMappingURL=NoopMete
 "[project]/node_modules/@opentelemetry/api/build/esm/api/metrics.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "MetricsAPI",
+    ()=>MetricsAPI
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -2934,11 +2948,7 @@ var NOOP_METER_PROVIDER = new NoopMeterProvider(); //# sourceMappingURL=NoopMete
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "MetricsAPI",
-    ()=>MetricsAPI
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2f$NoopMeterProvider$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeterProvider.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2f$NoopMeterProvider$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeterProvider.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/diag.js [ssr] (ecmascript)");
 ;
@@ -2982,6 +2992,10 @@ var API_NAME = 'metrics';
 "[project]/node_modules/@opentelemetry/api/build/esm/metrics-api.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "metrics",
+    ()=>metrics
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -2998,10 +3012,6 @@ var API_NAME = 'metrics';
  * limitations under the License.
  */ // Split module-level variable definition into separate files to allow
 // tree-shaking on each api instance.
-__turbopack_context__.s([
-    "metrics",
-    ()=>metrics
-]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$metrics$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/metrics.js [ssr] (ecmascript)");
 ;
 var metrics = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$metrics$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["MetricsAPI"].getInstance(); //# sourceMappingURL=metrics-api.js.map
@@ -3009,6 +3019,10 @@ var metrics = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$
 "[project]/node_modules/@opentelemetry/api/build/esm/propagation/NoopTextMapPropagator.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "NoopTextMapPropagator",
+    ()=>NoopTextMapPropagator
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3025,11 +3039,7 @@ var metrics = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$
  * limitations under the License.
  */ /**
  * No-op implementations of {@link TextMapPropagator}.
- */ __turbopack_context__.s([
-    "NoopTextMapPropagator",
-    ()=>NoopTextMapPropagator
-]);
-var NoopTextMapPropagator = function() {
+ */ var NoopTextMapPropagator = function() {
     function NoopTextMapPropagator() {}
     /** Noop inject function does nothing */ NoopTextMapPropagator.prototype.inject = function(_context, _carrier) {};
     /** Noop extract function does nothing and returns the input context */ NoopTextMapPropagator.prototype.extract = function(context, _carrier) {
@@ -3092,6 +3102,16 @@ var defaultTextMapSetter = {
 "[project]/node_modules/@opentelemetry/api/build/esm/baggage/context-helpers.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "deleteBaggage",
+    ()=>deleteBaggage,
+    "getActiveBaggage",
+    ()=>getActiveBaggage,
+    "getBaggage",
+    ()=>getBaggage,
+    "setBaggage",
+    ()=>setBaggage
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3106,17 +3126,7 @@ var defaultTextMapSetter = {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "deleteBaggage",
-    ()=>deleteBaggage,
-    "getActiveBaggage",
-    ()=>getActiveBaggage,
-    "getBaggage",
-    ()=>getBaggage,
-    "setBaggage",
-    ()=>setBaggage
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/context.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/context.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/context/context.js [ssr] (ecmascript)");
 ;
 ;
@@ -3139,6 +3149,10 @@ function deleteBaggage(context) {
 "[project]/node_modules/@opentelemetry/api/build/esm/baggage/internal/baggage-impl.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "BaggageImpl",
+    ()=>BaggageImpl
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3153,11 +3167,7 @@ function deleteBaggage(context) {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "BaggageImpl",
-    ()=>BaggageImpl
-]);
-var __read = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__read || function(o, n) {
+ */ var __read = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-time value", void 0).__read || function(o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
     var i = m.call(o), r, ar = [], e;
@@ -3281,6 +3291,12 @@ var baggageEntryMetadataSymbol = Symbol('BaggageEntryMetadata'); //# sourceMappi
 "[project]/node_modules/@opentelemetry/api/build/esm/baggage/utils.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "baggageEntryMetadataFromString",
+    ()=>baggageEntryMetadataFromString,
+    "createBaggage",
+    ()=>createBaggage
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3295,13 +3311,7 @@ var baggageEntryMetadataSymbol = Symbol('BaggageEntryMetadata'); //# sourceMappi
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "baggageEntryMetadataFromString",
-    ()=>baggageEntryMetadataFromString,
-    "createBaggage",
-    ()=>createBaggage
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/diag.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/diag.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$internal$2f$baggage$2d$impl$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/baggage/internal/baggage-impl.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$internal$2f$symbol$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/baggage/internal/symbol.js [ssr] (ecmascript)");
 ;
@@ -3330,6 +3340,10 @@ function baggageEntryMetadataFromString(str) {
 "[project]/node_modules/@opentelemetry/api/build/esm/api/propagation.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "PropagationAPI",
+    ()=>PropagationAPI
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3344,11 +3358,7 @@ function baggageEntryMetadataFromString(str) {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "PropagationAPI",
-    ()=>PropagationAPI
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$propagation$2f$NoopTextMapPropagator$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/propagation/NoopTextMapPropagator.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$propagation$2f$TextMapPropagator$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/propagation/TextMapPropagator.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$context$2d$helpers$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/baggage/context-helpers.js [ssr] (ecmascript)");
@@ -3428,6 +3438,10 @@ var NOOP_TEXT_MAP_PROPAGATOR = new __TURBOPACK__imported__module__$5b$project$5d
 "[project]/node_modules/@opentelemetry/api/build/esm/propagation-api.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "propagation",
+    ()=>propagation
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3444,10 +3458,6 @@ var NOOP_TEXT_MAP_PROPAGATOR = new __TURBOPACK__imported__module__$5b$project$5d
  * limitations under the License.
  */ // Split module-level variable definition into separate files to allow
 // tree-shaking on each api instance.
-__turbopack_context__.s([
-    "propagation",
-    ()=>propagation
-]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$propagation$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/propagation.js [ssr] (ecmascript)");
 ;
 var propagation = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$propagation$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["PropagationAPI"].getInstance(); //# sourceMappingURL=propagation-api.js.map
@@ -3482,6 +3492,14 @@ var TraceFlags;
 "[project]/node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "INVALID_SPANID",
+    ()=>INVALID_SPANID,
+    "INVALID_SPAN_CONTEXT",
+    ()=>INVALID_SPAN_CONTEXT,
+    "INVALID_TRACEID",
+    ()=>INVALID_TRACEID
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3496,15 +3514,7 @@ var TraceFlags;
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "INVALID_SPANID",
-    ()=>INVALID_SPANID,
-    "INVALID_SPAN_CONTEXT",
-    ()=>INVALID_SPAN_CONTEXT,
-    "INVALID_TRACEID",
-    ()=>INVALID_TRACEID
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$trace_flags$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/trace_flags.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$trace_flags$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/trace_flags.js [ssr] (ecmascript)");
 ;
 var INVALID_SPANID = '0000000000000000';
 var INVALID_TRACEID = '00000000000000000000000000000000';
@@ -3517,6 +3527,10 @@ var INVALID_SPAN_CONTEXT = {
 "[project]/node_modules/@opentelemetry/api/build/esm/trace/NonRecordingSpan.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "NonRecordingSpan",
+    ()=>NonRecordingSpan
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3531,11 +3545,7 @@ var INVALID_SPAN_CONTEXT = {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "NonRecordingSpan",
-    ()=>NonRecordingSpan
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$invalid$2d$span$2d$constants$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$invalid$2d$span$2d$constants$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js [ssr] (ecmascript)");
 ;
 /**
  * The NonRecordingSpan is the default {@link Span} that is used when no Span
@@ -3594,6 +3604,20 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$openteleme
 "[project]/node_modules/@opentelemetry/api/build/esm/trace/context-utils.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "deleteSpan",
+    ()=>deleteSpan,
+    "getActiveSpan",
+    ()=>getActiveSpan,
+    "getSpan",
+    ()=>getSpan,
+    "getSpanContext",
+    ()=>getSpanContext,
+    "setSpan",
+    ()=>setSpan,
+    "setSpanContext",
+    ()=>setSpanContext
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3608,21 +3632,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$openteleme
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "deleteSpan",
-    ()=>deleteSpan,
-    "getActiveSpan",
-    ()=>getActiveSpan,
-    "getSpan",
-    ()=>getSpan,
-    "getSpanContext",
-    ()=>getSpanContext,
-    "setSpan",
-    ()=>setSpan,
-    "setSpanContext",
-    ()=>setSpanContext
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/context/context.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/context/context.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NonRecordingSpan$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/NonRecordingSpan.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/context.js [ssr] (ecmascript)");
 ;
@@ -3654,6 +3664,16 @@ function getSpanContext(context) {
 "[project]/node_modules/@opentelemetry/api/build/esm/trace/spancontext-utils.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "isSpanContextValid",
+    ()=>isSpanContextValid,
+    "isValidSpanId",
+    ()=>isValidSpanId,
+    "isValidTraceId",
+    ()=>isValidTraceId,
+    "wrapSpanContext",
+    ()=>wrapSpanContext
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3668,17 +3688,7 @@ function getSpanContext(context) {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "isSpanContextValid",
-    ()=>isSpanContextValid,
-    "isValidSpanId",
-    ()=>isValidSpanId,
-    "isValidTraceId",
-    ()=>isValidTraceId,
-    "wrapSpanContext",
-    ()=>wrapSpanContext
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$invalid$2d$span$2d$constants$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$invalid$2d$span$2d$constants$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NonRecordingSpan$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/NonRecordingSpan.js [ssr] (ecmascript)");
 ;
 ;
@@ -3700,6 +3710,10 @@ function wrapSpanContext(spanContext) {
 "[project]/node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "NoopTracer",
+    ()=>NoopTracer
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3714,11 +3728,7 @@ function wrapSpanContext(spanContext) {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "NoopTracer",
-    ()=>NoopTracer
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/context.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/context.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$context$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/context-utils.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NonRecordingSpan$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/NonRecordingSpan.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$spancontext$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/spancontext-utils.js [ssr] (ecmascript)");
@@ -3778,6 +3788,10 @@ function isSpanContext(spanContext) {
 "[project]/node_modules/@opentelemetry/api/build/esm/trace/ProxyTracer.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "ProxyTracer",
+    ()=>ProxyTracer
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3792,11 +3806,7 @@ function isSpanContext(spanContext) {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "ProxyTracer",
-    ()=>ProxyTracer
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js [ssr] (ecmascript)");
 ;
 var NOOP_TRACER = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["NoopTracer"]();
 /**
@@ -3837,6 +3847,10 @@ var NOOP_TRACER = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modul
 "[project]/node_modules/@opentelemetry/api/build/esm/trace/NoopTracerProvider.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "NoopTracerProvider",
+    ()=>NoopTracerProvider
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3851,11 +3865,7 @@ var NOOP_TRACER = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modul
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "NoopTracerProvider",
-    ()=>NoopTracerProvider
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js [ssr] (ecmascript)");
 ;
 /**
  * An implementation of the {@link TracerProvider} which returns an impotent
@@ -3875,6 +3885,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$openteleme
 "[project]/node_modules/@opentelemetry/api/build/esm/trace/ProxyTracerProvider.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "ProxyTracerProvider",
+    ()=>ProxyTracerProvider
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3889,11 +3903,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$openteleme
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "ProxyTracerProvider",
-    ()=>ProxyTracerProvider
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$ProxyTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/ProxyTracer.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$ProxyTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/ProxyTracer.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracerProvider$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/NoopTracerProvider.js [ssr] (ecmascript)");
 ;
 ;
@@ -3934,6 +3944,10 @@ var NOOP_TRACER_PROVIDER = new __TURBOPACK__imported__module__$5b$project$5d2f$n
 "[project]/node_modules/@opentelemetry/api/build/esm/api/trace.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "TraceAPI",
+    ()=>TraceAPI
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -3948,11 +3962,7 @@ var NOOP_TRACER_PROVIDER = new __TURBOPACK__imported__module__$5b$project$5d2f$n
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "TraceAPI",
-    ()=>TraceAPI
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$ProxyTracerProvider$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/ProxyTracerProvider.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$spancontext$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/spancontext-utils.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$context$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/context-utils.js [ssr] (ecmascript)");
@@ -4016,6 +4026,10 @@ var API_NAME = 'trace';
 "[project]/node_modules/@opentelemetry/api/build/esm/trace-api.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "trace",
+    ()=>trace
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -4032,10 +4046,6 @@ var API_NAME = 'trace';
  * limitations under the License.
  */ // Split module-level variable definition into separate files to allow
 // tree-shaking on each api instance.
-__turbopack_context__.s([
-    "trace",
-    ()=>trace
-]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$trace$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/api/trace.js [ssr] (ecmascript)");
 ;
 var trace = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$trace$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["TraceAPI"].getInstance(); //# sourceMappingURL=trace-api.js.map
@@ -4102,6 +4112,10 @@ const __TURBOPACK__default__export__ = {
 "[project]/node_modules/@opentelemetry/api/build/esm/diag/consoleLogger.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "DiagConsoleLogger",
+    ()=>DiagConsoleLogger
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -4116,11 +4130,7 @@ const __TURBOPACK__default__export__ = {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "DiagConsoleLogger",
-    ()=>DiagConsoleLogger
-]);
-var consoleMap = [
+ */ var consoleMap = [
     {
         n: 'error',
         c: 'error'
@@ -4317,6 +4327,12 @@ var SpanStatusCode;
 "[project]/node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-validators.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "validateKey",
+    ()=>validateKey,
+    "validateValue",
+    ()=>validateValue
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -4331,13 +4347,7 @@ var SpanStatusCode;
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "validateKey",
-    ()=>validateKey,
-    "validateValue",
-    ()=>validateValue
-]);
-var VALID_KEY_CHAR_RANGE = '[_0-9a-z-*/]';
+ */ var VALID_KEY_CHAR_RANGE = '[_0-9a-z-*/]';
 var VALID_KEY = "[a-z]" + VALID_KEY_CHAR_RANGE + "{0,255}";
 var VALID_VENDOR_KEY = "[a-z0-9]" + VALID_KEY_CHAR_RANGE + "{0,240}@[a-z]" + VALID_KEY_CHAR_RANGE + "{0,13}";
 var VALID_KEY_REGEX = new RegExp("^(?:" + VALID_KEY + "|" + VALID_VENDOR_KEY + ")$");
@@ -4353,6 +4363,10 @@ function validateValue(value) {
 "[project]/node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-impl.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "TraceStateImpl",
+    ()=>TraceStateImpl
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -4367,11 +4381,7 @@ function validateValue(value) {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "TraceStateImpl",
-    ()=>TraceStateImpl
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$internal$2f$tracestate$2d$validators$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-validators.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$internal$2f$tracestate$2d$validators$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-validators.js [ssr] (ecmascript)");
 ;
 var MAX_TRACE_STATE_ITEMS = 32;
 var MAX_TRACE_STATE_LEN = 512;
@@ -4454,6 +4464,10 @@ var LIST_MEMBER_KEY_VALUE_SPLITTER = '=';
 "[project]/node_modules/@opentelemetry/api/build/esm/trace/internal/utils.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+__turbopack_context__.s([
+    "createTraceState",
+    ()=>createTraceState
+]);
 /*
  * Copyright The OpenTelemetry Authors
  *
@@ -4468,11 +4482,7 @@ var LIST_MEMBER_KEY_VALUE_SPLITTER = '=';
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ __turbopack_context__.s([
-    "createTraceState",
-    ()=>createTraceState
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$internal$2f$tracestate$2d$impl$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-impl.js [ssr] (ecmascript)");
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$internal$2f$tracestate$2d$impl$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-impl.js [ssr] (ecmascript)");
 ;
 function createTraceState(rawTraceState) {
     return new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$internal$2f$tracestate$2d$impl$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["TraceStateImpl"](rawTraceState);
@@ -6307,6 +6317,10 @@ class NextTracerImpl {
         if (attributes && !attributes.has(key)) {
             attributes.set(key, value);
         }
+    }
+    withSpan(span, fn) {
+        const spanContext = trace.setSpan(context.active(), span);
+        return context.with(spanContext, fn);
     }
 }
 const getTracer = (()=>{

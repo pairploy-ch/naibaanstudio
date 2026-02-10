@@ -5,5 +5,8 @@
   "/courses/[id]/page": "app/courses/[id]/page.js",
   "/courses/page": "app/courses/page.js",
   "/gallery/page": "app/gallery/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/policy/page": "app/policy/page.js",
+  "/refund/page": "app/refund/page.js",
+  "/terms/page": "app/terms/page.js"
 }

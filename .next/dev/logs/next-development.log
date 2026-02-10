@@ -42,3 +42,106 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
 [00:31:22.075] Server  LOG     ✓ Compiled in 74ms
 [00:31:56.243] Browser ERROR   Error checking existing emails: {"code":"","details":"TypeError: Failed to fetch\n    at http://localhost:3000/_next/static/chunks/503b1_815aab94._.js:17063:23\n    at http://localhost:3000/_next/static/chunks/503b1_815aab94._.js:17077:16\n    at async handleSubmit (http://localhost:3000/_next/static/chunks/Downloads_thaicookingclasses_baecb062._.js?id=%255Bproject%255D%252FDownloads%252Fthaicookingclasses%252Fapp%252Fcheckout%252Fpage.tsx+%255Bapp-client%255D+%2528ecmascript%2529:106:68)","hint":"","message":"TypeError: Failed to fetch"}
 [00:31:56.243] Browser ERROR   Error submitting form: {"code":"","details":"TypeError: Failed to fetch\n    at http://localhost:3000/_next/static/chunks/503b1_815aab94._.js:17063:23\n    at http://localhost:3000/_next/static/chunks/503b1_815aab94._.js:17077:16\n    at async handleSubmit (http://localhost:3000/_next/static/chunks/Downloads_thaicookingclasses_baecb062._.js?id=%255Bproject%255D%252FDownloads%252Fthaicookingclasses%252Fapp%252Fcheckout%252Fpage.tsx+%255Bapp-client%255D+%2528ecmascript%2529:106:68)","hint":"","message":"TypeError: Failed to fetch"}
+[03:16:21.461] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:16:31.974] Server  LOG     ✓ Compiled in 30ms
+[03:17:11.047] Server  LOG     ✓ Compiled in 69ms
+[03:17:26.117] Server  LOG     ✓ Compiled in 35ms
+[03:17:44.320] Server  LOG     ✓ Compiled in 29ms
+[03:17:50.333] Server  LOG     ✓ Compiled in 56ms
+[03:18:12.974] Server  LOG     ✓ Compiled in 33ms
+[03:18:20.620] Server  LOG     ✓ Compiled in 28ms
+[03:19:53.021] Server  LOG     ✓ Compiled in 523ms
+[03:19:53.464] Browser ERROR   uncaughtError: Error: An unexpected Turbopack error occurred. Please see the output of `next dev` for more details.
+[03:20:01.593] Server  LOG     ✓ Compiled in 95ms
+[03:20:01.594] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./Downloads/thaicookingclasses/node_modules/next/dist/shared/lib/router/router.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[03:20:01.670] Browser ERROR   uncaughtError: Error: An unexpected Turbopack error occurred. Please see the output of `next dev` for more details.
+[03:20:30.118] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:20:33.419] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:27:16.377] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:33:04.162] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:34:25.595] Server  LOG     ✓ Compiled in 2ms
+[03:35:40.415] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:36:52.392] Server  LOG     ✓ Compiled in 3ms
+[03:36:59.297] Server  LOG     ✓ Compiled in 6ms
+[04:19:19.070] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:21:52.033] Browser WARN    Image with src "/album/1.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:21:52.033] Browser WARN    Image with src "/album/2.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:21:52.033] Browser WARN    Image with src "/album/3.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:21:52.033] Browser WARN    Image with src "/album/4.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:21:52.033] Browser WARN    Image with src "/album/5.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:21:52.033] Browser WARN    Image with src "/album/6.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:21:52.033] Browser WARN    Image with src "/album/7.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:21:52.033] Browser WARN    Image with src "/album/8.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:21:52.033] Browser WARN    Image with src "/album/9.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:21:52.033] Browser WARN    Image with src "/album/10.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:21:52.033] Browser WARN    Image with src "/album/11.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:51:00.383] Server  LOG     ✓ Compiled in 68ms
+[04:51:11.134] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:53:41.430] Server  LOG     ✓ Compiled in 13ms
+[04:53:45.968] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:54:29.782] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:54:32.384] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:57:42.948] Server  LOG     ✓ Compiled in 11ms
+[04:57:58.128] Server  LOG     ✓ Compiled in 3ms
+[04:58:07.793] Server  LOG     ✓ Compiled in 4ms
+[04:58:12.085] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:59:34.665] Server  LOG     ✓ Compiled in 60ms
+[04:59:59.389] Server  LOG     ✓ Compiled in 3ms
+[05:00:09.563] Server  LOG     ✓ Compiled in 5ms
+[05:01:23.174] Server  LOG     ✓ Compiled in 15ms
+[05:01:45.502] Server  LOG     ✓ Compiled in 9ms
+[05:01:56.907] Server  LOG     ✓ Compiled in 3ms
+[05:02:02.301] Server  LOG     ✓ Compiled in 5ms
+[05:02:12.718] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:03:24.865] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:03:45.949] Server  LOG     ✓ Compiled in 14ms
+[05:06:29.360] Browser WARN    GoTrueClient@sb-peuiauimdwsqhdplqlyd-auth-token:1 (2.89.0) 2026-02-10T14:49:27.534Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[05:06:43.716] Browser WARN    Image with src "/album/1.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:06:43.716] Browser WARN    Image with src "/album/2.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:06:43.716] Browser WARN    Image with src "/album/3.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:06:43.716] Browser WARN    Image with src "/album/4.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:06:43.716] Browser WARN    Image with src "/album/5.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:06:43.716] Browser WARN    Image with src "/album/6.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:06:43.716] Browser WARN    Image with src "/album/7.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:06:43.716] Browser WARN    Image with src "/album/8.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:06:43.716] Browser WARN    Image with src "/album/9.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:06:43.716] Browser WARN    Image with src "/album/10.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:06:43.716] Browser WARN    Image with src "/album/11.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:07:22.016] Server  LOG     ✓ Compiled in 55ms
+[05:08:11.825] Server  LOG     ✓ Compiled in 8ms
+[05:09:04.701] Server  LOG     ✓ Compiled in 36ms
+[05:09:10.004] Server  LOG     ✓ Compiled in 6ms
+[05:11:30.258] Server  LOG     ✓ Compiled in 25ms
+[05:12:21.126] Server  LOG     ✓ Compiled in 59ms
+[05:13:03.375] Server  LOG     ✓ Compiled in 27ms
+[05:13:18.433] Server  LOG     ✓ Compiled in 15ms
+[05:13:44.343] Server  LOG     ✓ Compiled in 13ms
+[05:13:48.911] Server  LOG     ✓ Compiled in 6ms
+[05:13:59.380] Server  LOG     ✓ Compiled in 15ms
+[05:14:35.839] Server  LOG     ✓ Compiled in 17ms
+[05:14:47.047] Server  LOG     ✓ Compiled in 4ms
+[05:15:08.100] Server  LOG     ✓ Compiled in 7ms
+[05:15:15.762] Server  LOG     ✓ Compiled in 5ms
+[05:16:21.372] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
