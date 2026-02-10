@@ -636,7 +636,7 @@ function CheckoutContent() {
                   <span className="font-medium text-black">QR Promptpay</span>
                 </label>
               </div>
-
+<p>By proceeding with payment, you agree to our Terms & Conditions and Refund Policy.</p>
               <button
                 type="button"
                 disabled={!isFormValid() || isSubmitting}

@@ -145,3 +145,6 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
 [05:15:08.100] Server  LOG     ✓ Compiled in 7ms
 [05:15:15.762] Server  LOG     ✓ Compiled in 5ms
 [05:16:21.372] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:29:21.691] Browser WARN    GoTrueClient@sb-peuiauimdwsqhdplqlyd-auth-token:1 (2.89.0) 2026-02-10T15:12:19.887Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[05:29:37.277] Server  LOG     ✓ Compiled in 29ms
+[05:29:48.734] Server  LOG     ✓ Compiled in 15ms
