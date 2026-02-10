@@ -643,7 +643,7 @@ function CheckoutContent() {
                 onClick={handleSubmit}
                 className={`w-full py-4 font-medium transition-opacity mt-8 ${
                   isFormValid() && !isSubmitting
-                    ? 'bg-black text-white hover:opacity-80 cursor-pointer' 
+                    ? 'bg-[#919077] text-white hover:opacity-80 cursor-pointer' 
                     : 'bg-gray-400 text-gray-200 cursor-not-allowed'
                 }`}
               >

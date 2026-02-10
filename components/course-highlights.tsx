@@ -75,7 +75,7 @@ export function CourseHighlights() {
                 </p> */}
                 <Link 
                   href={`${course.link}`}
-                  className="text-black font-medium underline hover:opacity-70 transition-opacity inline-block"
+                  className="text-[#919077] font-medium underline hover:opacity-70 transition-opacity inline-block"
                 >
                   Book a Class
                 </Link>

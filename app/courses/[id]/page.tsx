@@ -130,7 +130,7 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
         return (
           <div
             className={`text-xs py-1 px-1 mt-1 rounded ${
-              bothFull ? "bg-[#D84040] text-white" : "bg-[#8B7355] text-white"
+              bothFull ? "bg-[#919077] text-white" : "bg-[#919077] text-white"
             }`}
           >
             {bothFull ? "Full" : "Available"}
@@ -184,7 +184,7 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           <div className="space-y-8">
-            <h1 className="text-5xl font-bold text-black">{course.title}</h1>
+            <h1 className="text-5xl font-bold text-[#919077]">{course.title}</h1>
             <div className="text-black leading-relaxed space-y-4">
               {course.description.split("\n\n").map((paragraph: string, index: number) => (
                 <p key={index}>{paragraph}</p>
@@ -288,7 +288,7 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
                     ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&quantity=${quantity}&price=${course.price}&courseId=${id}`
                     : "#"
                 }
-                className={`bg-black text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
+                className={`bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
                   !selectedDate ? "opacity-50 pointer-events-none" : ""
                 }`}
               >

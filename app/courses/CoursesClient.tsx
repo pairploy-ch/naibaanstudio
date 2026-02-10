@@ -169,7 +169,7 @@ export default function CoursesClient() {
                   </p>
                   <Link
                     href={`/courses/${course.id}`}
-                    className="underline text-black"
+                    className="underline text-[#919077]"
                   >
                     Book a Class
                   </Link>

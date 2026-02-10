@@ -41,7 +41,7 @@ export function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="py-6 bg-[#130904] text-white">
+      <div className="py-6 bg-[#363522] text-white">
         <p className="text-center text-white text-sm">
           Copyright © 2025 naibaan.com All rights reserved.
         </p>

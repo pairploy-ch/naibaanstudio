@@ -14,7 +14,7 @@ export function About() {
       </div>
 
       {/* Content - Right side with beige background */}
-      <div className="bg-secondary flex items-center justify-center px-8 md:px-16 lg:px-24 py-16 md:py-20">
+      <div className="bg-[#E8DCD0] flex items-center justify-center px-8 md:px-16 lg:px-24 py-16 md:py-20">
         <div className="max-w-3xl">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-foreground text-center text-balance">
             A Cozy Studio Sharing Thailand's Original Recipes
@@ -39,7 +39,7 @@ export function About() {
 
           <div className="flex justify-center mt-10">
             <Link href="/about">
-             <button className="font-semibold inline-flex items-center gap-2 px-8 py-4 text-md text-white bg-black hover:bg-white hover:text-black transition-colors duration-300">
+             <button className="font-semibold inline-flex items-center gap-2 px-8 py-4 text-md text-white bg-[#8C8F72] hover:bg-[#363522] transition-colors duration-300">
               Read More
             </button>
             </Link>

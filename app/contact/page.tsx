@@ -10,7 +10,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16">
           {/* Left: Text Content */}
           <div>
-            <h1 className=" text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className=" text-4xl md:text-5xl font-bold text-[#919077] mb-6 leading-tight">
               Contact us
             </h1>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
@@ -61,7 +61,7 @@ export default function ContactPage() {
       <section className="px-6 md:px-12 py-12 md:py-16 bg-[#F6EFE7]">
         <div className="max-w-7xl mx-auto">
           <img
-            src="/rustic-thai-studio-interior-wooden-details-dining.jpg"
+            src="/naibaan-lo.jpg"
             alt="Thai cooking studio interior with warm ambiance"
             className="w-full h-auto object-cover rounded-md"
           />

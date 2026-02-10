@@ -65,7 +65,7 @@ export default function AboutPage() {
       <section className="pb-12 md:pb-16">
         <div className="max-w-[90%] mx-auto">
           <img
-            src="/rustic-thai-studio-interior-wooden-details-dining.jpg"
+            src="/naibaan-lo.jpg"
             alt="Thai cooking studio interior"
             className="w-full object-cover"
             style={{height: '800px'}}
