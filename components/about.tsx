@@ -7,7 +7,8 @@ export function About() {
       {/* Image - Left side, full height */}
       <div className="relative aspect-square w-full">
         <img
-          src="/mock-about.jpg"
+        style={{objectPosition: 'bottom'}}
+          src="/new/about.jpg"
           alt="Traditional Thai cooking utensils"
           className="w-full h-full object-cover"
         />

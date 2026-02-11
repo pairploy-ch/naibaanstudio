@@ -92,7 +92,7 @@ export default function CustomerReview() {
   )
 
   return (
-    <div className="min-h-screen bg-secondary py-16">
+    <div className="bg-[#E8DCD0] py-16">
       <div className="container mx-auto px-6 max-w-[90%]">
         <h2 className="text-5xl font-bold text-black mb-4 text-center">
           Customer Reviews

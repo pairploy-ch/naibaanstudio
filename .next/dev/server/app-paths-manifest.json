@@ -1,12 +1,8 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
   "/about/page": "app/about/page.js",
-  "/checkout/page": "app/checkout/page.js",
   "/contact/page": "app/contact/page.js",
-  "/courses/[id]/page": "app/courses/[id]/page.js",
   "/courses/page": "app/courses/page.js",
   "/gallery/page": "app/gallery/page.js",
-  "/page": "app/page.js",
-  "/policy/page": "app/policy/page.js",
-  "/refund/page": "app/refund/page.js",
-  "/terms/page": "app/terms/page.js"
+  "/page": "app/page.js"
 }

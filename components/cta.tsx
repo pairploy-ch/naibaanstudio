@@ -7,11 +7,12 @@ export function CTA() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/mock-cta.jpg"
+        style={{objectPosition: 'center'}}
+          src="/new/cta.jpg"
           alt="Thai cooking pots"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Content */}

@@ -6,12 +6,14 @@ export function Hero() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/test-bg.jpg"
-          alt="Thai cooking studio interior"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40" />
+   <img
+   style={{objectPosition: 'bottom'}}
+  src="/new/bg.jpg"
+  alt="Thai cooking studio interior"
+  className="w-full h-full object-cover"
+/>
+
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Hero Content */}
