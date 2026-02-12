@@ -18,6 +18,8 @@ export default function GalleryPage() {
     { src: "/album/8.jpg", alt: "Thai pad thai dish" },
     { src: "/album/9.jpg", alt: "Two people at cooking class" },
     { src: "/album/10.jpg", alt: "Large group enjoying food" },
+        { src: "/album/11.jpg", alt: "Two people at cooking class" },
+    { src: "/album/12.jpg", alt: "Large group enjoying food" },
     // { src: "/album/11.jpeg", alt: "Thai curry dish" },
   ];
 

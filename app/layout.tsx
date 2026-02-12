@@ -21,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Nai Baan Studio',
   description:
-    'Discover authentic Thai cooking in a cozy home-style studio. Learn traditional Thai recipes, cooking techniques, and cultural insights from expert chefs.',
+    'Discover authentic Thai cooking in a serene, home-style studio located in the ancient wooden house. Learn traditional recipes, local ingredients, and Thai cooking techniques from a passionate culinary host.',
   keywords: [
     'Thai cooking class',
     'Thailand cooking studio',

@@ -18,7 +18,7 @@ export function About() {
       <div className="bg-[#E8DCD0] flex items-center justify-center px-8 md:px-16 lg:px-24 py-16 md:py-20">
         <div className="max-w-3xl">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-foreground text-center text-balance">
-            A Cozy Studio Sharing Thailand's Original Recipes
+            A Cozy Studio Sharing Thai Family Recipes
           </h2>
 
           <div className="space-y-6 text-foreground text-center leading-relaxed text-base md:text-lg">

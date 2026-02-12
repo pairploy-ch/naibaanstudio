@@ -21,8 +21,8 @@ export function Footer() {
           <div style={{ justifySelf: "center" }}>
             <h3 className=" text-2xl font-bold mb-4">Hours</h3>
             <div className="space-y-2 text-muted-foreground">
-              <p>Monday - Sunday</p>
-              <p>9:00 am - 5:30 pm</p>
+              <p>Monday – Sunday (close on Wednesday)</p>
+              <p>9.00 a.m. - 5.30 p.m.</p>
             </div>
           </div>
 
@@ -30,7 +30,7 @@ export function Footer() {
           <div style={{ justifySelf: "right" }}>
             <h3 className=" text-2xl font-bold mb-4">Location</h3>
             <div className="space-y-2 text-muted-foreground">
-              <p>No. 230 Nares Road, Si Phraya,</p>
+              <p>2nd floor 230 Nares Road, Si Phraya,</p>
               <p>Bang Rak, Bangkok 10500, Thailand</p>
             </div>
           </div>

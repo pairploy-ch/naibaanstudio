@@ -22,9 +22,8 @@ export function Hero() {
           Experience Thailand Through Its Flavors
         </h1>
         <p className="text-white/90 text-lg md:text-xl mb-8 max-w-6xl mx-auto text-balance leading-relaxed">
-          Discover authentic Thai cooking in a serene, home-style studio. Learn
-          traditional recipes, local ingredients, and regional culinary
-          techniques from expert Thai chefs.
+          Discover authentic Thai cooking in a serene, home-style studio located in the ancient wooden house.
+Learn traditional recipes, local ingredients, and Thai cooking techniques from a passionate culinary host.
         </p>
       <a
   href="#courses"

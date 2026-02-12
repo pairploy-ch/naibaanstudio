@@ -108,23 +108,15 @@ function AboutPage() {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "block",
-                                        children: "Our journey began with the simple belief that food becomes truly meaningful when it carries history—recipes whispered from one generation to the next, techniques perfected at family kitchens, and the warmth that comes from sharing a meal with people you care about."
+                                        children: "Naibaan Studio is a home of simple, yet tasteful Thai home cook recipe - this little secret is now passing down to the 3rd generation of the family. Now it's time to undisclosed our FAMILY RECIPE to the world - to those who are passionate in Thai foods, to those who want to learn Thai culture and way of cooking."
                                     }, void 0, false, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/about/page.tsx",
                                         lineNumber: 46,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "block",
-                                        children: "At our studio, we preserve these timeless Thai recipes and the little secrets that make them special—from the perfect balance of flavors to the traditional methods rarely found in modern kitchens. We don't just teach cooking; we share the heart behind each dish, the stories that shaped it, and the joy of creating something delicious with your own hands."
-                                    }, void 0, false, {
-                                        fileName: "[project]/Downloads/thaicookingclasses/app/about/page.tsx",
-                                        lineNumber: 48,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "block",
-                                        children: "More than a cooking class, we hope this space becomes a community. A place where travelers and locals can cook together, exchange stories, laugh, experiment, make mistakes, learn again, and feel right at home. A place that's warm, friendly, and full of the comforting chaos of a real Thai kitchen."
+                                        className: "block mt-10",
+                                        children: "At Naibaan Studio, we aim to be more than just a cooking school but be a gathering spot of ones who are passionate in Thai foods. No worries if you don't have any experiences in cooking, only bring your passion along. We always be very happy to invite you to come to our HOME at Naibaan Studio - a place where we share our MOMENT together."
                                     }, void 0, false, {
                                         fileName: "[project]/Downloads/thaicookingclasses/app/about/page.tsx",
                                         lineNumber: 50,
@@ -161,17 +153,17 @@ function AboutPage() {
                         children: "Whether you're here to master classic dishes, explore new tastes, or simply enjoy a heartfelt cooking experience—our doors, our woks, and our stories are open to you."
                     }, void 0, false, {
                         fileName: "[project]/Downloads/thaicookingclasses/app/about/page.tsx",
-                        lineNumber: 59,
+                        lineNumber: 64,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Downloads/thaicookingclasses/app/about/page.tsx",
-                    lineNumber: 58,
+                    lineNumber: 63,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Downloads/thaicookingclasses/app/about/page.tsx",
-                lineNumber: 57,
+                lineNumber: 62,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$thaicookingclasses$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -187,17 +179,17 @@ function AboutPage() {
                         }
                     }, void 0, false, {
                         fileName: "[project]/Downloads/thaicookingclasses/app/about/page.tsx",
-                        lineNumber: 68,
+                        lineNumber: 73,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Downloads/thaicookingclasses/app/about/page.tsx",
-                    lineNumber: 67,
+                    lineNumber: 72,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Downloads/thaicookingclasses/app/about/page.tsx",
-                lineNumber: 66,
+                lineNumber: 71,
                 columnNumber: 7
             }, this)
         ]

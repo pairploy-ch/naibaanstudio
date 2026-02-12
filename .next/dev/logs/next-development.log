@@ -1,312 +1,101 @@
-[00:00:02.187] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:02.299] Server  LOG     ✓ Ready in 2s
-[00:00:02.902] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:45.626] Server  LOG     ✓ Compiled in 213ms
-[00:04:34.803] Server  LOG     ✓ Compiled in 2ms
-[00:05:23.060] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:53.123] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:05.298] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:11:15.316] Browser WARN    Image with src "/album/1.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:00:01.183] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.319] Server  LOG     ✓ Ready in 1042ms
+[00:00:02.895] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:26.647] Server  LOG     ✓ Compiled in 50ms
+[00:03:43.780] Server  LOG     ✓ Compiled in 20ms
+[00:03:51.387] Server  LOG     ✓ Compiled in 2ms
+[00:03:54.796] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:07.758] Server  LOG     ✓ Compiled in 5ms
+[00:17:25.445] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:03.340] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:30:32.634] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:15.317] Browser WARN    Image with src "/album/2.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:30:32.634] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:15.317] Browser WARN    Image with src "/album/3.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:30:32.634] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:15.317] Browser WARN    Image with src "/album/4.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:30:32.634] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:15.317] Browser WARN    Image with src "/album/5.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:30:32.634] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:15.317] Browser WARN    Image with src "/album/6.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:30:32.634] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:15.317] Browser WARN    Image with src "/album/7.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:30:32.634] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:15.317] Browser WARN    Image with src "/album/8.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:30:32.634] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:15.317] Browser WARN    Image with src "/album/9.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:30:32.634] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:15.317] Browser WARN    Image with src "/album/10.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:30:32.634] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:15.318] Browser WARN    Image with src "/album/11.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:30:50.137] Server  LOG     ✓ Compiled in 32ms
+[00:30:55.459] Server  LOG     ✓ Compiled in 7ms
+[00:36:36.243] Server  WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:54.829] Server  WARN    Image with src "/album/1.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:36.245] Server  WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:54.831] Server  WARN    Image with src "/album/2.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:36.246] Server  WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:54.831] Server  WARN    Image with src "/album/3.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:36.246] Server  WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:54.831] Server  WARN    Image with src "/album/4.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:36.246] Server  WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:54.832] Server  WARN    Image with src "/album/5.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:36.247] Server  WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:54.832] Server  WARN    Image with src "/album/6.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:36.247] Server  WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:54.832] Server  WARN    Image with src "/album/7.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:36.247] Server  WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:54.832] Server  WARN    Image with src "/album/8.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:36.247] Server  WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:54.832] Server  WARN    Image with src "/album/9.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:36.248] Server  WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:54.833] Server  WARN    Image with src "/album/10.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:37.121] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:37.308] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:54.833] Server  WARN    Image with src "/album/11.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:37.308] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:55.115] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:11:55.333] Browser WARN    Image with src "/album/1.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:37.308] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:55.333] Browser WARN    Image with src "/album/2.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:37.308] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:55.333] Browser WARN    Image with src "/album/3.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:37.308] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:55.333] Browser WARN    Image with src "/album/4.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:37.308] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:55.333] Browser WARN    Image with src "/album/5.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:37.308] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:55.333] Browser WARN    Image with src "/album/6.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:37.308] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:55.333] Browser WARN    Image with src "/album/7.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:37.308] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:55.333] Browser WARN    Image with src "/album/8.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:36:37.308] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:55.333] Browser WARN    Image with src "/album/9.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:33.696] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:33.890] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:55.333] Browser WARN    Image with src "/album/10.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:33.890] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:11:55.333] Browser WARN    Image with src "/album/11.jpeg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:33.890] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:15:05.456] Server  LOG     ✓ Compiled in 132ms
-[00:15:06.445] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:33.890] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:15:06.445] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:33.890] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:15:06.445] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:33.890] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:15:06.445] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:33.890] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:15:06.445] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:33.890] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:15:06.445] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:33.890] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:15:06.445] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:33.890] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:15:06.445] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:51.087] Server  LOG     ✓ Compiled in 29ms
+[00:39:51.678] Browser WARN    Image with src "/album/11.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:15:06.445] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+[00:39:51.678] Browser WARN    Image with src "/album/12.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:15:06.445] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:07.911] Server  LOG     ✓ Compiled in 24ms
-[00:17:13.687] Server  LOG     ✓ Compiled in 6ms
-[00:17:20.442] Server  LOG     ✓ Compiled in 5ms
-[00:17:25.053] Server  WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.054] Server  WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.055] Server  WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.055] Server  WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.055] Server  WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.055] Server  WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.056] Server  WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.056] Server  WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.056] Server  WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.056] Server  WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.229] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:17:25.352] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.352] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.352] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.352] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.352] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.352] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.352] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.352] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.352] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:17:25.352] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:20:46.347] Server  LOG     ✓ Compiled in 131ms
-[00:22:47.903] Server  LOG     ✓ Compiled in 45ms
-[00:22:53.137] Browser WARN    Image with src "http://localhost:3000/album/1.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:53.246] Browser WARN    Image with src "http://localhost:3000/album/4.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:53.503] Browser WARN    Image with src "http://localhost:3000/album/2.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:53.503] Browser WARN    Image with src "http://localhost:3000/album/5.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:53.503] Browser WARN    Image with src "http://localhost:3000/album/7.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:53.503] Browser WARN    Image with src "http://localhost:3000/album/9.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:53.503] Browser WARN    Image with src "http://localhost:3000/album/3.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:53.503] Browser WARN    Image with src "http://localhost:3000/album/8.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:53.503] Browser WARN    Image with src "http://localhost:3000/album/10.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:53.503] Browser WARN    Image with src "http://localhost:3000/album/6.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:57.532] Server  WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.534] Server  WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.534] Server  WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.535] Server  WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.535] Server  WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.535] Server  WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.535] Server  WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.536] Server  WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.536] Server  WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.536] Server  WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.677] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:22:57.793] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.793] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.793] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.793] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.793] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.793] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.793] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.793] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.793] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.793] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:22:57.906] Browser WARN    Image with src "http://localhost:3000/album/1.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:58.065] Browser WARN    Image with src "http://localhost:3000/album/2.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:58.211] Browser WARN    Image with src "http://localhost:3000/album/3.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:58.318] Browser WARN    Image with src "http://localhost:3000/album/4.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:58.318] Browser WARN    Image with src "http://localhost:3000/album/5.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:58.318] Browser WARN    Image with src "http://localhost:3000/album/6.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:58.318] Browser WARN    Image with src "http://localhost:3000/album/7.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:58.318] Browser WARN    Image with src "http://localhost:3000/album/8.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:58.318] Browser WARN    Image with src "http://localhost:3000/album/9.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:22:58.318] Browser WARN    Image with src "http://localhost:3000/album/10.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:23:01.645] Server  LOG     ✓ Compiled in 11ms
-[00:23:12.867] Server  LOG     ✓ Compiled in 45ms
-[00:23:19.654] Server  LOG     ✓ Compiled in 8ms
-[00:23:44.645] Server  LOG     ✓ Compiled in 3ms
-[00:24:16.428] Server  LOG     ✓ Compiled in 3ms
-[00:24:19.345] Server  WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.347] Server  WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.347] Server  WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.347] Server  WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.348] Server  WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.348] Server  WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.348] Server  WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.348] Server  WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.348] Server  WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.349] Server  WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.437] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:24:19.550] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.550] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.550] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.550] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.550] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.550] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.550] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.550] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.550] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.550] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:19.659] Browser WARN    Image with src "http://localhost:3000/album/1.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:19.830] Browser WARN    Image with src "http://localhost:3000/album/2.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:19.983] Browser WARN    Image with src "http://localhost:3000/album/3.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:20.092] Browser WARN    Image with src "http://localhost:3000/album/4.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:20.092] Browser WARN    Image with src "http://localhost:3000/album/5.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:20.092] Browser WARN    Image with src "http://localhost:3000/album/6.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:20.092] Browser WARN    Image with src "http://localhost:3000/album/7.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:20.092] Browser WARN    Image with src "http://localhost:3000/album/8.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:20.092] Browser WARN    Image with src "http://localhost:3000/album/9.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:20.092] Browser WARN    Image with src "http://localhost:3000/album/10.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:25.017] Server  LOG     ✓ Compiled in 2ms
-[00:24:28.053] Server  WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.055] Server  WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.056] Server  WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.056] Server  WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.056] Server  WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.056] Server  WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.057] Server  WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.057] Server  WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.057] Server  WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.057] Server  WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.146] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:24:28.257] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.257] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.257] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.257] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.257] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.257] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.257] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.257] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.257] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.257] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:24:28.393] Browser WARN    Image with src "http://localhost:3000/album/1.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:28.562] Browser WARN    Image with src "http://localhost:3000/album/2.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:28.712] Browser WARN    Image with src "http://localhost:3000/album/3.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:28.822] Browser WARN    Image with src "http://localhost:3000/album/4.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:28.822] Browser WARN    Image with src "http://localhost:3000/album/5.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:28.822] Browser WARN    Image with src "http://localhost:3000/album/6.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:28.822] Browser WARN    Image with src "http://localhost:3000/album/7.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:28.822] Browser WARN    Image with src "http://localhost:3000/album/8.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:28.822] Browser WARN    Image with src "http://localhost:3000/album/9.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:28.822] Browser WARN    Image with src "http://localhost:3000/album/10.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:24:33.048] Server  LOG     ✓ Compiled in 14ms
+[00:41:45.811] Server  LOG     ✓ Compiled in 12ms
+[00:43:11.737] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

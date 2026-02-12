@@ -7,7 +7,7 @@ export default function ContactPage() {
 
       {/* Hero Section */}
       <section className="px-6 md:px-12 py-12 md:py-20 bg-[#F6EFE7]">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16">
+        <div className="max-w-7xl mx-auto md:flex justify-between">
           {/* Left: Text Content */}
           <div>
             <h1 className=" text-4xl md:text-5xl font-bold text-[#919077] mb-6 leading-tight">
@@ -40,7 +40,7 @@ export default function ContactPage() {
             <div>
               <p className="text-gray-600 text-sm font-medium mb-2">location</p>
               <p className="text-gray-900 text-base leading-relaxed">
-                230, Nares Road, Si Phraya,<br />
+                2nd floor 230, Nares Road, Si Phraya,<br />
                 BangRak, Bangkok 10500, Thailand
               </p>
             </div>
@@ -49,8 +49,8 @@ export default function ContactPage() {
             <div>
               <p className="text-gray-600 text-sm font-medium mb-2">hours</p>
               <p className="text-gray-900 text-base leading-relaxed">
-                Monday - Sunday<br />
-                5:00 pm - 10:00 pm
+               Monday – Sunday (close on Wednesday)<br />
+                9.00 a.m. - 5.30 p.m.
               </p>
             </div>
           </div>
@@ -61,7 +61,7 @@ export default function ContactPage() {
       <section className="px-6 md:px-12 py-12 md:py-16 bg-[#F6EFE7]">
         <div className="max-w-7xl mx-auto">
           <img
-            src="/new/about-3.jpg"
+            src="/new/bg-contact.jpg"
             alt="Thai cooking studio interior with warm ambiance"
             className="w-full h-auto object-cover rounded-md"
           />

@@ -43,11 +43,16 @@ export default function AboutPage() {
           {/* Right: Text Content */}
           <div className="max-w-2xl mx-auto">
             <p className="text-gray-700 text-base md:text-xl leading-relaxed space-y-4">
-              <span className="block">Our journey began with the simple belief that food becomes truly meaningful when it carries history—recipes whispered from one generation to the next, techniques perfected at family kitchens, and the warmth that comes from sharing a meal with people you care about.</span>
+              <span className="block">Naibaan Studio is a home of simple, yet tasteful Thai home cook recipe - this little secret is now passing
+down to the 3rd generation of the family. Now it's time to undisclosed our FAMILY RECIPE to the world -
+to those who are passionate in Thai foods, to those who want to learn Thai culture and way of cooking.</span>
               
-              <span className="block">At our studio, we preserve these timeless Thai recipes and the little secrets that make them special—from the perfect balance of flavors to the traditional methods rarely found in modern kitchens. We don't just teach cooking; we share the heart behind each dish, the stories that shaped it, and the joy of creating something delicious with your own hands.</span>
+              <span className="block mt-10">At Naibaan Studio, we aim to be more than just a cooking school but be a gathering spot of ones who
+are passionate in Thai foods. No worries if you don't have any experiences in cooking, only bring your
+passion along. We always be very happy to invite you to come to our HOME at Naibaan Studio - a place
+where we share our MOMENT together.</span>
               
-              <span className="block">More than a cooking class, we hope this space becomes a community. A place where travelers and locals can cook together, exchange stories, laugh, experiment, make mistakes, learn again, and feel right at home. A place that's warm, friendly, and full of the comforting chaos of a real Thai kitchen.</span>
+      
             </p>
           </div>
         </div>
