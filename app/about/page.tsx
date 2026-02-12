@@ -19,11 +19,12 @@ export default function AboutPage() {
           </div>
           {/* Right: Image */}
           <div>
-            <img
-              src="/mock-about-1.jpg"
-              alt="Family cooking together in Thai kitchen"
-              className="w-full h-auto object-cover"
-            />
+       <img
+  src="/new/about-1.jpg"
+  alt="Family cooking together in Thai kitchen"
+  className="w-full aspect-square object-cover"
+/>
+
           </div>
         </div>
       </section>
@@ -34,7 +35,7 @@ export default function AboutPage() {
           {/* Left: Image */}
           <div style={{width: '90%'}}>
             <img
-              src="/mock-about-2.jpg"
+              src="/new/about-2.jpg"
               alt="Cooking in wok with fresh ingredients"
               className="w-full h-auto object-cover"
             />
@@ -65,7 +66,7 @@ export default function AboutPage() {
       <section className="pb-12 md:pb-16">
         <div className="max-w-[90%] mx-auto">
           <img
-            src="/naibaan-lo.jpg"
+            src="/new/about-3.jpg"
             alt="Thai cooking studio interior"
             className="w-full object-cover"
             style={{height: '800px'}}

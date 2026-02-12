@@ -8,17 +8,17 @@ export default function GalleryPage() {
   const [loadedImages, setLoadedImages] = React.useState<Set<number>>(new Set());
 
   const allGalleryImages = [
-    { src: "/album/1.jpeg", alt: "Two people cooking together", className: "md:col-span-1 md:row-span-1" },
-    { src: "/album/2.jpeg", alt: "Group cooking class", className: "md:col-span-2 md:row-span-1" },
-    { src: "/album/3.jpeg", alt: "Close-up cooking in wok", className: "md:col-span-1 md:row-span-1" },
-    { src: "/album/4.jpeg", alt: "Cooking class with instructor", className: "md:col-span-2 md:row-span-2" },
-    { src: "/album/5.jpeg", alt: "People enjoying meal", className: "md:col-span-1 md:row-span-1" },
-    { src: "/album/6.jpeg", alt: "Preparing ingredients", className: "md:col-span-1 md:row-span-1" },
-    { src: "/album/7.jpeg", alt: "Group cooking and laughing", className: "md:col-span-1 md:row-span-1" },
-    { src: "/album/8.jpeg", alt: "Thai pad thai dish", className: "md:col-span-1 md:row-span-1" },
-    { src: "/album/9.jpeg", alt: "Two people at cooking class", className: "md:col-span-1 md:row-span-1" },
-    { src: "/album/10.jpeg", alt: "Large group enjoying food", className: "md:col-span-2 md:row-span-1" },
-    { src: "/album/11.jpeg", alt: "Thai curry dish", className: "md:col-span-1 md:row-span-1" },
+    { src: "/album/1.jpg", alt: "Two people cooking together" },
+    { src: "/album/2.jpg", alt: "Group cooking class" },
+    { src: "/album/3.jpg", alt: "Close-up cooking in wok" },
+    { src: "/album/4.jpg", alt: "Cooking class with instructor" },
+    { src: "/album/5.jpg", alt: "People enjoying meal" },
+    { src: "/album/6.jpg", alt: "Preparing ingredients" },
+    { src: "/album/7.jpg", alt: "Group cooking and laughing" },
+    { src: "/album/8.jpg", alt: "Thai pad thai dish" },
+    { src: "/album/9.jpg", alt: "Two people at cooking class" },
+    { src: "/album/10.jpg", alt: "Large group enjoying food" },
+    // { src: "/album/11.jpeg", alt: "Thai curry dish" },
   ];
 
   const galleryImages = allGalleryImages.slice(0, visibleCount);
@@ -50,11 +50,11 @@ export default function GalleryPage() {
       {/* Gallery Grid */}
       <section className="py-12">
         <div className="max-w-[90%] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[250px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {galleryImages.map((image, index) => (
               <div
                 key={index}
-                className={`relative overflow-hidden bg-gray-100 ${image.className}`}
+                className="relative overflow-hidden bg-gray-100 aspect-square"
               >
                 {/* Loading Skeleton */}
                 {!loadedImages.has(index) && (
@@ -69,11 +69,11 @@ export default function GalleryPage() {
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className={`object-cover transition-all duration-500 hover:scale-105 ${
                     loadedImages.has(index) ? 'opacity-100' : 'opacity-0'
                   }`}
-                  priority={index < 4} // โหลด 4 รูปแรกก่อน
+                  priority={index < 4}
                   quality={85}
                   onLoad={() => handleImageLoad(index)}
                 />

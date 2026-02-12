@@ -61,7 +61,7 @@ export default function ContactPage() {
       <section className="px-6 md:px-12 py-12 md:py-16 bg-[#F6EFE7]">
         <div className="max-w-7xl mx-auto">
           <img
-            src="/naibaan-lo.jpg"
+            src="/new/about-3.jpg"
             alt="Thai cooking studio interior with warm ambiance"
             className="w-full h-auto object-cover rounded-md"
           />
