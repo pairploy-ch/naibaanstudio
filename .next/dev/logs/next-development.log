@@ -1,101 +1,86 @@
-[00:00:01.183] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.319] Server  LOG     ✓ Ready in 1042ms
-[00:00:02.895] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:26.647] Server  LOG     ✓ Compiled in 50ms
-[00:03:43.780] Server  LOG     ✓ Compiled in 20ms
-[00:03:51.387] Server  LOG     ✓ Compiled in 2ms
-[00:03:54.796] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:09:07.758] Server  LOG     ✓ Compiled in 5ms
-[00:17:25.445] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:18:03.340] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:30:32.634] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:30:32.634] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:30:32.634] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:30:32.634] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:30:32.634] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:30:32.634] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:30:32.634] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:30:32.634] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:30:32.634] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:30:32.634] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:30:50.137] Server  LOG     ✓ Compiled in 32ms
-[00:30:55.459] Server  LOG     ✓ Compiled in 7ms
-[00:36:36.243] Server  WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:36.245] Server  WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:36.246] Server  WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:36.246] Server  WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:36.246] Server  WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:36.247] Server  WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:36.247] Server  WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:36.247] Server  WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:36.247] Server  WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:36.248] Server  WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:37.121] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:36:37.308] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:37.308] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:37.308] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:37.308] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:37.308] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:37.308] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:37.308] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:37.308] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:37.308] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:36:37.308] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:33.696] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:39:33.890] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:33.890] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:33.890] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:33.890] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:33.890] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:33.890] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:33.890] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:33.890] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:33.890] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:33.890] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:51.087] Server  LOG     ✓ Compiled in 29ms
-[00:39:51.678] Browser WARN    Image with src "/album/11.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:39:51.678] Browser WARN    Image with src "/album/12.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:41:45.811] Server  LOG     ✓ Compiled in 12ms
-[00:43:11.737] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:01.087] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.225] Server  LOG     ✓ Ready in 951ms
+[00:00:02.874] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:08.410] Server  LOG     ✓ Compiled in 130ms
+[00:03:15.420] Server  LOG     ✓ Compiled in 3ms
+[00:05:16.830] Server  LOG     ✓ Compiled in 7ms
+[00:05:21.223] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:40.399] Server  LOG     ✓ Compiled in 5ms
+[00:06:08.314] Server  LOG     ✓ Compiled in 4ms
+[00:06:13.205] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:34.328] Server  LOG     ✓ Compiled in 15ms
+[00:08:10.030] Server  LOG     ✓ Compiled in 6ms
+[00:09:08.986] Server  LOG     ✓ Compiled in 6ms
+[00:09:18.043] Server  LOG     ✓ Compiled in 4ms
+[00:10:04.794] Server  LOG     ✓ Compiled in 4ms
+[00:10:07.489] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:24.618] Server  LOG     ✓ Compiled in 3ms
+[00:10:32.038] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:41.175] Server  LOG     ✓ Compiled in 4ms
+[00:16:17.687] Server  LOG     ✓ Compiled in 37ms
+[00:16:41.529] Server  LOG     ✓ Compiled in 11ms
+[00:16:48.299] Server  LOG     ✓ Compiled in 5ms
+[00:17:06.889] Server  LOG     ✓ Compiled in 3ms
+[00:17:22.779] Server  LOG     ✓ Compiled in 4ms
+[00:25:36.708] Server  LOG     ✓ Compiled in 6ms
+[00:26:34.764] Server  LOG     ✓ Compiled in 5ms
+[00:26:43.970] Server  LOG     ✓ Compiled in 3ms
+[00:27:22.911] Server  LOG     ✓ Compiled in 7ms
+[00:27:54.245] Server  LOG     ✓ Compiled in 24ms
+[00:28:08.995] Server  LOG     ✓ Compiled in 3ms
+[00:30:45.377] Server  LOG     ✓ Compiled in 12ms
+[00:46:11.244] Server  LOG     ✓ Compiled in 13ms
+[00:46:24.239] Server  LOG     ✓ Compiled in 9ms
+[00:47:09.661] Server  LOG     ✓ Compiled in 15ms
+[00:47:20.842] Server  LOG     ✓ Compiled in 4ms
+[01:16:18.675] Server  LOG     ✓ Compiled in 148ms
+[01:16:36.688] Server  LOG     ✓ Compiled in 11ms
+[01:16:56.817] Server  LOG     ✓ Compiled in 5ms
+[01:17:07.032] Server  LOG     ✓ Compiled in 7ms
+[01:17:10.957] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:17:23.056] Server  LOG     ✓ Compiled in 9ms
+[01:17:33.255] Server  LOG     ✓ Compiled in 32ms
+[01:17:44.613] Server  LOG     ✓ Compiled in 5ms
+[01:17:50.330] Server  LOG     ✓ Compiled in 9ms
+[01:17:58.017] Server  LOG     ✓ Compiled in 11ms
+[01:18:18.299] Server  LOG     ✓ Compiled in 8ms
+[01:18:45.573] Server  LOG     ✓ Compiled in 134ms
+[01:18:46.837] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[01:18:46.837] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[01:18:46.837] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[01:18:46.837] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[01:18:49.139] Server  LOG     ✓ Compiled in 6ms
+[01:20:11.834] Server  LOG     ✓ Compiled in 178ms
+[01:21:04.874] Server  LOG     ✓ Compiled in 40ms
+[01:21:29.425] Server  LOG     ✓ Compiled in 8ms
+[01:22:04.933] Server  LOG     ✓ Compiled in 25ms
+[01:22:37.119] Server  LOG     ✓ Compiled in 16ms
+[01:23:04.695] Server  LOG     ✓ Compiled in 9ms
+[01:23:49.145] Server  LOG     ✓ Compiled in 14ms
+[01:24:07.605] Server  LOG     ✓ Compiled in 6ms
+[01:24:17.390] Server  LOG     ✓ Compiled in 3ms
+[01:25:01.210] Server  LOG     ✓ Compiled in 31ms
+[01:25:29.688] Server  LOG     ✓ Compiled in 11ms
+[01:26:23.163] Server  LOG     ✓ Compiled in 6ms
+[01:27:00.428] Server  LOG     ✓ Compiled in 14ms
+[01:27:19.525] Server  LOG     ✓ Compiled in 10ms
+[01:27:21.759] Server  LOG     ✓ Compiled in 3ms
+[01:28:52.204] Server  LOG     ✓ Compiled in 17ms
+[01:29:10.853] Server  LOG     ✓ Compiled in 8ms
+[01:29:57.749] Server  LOG     ✓ Compiled in 15ms
+[01:31:07.059] Server  LOG     ✓ Compiled in 8ms
+[01:33:33.495] Server  LOG     ✓ Compiled in 8ms
+[01:33:53.582] Server  LOG     ✓ Compiled in 7ms
+[01:33:54.834] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 5
+[01:33:54.834] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 5
+[01:33:54.834] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 5
+[01:33:54.834] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 5
+[01:34:29.724] Server  LOG     ✓ Compiled in 16ms
+[01:35:04.209] Server  LOG     ✓ Compiled in 4ms
+[01:35:06.768] Server  LOG     ✓ Compiled in 7ms
+[01:37:18.349] Server  LOG     ✓ Compiled in 14ms
+[01:37:21.448] Server  LOG     ✓ Compiled in 8ms
+[01:37:33.394] Server  LOG     ✓ Compiled in 7ms
+[01:38:04.108] Server  LOG     ✓ Compiled in 30ms
+[01:38:08.438] Server  LOG     ✓ Compiled in 14ms
+[01:38:18.315] Server  LOG     ✓ Compiled in 6ms

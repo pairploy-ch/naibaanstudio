@@ -1,101 +1,112 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
-import Link from 'next/link'
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 const courses = [
   {
     id: 1,
-    title: 'Monday Morning Course',
-    description: 'Pad Thai, Tom Yum Soup, Banana in coconut milk, Red Curry',
-    date: '9.00 AM - 12.30 PM',
-    category: 'half-day',
-    image:
-      'https://images.squarespace-cdn.com/content/v1/6871a043c41d0a698827bbcc/387e965e-14b1-49a9-b774-7a07eb09db9d/thai-food-banner.jpeg',
+    title: "Thursday Full Course Happiness",
+    description:
+      "Green curry with Chicken, Fried rice with pork/chicken, Papaya salad (Som Tam) and Water Chestnuts in Coconut Milk  (Tub Tim Krob)",
+    // date: '9.00 AM - 12.30 PM',
+    category: "full-course",
+    image: "/album/14.jpg",
   },
-  // {
-  //   id: 2,
-  //   title: 'Vegan Thai Delights',
-  //   description:
-  //     'Green Curry with Tofu, Vegetable Spring Rolls, Mango Sticky Rice',
-  //   date: '2.00 PM - 5.30 PM',
-  //   category: 'vegan',
-  //   image:
-  //     'https://images.squarespace-cdn.com/content/v1/6871a043c41d0a698827bbcc/387e965e-14b1-49a9-b774-7a07eb09db9d/thai-food-banner.jpeg',
-  // },
-  // {
-  //   id: 3,
-  //   title: 'Zero Waste Cooking',
-  //   description: 'Sustainable Thai cuisine using every part of ingredients',
-  //   date: '9.00 AM - 12.30 PM',
-  //   category: 'zero-waste',
-  //   image:
-  //     'https://images.squarespace-cdn.com/content/v1/6871a043c41d0a698827bbcc/387e965e-14b1-49a9-b774-7a07eb09db9d/thai-food-banner.jpeg',
-  // },
-  // {
-  //   id: 4,
-  //   title: 'Master Pad Thai',
-  //   description: 'Perfect your Pad Thai technique in this focused class',
-  //   date: '2.00 PM - 5.30 PM',
-  //   category: 'single-dish',
-  //   image:
-  //     'https://images.squarespace-cdn.com/content/v1/6871a043c41d0a698827bbcc/387e965e-14b1-49a9-b774-7a07eb09db9d/thai-food-banner.jpeg',
-  // },
-]
+  {
+    id: 2,
+    title: "Friday Full Course Happiness",
+    description:
+      "Grilled Chicken with Sticky rice, Papaya salad (Som Tam), Larb Gai and Rice ball with taro in coconut milk (Bua Loy))",
+    // date: '9.00 AM - 12.30 PM',
+    category: "full-course",
+    image: "/album/10.jpg",
+  },
+  {
+    id: 3,
+    title: "Saturday Short but Long-Lasting",
+    description: "Pad Thai and Mango Sticky rice",
+
+    category: "short-course",
+    image: "/album/5.jpg",
+  },
+  {
+    id: 4,
+    title: "Sunday Short but Long-Lasting",
+    description: "Tom Yum and Rice ball with taro in coconut milk (Bua Loy)",
+
+    category: "short-course",
+    image: "/album/13.jpg",
+  },
+  {
+    id: 5,
+    title: "Monday Veggie Time",
+    description:
+      "Tom Kha Vegetables, Pad Thai, Fried tofu with tamarind sauce and Water Chestnuts in Coconut Milk  (Tub Tim Krob)",
+
+    category: "vegan",
+    image: "/album/15.jpg",
+  },
+    {
+    id: 6,
+    title: "Tuesday Zero-Waste Kitchen",
+    description:
+      "Pad Thai, Tom Yum, Deep fried shrimp with tamarind sauce and Banana in Coconut Milk",
+    category: "zero-watse",
+    image: "/album/5.jpg",
+  },
+];
 
 export default function CoursesClient() {
-  const router = useRouter()
-  const searchParams = useSearchParams()
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('all')
-  const [isInitialized, setIsInitialized] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [isInitialized, setIsInitialized] = useState(false);
 
   // อ่านค่าจาก URL ตอน mount
   useEffect(() => {
-    const search = searchParams.get('search') || ''
-    const category = searchParams.get('category') || 'all'
+    const search = searchParams.get("search") || "";
+    const category = searchParams.get("category") || "all";
 
-    setSearchTerm(search)
-    setSelectedCategory(category)
-    setIsInitialized(true)
-  }, [searchParams])
+    setSearchTerm(search);
+    setSelectedCategory(category);
+    setIsInitialized(true);
+  }, [searchParams]);
 
   // sync state -> URL
   useEffect(() => {
-    if (!isInitialized) return
+    if (!isInitialized) return;
 
-    const params = new URLSearchParams()
+    const params = new URLSearchParams();
 
-    if (searchTerm) params.set('search', searchTerm)
-    if (selectedCategory !== 'all')
-      params.set('category', selectedCategory)
+    if (searchTerm) params.set("search", searchTerm);
+    if (selectedCategory !== "all") params.set("category", selectedCategory);
 
-    const query = params.toString()
-    router.push(query ? `?${query}` : '/courses', {
+    const query = params.toString();
+    router.push(query ? `?${query}` : "/courses", {
       scroll: false,
-    })
-  }, [searchTerm, selectedCategory, isInitialized, router])
+    });
+  }, [searchTerm, selectedCategory, isInitialized, router]);
 
-  const filteredCourses = courses.filter(course => {
+  const filteredCourses = courses.filter((course) => {
     const matchesSearch =
       course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      course.description.toLowerCase().includes(searchTerm.toLowerCase())
+      course.description.toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchesCategory =
-      selectedCategory === 'all' || course.category === selectedCategory
+      selectedCategory === "all" || course.category === selectedCategory;
 
-    return matchesSearch && matchesCategory
-  })
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <section className="py-18 bg-[#F6EFE7]" id="courses">
       <div className="container mx-auto px-6 max-w-[90%]">
         <div className="mb-12">
-          <h2 className="text-5xl font-bold text-black mb-8">
-            All Courses
-          </h2>
+          <h2 className="text-5xl font-bold text-black mb-8">All Courses</h2>
 
           {/* Filters */}
           <div className="grid md:grid-cols-2 gap-4 mb-8">
@@ -106,7 +117,7 @@ export default function CoursesClient() {
               <input
                 type="text"
                 value={searchTerm}
-                onChange={e => setSearchTerm(e.target.value)}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search by name or description"
                 className="w-full px-4 py-3 border-2 border-black bg-white text-black"
               />
@@ -118,23 +129,23 @@ export default function CoursesClient() {
               </label>
               <select
                 value={selectedCategory}
-                onChange={e => setSelectedCategory(e.target.value)}
+                onChange={(e) => setSelectedCategory(e.target.value)}
                 className="w-full px-4 py-3 border-2 border-black bg-white text-black"
               >
                 <option value="all">All Categories</option>
-                <option value="half-day">Half Day</option>
+                <option value="full-course">Full Course</option>
                 <option value="vegan">Vegan</option>
                 <option value="zero-waste">Zero Waste</option>
-                <option value="single-dish">Single Dish</option>
+                <option value="short-course">Short Course</option>
               </select>
             </div>
           </div>
 
-          {(searchTerm || selectedCategory !== 'all') && (
+          {(searchTerm || selectedCategory !== "all") && (
             <button
               onClick={() => {
-                setSearchTerm('')
-                setSelectedCategory('all')
+                setSearchTerm("");
+                setSelectedCategory("all");
               }}
               className="underline text-black mb-6"
             >
@@ -150,23 +161,26 @@ export default function CoursesClient() {
               No courses found.
             </p>
           ) : (
-            filteredCourses.map(course => (
+            filteredCourses.map((course) => (
               <div key={course.id}>
                 <img
                   src={course.image}
                   alt={course.title}
                   className="w-full h-[500px] object-cover"
                 />
-                <div className="p-6 text-center">
-                  <h3 className="font-bold text-xl text-black">
+                <div className="p-2 text-center" style={{ paddingTop: "20px" }}>
+                  <h3
+                    className="font-bold text-xl text-black mb-4"
+                    style={{ height: "30px" }}
+                  >
                     {course.title}
                   </h3>
-                  <p className="text-black text-sm opacity-80">
+                  <p className="text-black text-sm opacity-80 mb-4">
                     {course.description}
                   </p>
-                  <p className="text-black text-sm mb-4">
+                  {/* <p className="text-black text-sm mb-4">
                     {course.date}
-                  </p>
+                  </p> */}
                   <Link
                     href={`/courses/${course.id}`}
                     className="underline text-[#919077]"
@@ -180,5 +194,5 @@ export default function CoursesClient() {
         </div>
       </div>
     </section>
-  )
+  );
 }
