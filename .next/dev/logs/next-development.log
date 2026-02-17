@@ -100,3 +100,6 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
 [02:23:30.551] Server  LOG     ✓ Compiled in 512ms
 [02:23:30.912] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [02:23:59.010] Server  LOG     ✓ Compiled in 445ms
+[02:34:37.265] Server  LOG     ✓ Compiled in 203ms
+[02:34:46.306] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:37:01.385] Server  LOG     ✓ Compiled in 56ms
