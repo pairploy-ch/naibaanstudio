@@ -88,3 +88,15 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
 [01:53:26.113] Server  LOG     ✓ Compiled in 47ms
 [01:53:43.088] Server  LOG     ✓ Compiled in 68ms
 [01:54:00.027] Server  LOG     ✓ Compiled in 53ms
+[02:01:22.224] Server  LOG     ✓ Compiled in 733ms
+[02:01:27.327] Server  LOG     ✓ Compiled in 923ms
+[02:01:31.680] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:01:33.588] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:03:24.115] Server  LOG     ✓ Compiled in 555ms
+[02:03:24.332] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:03:27.913] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:20:41.347] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:22:22.271] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:23:30.551] Server  LOG     ✓ Compiled in 512ms
+[02:23:30.912] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:23:59.010] Server  LOG     ✓ Compiled in 445ms
