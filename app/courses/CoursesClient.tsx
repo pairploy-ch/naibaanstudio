@@ -169,12 +169,12 @@ export default function CoursesClient() {
                   className="w-full h-[500px] object-cover"
                 />
                 <div className="p-2 text-center" style={{ paddingTop: "20px" }}>
-                  <h3
-                    className="font-bold text-xl text-black mb-4"
-                    style={{ height: "30px" }}
-                  >
-                    {course.title}
-                  </h3>
+                <h3
+  className="font-bold text-xl text-black mb-4 leading-none md:leading-normal"
+  style={{ height: "30px" }}
+>
+  {course.title}
+</h3>
                   <p className="text-black text-sm opacity-80 mb-4">
                     {course.description}
                   </p>

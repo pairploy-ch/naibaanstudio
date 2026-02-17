@@ -238,65 +238,67 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
 
         <hr className="border-black mb-16" />
 
-        <div className="mb-16">
-          <h2 className="font-bold text-3xl mb-8 text-black">Buy Ticket</h2>
-          <div className="bg-white border border-gray-300">
-            <div className="flex items-center justify-between p-6 border-b border-gray-300">
-              <div className="font-medium text-black">{course.title} Class</div>
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-8 h-8 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
-                >
-                  -
-                </button>
-                <span className="font-bold">{quantity}</span>
-                <button
-                  onClick={() => {
-                    if (selectedDate) {
-                      const dateStr = formatDate(selectedDate)
-                      const dayAvailability = availability[dateStr]
-                      if (dayAvailability) {
-                        const totalAvailable = (dayAvailability.morning?.available || 0) + (dayAvailability.afternoon?.available || 0)
-                        setQuantity(Math.min(totalAvailable, quantity + 1))
-                      } else {
-                        setQuantity(quantity + 1)
-                      }
-                    } else {
-                      setQuantity(quantity + 1)
-                    }
-                  }}
-                  className="w-8 h-8 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
-                >
-                  +
-                </button>
-                <div className="ml-4 font-bold">฿ {(course.price * quantity).toLocaleString()}</div>
-              </div>
-            </div>
-            <div className="p-6 flex items-center justify-between">
-              <div className="text-black">
-                <span className="font-semibold">Quantity:</span> {quantity}
-              </div>
-              <div className="text-black">
-                <span className="font-semibold">Total:</span> ฿ {(course.price * quantity).toLocaleString()}
-              </div>
-            </div>
-            <div className="p-6 pt-0 flex justify-end">
-              <Link
-                href={
-                  selectedDate
-                    ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&quantity=${quantity}&price=${course.price}&courseId=${id}`
-                    : "#"
-                }
-                className={`bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
-                  !selectedDate ? "opacity-50 pointer-events-none" : ""
-                }`}
-              >
-                Checkout Now
-              </Link>
-            </div>
-          </div>
-        </div>
+      <div className="mb-16">
+  <h2 className="font-bold text-3xl mb-8 text-black">Buy Ticket</h2>
+  <div className="bg-white border border-gray-300">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between p-6 border-b border-gray-300 gap-4">
+      <div className="font-medium text-black">{course.title} Class</div>
+      <div className="flex items-center gap-4">
+        <button
+          onClick={() => setQuantity(Math.max(1, quantity - 1))}
+          className="w-8 h-8 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+        >
+          -
+        </button>
+        <span className="font-bold">{quantity}</span>
+        <button
+          onClick={() => {
+            if (selectedDate) {
+              const dateStr = formatDate(selectedDate)
+              const dayAvailability = availability[dateStr]
+              if (dayAvailability) {
+                const totalAvailable = (dayAvailability.morning?.available || 0) + (dayAvailability.afternoon?.available || 0)
+                setQuantity(Math.min(totalAvailable, quantity + 1))
+              } else {
+                setQuantity(quantity + 1)
+              }
+            } else {
+              setQuantity(quantity + 1)
+            }
+          }}
+          className="w-8 h-8 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+        >
+          +
+        </button>
+        <div className="ml-4 font-bold">฿ {(course.price * quantity).toLocaleString()}</div>
+      </div>
+    </div>
+
+    <div className="p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+      <div className="text-black">
+        <span className="font-semibold">Quantity:</span> {quantity}
+      </div>
+      <div className="text-black">
+        <span className="font-semibold">Total:</span> ฿ {(course.price * quantity).toLocaleString()}
+      </div>
+    </div>
+
+    <div className="p-6 pt-0 flex justify-end">
+      <Link
+        href={
+          selectedDate
+            ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&quantity=${quantity}&price=${course.price}&courseId=${id}`
+            : "#"
+        }
+        className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
+          !selectedDate ? "opacity-50 pointer-events-none" : ""
+        }`}
+      >
+        Checkout Now
+      </Link>
+    </div>
+  </div>
+</div>
 
         <hr className="border-black mb-16" />
       </div>

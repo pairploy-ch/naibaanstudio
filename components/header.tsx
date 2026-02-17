@@ -64,11 +64,11 @@ export default function Header() {
     <>
       <nav
         style={{
-             position: "sticky",
-    top: 0,
-    zIndex: 99999, // ✅ เปลี่ยนจาก 50 → สูงกว่า overlay (9998)
-    background: "#F6EFE7",
-    width: "100%",
+          position: "sticky",
+          top: 0,
+          zIndex: 99999, // ✅ เปลี่ยนจาก 50 → สูงกว่า overlay (9998)
+          background: "#F6EFE7",
+          width: "100%",
         }}
       >
         <div
@@ -86,7 +86,7 @@ export default function Header() {
             href={isAdmin ? "/admin/dashboard" : "/"}
             style={{ display: "flex", alignItems: "center" }}
           >
-            <img src="/logo-nb.png" style={{ width: "150px" }} alt="Logo" />
+           <img src="/logo-nb.png" className="w-[100px] md:w-[150px]" alt="Logo" />
           </Link>
 
           {/* Desktop menu */}
@@ -141,11 +141,11 @@ export default function Header() {
                 zIndex: 99999, // ต้องสูงกว่า overlay ที่เป็น 9998
               }}
             >
-           {menuOpen ? (
-  <X size={28} color="#919077" strokeWidth={2} />  // ✅ เปลี่ยนสีให้ contrast กับพื้นหลัง
-) : (
-  <Menu size={28} color="#111827" strokeWidth={2} />
-)}
+              {menuOpen ? (
+                <X size={28} color="#919077" strokeWidth={2} /> // ✅ เปลี่ยนสีให้ contrast กับพื้นหลัง
+              ) : (
+                <Menu size={28} color="#111827" strokeWidth={2} />
+              )}
             </button>
           )}
         </div>

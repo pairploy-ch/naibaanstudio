@@ -38,7 +38,7 @@ export default function GalleryPage() {
   return (
     <main className="min-h-screen bg-[#F6EFE7]">
       {/* Hero Section */}
-      <section className="max-w-[90%] py-6 pt-10">
+      <section className="max-w-[90%] px-6 py-12 pt-10">
         <div className="max-w-[90%] mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
             Our Story in Pictures
