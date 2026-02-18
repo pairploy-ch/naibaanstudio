@@ -254,7 +254,7 @@ export default function CoursePage({
     <div className="min-h-screen bg-[#F5F1EC]">
       <div className="container mx-auto px-6 py-8 max-w-[90%]">
         <Link
-          href="/"
+          href="/courses"
           className="inline-flex items-center text-black hover:opacity-70 transition-opacity mb-8"
         >
           <span className="mr-2">←</span>

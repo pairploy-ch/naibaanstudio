@@ -1057,10 +1057,6 @@
     field-sizing: content;
   }
 
-  .aspect-\[4\/3\] {
-    aspect-ratio: 4 / 3;
-  }
-
   .aspect-square {
     aspect-ratio: 1;
   }
@@ -5449,13 +5445,6 @@
     .md\:text-xl {
       font-size: var(--text-xl);
       line-height: var(--tw-leading, var(--text-xl--line-height));
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .md\:leading-normal {
-      --tw-leading: var(--leading-normal);
-      line-height: var(--leading-normal);
     }
   }
 
