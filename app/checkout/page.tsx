@@ -14,7 +14,13 @@ function CheckoutContent() {
   const quantity = parseInt(searchParams.get('quantity') || '1')
   const price = parseInt(searchParams.get('price') || '3000')
   const courseId = searchParams.get('courseId') || '2'
-  const classTime = searchParams.get('classTime') || 'morning'
+ const slotId = searchParams.get('slotId') || ''
+const slotName = searchParams.get('slotName') || ''
+// const slotName = searchParams.get('slotName') || ''
+const slotTime = searchParams.get('slotTime') || ''
+const [bookingId, setBookingId] = useState<string | null>(null)
+// const [bookingId, setBookingId] = useState<string | null>(null)
+const [bookingRef, setBookingRef] = useState<string | null>(null)
 
   const [paymentMethod, setPaymentMethod] = useState('credit-card')
   const [showParticipants, setShowParticipants] = useState(false)
@@ -173,18 +179,18 @@ function CheckoutContent() {
         console.log(`✅ บันทึกผู้เข้าร่วมเพิ่มเติมสำเร็จ: ${participantsInserted.length} คน`)
       }
 
-      const bookingData = {
-        course_id: courseId,
-        first_name: formData.firstName.trim(),
-        last_name: formData.lastName.trim(),
-        contact: formData.phone.trim(),
-        booking_date: convertDateFormat(date),
-        class_time: classTime as 'morning' | 'afternoon' | 'fullday',
-        booking_status: 'success' as 'pending' | 'success',
-        quantity: quantity,
-        total_price: total,
-        created_at: new Date().toISOString()
-      }
+const bookingData = {
+  course_id: courseId,
+  first_name: formData.firstName.trim(),
+  last_name: formData.lastName.trim(),
+  contact: formData.phone.trim(),
+  booking_date: convertDateFormat(date),
+  time_slot_id: slotId,        // เปลี่ยน
+  booking_status: 'success' as 'pending' | 'success',
+  quantity: quantity,
+  total_price: total,
+  created_at: new Date().toISOString()
+}
       
       const { data: bookingInserted, error: bookingError } = await supabase
         .from('bookings')
@@ -197,7 +203,9 @@ function CheckoutContent() {
       }
 
       console.log('✅ บันทึกข้อมูลการจองสำเร็จ:', bookingInserted[0])
-
+const ref = `${slotName}-${date.replace(/\//g, '-')}-${slotTime.replace(/\s/g, '')}`
+setBookingRef(ref)
+setBookingId(bookingInserted[0].id)
       try {
         const emailResponse = await fetch('/api/send-confirmation-email', {
           method: 'POST',
@@ -209,8 +217,9 @@ function CheckoutContent() {
             customerName: `${formData.firstName} ${formData.lastName}`,
             courseName: courseName,
             bookingDate: date,
-            classTime: classTime,
+            classTime: slotName,
             quantity: quantity,
+             slotName: slotName,  // เพิ่ม
             totalPrice: total,
             bookingId: bookingInserted[0].id
           })
@@ -237,6 +246,8 @@ function CheckoutContent() {
       }
     } finally {
       setIsSubmitting(false)
+//       setBookingId(bookingInserted[0].id)
+// setPaymentSuccess(true)
     }
   }
 
@@ -249,10 +260,14 @@ function CheckoutContent() {
             <h2 className="text-3xl font-bold text-black mb-4">Payment Successful!</h2>
             <p className="text-black mb-2">Your booking has been confirmed.</p>
             <p className="text-sm text-gray-600 mb-6">
-              <b>ID: 2025-12-22-morning</b> <br />
+              {/* <b>ID: 2025-12-22-morning</b> <br /> */}
+              <b>ID: {bookingId}</b> <br />
+<b>Ref: {bookingRef}</b> <br />
               Course: {courseName}<br />
-              Date: {date}<br />
+              Date: {date} ({slotName})<br />
+              Time: {slotName} {slotTime && `(${slotTime})`}<br />
               Quantity: {quantity} ticket(s)<br />
+              
               Total: ฿{total.toLocaleString()}.00
             </p>
             <div className="space-y-3">
@@ -513,7 +528,7 @@ function CheckoutContent() {
                 <div>
                   <div className="font-bold text-black">{courseName}</div>
                   <div className="text-sm text-black italic mt-1">
-                    your selected date: {date} x {quantity}
+                      {date} · {slotName} {slotTime && `(${slotTime})`} x {quantity}
                   </div>
                 </div>
                 <div className="font-bold text-black">
