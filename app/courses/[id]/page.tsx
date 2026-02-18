@@ -427,7 +427,7 @@ export default function CoursePage({
                       <span>
                         {isFull
                           ? "Full"
-                          : `${slot.available}/${slot.total} seats`}
+                          : `0/${slot.total} seats`}
                       </span>
                     </div>
                   </button>

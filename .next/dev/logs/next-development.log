@@ -24,3 +24,13 @@
 [01:33:00.725] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-02-18T15:30:14.397Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
 [02:14:56.576] Server  LOG     ✓ Compiled in 654ms
 [02:15:03.372] Server  LOG     ✓ Compiled in 53ms
+[02:17:18.370] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:17:18.515] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-02-18T16:14:32.224Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[02:18:24.377] Server  LOG     ✓ Compiled in 55ms
+[02:18:34.885] Server  LOG     ✓ Compiled in 52ms
+[02:18:43.734] Server  LOG     ✓ Compiled in 44ms
+[02:18:43.878] Browser ERROR   uncaughtError: Error: Objects are not valid as a React child (found: object with keys {slot_id, slot_name, available, total}). If you meant to render a collection of children, use an array instead.
+[02:19:00.623] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:19:00.757] Server  LOG     ✓ Compiled in 44ms
+[02:19:01.033] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:19:01.173] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-02-18T16:16:14.878Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
