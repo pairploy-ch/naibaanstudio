@@ -80,11 +80,21 @@ export default function CoursePage({
   const [course, setCourse] = useState<Course | null>(null);
   const [loading, setLoading] = useState(true);
   const [availability, setAvailability] = useState<
-    Record<string, Record<string, { available: number; total: number }>>
+    Record<
+      string,
+      {
+        slot_id: number;
+        slot_name: string;
+        available: number;
+        total: number;
+      }[]
+    >
   >({});
+
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedSlot, setSelectedSlot] = useState<any>(null);
 
   // useEffect(() => {
   //   if (!course?.menu || course.menu.length <= 1) return;
@@ -131,26 +141,27 @@ export default function CoursePage({
         // 🔥 convert courses -> calendar availability
         const availability: Record<
           string,
-          Record<string, { available: number; total: number }>
+          {
+            slot_id: number;
+            slot_name: string;
+            available: number;
+            total: number;
+          }[]
         > = {};
 
         data?.courses?.forEach((c: any) => {
           const dateStr = c.date;
 
           if (!availability[dateStr]) {
-            availability[dateStr] = {};
+            availability[dateStr] = [];
           }
 
-          // map slot id -> morning / afternoon
-          const slotKey = c.time_slot?.slot_name;
-
-
-          if (!slotKey) return;
-
-          availability[dateStr][slotKey] = {
-            available: c.capacity, // จำนวนที่เหลือ (หรือจะใช้ field seats_left ถ้ามี)
+          availability[dateStr].push({
+            slot_id: c.time_slot?.id,
+            slot_name: c.time_slot?.slot_name,
+            available: c.capacity,
             total: c.capacity,
-          };
+          });
         });
 
         setAvailability(availability);
@@ -175,17 +186,16 @@ export default function CoursePage({
       const dateStr = formatDate(date);
       const dayAvailability = availability[dateStr];
       if (dayAvailability) {
-        const allFull = Object.values(dayAvailability)
-  .every((slot: any) => slot.available === 0);
-
+        const allFull = Object.values(dayAvailability).every(
+          (slot: any) => slot.available === 0,
+        );
 
         return (
-        <div
-  className={`text-xs py-1 px-1 mt-1 rounded bg-[#919077] text-white`}
->
-  {allFull ? "Full" : "Available"}
-</div>
-
+          <div
+            className={`text-xs py-1 px-1 mt-1 rounded bg-[#919077] text-white`}
+          >
+            {allFull ? "Full" : "Available"}
+          </div>
         );
       }
     }
@@ -209,11 +219,11 @@ export default function CoursePage({
       const dateStr = formatDate(date);
       const dayAvailability = availability[dateStr];
       if (dayAvailability) {
-       const allFull = Object.values(dayAvailability)
-  .every((slot: any) => slot.available === 0);
+        const allFull = Object.values(dayAvailability).every(
+          (slot: any) => slot.available === 0,
+        );
 
-return allFull;
-
+        return allFull;
       }
       return true;
     }
@@ -373,7 +383,7 @@ return allFull;
 
         <div className="mb-16">
           <h2 className="font-bold text-3xl mb-8 text-black">Book a Class:</h2>
-
+     
           <div className="calendar-wrapper w-full">
             <Calendar
               value={selectedDate}
@@ -390,6 +400,42 @@ return allFull;
               className="border-2 border-black"
             />
           </div>
+               {selectedDate && availability[formatDate(selectedDate)] && (
+            <div className="mt-6 space-y-3">
+              <h3 className="font-bold text-xl text-black">
+                Select Time Slot:
+              </h3>
+
+              {availability[formatDate(selectedDate)].map((slot: any) => {
+                const isFull = slot.available === 0;
+                const isSelected = selectedSlot?.slot_id === slot.slot_id;
+
+                return (
+                  <button
+                    key={slot.slot_id}
+                    disabled={isFull}
+                    onClick={() => setSelectedSlot(slot)}
+                    className={`
+            w-full border p-4 text-left transition
+            ${isSelected ? "bg-[#919077] text-white" : "bg-white"}
+            ${isFull ? "opacity-40 cursor-not-allowed" : "hover:bg-gray-100"}
+          `}
+                  >
+                    <div className="flex justify-between">
+                      <span>{slot.slot_name}</span>
+
+                      <span>
+                        {isFull
+                          ? "Full"
+                          : `${slot.available}/${slot.total} seats`}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
         </div>
 
         <hr className="border-black mb-16" />
@@ -413,8 +459,12 @@ return allFull;
                       const dateStr = formatDate(selectedDate);
                       const dayAvailability = availability[dateStr];
                       if (dayAvailability) {
-                   const totalAvailable = Object.values(dayAvailability)
-  .reduce((sum: number, slot: any) => sum + slot.available, 0);
+                        const totalAvailable = Object.values(
+                          dayAvailability,
+                        ).reduce(
+                          (sum: number, slot: any) => sum + slot.available,
+                          0,
+                        );
 
                         setQuantity(Math.min(totalAvailable, quantity + 1));
                       } else {
