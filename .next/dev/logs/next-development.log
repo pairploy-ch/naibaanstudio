@@ -68,3 +68,37 @@
 [18:02:10.765] Server  LOG     ✓ Compiled in 36ms
 [18:04:26.673] Server  LOG     ✓ Compiled in 32ms
 [18:04:34.723] Server  LOG     ✓ Compiled in 32ms
+[18:06:11.800] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[18:06:18.586] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-02-19T08:03:32.248Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[20:58:49.199] Server  LOG     ✓ Compiled in 82ms
+[20:59:00.561] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[20:59:25.674] Browser LOG     ✅ บันทึกลูกค้าหลักสำเร็จ: pairploy.chp@gmail.com
+[20:59:25.879] Browser LOG     ✅ บันทึกข้อมูลการจองสำเร็จ: {"booking_date":"2026-02-23","booking_status":"success","course_id":3,"created_at":"2026-02-19T10:56:39.302","customer_id":"4113cc55-d94b-4c0a-98e2-c07e228a81ee","id":"6172a996-cc77-4ea3-b586-add1a8729e73","quantity":1,"time_slot_id":6,"total_price":2514.5}
+[20:59:28.437] Server  ERROR   ❌ Error sending email: Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-35894b3486esm1086939a91.0 - gsmtp
+[20:59:28.550] Browser ERROR   Failed to send confirmation email
+[21:04:25.754] Server  LOG     ✓ Compiled in 70ms
+[21:27:49.825] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[21:28:30.430] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[21:28:46.886] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-02-19T11:26:00.506Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[21:28:56.953] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:2 (2.89.0) 2026-02-19T11:26:10.558Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[21:28:56.953] Browser LOG     Starting to load menus...
+[21:28:56.953] Browser LOG     Fetching menus from Supabase...
+[21:28:56.953] Browser LOG     Starting to load menus...
+[21:28:56.953] Browser LOG     Fetching menus from Supabase...
+[21:28:57.612] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
+[21:28:57.612] Browser ERROR   Service error: {}
+[21:28:57.612] Browser ERROR   Failed to load menus: {}
+[21:28:57.768] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
+[21:28:57.768] Browser ERROR   Service error: {}
+[21:28:57.768] Browser ERROR   Failed to load menus: {}
+[21:29:10.515] Browser LOG     Starting to load menus...
+[21:29:10.515] Browser LOG     Fetching menus from Supabase...
+[21:29:10.515] Browser LOG     Starting to load menus...
+[21:29:10.515] Browser LOG     Fetching menus from Supabase...
+[21:29:10.858] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
+[21:29:10.858] Browser ERROR   Service error: {}
+[21:29:10.858] Browser ERROR   Failed to load menus: {}
+[21:29:11.009] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
+[21:29:11.009] Browser ERROR   Service error: {}
+[21:29:11.009] Browser ERROR   Failed to load menus: {}

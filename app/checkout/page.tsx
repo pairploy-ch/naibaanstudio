@@ -179,13 +179,12 @@ const [bookingRef, setBookingRef] = useState<string | null>(null)
         console.log(`✅ บันทึกผู้เข้าร่วมเพิ่มเติมสำเร็จ: ${participantsInserted.length} คน`)
       }
 
+// ใหม่ - ถูก (ใช้ customer_id จาก insert ก่อนหน้า)
 const bookingData = {
+  customer_id: mainCustomerData[0].id,     // ✅ FK จาก customers
   course_id: courseId,
-  first_name: formData.firstName.trim(),
-  last_name: formData.lastName.trim(),
-  contact: formData.phone.trim(),
+  time_slot_id: slotId,
   booking_date: convertDateFormat(date),
-  time_slot_id: slotId,        // เปลี่ยน
   booking_status: 'success' as 'pending' | 'success',
   quantity: quantity,
   total_price: total,
@@ -203,7 +202,7 @@ const bookingData = {
       }
 
       console.log('✅ บันทึกข้อมูลการจองสำเร็จ:', bookingInserted[0])
-const ref = `${slotName}-${date.replace(/\//g, '-')}-${slotTime.replace(/\s/g, '')}`
+const ref = `${courseName.replace(/\s/g, '-')}-${slotName.replace(/\s/g, '-')}-${date.replace(/\//g, '-')}`
 setBookingRef(ref)
 setBookingId(bookingInserted[0].id)
       try {
@@ -261,7 +260,7 @@ setBookingId(bookingInserted[0].id)
             <p className="text-black mb-2">Your booking has been confirmed.</p>
             <p className="text-sm text-gray-600 mb-6">
               {/* <b>ID: 2025-12-22-morning</b> <br /> */}
-              <b>ID: {bookingId}</b> <br />
+              {/* <b>ID: {bookingId}</b> <br /> */}
 <b>Ref: {bookingRef}</b> <br />
               Course: {courseName}<br />
               Date: {date} ({slotName})<br />
