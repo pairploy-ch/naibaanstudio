@@ -285,7 +285,7 @@ setBookingId(bookingInserted[0].id)
       <div 
         className="absolute inset-0 opacity-40"
         style={{
-          backgroundImage: 'url(/bg-test.jpg)',
+          backgroundImage: 'url(/new/cta.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

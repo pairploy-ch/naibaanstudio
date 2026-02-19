@@ -87,8 +87,8 @@ export default function CoursePage({
         slot_name: string;
         available: number;
         total: number;
-        start_time: string;  // เพิ่ม
-      end_time: string;    // เพิ่ม
+        start_time: string; // เพิ่ม
+        end_time: string; // เพิ่ม
       }[]
     >
   >({});
@@ -151,8 +151,8 @@ export default function CoursePage({
             slot_name: string;
             available: number;
             total: number;
-                start_time: string;  // เพิ่ม
-    end_time: string; 
+            start_time: string; // เพิ่ม
+            end_time: string;
           }[]
         > = {};
 
@@ -163,14 +163,14 @@ export default function CoursePage({
             availability[dateStr] = [];
           }
 
-       availability[dateStr].push({
-  slot_id: c.time_slot?.id,
-  slot_name: c.time_slot?.slot_name,
-  start_time: c.time_slot?.start_time,  // เพิ่ม
-  end_time: c.time_slot?.end_time,      // เพิ่ม
-  available: c.capacity,
-  total: c.capacity,
-});
+          availability[dateStr].push({
+            slot_id: c.time_slot?.id,
+            slot_name: c.time_slot?.slot_name,
+            start_time: c.time_slot?.start_time, // เพิ่ม
+            end_time: c.time_slot?.end_time, // เพิ่ม
+            available: c.capacity,
+            total: c.capacity,
+          });
         });
 
         setAvailability(availability);
@@ -201,7 +201,7 @@ export default function CoursePage({
 
         return (
           <div
-            className={`text-xs py-1 px-1 mt-1 rounded bg-[#919077] text-white`}
+            className={`text-[8px] md:text-xs py-1 px-1 mt-1 bg-[#919077] text-white`}
           >
             {allFull ? "Full" : "Available"}
           </div>
@@ -377,7 +377,7 @@ export default function CoursePage({
                     <button
                       key={index}
                       onClick={() => setCurrentSlide(index)}
-                      className={`w-2 h-2 rounded-full transition-colors ${
+                      className={`w-2 h-2 transition-colors ${
                         index === currentSlide ? "bg-white" : "bg-white/50"
                       }`}
                     />
@@ -392,7 +392,7 @@ export default function CoursePage({
 
         <div className="mb-16">
           <h2 className="font-bold text-3xl mb-8 text-black">Book a Class:</h2>
-     
+
           <div className="calendar-wrapper w-full">
             <Calendar
               value={selectedDate}
@@ -409,7 +409,7 @@ export default function CoursePage({
               className="border-2 border-black"
             />
           </div>
-               {selectedDate && availability[formatDate(selectedDate)] && (
+          {selectedDate && availability[formatDate(selectedDate)] && (
             <div className="mt-6 space-y-3">
               <h3 className="font-bold text-xl text-black">
                 Select Time Slot:
@@ -419,39 +419,47 @@ export default function CoursePage({
                 const isFull = slot.available === 0;
                 const isSelected = selectedSlot?.slot_id === slot.slot_id;
 
-                return (
-                  <button
-                    key={slot.slot_id}
-                    disabled={isFull}
-                    onClick={() => setSelectedSlot(slot)}
-                    className={`
-            w-full border p-4 text-left transition
-            ${isSelected ? "bg-[#919077] text-white" : "bg-white"}
-            ${isFull ? "opacity-40 cursor-not-allowed" : "hover:bg-gray-100"}
-          `}
-                  >
-                    <div className="flex justify-between">
-                      <span>
-  {slot.slot_name}
-  {slot.start_time && slot.end_time && (
-    <span className="ml-2 text-sm font-normal opacity-70">
-      ({slot.start_time.slice(0, 5)} - {slot.end_time.slice(0, 5)})
-    </span>
-  )}
-</span>
+           return (
+  <button
+    key={slot.slot_id}
+    disabled={isFull}
+    onClick={() => setSelectedSlot(slot)}
+    className={`
+      w-full border 
+      p-3 sm:p-4
+      text-left transition
+      flex flex-col sm:flex-row
+      sm:items-center sm:justify-between
+      gap-2 sm:gap-0
 
-                      <span>
-                        {isFull
-                          ? "Full"
-                          : `0/${slot.total} seats`}
-                      </span>
-                    </div>
-                  </button>
-                );
+      ${isSelected ? "bg-[#919077] text-white" : "bg-white"}
+      ${isFull ? "opacity-40 cursor-not-allowed" : ""}
+    `}
+  >
+    {/* LEFT SIDE */}
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="font-medium">
+        {slot.slot_name}
+      </span>
+
+      {slot.start_time && slot.end_time && (
+        <span className="text-sm opacity-70 whitespace-nowrap">
+          ({slot.start_time.slice(0, 5)} -{" "}
+          {slot.end_time.slice(0, 5)})
+        </span>
+      )}
+    </div>
+
+    {/* RIGHT SIDE */}
+    <span className="text-sm sm:text-base font-medium">
+      {isFull ? "Full" : `0/${slot.total} seats`}
+    </span>
+  </button>
+);
+
               })}
             </div>
           )}
-
         </div>
 
         <hr className="border-black mb-16" />
@@ -517,14 +525,16 @@ export default function CoursePage({
 
             <div className="p-6 pt-0 flex justify-end">
               <Link
-               href={
-  selectedDate && selectedSlot
-    ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&quantity=${quantity}&price=${course.type_of_course?.price}&courseId=${id}&slotId=${selectedSlot.slot_id}&slotName=${encodeURIComponent(selectedSlot.slot_name)}`
-    : "#"
-}
-className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
-  !selectedDate || !selectedSlot ? "opacity-50 pointer-events-none" : ""
-}`}
+                href={
+                  selectedDate && selectedSlot
+                    ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&quantity=${quantity}&price=${course.type_of_course?.price}&courseId=${id}&slotId=${selectedSlot.slot_id}&slotName=${encodeURIComponent(selectedSlot.slot_name)}&slotTime=${encodeURIComponent(`${selectedSlot.start_time.slice(0, 5)} - ${selectedSlot.end_time.slice(0, 5)}`)}`
+                    : "#"
+                }
+                className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
+                  !selectedDate || !selectedSlot
+                    ? "opacity-50 pointer-events-none"
+                    : ""
+                }`}
               >
                 Checkout Now
               </Link>
