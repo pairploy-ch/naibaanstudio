@@ -21,7 +21,7 @@ export function Hero() {
         <h1 className="text-white text-2xl md:text-8xl font-semibold mb-6 text-balance">
           Experience Thailand Through Its Flavors
         </h1>
-        <p className="text-white/90 text-xs md:text-xl mb-8 max-w-6xl mx-auto text-balance leading-[1.2] md:leading-relaxed">
+        <p className="text-white/90 text-sm md:text-xl mb-8 max-w-6xl mx-auto text-balance leading-[1.2] md:leading-relaxed">
           Discover authentic Thai cooking in a serene, home-style studio located in the ancient wooden house.
 Learn traditional recipes, local ingredients, and Thai cooking techniques from a passionate culinary host.
         </p>

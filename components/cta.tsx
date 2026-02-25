@@ -7,12 +7,12 @@ export function CTA() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-        style={{objectPosition: 'center'}}
+        // style={{objectPosition: 'center'}}
           src="/new/cta.jpg"
           alt="Thai cooking pots"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-center md:[object-position:center_80%] object-cover"
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* Content */}

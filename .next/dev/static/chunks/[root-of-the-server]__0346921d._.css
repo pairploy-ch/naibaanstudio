@@ -2130,6 +2130,16 @@
     background-color: var(--color-black);
   }
 
+  .bg-black\/20 {
+    background-color: #0003;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-black\/20 {
+      background-color: color-mix(in oklab, var(--color-black) 20%, transparent);
+    }
+  }
+
   .bg-black\/30 {
     background-color: #0000004d;
   }
@@ -2337,6 +2347,10 @@
 
   .object-cover {
     object-fit: cover;
+  }
+
+  .object-center {
+    object-position: center;
   }
 
   .p-0 {
@@ -5270,6 +5284,12 @@
   }
 
   @media (min-width: 48rem) {
+    .md\:aspect-square {
+      aspect-ratio: 1;
+    }
+  }
+
+  @media (min-width: 48rem) {
     .md\:h-96 {
       height: calc(var(--spacing) * 96);
     }
@@ -5424,6 +5444,18 @@
   @media (min-width: 48rem) {
     .md\:justify-self-end {
       justify-self: flex-end;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .md\:\[object-position\:center_80\%\] {
+      object-position: center 80%;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .md\:object-bottom {
+      object-position: bottom;
     }
   }
 
