@@ -308,7 +308,7 @@ export default function CoursePage({
                     .filter(Boolean)
                     .map((point: string, index: number) => (
                       <li key={index} className="flex items-start">
-                        <span className="mr-3 mt-1">•</span>
+                        {/* <span className="mr-3 mt-1">•</span> */}
                         <span className="text-black">{point}</span>
                       </li>
                     ))}
