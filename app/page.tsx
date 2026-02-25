@@ -14,7 +14,7 @@ export default function Home() {
 
       <About />
       <CourseHighlights />
-       <Review />
+       {/* <Review /> */}
       <CTA />
      
     </main>

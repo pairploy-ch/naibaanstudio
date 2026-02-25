@@ -5,7 +5,7 @@ export function About() {
     <section className="grid grid-cols-1 md:grid-cols-2">
 
       {/* Image - ซ้ายบน desktop, ล่างบน mobile */}
-      <div className="relative aspect-square w-full order-2 md:order-1">
+      <div className="relative min-h-[400px] md:min-h-full w-full order-2 md:order-1">
         <img
           style={{ objectPosition: 'bottom' }}
           src="/new/about.jpg"

@@ -20,3 +20,50 @@
 [00:34:57.268] Server  LOG     ✓ Compiled in 113ms
 [00:36:15.386] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:37:15.778] Server  LOG     ✓ Compiled in 84ms
+[00:38:22.995] Server  LOG     ✓ Compiled in 305ms
+[00:39:49.660] Server  LOG     ✓ Compiled in 82ms
+[00:40:02.176] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:40:57.911] Server  LOG     ✓ Compiled in 69ms
+[00:41:01.888] Server  LOG     ✓ Compiled in 62ms
+[00:42:32.813] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-02-25T03:43:27.823Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:42:59.791] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:42:59.791] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:42:59.791] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:42:59.791] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:42:59.791] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:42:59.791] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:42:59.791] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:42:59.791] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:42:59.791] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:42:59.791] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:42:59.791] Browser WARN    Image with src "/album/11.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:42:59.791] Browser WARN    Image with src "/album/12.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:43:57.109] Server  LOG     ✓ Compiled in 207ms
+[00:44:13.496] Server  LOG     ✓ Compiled in 37ms
+[00:44:49.002] Server  LOG     ✓ Compiled in 45ms
+[00:46:28.307] Server  LOG     ✓ Compiled in 87ms
+[00:47:12.987] Server  LOG     ✓ Compiled in 49ms
+[00:47:34.766] Server  LOG     ✓ Compiled in 40ms
+[00:48:52.926] Server  LOG     ✓ Compiled in 126ms
+[00:49:57.087] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-02-25T03:50:51.899Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:50:44.072] Server  LOG     ✓ Compiled in 92ms
+[00:50:47.349] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:50:52.577] Server  LOG     ✓ Compiled in 52ms
+[00:54:42.879] Server  LOG     ✓ Compiled in 40ms
+[00:54:48.441] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:54:53.315] Server  LOG     ✓ Compiled in 33ms
+[00:54:56.066] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:54:59.556] Server  LOG     ✓ Compiled in 44ms
+[00:55:02.857] Server  LOG     ✓ Compiled in 32ms
