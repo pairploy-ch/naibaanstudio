@@ -23,8 +23,8 @@ export function About() {
           <div className="space-y-6 text-foreground text-center leading-relaxed text-base md:text-lg">
             <p className="mb-0">We're a small, home-style cooking studio passionate about keeping</p>
             <p className="mb-0">traditional Thai recipes alive.</p>
-            <p className="mb-0">Here, you'll learn the real way Thai families cook—simple,</p>
-            <p className="mb-0">flavourful, and full of heart.</p>
+            <p className="mb-0">Here, you'll learn the real way Thai families cook- simple yet flavorfu</p>
+            {/* <p className="mb-0">flavourful, and full of heart.</p> */}
             <p className="mb-0">Whether you're a traveler or a food lover, we're here to make Thai</p>
             <p className="mb-0">cooking feel warm, welcoming, and wonderfully authentic.</p>
           </div>

@@ -60,17 +60,18 @@ export default function ManageCustomerPage() {
       if (error) throw error;
 
       // Map Supabase data to our Customer interface
-      const mappedData: Customer[] = (data || []).map(item => ({
-        id: item.id,
-        firstName: item.first_name || item.firstName || '',
-        lastName: item.last_name || item.lastName || '',
-        email: item.email || '',
-        phone: item.phone || '',
-        passportNum: item.passport_num || item.passportNum || '',
-        country: item.country || '',
-        address: item.address || '',
-        created_at: item.created_at
-      }));
+// เปลี่ยนใน fetchCustomers - ส่วน map
+const mappedData: Customer[] = (data || []).map(item => ({
+  id: item.id,
+  firstName: item.first_name ?? '',
+  lastName: item.last_name ?? '',
+  email: item.email ?? '',
+  phone: item.phone ?? '',
+  passportNum: item.passport_num ?? '',
+  country: item.country ?? '',
+  address: item.address ?? '',
+  created_at: item.created_at
+}));
 
       setCustomers(mappedData);
     } catch (error) {

@@ -419,12 +419,12 @@ export default function CoursePage({
                 const isFull = slot.available === 0;
                 const isSelected = selectedSlot?.slot_id === slot.slot_id;
 
-           return (
-  <button
-    key={slot.slot_id}
-    disabled={isFull}
-    onClick={() => setSelectedSlot(slot)}
-    className={`
+                return (
+                  <button
+                    key={slot.slot_id}
+                    disabled={isFull}
+                    onClick={() => setSelectedSlot(slot)}
+                    className={`
       w-full border 
       p-3 sm:p-4
       text-left transition
@@ -435,28 +435,25 @@ export default function CoursePage({
       ${isSelected ? "bg-[#919077] text-white" : "bg-white"}
       ${isFull ? "opacity-40 cursor-not-allowed" : ""}
     `}
-  >
-    {/* LEFT SIDE */}
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="font-medium">
-        {slot.slot_name}
-      </span>
+                  >
+                    {/* LEFT SIDE */}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="font-medium">{slot.slot_name}</span>
 
-      {slot.start_time && slot.end_time && (
-        <span className="text-sm opacity-70 whitespace-nowrap">
-          ({slot.start_time.slice(0, 5)} -{" "}
-          {slot.end_time.slice(0, 5)})
-        </span>
-      )}
-    </div>
+                      {slot.start_time && slot.end_time && (
+                        <span className="text-sm opacity-70 whitespace-nowrap">
+                          ({slot.start_time.slice(0, 5)} -{" "}
+                          {slot.end_time.slice(0, 5)})
+                        </span>
+                      )}
+                    </div>
 
-    {/* RIGHT SIDE */}
-    <span className="text-sm sm:text-base font-medium">
-      {isFull ? "Full" : `0/${slot.total} seats`}
-    </span>
-  </button>
-);
-
+                    {/* RIGHT SIDE */}
+                    <span className="text-sm sm:text-base font-medium">
+                      {isFull ? "Full" : `0/${slot.total} seats`}
+                    </span>
+                  </button>
+                );
               })}
             </div>
           )}

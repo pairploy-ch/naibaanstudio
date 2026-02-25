@@ -1,18 +1,16 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { Edit3, Plus, Trash2, Search, Calendar, Clock, Hash, Loader2 } from 'lucide-react';
+import { Edit3, Plus, Trash2, Search, Calendar, Hash, Loader2 } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 
 // --- Type Definitions ---
 interface Booking {
   id: string;
-  courseId: string; 
-  firstName: string;
-  lastName: string;
-  contact: string; 
-  bookingDate: string; // YYYY-MM-DD
-  classTime: 'morning' | 'afternoon' | 'fullday';
+  customerId: string;
+  courseId: number;
+  timeSlotId: number;
+  bookingDate: string;
   bookingStatus: 'pending' | 'success';
   quantity: number;
   totalPrice: number;
@@ -20,12 +18,10 @@ interface Booking {
 }
 
 interface BookingFormState {
-  courseId: string; 
-  firstName: string;
-  lastName: string;
-  contact: string;
+  customerId: string;
+  courseId: number;
+  timeSlotId: number;
   bookingDate: string;
-  classTime: 'morning' | 'afternoon' | 'fullday';
   bookingStatus: 'pending' | 'success';
   quantity: number;
   totalPrice: number;
@@ -33,24 +29,16 @@ interface BookingFormState {
 
 // --- Constants & Config ---
 const emptyFormState: BookingFormState = {
-  courseId: '', 
-  firstName: '',
-  lastName: '',
-  contact: '',
+  customerId: '',
+  courseId: 0,
+  timeSlotId: 0,
   bookingDate: '',
-  classTime: 'morning',
   bookingStatus: 'pending',
   quantity: 1,
   totalPrice: 0
 };
 
 const ITEMS_PER_PAGE = 10;
-
-const classTimeLabels = {
-  morning: 'Morning (09:00 - 12:30)',
-  afternoon: 'Afternoon (14:00 - 17:30)',
-  fullday: 'Full Day (09:00 - 16:00)'
-};
 
 const statusColors = {
   pending: { bg: '#fff4e6', text: '#e67700', border: '#ffd699' },
@@ -66,7 +54,7 @@ export default function ManageBookingPage() {
   const [formState, setFormState] = useState<BookingFormState>(emptyFormState);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
-  const [deleteConfirm, setDeleteConfirm] = useState<{ id: string; name: string } | null>(null);
+  const [deleteConfirm, setDeleteConfirm] = useState<{ id: string; label: string } | null>(null);
 
   // --- Fetch bookings from Supabase ---
   const fetchBookings = async () => {
@@ -79,18 +67,15 @@ export default function ManageBookingPage() {
 
       if (error) throw error;
 
-      // Map Supabase data to our Booking interface
       const mappedData: Booking[] = (data || []).map(item => ({
         id: item.id,
-        courseId: item.course_id || item.courseId || '',
-        firstName: item.first_name || item.firstName || '',
-        lastName: item.last_name || item.lastName || '',
-        contact: item.contact || '',
-        bookingDate: item.booking_date || item.bookingDate || '',
-        classTime: item.class_time || item.classTime || 'morning',
-        bookingStatus: item.booking_status || item.bookingStatus || 'pending',
-        quantity: item.quantity || 1,
-        totalPrice: item.total_price || item.totalPrice || 0,
+        customerId: item.customer_id ?? '',
+        courseId: item.course_id ?? 0,
+        timeSlotId: item.time_slot_id ?? 0,
+        bookingDate: item.booking_date ?? '',
+        bookingStatus: item.booking_status ?? 'pending',
+        quantity: item.quantity ?? 1,
+        totalPrice: item.total_price ?? 0,
         created_at: item.created_at
       }));
 
@@ -112,18 +97,18 @@ export default function ManageBookingPage() {
     const query = search.trim().toLowerCase();
     return bookings.filter((booking) => {
       const haystack = [
-        booking.courseId,
-        booking.firstName,
-        booking.lastName,
-        booking.contact,
+        booking.customerId,
+        String(booking.courseId),
+        String(booking.timeSlotId),
         booking.bookingDate,
+        booking.bookingStatus
       ].join(' ').toLowerCase();
       return haystack.includes(query);
     });
   }, [bookings, search]);
 
   const sortedBookings = useMemo(
-    () => [...filteredBookings].sort((a, b) => 
+    () => [...filteredBookings].sort((a, b) =>
       new Date(b.bookingDate).getTime() - new Date(a.bookingDate).getTime()
     ),
     [filteredBookings]
@@ -135,13 +120,8 @@ export default function ManageBookingPage() {
   const startItem = sortedBookings.length === 0 ? 0 : (page - 1) * ITEMS_PER_PAGE + 1;
   const endItem = Math.min(page * ITEMS_PER_PAGE, sortedBookings.length);
 
-  useEffect(() => {
-    setPage(1);
-  }, [search]);
-
-  useEffect(() => {
-    setPage((prev) => Math.min(prev, totalPages));
-  }, [totalPages]);
+  useEffect(() => { setPage(1); }, [search]);
+  useEffect(() => { setPage((prev) => Math.min(prev, totalPages)); }, [totalPages]);
 
   const pageNumbers = useMemo(() => {
     const buttons: number[] = [];
@@ -149,9 +129,7 @@ export default function ManageBookingPage() {
     let start = Math.max(1, page - 2);
     let end = Math.min(totalPages, start + maxButtons - 1);
     start = Math.max(1, end - maxButtons + 1);
-    for (let i = start; i <= end; i += 1) {
-      buttons.push(i);
-    }
+    for (let i = start; i <= end; i += 1) buttons.push(i);
     return buttons;
   }, [page, totalPages]);
 
@@ -169,12 +147,10 @@ export default function ManageBookingPage() {
   const openEditForm = (booking: Booking) => {
     setEditingId(booking.id);
     setFormState({
-      courseId: booking.courseId, 
-      firstName: booking.firstName,
-      lastName: booking.lastName,
-      contact: booking.contact,
+      customerId: booking.customerId,
+      courseId: booking.courseId,
+      timeSlotId: booking.timeSlotId,
       bookingDate: booking.bookingDate,
-      classTime: booking.classTime,
       bookingStatus: booking.bookingStatus,
       quantity: booking.quantity,
       totalPrice: booking.totalPrice
@@ -183,15 +159,13 @@ export default function ManageBookingPage() {
   };
 
   const handleSave = async () => {
-    if (!formState.courseId.trim() || !formState.firstName.trim() || !formState.lastName.trim() || !formState.contact.trim() || !formState.bookingDate) return;
-    
+    if (!formState.customerId.trim() || !formState.courseId || !formState.bookingDate) return;
+
     const payload = {
-      course_id: formState.courseId.trim(), 
-      first_name: formState.firstName.trim(),
-      last_name: formState.lastName.trim(),
-      contact: formState.contact.trim(),
+      customer_id: formState.customerId.trim(),
+      course_id: formState.courseId,
+      time_slot_id: formState.timeSlotId,
       booking_date: formState.bookingDate,
-      class_time: formState.classTime,
       booking_status: formState.bookingStatus,
       quantity: formState.quantity,
       total_price: formState.totalPrice
@@ -199,27 +173,14 @@ export default function ManageBookingPage() {
 
     try {
       if (editingId) {
-        // Update existing booking
-        const { error } = await supabase
-          .from('bookings')
-          .update(payload)
-          .eq('id', editingId);
-
+        const { error } = await supabase.from('bookings').update(payload).eq('id', editingId);
         if (error) throw error;
-        console.log('✅ Updated booking:', editingId);
       } else {
-        // Insert new booking
-        const { error } = await supabase
-          .from('bookings')
-          .insert([payload]);
-
+        const { error } = await supabase.from('bookings').insert([payload]);
         if (error) throw error;
-        console.log('✅ Created new booking');
       }
 
-      // Refresh the booking list
       await fetchBookings();
-      
       setShowForm(false);
       setFormState(emptyFormState);
       setEditingId(null);
@@ -229,23 +190,15 @@ export default function ManageBookingPage() {
     }
   };
 
-  const handleDelete = (id: string, name: string) => {
-    setDeleteConfirm({ id, name });
+  const handleDelete = (id: string, label: string) => {
+    setDeleteConfirm({ id, label });
   };
 
   const confirmDelete = async () => {
     if (deleteConfirm) {
       try {
-        const { error } = await supabase
-          .from('bookings')
-          .delete()
-          .eq('id', deleteConfirm.id);
-
+        const { error } = await supabase.from('bookings').delete().eq('id', deleteConfirm.id);
         if (error) throw error;
-
-        console.log('✅ Deleted booking:', deleteConfirm.id);
-        
-        // Refresh the booking list
         await fetchBookings();
         setDeleteConfirm(null);
       } catch (error) {
@@ -256,23 +209,17 @@ export default function ManageBookingPage() {
   };
 
   const formatDate = (dateStr: string) => {
+    if (!dateStr) return '-';
     const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
-    });
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
   };
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('th-TH', {
-      style: 'currency',
-      currency: 'THB'
-    }).format(price);
+    return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(price);
   };
 
   return (
-    <div className="min-h-screen py-10 bg-[#F6EFE7]" >
+    <div className="min-h-screen py-10 bg-[#F6EFE7]">
       <div className="max-w-[90%] mx-auto space-y-8">
         <header className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
@@ -299,7 +246,7 @@ export default function ManageBookingPage() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search ID, name, contact..."
+                placeholder="Search customer ID, course ID, status..."
                 className="w-full border pl-9 pr-4 py-2 text-sm outline-none focus:border-[#8b6f47]"
                 style={{ borderColor: '#e5dcd4', backgroundColor: '#fffdfa' }}
               />
@@ -316,10 +263,10 @@ export default function ManageBookingPage() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr style={{ backgroundColor: '#f9f5f0', color: '#8b6f47' }}>
+                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em] font-semibold">Customer ID</th>
                       <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em] font-semibold">Course ID</th>
-                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em] font-semibold">Customer</th>
-                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em] font-semibold">Contact</th>
-                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em] font-semibold">Date & Time</th>
+                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em] font-semibold">Time Slot ID</th>
+                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em] font-semibold">Booking Date</th>
                       <th className="px-4 py-3 text-center text-xs uppercase tracking-[0.2em] font-semibold">Status</th>
                       <th className="px-4 py-3 text-center text-xs uppercase tracking-[0.2em] font-semibold">Qty</th>
                       <th className="px-4 py-3 text-right text-xs uppercase tracking-[0.2em] font-semibold">Price</th>
@@ -331,34 +278,24 @@ export default function ManageBookingPage() {
                       <tr key={booking.id} className="border-t hover:bg-[#fffbf7] transition-colors" style={{ borderColor: '#f1e6db' }}>
                         <td className="px-4 py-3 align-middle font-mono text-xs" style={{ color: '#3d2817' }}>
                           <div className="flex items-center gap-1.5">
-                             <Hash size={12} className="text-[#b29373]" />
-                             {booking.courseId}
+                            <Hash size={12} className="text-[#b29373]" />
+                            <span className="truncate max-w-[120px]" title={booking.customerId}>{booking.customerId}</span>
+                          </div>
+                        </td>
+                        <td className="px-4 py-3 align-middle font-mono text-xs" style={{ color: '#3d2817' }}>
+                          {booking.courseId}
+                        </td>
+                        <td className="px-4 py-3 align-middle font-mono text-xs" style={{ color: '#3d2817' }}>
+                          {booking.timeSlotId}
+                        </td>
+                        <td className="px-4 py-3 align-middle">
+                          <div className="flex items-center gap-1.5 text-sm font-medium" style={{ color: '#3d2817' }}>
+                            <Calendar size={14} />
+                            <span>{formatDate(booking.bookingDate)}</span>
                           </div>
                         </td>
                         <td className="px-4 py-3 align-middle">
-                          <div>
-                            <p className="font-medium" style={{ color: '#3d2817' }}>
-                              {booking.firstName} {booking.lastName}
-                            </p>
-                          </div>
-                        </td>
-                        <td className="px-4 py-3 align-middle" style={{ color: '#7a5f3d' }}>
-                          <p className="text-sm">{booking.contact}</p>
-                        </td>
-                        <td className="px-4 py-3 align-middle">
-                          <div className="space-y-1">
-                            <div className="flex items-center gap-1.5 text-sm font-medium" style={{ color: '#3d2817' }}>
-                              <Calendar size={14} />
-                              <span>{formatDate(booking.bookingDate)}</span>
-                            </div>
-                            <div className="flex items-center gap-1.5 text-xs" style={{ color: '#8b6f47' }}>
-                              <Clock size={12} />
-                              <span>{classTimeLabels[booking.classTime]}</span>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-4 py-3 align-middle">
-                          <div className="flex flex-col gap-1.5 items-center">
+                          <div className="flex justify-center">
                             <span
                               className="inline-block px-2 py-0.5 text-xs border rounded w-full text-center max-w-[80px]"
                               style={{
@@ -372,14 +309,10 @@ export default function ManageBookingPage() {
                           </div>
                         </td>
                         <td className="px-4 py-3 text-center align-middle">
-                          <span className="font-medium" style={{ color: '#3d2817' }}>
-                            {booking.quantity}
-                          </span>
+                          <span className="font-medium" style={{ color: '#3d2817' }}>{booking.quantity}</span>
                         </td>
                         <td className="px-4 py-3 text-right align-middle">
-                          <p className="font-medium" style={{ color: '#3d2817' }}>
-                            {formatPrice(booking.totalPrice)}
-                          </p>
+                          <p className="font-medium" style={{ color: '#3d2817' }}>{formatPrice(booking.totalPrice)}</p>
                         </td>
                         <td className="px-4 py-3 text-right align-middle">
                           <div className="inline-flex gap-2">
@@ -392,7 +325,7 @@ export default function ManageBookingPage() {
                               <Edit3 size={16} />
                             </button>
                             <button
-                              onClick={() => handleDelete(booking.id, `${booking.firstName} ${booking.lastName}`)}
+                              onClick={() => handleDelete(booking.id, `Booking #${booking.courseId}`)}
                               className="p-2 border hover:bg-[#fde8e4] rounded-sm transition-colors"
                               style={{ color: '#c1513b', borderColor: '#f1e6db' }}
                               title="Delete"
@@ -418,7 +351,7 @@ export default function ManageBookingPage() {
             {/* Pagination Controls */}
             <div className="flex items-center justify-between text-xs mt-4 px-4" style={{ color: '#8b6f47' }}>
               <span>
-                <p className="text-xs text-right" style={{ color: '#8b6f47' }}>
+                <p className="text-xs" style={{ color: '#8b6f47' }}>
                   {sortedBookings.length > 0
                     ? `Showing ${startItem}-${endItem} of ${sortedBookings.length}`
                     : 'No matching bookings'}
@@ -463,117 +396,92 @@ export default function ManageBookingPage() {
 
       {/* --- MODAL FORM --- */}
       {showForm && (
-        <div className="fixed inset-0 bg-black/50 bg-opacity-40 flex items-center justify-center z-50 px-4 backdrop-blur-sm">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4 backdrop-blur-sm">
           <div className="bg-white shadow-xl max-w-2xl w-full p-6 space-y-5 max-h-[90vh] overflow-y-auto rounded-sm" style={{ backgroundColor: '#fffaf4' }}>
             <div className="flex items-center justify-between border-b pb-4" style={{ borderColor: '#e5dcd4' }}>
-              <div>
-                <h3 className="text-2xl font-light" style={{ color: '#3d2817' }}>
-                  {editingId ? `${formState.firstName} ${formState.lastName}` : 'New Booking'}
-                </h3>
-              </div>
+              <h3 className="text-2xl font-light" style={{ color: '#3d2817' }}>
+                {editingId ? 'Edit Booking' : 'New Booking'}
+              </h3>
             </div>
 
             <div className="space-y-4">
+              {/* Customer ID */}
+              <div>
+                <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
+                  Customer ID *
+                </label>
+                <input
+                  type="text"
+                  value={formState.customerId}
+                  onChange={(e) => setFormState(prev => ({ ...prev, customerId: e.target.value }))}
+                  placeholder="e.g. uuid of customer"
+                  className="w-full border px-4 py-2 outline-none focus:border-[#8b6f47] font-mono text-sm"
+                  style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
+                />
+              </div>
+
+              {/* Course ID & Time Slot ID */}
+              <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
                     Course ID *
                   </label>
                   <input
-                    type="text"
-                    value={formState.courseId}
-                    onChange={(e) => setFormState((prev) => ({ ...prev, courseId: e.target.value }))}
-                    placeholder="e.g., 2025-12-03-morning"
-                    className="w-full border px-4 py-2 outline-none focus:border-[#8b6f47]"
-                    style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
-                  />
-                </div>
-
-               <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
-                    First Name *
-                  </label>
-                  <input
-                    type="text"
-                    value={formState.firstName}
-                    onChange={(e) => setFormState((prev) => ({ ...prev, firstName: e.target.value }))}
+                    type="number"
+                    min="1"
+                    value={formState.courseId || ''}
+                    onChange={(e) => setFormState(prev => ({ ...prev, courseId: parseInt(e.target.value) || 0 }))}
                     className="w-full border px-4 py-2 outline-none focus:border-[#8b6f47]"
                     style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
                   />
                 </div>
                 <div>
                   <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
-                    Last Name *
+                    Time Slot ID
                   </label>
                   <input
-                    type="text"
-                    value={formState.lastName}
-                    onChange={(e) => setFormState((prev) => ({ ...prev, lastName: e.target.value }))}
+                    type="number"
+                    min="1"
+                    value={formState.timeSlotId || ''}
+                    onChange={(e) => setFormState(prev => ({ ...prev, timeSlotId: parseInt(e.target.value) || 0 }))}
                     className="w-full border px-4 py-2 outline-none focus:border-[#8b6f47]"
                     style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
                   />
                 </div>
               </div>
 
+              {/* Booking Date */}
               <div>
                 <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
-                  Contact *
+                  Booking Date *
                 </label>
                 <input
-                  type="text"
-                  value={formState.contact}
-                  onChange={(e) => setFormState((prev) => ({ ...prev, contact: e.target.value }))}
+                  type="date"
+                  value={formState.bookingDate}
+                  onChange={(e) => setFormState(prev => ({ ...prev, bookingDate: e.target.value }))}
                   className="w-full border px-4 py-2 outline-none focus:border-[#8b6f47]"
                   style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
-                    Class Date *
-                  </label>
-                  <input
-                    type="date"
-                    value={formState.bookingDate}
-                    onChange={(e) => setFormState((prev) => ({ ...prev, bookingDate: e.target.value }))}
-                    className="w-full border px-4 py-2 outline-none focus:border-[#8b6f47]"
-                    style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
-                    Class Time *
-                  </label>
-                  <select
-                    value={formState.classTime}
-                    onChange={(e) => setFormState((prev) => ({ ...prev, classTime: e.target.value as 'morning' | 'afternoon' | 'fullday' }))}
-                    className="w-full border px-4 py-2 outline-none focus:border-[#8b6f47]"
-                    style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
-                  >
-                    <option value="morning">Morning (09:00 - 12:30)</option>
-                    <option value="afternoon">Afternoon (14:00 - 17:30)</option>
-                    <option value="fullday">Full Day (09:00 - 16:00)</option>
-                  </select>
-                </div>
+              {/* Booking Status */}
+              <div>
+                <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
+                  Booking Status
+                </label>
+                <select
+                  value={formState.bookingStatus}
+                  onChange={(e) => setFormState(prev => ({ ...prev, bookingStatus: e.target.value as 'pending' | 'success' }))}
+                  className="w-full border px-4 py-2 outline-none focus:border-[#8b6f47]"
+                  style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
+                >
+                  <option value="pending">Pending</option>
+                  <option value="success">Confirmed</option>
+                </select>
               </div>
 
-              <div>
-                  <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
-                    Booking Status
-                  </label>
-                  <select
-                    value={formState.bookingStatus}
-                    onChange={(e) => setFormState((prev) => ({ ...prev, bookingStatus: e.target.value as 'pending' | 'success' }))}
-                    className="w-full border px-4 py-2 outline-none focus:border-[#8b6f47]"
-                    style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
-                  >
-                    <option value="pending">Pending</option>
-                    <option value="success">Confirmed</option>
-                  </select>
-              </div>
-               
-               <div className="grid grid-cols-2 gap-4">
+              {/* Quantity & Total Price */}
+              <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
                     Quantity
@@ -582,21 +490,21 @@ export default function ManageBookingPage() {
                     type="number"
                     min="1"
                     value={formState.quantity}
-                    onChange={(e) => setFormState((prev) => ({ ...prev, quantity: parseInt(e.target.value) || 1 }))}
+                    onChange={(e) => setFormState(prev => ({ ...prev, quantity: parseInt(e.target.value) || 1 }))}
                     className="w-full border px-4 py-2 outline-none focus:border-[#8b6f47]"
                     style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
                   />
                 </div>
                 <div>
                   <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
-                    Total Price
+                    Total Price (THB)
                   </label>
                   <input
                     type="number"
                     min="0"
                     step="0.01"
                     value={formState.totalPrice}
-                    onChange={(e) => setFormState((prev) => ({ ...prev, totalPrice: parseFloat(e.target.value) || 0 }))}
+                    onChange={(e) => setFormState(prev => ({ ...prev, totalPrice: parseFloat(e.target.value) || 0 }))}
                     className="w-full border px-4 py-2 outline-none focus:border-[#8b6f47]"
                     style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
                   />
@@ -620,7 +528,7 @@ export default function ManageBookingPage() {
                 onClick={handleSave}
                 className="flex-1 px-4 py-2.5 text-sm text-white hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: '#3d2817' }}
-                disabled={!formState.courseId.trim() || !formState.firstName.trim() || !formState.lastName.trim() || !formState.contact.trim() || !formState.bookingDate}
+                disabled={!formState.customerId.trim() || !formState.courseId || !formState.bookingDate}
               >
                 {editingId ? 'Save Changes' : 'Confirm Booking'}
               </button>
@@ -629,16 +537,17 @@ export default function ManageBookingPage() {
         </div>
       )}
 
+      {/* --- DELETE CONFIRM MODAL --- */}
       {deleteConfirm && (
-         <div className="fixed inset-0 /50 bg-opacity-40 flex items-center justify-center z-50 px-4 backdrop-blur-sm">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4 backdrop-blur-sm">
           <div className="bg-white shadow-xl max-w-md w-full p-6 space-y-5 rounded-sm" style={{ backgroundColor: '#fffaf4' }}>
             <div>
               <h3 className="text-xl font-light mb-2" style={{ color: '#3d2817' }}>
                 Confirm Delete
               </h3>
               <p className="text-sm" style={{ color: '#7a5f3d' }}>
-                Are you sure? <br/>
-                <span className="font-medium">{deleteConfirm.name}</span>
+                Are you sure you want to delete <span className="font-medium">{deleteConfirm.label}</span>?
+                This action cannot be undone.
               </p>
             </div>
             <div className="flex gap-3 pt-2">

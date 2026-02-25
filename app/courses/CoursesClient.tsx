@@ -18,6 +18,7 @@ type Course = {
   description: string;
   cover: string;
   date: string;
+  sort: number; // ✅ เพิ่ม field sort
   type_of_course_id: number;
   type_of_course?: {
     type: string;
@@ -35,7 +36,7 @@ export default function CoursesClient() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // ✅ fetch supabase (weekly_template + type_of_course + menu)
+  // ✅ fetch supabase พร้อม order by sort
   useEffect(() => {
 
     const fetchCourses = async () => {
@@ -46,7 +47,8 @@ export default function CoursesClient() {
           *,
           type_of_course(type),
           menu(id,name,cover,description)
-        `);
+        `)
+        .order("sort", { ascending: true }); // ✅ sort ที่นี่
 
       if (error) {
         console.error(error);
@@ -105,6 +107,11 @@ export default function CoursesClient() {
 
     return matchesSearch && matchesCategory;
   });
+
+  // ✅ หลัง filter แล้ว sort อีกครั้งเพื่อความแน่ใจ
+  const sortedCourses = [...filteredCourses].sort(
+    (a, b) => (a.sort ?? 0) - (b.sort ?? 0)
+  );
 
   return (
     <section className="py-18 bg-[#F6EFE7]" id="courses">
@@ -170,7 +177,7 @@ export default function CoursesClient() {
         {/* Courses */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-          {filteredCourses.length === 0 ? (
+          {sortedCourses.length === 0 ? ( // ✅ เปลี่ยนจาก filteredCourses -> sortedCourses
 
             <p className="col-span-full text-center text-black">
               No courses found.
@@ -178,7 +185,7 @@ export default function CoursesClient() {
 
           ) : (
 
-            filteredCourses.map((course) => (
+            sortedCourses.map((course) => ( // ✅ เปลี่ยนจาก filteredCourses -> sortedCourses
 
               <div key={course.id}>
 
@@ -194,13 +201,11 @@ export default function CoursesClient() {
                     {course.title}
                   </h3>
 
-               <p className="text-black text-sm opacity-80 mb-4">
-  {course.menu?.length
-    ? course.menu.map(m => m.name).join(", ")
-    : ""}
-</p>
-
-                
+                  <p className="text-black text-sm opacity-80 mb-4">
+                    {course.menu?.length
+                      ? course.menu.map(m => m.name).join(", ")
+                      : ""}
+                  </p>
 
                   <Link
                     href={`/courses/${course.id}`}
