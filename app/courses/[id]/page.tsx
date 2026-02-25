@@ -449,9 +449,9 @@ export default function CoursePage({
                     </div>
 
                     {/* RIGHT SIDE */}
-                    <span className="text-sm sm:text-base font-medium">
+                    {/* <span className="text-sm sm:text-base font-medium">
                       {isFull ? "Full" : `0/${slot.total} seats`}
-                    </span>
+                    </span> */}
                   </button>
                 );
               })}
