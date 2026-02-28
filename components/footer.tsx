@@ -17,7 +17,7 @@ export function Footer() {
             <h3 className="text-2xl font-bold mb-4">Hours</h3>
             <div className="space-y-2 text-muted-foreground">
               <p>Monday – Sunday (close on Wednesday)</p>
-              <p>9.00 a.m. - 5.30 p.m.</p>
+              <p>9.00 a.m. - 6.00 p.m.</p>
             </div>
           </div>
 

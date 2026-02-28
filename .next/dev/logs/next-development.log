@@ -13,3 +13,4 @@
 [00:17:22.949] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:17:23.130] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-02-28T15:57:47.247Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
 [00:19:37.223] Server  LOG     ✓ Compiled in 135ms
+[00:23:50.861] Server  LOG     ✓ Compiled in 92ms

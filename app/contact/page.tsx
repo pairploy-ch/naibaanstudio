@@ -42,7 +42,7 @@ export default function ContactPage() {
               <p className="text-gray-600 text-sm font-medium mb-2">hours</p>
               <p className="text-gray-900 text-base leading-relaxed">
                 Monday – Sunday (close on Wednesday)<br />
-                9.00 a.m. - 5.30 p.m.
+                9.00 a.m. - 6.00 p.m.
               </p>
             </div>
           </div>
