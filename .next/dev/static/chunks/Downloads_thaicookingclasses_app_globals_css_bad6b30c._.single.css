@@ -920,6 +920,10 @@
     field-sizing: content;
   }
 
+  .aspect-\[3\/4\] {
+    aspect-ratio: 3 / 4;
+  }
+
   .aspect-square {
     aspect-ratio: 1;
   }
@@ -2000,16 +2004,6 @@
   @supports (color: color-mix(in lab, red, red)) {
     .bg-black\/20 {
       background-color: color-mix(in oklab, var(--color-black) 20%, transparent);
-    }
-  }
-
-  .bg-black\/30 {
-    background-color: #0000004d;
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    .bg-black\/30 {
-      background-color: color-mix(in oklab, var(--color-black) 30%, transparent);
     }
   }
 
@@ -5147,12 +5141,6 @@
   }
 
   @media (min-width: 48rem) {
-    .md\:aspect-square {
-      aspect-ratio: 1;
-    }
-  }
-
-  @media (min-width: 48rem) {
     .md\:h-96 {
       height: calc(var(--spacing) * 96);
     }
@@ -5161,12 +5149,6 @@
   @media (min-width: 48rem) {
     .md\:h-auto {
       height: auto;
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .md\:h-full {
-      height: 100%;
     }
   }
 
@@ -5313,12 +5295,6 @@
   @media (min-width: 48rem) {
     .md\:\[object-position\:center_80\%\] {
       object-position: center 80%;
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .md\:object-bottom {
-      object-position: bottom;
     }
   }
 

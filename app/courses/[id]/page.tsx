@@ -118,7 +118,7 @@ export default function CoursePage({
           `
     *,
     type_of_course (type, price),
-    menu (id, name, cover, description),
+    menu (id, name, cover, description,sort_order),
     courses (
       id,
       date,
@@ -136,6 +136,7 @@ export default function CoursePage({
   `,
         )
         .eq("id", id)
+        .order("sort_order", { foreignTable: "menu", ascending: true })
         .single();
 
       if (error) {
@@ -190,26 +191,36 @@ export default function CoursePage({
     return localDate.toISOString().split("T")[0];
   };
 
-  const tileContent = ({ date, view }: { date: Date; view: string }) => {
-    if (view === "month") {
-      const dateStr = formatDate(date);
-      const dayAvailability = availability[dateStr];
-      if (dayAvailability) {
-        const allFull = Object.values(dayAvailability).every(
-          (slot: any) => slot.available === 0,
-        );
+const tileContent = ({ date, view }: { date: Date; view: string }) => {
+  if (view === "month") {
 
-        return (
-          <div
-            className={`text-[8px] md:text-xs py-1 px-1 mt-1 bg-[#919077] text-white`}
-          >
-            {allFull ? "Full" : "Available"}
-          </div>
-        );
-      }
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const checkDate = new Date(date);
+    checkDate.setHours(0, 0, 0, 0);
+
+    // ✅ ถ้าวันผ่านไปแล้ว → ไม่แสดงอะไร
+    if (checkDate < today) return null;
+
+    const dateStr = formatDate(date);
+    const dayAvailability = availability[dateStr];
+
+    if (dayAvailability) {
+      const allFull = dayAvailability.every(
+        (slot: any) => slot.available === 0
+      );
+
+      return (
+        <div className="text-[8px] md:text-xs py-1 px-1 mt-1 bg-[#919077] text-white">
+          {allFull ? "Full" : "Available"}
+        </div>
+      );
     }
-    return null;
-  };
+  }
+
+  return null;
+};
 
   const tileDisabled = ({ date, view }: { date: Date; view: string }) => {
     if (view === "month") {

@@ -189,11 +189,13 @@ export default function CoursesClient() {
 
               <div key={course.id}>
 
-                <img
-                  src={course.cover}
-                  alt={course.title}
-                  className="w-full h-[500px] object-cover"
-                />
+          <div className="relative w-full aspect-[3/4] overflow-hidden">
+  <img
+    src={course.cover}
+    alt={course.title}
+    className="w-full h-full object-cover object-center"
+  />
+</div>
 
                 <div className="p-2 text-center pt-[20px]">
 

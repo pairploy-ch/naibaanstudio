@@ -25,6 +25,7 @@ export function CourseHighlights() {
       const { data, error } = await supabase
         .from('type_of_course')
         .select('*')
+        .order('sort_order', { ascending: true })
 
       if (error) {
         console.error(error)
@@ -54,11 +55,13 @@ export function CourseHighlights() {
             <div key={course.id}>
 
               <div className="relative">
-                <img
-                  src={course.cover || "/placeholder.svg"}
-                  alt={course.name}
-                  className="w-full h-[500px] object-cover"
-                />
+            <div className="relative w-full aspect-[3/4] overflow-hidden ">
+  <img
+    src={course.cover || "/placeholder.svg"}
+    alt={course.name}
+    className="w-full h-full object-cover object-center"
+  />
+</div>
               </div>
 
               <div className="p-2 text-center pt-[20px]">
