@@ -25,7 +25,8 @@ type Course = {
   type_of_course_id: number;
   type_of_course?: {
     type: string;
-    price: number; // เพิ่ม
+    price: number; 
+    vat: number;// เพิ่ม
   };
   menu?: Menu[];
 };
@@ -117,7 +118,7 @@ export default function CoursePage({
         .select(
           `
     *,
-    type_of_course (type, price),
+    type_of_course (type, price, vat),
     menu (id, name, cover, description,sort_order),
     courses (
       id,
@@ -269,7 +270,7 @@ const tileContent = ({ date, view }: { date: Date; view: string }) => {
       </div>
     );
   }
-
+const priceWithVat = (course.type_of_course?.price ?? 0) + (course.type_of_course?.vat ?? 0)
   return (
     <div className="min-h-screen bg-[#F5F1EC]">
       <div className="container mx-auto px-6 py-8 max-w-[90%]">
@@ -512,9 +513,7 @@ const tileContent = ({ date, view }: { date: Date; view: string }) => {
                 </button>
                 <div className="ml-4 font-bold">
                   ฿{" "}
-                  {(
-                    (course.type_of_course?.price ?? 0) * quantity
-                  ).toLocaleString()}
+                  {(priceWithVat * quantity).toLocaleString()}
                 </div>
               </div>
             </div>
@@ -525,19 +524,17 @@ const tileContent = ({ date, view }: { date: Date; view: string }) => {
               </div>
               <div className="text-black">
                 <span className="font-semibold">Total:</span> ฿{" "}
-                {(
-                  (course.type_of_course?.price ?? 0) * quantity
-                ).toLocaleString()}
+                {(priceWithVat * quantity).toLocaleString()}
               </div>
             </div>
 
             <div className="p-6 pt-0 flex justify-end">
               <Link
-                href={
-                  selectedDate && selectedSlot
-                    ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&quantity=${quantity}&price=${course.type_of_course?.price}&courseId=${id}&slotId=${selectedSlot.slot_id}&slotName=${encodeURIComponent(selectedSlot.slot_name)}&slotTime=${encodeURIComponent(`${selectedSlot.start_time.slice(0, 5)} - ${selectedSlot.end_time.slice(0, 5)}`)}`
-                    : "#"
-                }
+            href={
+  selectedDate && selectedSlot
+    ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&quantity=${quantity}&price=${course.type_of_course?.price}&courseId=${id}&slotId=${selectedSlot.slot_id}&slotName=${encodeURIComponent(selectedSlot.slot_name)}&slotTime=${encodeURIComponent(`${selectedSlot.start_time.slice(0, 5)} - ${selectedSlot.end_time.slice(0, 5)}`)}&vat=${course.type_of_course?.vat ?? 0.07}`  
+    : "#"
+}
                 className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
                   !selectedDate || !selectedSlot
                     ? "opacity-50 pointer-events-none"

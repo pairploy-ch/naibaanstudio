@@ -151,7 +151,7 @@ export default function CoursesClient() {
               >
                 <option value="all">All Categories</option>
                 <option value="full-course">Full Course</option>
-                <option value="vegan">Vegan</option>
+                <option value="veggie">Veggie</option>
                 <option value="zero-waste">Zero Waste</option>
                 <option value="short-course">Short Course</option>
               </select>
@@ -175,7 +175,7 @@ export default function CoursesClient() {
         </div>
 
         {/* Courses */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
 
           {sortedCourses.length === 0 ? ( // ✅ เปลี่ยนจาก filteredCourses -> sortedCourses
 
@@ -187,7 +187,7 @@ export default function CoursesClient() {
 
             sortedCourses.map((course) => ( // ✅ เปลี่ยนจาก filteredCourses -> sortedCourses
 
-              <div key={course.id}>
+              <div key={course.id} className="w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] ">
 
           <div className="relative w-full aspect-[3/4] overflow-hidden">
   <img

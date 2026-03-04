@@ -21,7 +21,7 @@ const slotTime = searchParams.get('slotTime') || ''
 const [bookingId, setBookingId] = useState<string | null>(null)
 // const [bookingId, setBookingId] = useState<string | null>(null)
 const [bookingRef, setBookingRef] = useState<string | null>(null)
-
+// const vatRate = parseFloat(searchParams.get('vat') || '7')
   const [paymentMethod, setPaymentMethod] = useState('credit-card')
   const [showParticipants, setShowParticipants] = useState(false)
   const [paymentSuccess, setPaymentSuccess] = useState(false)
@@ -88,8 +88,8 @@ const [bookingRef, setBookingRef] = useState<string | null>(null)
   }
 
   const subtotal = price * quantity
-  const vat = subtotal * 0.07
-  const total = subtotal + vat
+ const vat = parseInt(searchParams.get('vat') || '0') * quantity
+const total = subtotal + vat
 
   const convertDateFormat = (dateStr: string): string => {
     const [day, month, year] = dateStr.split('/')
@@ -536,7 +536,7 @@ setBookingId(bookingInserted[0].id)
               </div>
 
               <div className="flex justify-between items-center">
-                <div className="text-black">Vat 7%</div>
+                <div className="text-black">Vat</div>
                 <div className="text-black">฿{vat.toFixed(2)}</div>
               </div>
 
