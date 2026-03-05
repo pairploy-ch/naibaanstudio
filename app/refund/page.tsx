@@ -24,7 +24,7 @@ export default function AboutPage() {
           <br />
           <p>
             A booking is considered confirmed only after successful payment
-            verification and receipt of confirmation from Naibaan Studio.
+            verification and receipt of confirmation from Nai Baan Studio.
           </p>
 
           <br />
@@ -83,7 +83,7 @@ export default function AboutPage() {
           <br />
 
           <h1 className="text-bold font-bold">
-            6. Cancellation by Naibaan Studio
+            6. Cancellation by Nai Baan Studio
           </h1>
           <br />
           <p>

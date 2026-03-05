@@ -536,7 +536,7 @@ setBookingId(bookingInserted[0].id)
               </div>
 
               <div className="flex justify-between items-center">
-                <div className="text-black">Vat</div>
+                <div className="text-black">Vat 7%</div>
                 <div className="text-black">฿{vat.toFixed(2)}</div>
               </div>
 

@@ -42,14 +42,14 @@ export default function AboutPage() {
           <div className="max-w-2xl mx-auto px-6 md:px-12 mt-8 md:mt-0">
             <p className="text-gray-700 text-base md:text-xl leading-relaxed space-y-4">
               <span className="block">
-                Naibaan Studio is a home of simple, yet tasteful Thai home cook recipe - this little secret is now passing
-                down to the 3rd generation of the family. Now it's time to undisclosed our FAMILY RECIPE to the world -
+                Nai Baan Studio is a home of simple, yet tasteful Thai home cook recipe - this little secret is now passing
+                down to the 3rd generation of the family. Now it's time to undisclose our FAMILY RECIPE to the world -
                 to those who are passionate in Thai foods, to those who want to learn Thai culture and way of cooking.
               </span>
               <span className="block mt-8 md:mt-10">
-                At Naibaan Studio, we aim to be more than just a cooking school but be a gathering spot of ones who
+                At Nai Baan Studio, we aim to be more than just a cooking school but be a gathering spot of ones who
                 are passionate in Thai foods. No worries if you don't have any experiences in cooking, only bring your
-                passion along. We always be very happy to invite you to come to our HOME at Naibaan Studio - a place
+                passion along. We always be very happy to invite you to come to our HOME at Nai Baan Studio - a place
                 where we share our MOMENT together.
               </span>
             </p>

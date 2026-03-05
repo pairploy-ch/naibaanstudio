@@ -142,7 +142,7 @@ export default function AboutPage() {
 
           <h1 className="text-bold font-bold">10. Data Controller</h1>
           <br />
-          <p>Data Controller: Naibaan Studio</p>
+          <p>Data Controller: Nai Baan Studio</p>
 
           <br />
           <br />

@@ -75,7 +75,7 @@ export default function AboutPage() {
   <br />
   <p>
     All content, including text, images, graphics, and branding, is the
-    property of Naibaan Studio and may not be copied, reproduced, or
+    property of Nai Baan Studio and may not be copied, reproduced, or
     distributed without permission.
   </p>
 

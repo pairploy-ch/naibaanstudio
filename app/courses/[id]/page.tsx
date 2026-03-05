@@ -575,6 +575,10 @@ const priceWithVat = (course.type_of_course?.price ?? 0) + (course.type_of_cours
           font-size: 16px;
           margin-top: 8px;
         }
+
+        .react-calendar__month-view__days__day--weekend {
+  color: black !important;
+}
       `}</style>
     </div>
   );
