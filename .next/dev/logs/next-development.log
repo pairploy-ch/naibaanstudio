@@ -1,9 +1,8 @@
-[00:00:02.555] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:02.830] Server  LOG     ✓ Ready in 2.2s
-[00:00:04.437] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:07.641] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:43.265] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-05T01:49:09.730Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:02:41.103] Server  LOG     ✓ Compiled in 555ms
-[00:10:35.067] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:10:35.180] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-05T01:59:01.679Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:12:26.254] Server  LOG     ✓ Compiled in 95ms
+[00:00:02.679] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:02.822] Server  LOG     ✓ Ready in 2.4s
+[00:00:20.605] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:41.327] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:21.630] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:11.987] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:07.375] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:49.395] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
