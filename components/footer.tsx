@@ -8,7 +8,7 @@ export function Footer() {
             <h3 className="text-2xl font-bold mb-4">Contact</h3>
             <div className="space-y-2 text-muted-foreground">
               <p><u>Tel: 0926100542, 0941656352</u></p>
-              <p><u>Email: info@naibaanstudio.com</u></p>
+              <p><u>Email: naibaanstudio@gmail.com</u></p>
             </div>
           </div>
 

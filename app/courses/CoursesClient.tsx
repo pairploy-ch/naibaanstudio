@@ -10,6 +10,7 @@ type Menu = {
   name: string;
   cover: string;
   description: string;
+  sort_order: number;
 };
 
 type Course = {
@@ -27,7 +28,6 @@ type Course = {
 };
 
 export default function CoursesClient() {
-
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -38,16 +38,16 @@ export default function CoursesClient() {
 
   // ✅ fetch supabase พร้อม order by sort
   useEffect(() => {
-
     const fetchCourses = async () => {
-
       const { data, error } = await supabase
         .from("weekly_template")
-        .select(`
+        .select(
+          `
           *,
           type_of_course(type),
-          menu(id,name,cover,description)
-        `)
+          menu(id,name,cover,description, sort_order)
+        `,
+        )
         .order("sort", { ascending: true }); // ✅ sort ที่นี่
 
       if (error) {
@@ -61,7 +61,6 @@ export default function CoursesClient() {
     };
 
     fetchCourses();
-
   }, []);
 
   // อ่านค่าจาก URL ตอน mount
@@ -76,7 +75,6 @@ export default function CoursesClient() {
 
   // sync state -> URL
   useEffect(() => {
-
     if (!isInitialized) return;
 
     const params = new URLSearchParams();
@@ -91,12 +89,10 @@ export default function CoursesClient() {
     router.push(query ? `?${query}` : "/courses", {
       scroll: false,
     });
-
   }, [searchTerm, selectedCategory, isInitialized, router]);
 
   // filter courses
   const filteredCourses = courses.filter((course) => {
-
     const matchesSearch =
       course.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       course.description?.toLowerCase().includes(searchTerm.toLowerCase());
@@ -110,21 +106,17 @@ export default function CoursesClient() {
 
   // ✅ หลัง filter แล้ว sort อีกครั้งเพื่อความแน่ใจ
   const sortedCourses = [...filteredCourses].sort(
-    (a, b) => (a.sort ?? 0) - (b.sort ?? 0)
+    (a, b) => (a.sort ?? 0) - (b.sort ?? 0),
   );
 
   return (
     <section className="py-18 bg-[#F6EFE7]" id="courses">
       <div className="container mx-auto px-6 max-w-[90%]">
-
         <div className="mb-12">
-          <h2 className="text-5xl font-bold text-black mb-8">
-            All Courses
-          </h2>
+          <h2 className="text-5xl font-bold text-black mb-8">All Courses</h2>
 
           {/* Filters */}
           <div className="grid md:grid-cols-2 gap-4 mb-8">
-
             <div>
               <label className="block text-black font-semibold mb-2">
                 Search
@@ -156,11 +148,9 @@ export default function CoursesClient() {
                 <option value="short-course">Short Course</option>
               </select>
             </div>
-
           </div>
 
           {(searchTerm || selectedCategory !== "all") && (
-
             <button
               onClick={() => {
                 setSearchTerm("");
@@ -170,60 +160,61 @@ export default function CoursesClient() {
             >
               Clear all filters
             </button>
-
           )}
         </div>
 
         {/* Courses */}
         <div className="flex flex-wrap justify-center gap-6">
-
           {sortedCourses.length === 0 ? ( // ✅ เปลี่ยนจาก filteredCourses -> sortedCourses
-
             <p className="col-span-full text-center text-black">
               No courses found.
             </p>
-
           ) : (
+            sortedCourses.map(
+              (
+                course, // ✅ เปลี่ยนจาก filteredCourses -> sortedCourses
+              ) => (
+                <div
+                  key={course.id}
+                  className="w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] "
+                >
+                  <div className="relative w-full aspect-[3/4] overflow-hidden">
+                    <img
+                      src={course.cover}
+                      alt={course.title}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
 
-            sortedCourses.map((course) => ( // ✅ เปลี่ยนจาก filteredCourses -> sortedCourses
+                  <div className="p-2 text-center pt-[20px]">
+                    <h3 className="font-bold text-xl text-black mb-4">
+                      {course.title}
+                    </h3>
 
-              <div key={course.id} className="w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] ">
+                    <p className="text-black text-sm opacity-80 mb-4">
+                      {course.menu?.length
+                        ? [...course.menu]
+                            .sort(
+                              (a, b) =>
+                                (a.sort_order ?? 0) - (b.sort_order ?? 0),
+                            )
+                            .map((m) => m.name)
+                            .join(", ")
+                        : ""}{" "}
+                      
+                    </p>
 
-          <div className="relative w-full aspect-[3/4] overflow-hidden">
-  <img
-    src={course.cover}
-    alt={course.title}
-    className="w-full h-full object-cover object-center"
-  />
-</div>
-
-                <div className="p-2 text-center pt-[20px]">
-
-                  <h3 className="font-bold text-xl text-black mb-4">
-                    {course.title}
-                  </h3>
-
-                  <p className="text-black text-sm opacity-80 mb-4">
-                    {course.menu?.length
-                      ? course.menu.map(m => m.name).join(", ")
-                      : ""}
-                  </p>
-
-                  <Link
-                    href={`/courses/${course.id}`}
-                    className="underline text-[#919077]"
-                  >
-                    Book a Class
-                  </Link>
-
+                    <Link
+                      href={`/courses/${course.id}`}
+                      className="underline text-[#919077]"
+                    >
+                      Book a Class
+                    </Link>
+                  </div>
                 </div>
-
-              </div>
-
-            ))
-
+              ),
+            )
           )}
-
         </div>
       </div>
     </section>

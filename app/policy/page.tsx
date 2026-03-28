@@ -159,7 +159,7 @@ export default function AboutPage() {
 
           <h1 className="text-bold font-bold">12. Contact</h1>
           <br />
-          <p>Email: info@naibaanstudio.com</p>
+          <p>Email: naibaanstudio@gmail.com</p>
         </div>
       </section>
     </main>
