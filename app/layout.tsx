@@ -1,58 +1,64 @@
-import type { Metadata } from 'next'
-import { Playfair_Display, Inter } from 'next/font/google'
-import './globals.css'
-import HeaderSwitcher from '@/components/HeaderSwitcher'
-import LayoutWrapper from '@/components/LayoutWrapper'
+import type { Metadata } from "next";
+import { Playfair_Display, Inter } from "next/font/google";
+import "./globals.css";
+import HeaderSwitcher from "@/components/HeaderSwitcher";
+import LayoutWrapper from "@/components/LayoutWrapper";
+import Script from "next/script";
 
 /* --- Font Setup --- */
-const playfair = Playfair_Display({ 
-  subsets: ['latin'],
-  variable: '--font-serif',
-  display: 'swap',
-})
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
-const inter = Inter({ 
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
-})
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 /* --- Metadata --- */
 export const metadata: Metadata = {
-  title: 'Nai Baan Studio',
+  title: "Nai Baan Studio",
   description:
-    'Discover authentic Thai cooking in a serene, home-style studio located in the ancient wooden house. Learn traditional recipes, local ingredients, and Thai cooking techniques from a passionate culinary host.',
+    "Discover authentic Thai cooking in a serene, home-style studio located in the ancient wooden house. Learn traditional recipes, local ingredients, and Thai cooking techniques from a passionate culinary host.",
   keywords: [
-    'Thai cooking class',
-    'Thailand cooking studio',
-    'Thai cuisine',
-    'cooking class Bangkok',
-    'Thai cooking course',
+    "Thai cooking class",
+    "Thailand cooking studio",
+    "Thai cuisine",
+    "cooking class Bangkok",
+    "Thai cooking course",
   ],
-  generator: 'v0.app',
+  generator: "v0.app",
   icons: {
-    icon: '/logo-nb.png',  // ✅ เปลี่ยนตรงนี้
-    apple: '/logo-nb.png',
+    icon: "/logo-nb.png", // ✅ เปลี่ยนตรงนี้
+    apple: "/logo-nb.png",
   },
-}
+};
 
 /* --- Layout --- */
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+      <body
+        className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
+      >
         {/* Header แสดงทุกหน้า */}
+        <Script
+          src="https://cdn.omise.co/omise.js"
+          strategy="afterInteractive"
+        />
+
         <HeaderSwitcher />
 
         {/* Wrapper ซ่อน footer ถ้าเป็น admin */}
-        <LayoutWrapper>
-          {children}
-        </LayoutWrapper>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
-  )
+  );
 }

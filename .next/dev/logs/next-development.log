@@ -1,24 +1,56 @@
-[00:00:03.158] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:03.445] Server  LOG     ✓ Ready in 2.8s
-[00:00:13.823] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-28T08:19:43.212Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:01:02.336] Server  LOG     ✓ Compiled in 47ms
-[00:37:23.635] Server  LOG     ✓ Compiled in 234ms
-[00:37:28.428] Server  LOG     ✓ Compiled in 75ms
-[00:41:14.845] Server  LOG     ✓ Compiled in 67ms
-[00:41:21.912] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:41:22.162] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-28T09:00:51.530Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:41:48.410] Server  LOG     ✓ Compiled in 58ms
-[00:43:18.695] Server  LOG     ✓ Compiled in 50ms
-[00:43:22.862] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:43:22.994] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-28T09:02:52.428Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:43:28.477] Server  LOG     ✓ Compiled in 71ms
-[00:43:30.868] Server  LOG     ✓ Compiled in 34ms
-[00:57:46.068] Server  LOG     ✓ Compiled in 68ms
-[00:57:49.455] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:57:49.699] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-28T09:17:19.099Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:59:23.743] Server  LOG     ✓ Compiled in 56ms
-[00:59:29.193] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:59:29.452] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-28T09:18:58.721Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:59:35.357] Server  LOG     ✓ Compiled in 79ms
-[01:00:32.028] Server  LOG     ✓ Compiled in 78ms
-[01:00:39.948] Server  LOG     ✓ Compiled in 55ms
+[00:00:01.172] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.311] Server  LOG     ✓ Ready in 988ms
+[00:01:27.016] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:25.027] Server  LOG       Reload env: .env.local
+[00:15:11.318] Server  LOG     ✓ Compiled in 376ms
+[00:22:54.112] Server  LOG       Reload env: .env.local
+[00:27:48.644] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:50.319] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T05:22:58.401Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:29:52.226] Browser ERROR   Payment error: {}
+[00:30:14.992] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:04.921] Browser ERROR   Payment error: {}
+[00:39:42.374] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:55.557] Server  LOG     ✓ Compiled in 98ms
+[00:40:03.808] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:42:14.613] Server  LOG     ✓ Compiled in 134ms
+[00:42:20.133] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:43:27.722] Server  LOG     ✓ Compiled in 67ms
+[00:43:31.291] Browser LOG     🔵 handleSubmit called
+[00:43:31.291] Browser LOG     isFormValid: true
+[00:43:31.291] Browser LOG     isSubmitting: false
+[00:43:31.291] Browser LOG     omiseReady: false
+[00:43:31.291] Browser LOG     🔵 calling validateBeforePayment...
+[00:43:31.709] Browser LOG     🔵 isValid: true
+[00:43:31.709] Browser LOG     🔵 calling handleCreditCard...
+[00:45:58.835] Browser LOG     🔴 error: Card was declined
+[00:51:47.891] Browser LOG     🔵 handleSubmit called
+[00:51:47.892] Browser LOG     isFormValid: true
+[00:51:47.893] Browser LOG     isSubmitting: false
+[00:51:47.893] Browser LOG     omiseReady: false
+[00:51:47.893] Browser LOG     🔵 calling validateBeforePayment...
+[00:51:48.590] Browser LOG     🔵 isValid: true
+[00:51:48.590] Browser LOG     🔵 calling handleCreditCard...
+[00:52:38.956] Browser LOG     🔴 error: Card was declined
+[00:57:08.716] Server  LOG     ✓ Compiled in 161ms
+[00:57:12.155] Server  LOG     ✓ Compiled in 51ms
+[00:57:30.225] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:57:53.840] Browser LOG     🔵 handleSubmit called
+[00:57:53.840] Browser LOG     isFormValid: true
+[00:57:53.841] Browser LOG     isSubmitting: false
+[00:57:53.841] Browser LOG     omiseReady: false
+[00:57:53.841] Browser LOG     🔵 calling validateBeforePayment...
+[00:57:54.380] Browser LOG     🔵 isValid: true
+[00:57:54.380] Browser LOG     🔵 calling handleCreditCard...
+[00:58:56.800] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:59:47.699] Server  ERROR   ⨯ Error: The default export is not a React Component in "/checkout/complete/page"
+[00:59:47.860] Server  ERROR   ⨯ Error: The default export is not a React Component in "/checkout/complete/page"
+[00:59:49.199] Server  ERROR   ⨯ Error: The default export is not a React Component in "/checkout/complete/page"
+[00:59:49.524] Server  ERROR   ⨯ Error: The default export is not a React Component in "/checkout/complete/page"
+[00:59:49.732] Server  ERROR   ⨯ Error: The default export is not a React Component in "/checkout/complete/page"
+[00:59:49.893] Server  ERROR   ⨯ Error: The default export is not a React Component in "/checkout/complete/page"
+[00:59:50.196] Server  ERROR   ⨯ Error: The default export is not a React Component in "/checkout/complete/page"
+[00:59:50.360] Server  ERROR   ⨯ Error: The default export is not a React Component in "/checkout/complete/page"
+[00:59:50.535] Browser ERROR   uncaughtError: Error: The default export is not a React Component in "/checkout/complete/page"
+[01:07:28.847] Server  LOG     ✓ Compiled in 310ms
+[01:07:30.002] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:07:30.974] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T06:02:38.277Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
