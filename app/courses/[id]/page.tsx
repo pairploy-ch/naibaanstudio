@@ -25,8 +25,8 @@ type Course = {
   type_of_course_id: number;
   type_of_course?: {
     type: string;
-    price: number; 
-    vat: number;// เพิ่ม
+    price: number;
+    vat: number; // เพิ่ม
   };
   menu?: Menu[];
 };
@@ -84,6 +84,7 @@ export default function CoursePage({
     Record<
       string,
       {
+        course_id: number;
         slot_id: number;
         slot_name: string;
         available: number;
@@ -94,10 +95,20 @@ export default function CoursePage({
     >
   >({});
 
+  type Slot = {
+    course_id: number;
+    slot_id: number;
+    slot_name: string;
+    start_time: string;
+    end_time: string;
+    available: number;
+    total: number;
+  };
+
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [selectedSlot, setSelectedSlot] = useState<any>(null);
+  const [selectedSlot, setSelectedSlot] = useState<Slot | null>(null);
 
   // useEffect(() => {
   //   if (!course?.menu || course.menu.length <= 1) return;
@@ -149,11 +160,12 @@ export default function CoursePage({
         const availability: Record<
           string,
           {
+            course_id: number;
             slot_id: number;
             slot_name: string;
             available: number;
             total: number;
-            start_time: string; // เพิ่ม
+            start_time: string;
             end_time: string;
           }[]
         > = {};
@@ -166,6 +178,7 @@ export default function CoursePage({
           }
 
           availability[dateStr].push({
+            course_id: c.id,
             slot_id: c.time_slot?.id,
             slot_name: c.time_slot?.slot_name,
             start_time: c.time_slot?.start_time, // เพิ่ม
@@ -192,36 +205,35 @@ export default function CoursePage({
     return localDate.toISOString().split("T")[0];
   };
 
-const tileContent = ({ date, view }: { date: Date; view: string }) => {
-  if (view === "month") {
+  const tileContent = ({ date, view }: { date: Date; view: string }) => {
+    if (view === "month") {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
 
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+      const checkDate = new Date(date);
+      checkDate.setHours(0, 0, 0, 0);
 
-    const checkDate = new Date(date);
-    checkDate.setHours(0, 0, 0, 0);
+      // ✅ ถ้าวันผ่านไปแล้ว → ไม่แสดงอะไร
+      if (checkDate < today) return null;
 
-    // ✅ ถ้าวันผ่านไปแล้ว → ไม่แสดงอะไร
-    if (checkDate < today) return null;
+      const dateStr = formatDate(date);
+      const dayAvailability = availability[dateStr];
 
-    const dateStr = formatDate(date);
-    const dayAvailability = availability[dateStr];
+      if (dayAvailability) {
+        const allFull = dayAvailability.every(
+          (slot: any) => slot.available === 0,
+        );
 
-    if (dayAvailability) {
-      const allFull = dayAvailability.every(
-        (slot: any) => slot.available === 0
-      );
-
-      return (
-        <div className="text-[8px] md:text-xs py-1 px-1 mt-1 bg-[#919077] text-white">
-          {allFull ? "Full" : "Available"}
-        </div>
-      );
+        return (
+          <div className="text-[8px] md:text-xs py-1 px-1 mt-1 bg-[#919077] text-white">
+            {allFull ? "Full" : "Available"}
+          </div>
+        );
+      }
     }
-  }
 
-  return null;
-};
+    return null;
+  };
 
   const tileDisabled = ({ date, view }: { date: Date; view: string }) => {
     if (view === "month") {
@@ -240,7 +252,7 @@ const tileContent = ({ date, view }: { date: Date; view: string }) => {
       const dateStr = formatDate(date);
       const dayAvailability = availability[dateStr];
       if (dayAvailability) {
-        const allFull = Object.values(dayAvailability).every(
+        const allFull = dayAvailability.every(
           (slot: any) => slot.available === 0,
         );
 
@@ -270,7 +282,8 @@ const tileContent = ({ date, view }: { date: Date; view: string }) => {
       </div>
     );
   }
-const priceWithVat = (course.type_of_course?.price ?? 0) + (course.type_of_course?.vat ?? 0)
+  const priceWithVat =
+    (course.type_of_course?.price ?? 0) + (course.type_of_course?.vat ?? 0);
   return (
     <div className="min-h-screen bg-[#F5F1EC]">
       <div className="container mx-auto px-6 py-8 max-w-[90%]">
@@ -411,6 +424,12 @@ const priceWithVat = (course.type_of_course?.price ?? 0) + (course.type_of_cours
               onChange={(value) => handleDateChange(value as Date)}
               tileContent={tileContent}
               tileDisabled={tileDisabled}
+              onClickDay={(value) => {
+                const clickedDate = formatDate(value);
+
+                console.log("Clicked date:", clickedDate);
+                console.log("Slots:", availability[clickedDate]);
+              }}
               minDate={(() => {
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
@@ -435,7 +454,10 @@ const priceWithVat = (course.type_of_course?.price ?? 0) + (course.type_of_cours
                   <button
                     key={slot.slot_id}
                     disabled={isFull}
-                    onClick={() => setSelectedSlot(slot)}
+                    onClick={() => {
+                      setSelectedSlot(slot);
+                      setQuantity(1);
+                    }}
                     className={`
       w-full border 
       p-3 sm:p-4
@@ -488,23 +510,10 @@ const priceWithVat = (course.type_of_course?.price ?? 0) + (course.type_of_cours
                 <span className="font-bold">{quantity}</span>
                 <button
                   onClick={() => {
-                    if (selectedDate) {
-                      const dateStr = formatDate(selectedDate);
-                      const dayAvailability = availability[dateStr];
-                      if (dayAvailability) {
-                        const totalAvailable = Object.values(
-                          dayAvailability,
-                        ).reduce(
-                          (sum: number, slot: any) => sum + slot.available,
-                          0,
-                        );
-
-                        setQuantity(Math.min(totalAvailable, quantity + 1));
-                      } else {
-                        setQuantity(quantity + 1);
-                      }
-                    } else {
-                      setQuantity(quantity + 1);
+                    if (selectedSlot) {
+                      setQuantity(
+                        Math.min(selectedSlot.available, quantity + 1),
+                      );
                     }
                   }}
                   className="w-8 h-8 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
@@ -512,8 +521,7 @@ const priceWithVat = (course.type_of_course?.price ?? 0) + (course.type_of_cours
                   +
                 </button>
                 <div className="ml-4 font-bold">
-                  ฿{" "}
-                  {(priceWithVat * quantity).toLocaleString()}
+                  ฿ {(priceWithVat * quantity).toLocaleString()}
                 </div>
               </div>
             </div>
@@ -543,6 +551,31 @@ const priceWithVat = (course.type_of_course?.price ?? 0) + (course.type_of_cours
               >
                 Checkout Now
               </Link>
+              {/* <button
+                onClick={() => {
+                  const data = {
+                    course: course.title,
+                    date: selectedDate?.toLocaleDateString("en-GB"),
+                    quantity,
+                    price: course.type_of_course?.price,
+                    courseId: selectedSlot?.course_id,
+                    slotId: selectedSlot?.slot_id,
+                    slotName: selectedSlot?.slot_name,
+                    slotTime: `${selectedSlot?.start_time.slice(0, 5)} - ${selectedSlot?.end_time.slice(0, 5)}`,
+                    vat: course.type_of_course?.vat ?? 0.07,
+                  };
+
+                  console.log("Checkout data:", data);
+                }}
+                disabled={!selectedDate || !selectedSlot}
+                className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
+                  !selectedDate || !selectedSlot
+                    ? "opacity-50 pointer-events-none"
+                    : ""
+                }`}
+              >
+                Checkout Now
+              </button> */}
             </div>
           </div>
         </div>
@@ -577,8 +610,8 @@ const priceWithVat = (course.type_of_course?.price ?? 0) + (course.type_of_cours
         }
 
         .react-calendar__month-view__days__day--weekend {
-  color: black !important;
-}
+          color: black !important;
+        }
       `}</style>
     </div>
   );

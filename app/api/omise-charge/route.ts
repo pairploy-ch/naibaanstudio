@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
           card: token,
           description,
           capture: 'true',
-          return_uri: `${process.env.NEXT_PUBLIC_BASE_URL}/checkout/complete`, // ✅ เพิ่ม
+          return_uri: body.returnUri ?? `${process.env.NEXT_PUBLIC_BASE_URL}/checkout/complete`, // ✅ เพิ่ม
         }),
       })
       const charge = await res.json()

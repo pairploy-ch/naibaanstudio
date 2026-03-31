@@ -1,5 +1,4 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/api/omise-charge-status/route": "app/api/omise-charge-status/route.js",
   "/api/omise-charge/route": "app/api/omise-charge/route.js",
   "/api/send-confirmation-email/route": "app/api/send-confirmation-email/route.js",

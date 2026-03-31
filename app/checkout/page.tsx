@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useState, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Script from "next/script";
 import { supabase } from "@/lib/supabaseClient";
 
@@ -18,6 +18,7 @@ function CheckoutContent() {
   const slotId = searchParams.get("slotId") || "";
   const slotName = searchParams.get("slotName") || "";
   const slotTime = searchParams.get("slotTime") || "";
+  const [countries, setCountries] = useState<string[]>([]);
 
   const [bookingRef, setBookingRef] = useState<string | null>(null);
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
@@ -48,6 +49,17 @@ function CheckoutContent() {
       passportId: "",
     })),
   );
+
+  useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all?fields=name")
+      .then((res) => res.json())
+      .then((data) => {
+        const names = data
+          .map((c: any) => c.name.common)
+          .sort((a: string, b: string) => a.localeCompare(b));
+        setCountries(names);
+      });
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -223,8 +235,8 @@ function CheckoutContent() {
       OmiseCard.configure({
         publicKey: process.env.NEXT_PUBLIC_OMISE_PUBLIC_KEY,
         currency: "THB",
-        frameLabel: "Thai Cooking Class",
-        submitLabel: "Pay ฿" + total.toLocaleString(),
+        frameLabel: "Nai Baan Studio",
+        submitLabel: "Pay",
         buttonLabel: "Pay with Omise",
       });
 
@@ -240,6 +252,7 @@ function CheckoutContent() {
                 amount: total,
                 paymentMethod: "credit-card",
                 description: `${courseName} - ${date} (${slotName})`,
+                returnUri: `${window.location.origin}/checkout/complete`,
               }),
             });
             const data = await res.json();
@@ -316,6 +329,7 @@ function CheckoutContent() {
             clearInterval(interval);
             setShowQR(false);
             await saveToSupabase(data.chargeId);
+            
             resolve();
           } else if (pollData.status === "failed" || attempts >= maxAttempts) {
             clearInterval(interval);
@@ -418,10 +432,10 @@ function CheckoutContent() {
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-white p-8 rounded-lg max-w-sm w-full mx-4 text-center">
               <h2 className="text-xl font-bold text-black mb-2">
-                สแกน QR PromptPay
+                QR PromptPay
               </h2>
               <p className="text-sm text-gray-500 mb-4">
-                ยอดชำระ ฿{total.toLocaleString()}.00
+                Amount ฿{total.toLocaleString()}
               </p>
               <img
                 src={qrCodeUrl}
@@ -429,7 +443,7 @@ function CheckoutContent() {
                 className="mx-auto w-64 h-64 mb-4"
               />
               <p className="text-xs text-gray-400 mb-4">
-                กำลังรอการชำระเงิน...
+                Pending Payment...
               </p>
               <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-600 mx-auto mb-4" />
               <button
@@ -439,7 +453,7 @@ function CheckoutContent() {
                 }}
                 className="text-sm text-gray-400 underline"
               >
-                ยกเลิก
+                Cancel
               </button>
             </div>
           </div>
@@ -533,14 +547,22 @@ function CheckoutContent() {
                   <label className="block text-sm font-medium text-black mb-2">
                     Country <span className="text-red-600">*</span>
                   </label>
-                  <input
-                    type="text"
+                  <select
                     name="country"
                     value={formData.country}
-                    onChange={handleInputChange}
+                    onChange={(e) =>
+                      setFormData({ ...formData, country: e.target.value })
+                    }
                     required
                     className="w-full px-4 py-2 border border-black bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
-                  />
+                  >
+                    <option value="">Select Country</option>
+                    {countries.map((c) => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div>
@@ -663,8 +685,7 @@ function CheckoutContent() {
                                     Country{" "}
                                     <span className="text-red-600">*</span>
                                   </label>
-                                  <input
-                                    type="text"
+                                  <select
                                     value={
                                       participantsData[index]?.country || ""
                                     }
@@ -676,7 +697,14 @@ function CheckoutContent() {
                                       )
                                     }
                                     className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
-                                  />
+                                  >
+                                    <option value="">Select Country</option>
+                                    {countries.map((c) => (
+                                      <option key={c} value={c}>
+                                        {c}
+                                      </option>
+                                    ))}
+                                  </select>
                                 </div>
                                 <div>
                                   <label className="block text-sm font-medium text-black mb-2">
@@ -781,17 +809,11 @@ function CheckoutContent() {
                       />
                       <img
                         src="/visa-logo.png"
-                        style={{ width: "60px", height: "auto" }}
+                        style={{ width: "60px", height: "20px" }}
                         alt="Visa"
                       />
                     </div>
                   </label>
-                  {paymentMethod === "credit-card" && (
-                    <p className="mt-3 pl-8 text-sm text-gray-500">
-                      คลิก Submit
-                      เพื่อกรอกข้อมูลบัตรเครดิตในหน้าต่างที่ปลอดภัยของ Omise
-                    </p>
-                  )}
                 </div>
 
                 {/* QR PromptPay Option */}
@@ -807,11 +829,6 @@ function CheckoutContent() {
                     />
                     <span className="font-medium text-black">QR PromptPay</span>
                   </label>
-                  {paymentMethod === "qr-promptpay" && (
-                    <p className="mt-3 pl-8 text-sm text-gray-500">
-                      QR Code จะแสดงขึ้นหลังกด Submit สแกนด้วยแอปธนาคารได้เลย
-                    </p>
-                  )}
                 </div>
 
                 <p className="text-sm text-gray-600">
@@ -829,9 +846,7 @@ function CheckoutContent() {
                       : "bg-gray-400 text-gray-200 cursor-not-allowed"
                   }`}
                 >
-                  {isSubmitting
-                    ? "Processing..."
-                    : `Submit · ฿${total.toLocaleString()}`}
+                  {isSubmitting ? "Processing..." : `Submit`}
                 </button>
               </div>
             </div>

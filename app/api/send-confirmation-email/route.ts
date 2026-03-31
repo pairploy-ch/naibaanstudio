@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     } = await req.json()
 
     const { data, error } = await resend.emails.send({
-      from: 'Thai Cooking Class <booking@naibaanstudio.com>', // ✅ ใส่ domain ที่ verify ใน Resend
+      from: 'Nai Baan Studio <booking@naibaanstudio.com>', // ✅ ใส่ domain ที่ verify ใน Resend
       to: [to],
       subject: `Booking Confirmed – Nai Baan Studio`,
       html: `
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
             <meta charset="utf-8" />
             <style>
               body { font-family: Arial, sans-serif; background: #f5f1ec; margin: 0; padding: 0; }
-              .container { max-width: 600px; margin: 40px auto; background: white; border-radius: 8px; overflow: hidden; }
+              .container { max-width: 600px; margin: 40px auto; background: white;  overflow: hidden; }
               .header { background: #8B7355; padding: 32px; text-align: center; }
               .header h1 { color: white; margin: 0; font-size: 24px; }
               .body { padding: 32px; }
@@ -84,7 +84,7 @@ export async function POST(req: Request) {
                 </p>
               </div>
               <div class="footer">
-                Thai Cooking Class · If you have questions, reply to this email.
+                Nai Baan Studio · If you have questions, reply to this email.
               </div>
             </div>
           </body>
