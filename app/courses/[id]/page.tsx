@@ -26,50 +26,10 @@ type Course = {
   type_of_course?: {
     type: string;
     price: number;
-    vat: number; // เพิ่ม
+    vat: number;
   };
   menu?: Menu[];
 };
-
-// --- Data Section ---
-// const generateMondayAvailability = () => {
-//   const availability: Record<
-//     string,
-//     Record<string, { available: number; total: number }>
-//   > = {};
-//   const today = new Date();
-//   today.setHours(0, 0, 0, 0);
-
-//   const endDate = new Date(today);
-//   endDate.setMonth(endDate.getMonth() + 3);
-
-//   let currentDate = new Date(today);
-//   currentDate.setDate(currentDate.getDate() + 2);
-
-//   while (currentDate.getDay() !== 1) {
-//     currentDate.setDate(currentDate.getDate() + 1);
-//   }
-
-//   while (currentDate <= endDate) {
-//     const dateStr = currentDate.toISOString().split("T")[0];
-//     const morningAvailable = Math.floor(Math.random() * 11);
-//     const afternoonAvailable = Math.floor(Math.random() * 11);
-
-//     availability[dateStr] = {
-//       morning: { available: morningAvailable, total: 10 },
-//       afternoon: { available: afternoonAvailable, total: 10 },
-//     };
-
-//     currentDate.setDate(currentDate.getDate() + 7);
-//   }
-
-//   return availability;
-// };
-
-// const TIME_SLOTS = [
-//   { id: "morning", label: "Morning", time: "09:00 - 12:30" },
-//   { id: "afternoon", label: "Afternoon", time: "14:00 - 17:30" },
-// ];
 
 export default function CoursePage({
   params,
@@ -89,8 +49,8 @@ export default function CoursePage({
         slot_name: string;
         available: number;
         total: number;
-        start_time: string; // เพิ่ม
-        end_time: string; // เพิ่ม
+        start_time: string;
+        end_time: string;
       }[]
     >
   >({});
@@ -110,16 +70,6 @@ export default function CoursePage({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedSlot, setSelectedSlot] = useState<Slot | null>(null);
 
-  // useEffect(() => {
-  //   if (!course?.menu || course.menu.length <= 1) return;
-  //   const timer = setInterval(() => {
-  //     setCurrentSlide((prev) =>
-  //       prev === course.menu!.length - 1 ? 0 : prev + 1,
-  //     );
-  //   }, 3000);
-  //   return () => clearInterval(timer);
-  // }, [course]);
-
   useEffect(() => {
     const fetchCourse = async () => {
       setLoading(true);
@@ -130,20 +80,18 @@ export default function CoursePage({
           `
     *,
     type_of_course (type, price, vat),
-    menu (id, name, cover, description,sort_order),
+    menu (id, name, cover, description, sort_order),
     courses (
       id,
       date,
       capacity,
       status,
- time_slot:course_time_slot (
-  id,
-  slot_name,
-  start_time,
-  end_time
-
-)
-
+      time_slot:course_time_slot (
+        id,
+        slot_name,
+        start_time,
+        end_time
+      )
     )
   `,
         )
@@ -153,44 +101,62 @@ export default function CoursePage({
 
       if (error) {
         console.error("Error fetching course:", error);
-      } else {
-        setCourse(data);
-
-        // 🔥 convert courses -> calendar availability
-        const availability: Record<
-          string,
-          {
-            course_id: number;
-            slot_id: number;
-            slot_name: string;
-            available: number;
-            total: number;
-            start_time: string;
-            end_time: string;
-          }[]
-        > = {};
-
-        data?.courses?.forEach((c: any) => {
-          const dateStr = c.date;
-
-          if (!availability[dateStr]) {
-            availability[dateStr] = [];
-          }
-
-          availability[dateStr].push({
-            course_id: c.id,
-            slot_id: c.time_slot?.id,
-            slot_name: c.time_slot?.slot_name,
-            start_time: c.time_slot?.start_time, // เพิ่ม
-            end_time: c.time_slot?.end_time, // เพิ่ม
-            available: c.capacity,
-            total: c.capacity,
-          });
-        });
-
-        setAvailability(availability);
+        setLoading(false);
+        return;
       }
 
+      setCourse(data);
+
+      // ✅ ดึง bookings ที่ success แล้วมานับ quantity ต่อ course_id
+      const courseIds = data?.courses?.map((c: any) => c.id) || [];
+
+      const { data: bookingCounts } = await supabase
+        .from("bookings")
+        .select("course_id, quantity")
+        .in("course_id", courseIds)
+        .eq("booking_status", "success");
+
+      // รวม quantity ที่จองแล้วต่อ course_id
+      const bookedMap: Record<number, number> = {};
+      bookingCounts?.forEach((b: any) => {
+        bookedMap[b.course_id] = (bookedMap[b.course_id] || 0) + b.quantity;
+      });
+
+      // 🔥 convert courses -> calendar availability พร้อมหัก booked
+      const newAvailability: Record<
+        string,
+        {
+          course_id: number;
+          slot_id: number;
+          slot_name: string;
+          available: number;
+          total: number;
+          start_time: string;
+          end_time: string;
+        }[]
+      > = {};
+
+      data?.courses?.forEach((c: any) => {
+        const dateStr = c.date;
+
+        if (!newAvailability[dateStr]) {
+          newAvailability[dateStr] = [];
+        }
+
+        const booked = bookedMap[c.id] || 0;
+
+        newAvailability[dateStr].push({
+          course_id: c.id,
+          slot_id: c.time_slot?.id,
+          slot_name: c.time_slot?.slot_name,
+          start_time: c.time_slot?.start_time,
+          end_time: c.time_slot?.end_time,
+          total: c.capacity,
+          available: Math.max(0, c.capacity - booked), // ✅ หักที่จองแล้ว
+        });
+      });
+
+      setAvailability(newAvailability);
       setLoading(false);
     };
 
@@ -213,7 +179,6 @@ export default function CoursePage({
       const checkDate = new Date(date);
       checkDate.setHours(0, 0, 0, 0);
 
-      // ✅ ถ้าวันผ่านไปแล้ว → ไม่แสดงอะไร
       if (checkDate < today) return null;
 
       const dateStr = formatDate(date);
@@ -255,7 +220,6 @@ export default function CoursePage({
         const allFull = dayAvailability.every(
           (slot: any) => slot.available === 0,
         );
-
         return allFull;
       }
       return true;
@@ -265,6 +229,8 @@ export default function CoursePage({
 
   const handleDateChange = (value: Date) => {
     setSelectedDate(value);
+    setSelectedSlot(null); // ✅ reset slot เมื่อเปลี่ยนวัน
+    setQuantity(1);
   };
 
   if (loading) {
@@ -282,8 +248,10 @@ export default function CoursePage({
       </div>
     );
   }
+
   const priceWithVat =
     (course.type_of_course?.price ?? 0) + (course.type_of_course?.vat ?? 0);
+
   return (
     <div className="min-h-screen bg-[#F5F1EC]">
       <div className="container mx-auto px-6 py-8 max-w-[90%]">
@@ -307,7 +275,6 @@ export default function CoursePage({
                   <p key={index}>{paragraph}</p>
                 ))}
             </div>
-            {/* แสดง menu ถ้ามี */}
             {course.menu && course.menu.length > 0 && (
               <div>
                 <h2 className="font-bold text-2xl mb-4 text-black">Menus:</h2>
@@ -321,7 +288,6 @@ export default function CoursePage({
                 </ul>
               </div>
             )}
-            {/* แทนที่ส่วน menu list เดิม */}
             {course.learning && (
               <div>
                 <h2 className="font-bold text-2xl mb-4 text-black">
@@ -333,22 +299,18 @@ export default function CoursePage({
                     .filter(Boolean)
                     .map((point: string, index: number) => (
                       <li key={index} className="flex items-start">
-                        {/* <span className="mr-3 mt-1">•</span> */}
                         <span className="text-black">{point}</span>
                       </li>
                     ))}
                 </ul>
               </div>
             )}
-
             {course.experience && (
               <div>
                 <h2 className="font-bold text-2xl mb-4 text-black">
                   What you'll experience:
                 </h2>
-                <p className="text-black leading-relaxed">
-                  {course.experience}
-                </p>
+                <p className="text-black leading-relaxed">{course.experience}</p>
               </div>
             )}
           </div>
@@ -396,7 +358,6 @@ export default function CoursePage({
                 >
                   →
                 </button>
-
                 <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
                   {course.menu.map((_: Menu, index: number) => (
                     <button
@@ -426,7 +387,6 @@ export default function CoursePage({
               tileDisabled={tileDisabled}
               onClickDay={(value) => {
                 const clickedDate = formatDate(value);
-
                 console.log("Clicked date:", clickedDate);
                 console.log("Slots:", availability[clickedDate]);
               }}
@@ -440,6 +400,7 @@ export default function CoursePage({
               className="border-2 border-black"
             />
           </div>
+
           {selectedDate && availability[formatDate(selectedDate)] && (
             <div className="mt-6 space-y-3">
               <h3 className="font-bold text-xl text-black">
@@ -459,21 +420,18 @@ export default function CoursePage({
                       setQuantity(1);
                     }}
                     className={`
-      w-full border 
-      p-3 sm:p-4
-      text-left transition
-      flex flex-col sm:flex-row
-      sm:items-center sm:justify-between
-      gap-2 sm:gap-0
-
-      ${isSelected ? "bg-[#919077] text-white" : "bg-white"}
-      ${isFull ? "opacity-40 cursor-not-allowed" : ""}
-    `}
+                      w-full border
+                      p-3 sm:p-4
+                      text-left transition
+                      flex flex-col sm:flex-row
+                      sm:items-center sm:justify-between
+                      gap-2 sm:gap-0
+                      ${isSelected ? "bg-[#919077] text-white" : "bg-white"}
+                      ${isFull ? "opacity-40 cursor-not-allowed" : ""}
+                    `}
                   >
-                    {/* LEFT SIDE */}
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="font-medium">{slot.slot_name}</span>
-
                       {slot.start_time && slot.end_time && (
                         <span className="text-sm opacity-70 whitespace-nowrap">
                           ({slot.start_time.slice(0, 5)} -{" "}
@@ -481,11 +439,12 @@ export default function CoursePage({
                         </span>
                       )}
                     </div>
-
-                    {/* RIGHT SIDE */}
-                    {/* <span className="text-sm sm:text-base font-medium">
-                      {isFull ? "Full" : `0/${slot.total} seats`}
-                    </span> */}
+                    {/* ✅ แสดงที่นั่งคงเหลือ */}
+                    <span className="text-sm font-medium">
+                      {isFull
+                        ? "Full"
+                        : ``}
+                    </span>
                   </button>
                 );
               })}
@@ -516,7 +475,8 @@ export default function CoursePage({
                       );
                     }
                   }}
-                  className="w-8 h-8 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+                  disabled={!selectedSlot}
+                  className="w-8 h-8 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   +
                 </button>
@@ -551,31 +511,6 @@ export default function CoursePage({
               >
                 Checkout Now
               </Link>
-              {/* <button
-                onClick={() => {
-                  const data = {
-                    course: course.title,
-                    date: selectedDate?.toLocaleDateString("en-GB"),
-                    quantity,
-                    price: course.type_of_course?.price,
-                    courseId: selectedSlot?.course_id,
-                    slotId: selectedSlot?.slot_id,
-                    slotName: selectedSlot?.slot_name,
-                    slotTime: `${selectedSlot?.start_time.slice(0, 5)} - ${selectedSlot?.end_time.slice(0, 5)}`,
-                    vat: course.type_of_course?.vat ?? 0.07,
-                  };
-
-                  console.log("Checkout data:", data);
-                }}
-                disabled={!selectedDate || !selectedSlot}
-                className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
-                  !selectedDate || !selectedSlot
-                    ? "opacity-50 pointer-events-none"
-                    : ""
-                }`}
-              >
-                Checkout Now
-              </button> */}
             </div>
           </div>
         </div>

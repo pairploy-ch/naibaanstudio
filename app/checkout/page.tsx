@@ -146,6 +146,42 @@ function CheckoutContent() {
       return false;
     }
 
+    // ✅ เช็ค capacity คงเหลือก่อนตัดเงิน
+    const { data: currentBookings, error: bookingErr } = await supabase
+      .from("bookings")
+      .select("quantity")
+      .eq("course_id", courseId)
+      .eq("booking_status", "success");
+
+    if (bookingErr) {
+      toast.error("An error occurred while checking availability. Please try again.");
+      return false;
+    }
+
+    const { data: courseData, error: courseErr } = await supabase
+      .from("courses")
+      .select("capacity")
+      .eq("id", courseId)
+      .single();
+
+    if (courseErr) {
+      toast.error("An error occurred while checking availability. Please try again.");
+      return false;
+    }
+
+    const totalBooked = currentBookings?.reduce((sum, b) => sum + b.quantity, 0) || 0;
+    const remaining = (courseData?.capacity || 0) - totalBooked;
+
+    if (quantity > remaining) {
+      toast.error(
+        remaining === 0
+          ? "Sorry, this class is now full."
+          : `Only ${remaining} seat(s) remaining. Please reduce your quantity.`,
+        { duration: 6000 },
+      );
+      return false;
+    }
+
     return true;
   };
 

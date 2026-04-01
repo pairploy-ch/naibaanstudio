@@ -109,3 +109,47 @@
 [01:23:12.226] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [01:23:12.226] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:51:08.275Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
 [01:23:13.469] Server  LOG     📧 classTime received: "09:00 - 12:30"
+[01:27:04.769] Server  LOG     ✓ Compiled in 132ms
+[01:27:11.198] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:27:13.344] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:55:09.161Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[01:27:20.695] Browser LOG     Clicked date: 2026-04-07
+[01:27:20.696] Browser LOG     Slots: [{"available":20,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:27:23.520] Browser LOG     Clicked date: 2026-04-14
+[01:27:23.520] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:27:24.545] Browser LOG     Clicked date: 2026-04-21
+[01:27:24.545] Browser LOG     Slots: [{"available":20,"course_id":438,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":451,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:27:25.111] Browser LOG     Clicked date: 2026-04-28
+[01:27:25.111] Browser LOG     Slots: [{"available":20,"course_id":439,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":452,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:27:25.696] Browser LOG     Clicked date: 2026-04-14
+[01:27:25.696] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:27:27.728] Browser LOG     Clicked date: 2026-04-07
+[01:27:27.728] Browser LOG     Slots: [{"available":20,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:27:28.245] Browser LOG     Clicked date: 2026-04-14
+[01:27:28.245] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:31:06.536] Server  LOG     ✓ Compiled in 89ms
+[01:31:11.058] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:31:11.251] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:59:07.159Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[01:31:13.994] Browser LOG     Clicked date: 2026-04-07
+[01:31:13.994] Browser LOG     Slots: [{"available":20,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:31:15.596] Browser LOG     Clicked date: 2026-04-14
+[01:31:15.596] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:31:17.661] Browser LOG     Clicked date: 2026-04-07
+[01:31:17.661] Browser LOG     Slots: [{"available":20,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:31:50.002] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:31:50.172] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:59:46.093Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[01:31:50.959] Server  LOG     📧 classTime received: "09:00 - 12:30"
+[01:31:58.384] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:31:59.142] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:59:55.043Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[01:32:02.463] Browser LOG     Clicked date: 2026-04-07
+[01:32:02.463] Browser LOG     Slots: [{"available":19,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:32:03.717] Browser LOG     Clicked date: 2026-04-14
+[01:32:03.717] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:32:04.278] Browser LOG     Clicked date: 2026-04-21
+[01:32:04.278] Browser LOG     Slots: [{"available":20,"course_id":438,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":451,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:32:04.728] Browser LOG     Clicked date: 2026-04-28
+[01:32:04.728] Browser LOG     Slots: [{"available":20,"course_id":439,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":452,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:33:09.036] Server  LOG     ✓ Compiled in 85ms
+[01:33:12.827] Browser LOG     Clicked date: 2026-04-14
+[01:33:12.827] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:33:13.361] Browser LOG     Clicked date: 2026-04-07
+[01:33:13.361] Browser LOG     Slots: [{"available":19,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
