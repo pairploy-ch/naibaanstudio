@@ -296,3 +296,41 @@
 [03:37:42.074] Browser LOG     🔵 calling handleCreditCard...
 [03:37:53.529] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [03:37:53.684] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:36:41.281Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[03:39:17.906] Server  LOG     ✓ Compiled in 78ms
+[03:39:56.556] Server  LOG     ✓ Compiled in 74ms
+[03:40:05.512] Server  LOG     ✓ Compiled in 38ms
+[03:41:37.003] Server  LOG     ✓ Compiled in 71ms
+[16:26:15.092] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:41:41.829] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:43:22.087] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:43:36.235] Browser LOG     🔵 handleSubmit called
+[16:43:36.236] Browser LOG     isFormValid: true
+[16:43:36.236] Browser LOG     isSubmitting: false
+[16:43:36.236] Browser LOG     omiseReady: false
+[16:43:36.236] Browser LOG     🔵 calling validateBeforePayment...
+[16:43:36.468] Browser LOG     🔵 isValid: true
+[16:43:36.468] Browser LOG     🔵 calling handleCreditCard...
+[16:43:49.936] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:43:50.213] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T04:42:37.577Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[16:48:38.511] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:49:06.802] Browser LOG     🔵 handleSubmit called
+[16:49:06.803] Browser LOG     isFormValid: true
+[16:49:06.803] Browser LOG     isSubmitting: false
+[16:49:06.803] Browser LOG     omiseReady: false
+[16:49:06.803] Browser LOG     🔵 calling validateBeforePayment...
+[16:49:07.638] Browser LOG     🔵 isValid: true
+[16:49:07.638] Browser LOG     🔵 calling handleCreditCard...
+[16:49:20.588] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:49:20.724] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T04:48:08.229Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[18:36:45.725] Browser LOG     Clicked date: 2026-04-06
+[18:36:45.726] Browser LOG     Slots: [{"available":8,"course_id":332,"end_time":"12:30:00","slot_id":6,"slot_name":"Morning class","start_time":"09:00:00","total":8},{"available":20,"course_id":423,"end_time":"17:30:00","slot_id":7,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[18:37:02.257] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[18:37:12.979] Browser LOG     🔵 handleSubmit called
+[18:37:12.980] Browser LOG     isFormValid: true
+[18:37:12.980] Browser LOG     isSubmitting: false
+[18:37:12.980] Browser LOG     omiseReady: true
+[18:37:12.980] Browser LOG     🔵 calling validateBeforePayment...
+[18:37:13.245] Browser LOG     🔵 isValid: true
+[18:37:13.245] Browser LOG     🔵 calling handleCreditCard...
+[18:37:27.094] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[18:37:27.213] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T06:36:14.845Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.

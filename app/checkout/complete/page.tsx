@@ -243,7 +243,10 @@ function CompleteContent() {
         <p className="text-black mb-2">Your booking has been confirmed.</p>
 
         {booking && (
-          <div className="text-sm text-gray-600 mb-6 text-left bg-gray-50 p-4 rounded">
+          <div className="text-sm text-gray-600 mb-6 text-left  p-4 rounded">
+             <p>
+              <b>ID:</b> {booking.id}
+            </p>
             <p>
               <b>Ref:</b> {booking.omise_charge_id}
             </p>
@@ -260,10 +263,11 @@ function CompleteContent() {
             <p>
               <b>Date:</b> {formatDate(booking.booking_date)}
             </p>
-        <p>
-  <b>Class:</b> {(booking.course_time_slot as any).slot_name}
-  ({(booking.course_time_slot as any).start_time} - {(booking.course_time_slot as any).end_time})
-</p>
+            <p>
+              <b>Class:</b> {(booking.course_time_slot as any).slot_name}(
+              {(booking.course_time_slot as any).start_time} -{" "}
+              {(booking.course_time_slot as any).end_time})
+            </p>
             <p>
               <b>Quantity:</b> {booking.quantity} ticket(s)
             </p>
@@ -273,6 +277,10 @@ function CompleteContent() {
           </div>
         )}
 
+  <p className="text-sm text-gray-500 mb-4">
+    Please check your email for the booking confirmation.
+  </p>
+  
         {errorMessage && (
           <p className="text-sm text-red-500 mb-4">{errorMessage}</p>
         )}
