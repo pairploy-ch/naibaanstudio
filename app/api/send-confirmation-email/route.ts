@@ -11,14 +11,18 @@ export async function POST(req: Request) {
       courseName,
       bookingDate,
       slotName,
+      classTime,
       quantity,
       totalPrice,
       bookingId,
     } = await req.json()
+    console.log("📧 classTime received:", classTime)
+
 
     const { data, error } = await resend.emails.send({
-      from: 'Nai Baan Studio <booking@naibaanstudio.com>', // ✅ ใส่ domain ที่ verify ใน Resend
+      from: 'Nai Baan Studio <booking@naibaanstudio.com>',
       to: [to],
+      cc: ['naibaanstudio@gmail.com'], 
       subject: `Booking Confirmed – Nai Baan Studio`,
       html: `
         <!DOCTYPE html>
@@ -43,12 +47,11 @@ export async function POST(req: Request) {
           <body>
             <div class="container">
               <div class="header">
-              <img 
-    src="https://naibaanstudio.com/logo-nb-wh.png" 
-    alt="Logo" 
-    style="max-width: 120px;"
-  />
-            
+                <img 
+                  src="https://naibaanstudio.com/logo-nb-wh.png" 
+                  alt="Logo" 
+                  style="max-width: 120px;"
+                />
               </div>
               <div class="body">
                 <p>Dear <strong style="margin-left: 5px;">${customerName}</strong>,</p>
@@ -70,6 +73,7 @@ export async function POST(req: Request) {
                   <span class="label">Class</span>
                   <span class="value" style="margin-left: 5px;">${slotName}</span>
                 </div>
+          
                 <div class="row">
                   <span class="label">Quantity</span>
                   <span class="value" style="margin-left: 5px;">${quantity} ticket(s)</span>
@@ -84,36 +88,36 @@ export async function POST(req: Request) {
                 </p>
               </div>
               <div style="padding:32px; border-top:1px solid #eee; text-align:center;">
-  <h3 style="margin:0 0 12px 0; font-size:16px; color:#333;">Location</h3>
+                <h3 style="margin:0 0 12px 0; font-size:16px; color:#333;">Location</h3>
 
-  <img 
-    src="https://naibaanstudio.com/maps-lo.png"
-    alt="Location Map"
-    style="max-width:100%; border-radius:6px; margin-bottom:12px;"
-  />
+                <img 
+                  src="https://naibaanstudio.com/maps-lo.png"
+                  alt="Location Map"
+                  style="max-width:100%; border-radius:6px; margin-bottom:12px;"
+                />
 
-  <p style="font-size:13px; color:#666; margin:0 0 16px 0; line-height:1.6;">
-    2nd floor 230 Nares Road, Si Phraya,<br/>
-    Bang Rak, Bangkok 10500, Thailand
-  </p>
+                <p style="font-size:13px; color:#666; margin:0 0 16px 0; line-height:1.6;">
+                  2nd floor 230 Nares Road, Si Phraya,<br/>
+                  Bang Rak, Bangkok 10500, Thailand
+                </p>
 
-  <a 
-    href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.834112439908!2d100.52374499999999!3d13.728491199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e299004d4ab939%3A0xf672d0e1245ec4cb!2sNaibaan%20Studio!5e0!3m2!1sth!2sth!4v1770735032110!5m2!1sth!2sth"
-    style="display:inline-block;margin-bottom:20px;padding:10px 18px;background:#8D9075;color:white;text-decoration:none;border-radius:4px;font-size:13px;font-weight:bold;">
-    Open in Google Maps
-  </a>
+                <a 
+                  href="https://www.google.com/maps/place/Naibaan+Studio/@13.7284673,100.5238057,17z/data=!3m1!4b1!4m6!3m5!1s0x30e299004d4ab939:0xf672d0e1245ec4cb!8m2!3d13.7284673!4d100.5238057!16s%2Fg%2F11yyf84vsw?hl=th&entry=ttu&g_ep=EgoyMDI2MDMyOS4wIKXMDSoASAFQAw%3D%3D"
+                  style="display:inline-block;margin-bottom:20px;padding:10px 18px;background:#8D9075;color:white;text-decoration:none;border-radius:4px;font-size:13px;font-weight:bold;">
+                  Open in Google Maps
+                </a>
 
-  <p style="font-size:13px; color:#333; font-weight:bold; margin-bottom:8px;">
-    Distance from Nai Baan Studio
-  </p>
+                <p style="font-size:13px; color:#333; font-weight:bold; margin-bottom:8px;">
+                  Distance from Nai Baan Studio
+                </p>
 
-  <p style="font-size:13px; color:#666; line-height:1.6; margin:0;">
-    2 km to River City Bangkok<br/>
-    2.6 km to Talat Noi<br/>
-    3.1 km to Central Yaowarat<br/>
-    4.4 km to Central Songwat
-  </p>
-</div>
+                <p style="font-size:13px; color:#666; line-height:1.6; margin:0;">
+                  2 km to River City Bangkok<br/>
+                  2.6 km to Talat Noi<br/>
+                  3.1 km to Central Yaowarat<br/>
+                  4.4 km to Central Songwat
+                </p>
+              </div>
               <div class="footer">
                 Nai Baan Studio · If you have questions, reply to this email.
               </div>

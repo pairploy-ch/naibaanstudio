@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, Suspense } from "react";
 import Script from "next/script";
 import { supabase } from "@/lib/supabaseClient";
+import toast, { Toaster } from "react-hot-toast";
 
 declare const OmiseCard: any;
 
@@ -114,7 +115,7 @@ function CheckoutContent() {
   const validateBeforePayment = async (): Promise<boolean> => {
     // เช็คฟอร์มครบ
     if (!isFormValid()) {
-      alert("กรุณากรอกข้อมูลให้ครบทุกช่อง");
+      toast.error("Please fill in all required fields.");
       return false;
     }
 
@@ -125,7 +126,7 @@ function CheckoutContent() {
 
     // เช็ค email ซ้ำในฟอร์ม
     if (new Set(allEmails).size !== allEmails.length) {
-      alert("มี email ซ้ำกันในฟอร์ม กรุณาใช้ email ที่ไม่ซ้ำกันสำหรับแต่ละคน");
+      toast.error("Duplicate email addresses detected. Please use a unique email for each person.");
       return false;
     }
 
@@ -136,13 +137,15 @@ function CheckoutContent() {
       .in("email", allEmails);
 
     if (error) {
-      alert("เกิดข้อผิดพลาดในการตรวจสอบข้อมูล กรุณาลองใหม่");
+      toast.error("An error occurred while validating the data. Please try again.");
       return false;
     }
 
     if (existing && existing.length > 0) {
       const dupes = existing.map((c: any) => c.email).join(", ");
-      alert(`Email ต่อไปนี้มีในระบบแล้ว:\n${dupes}\n\nกรุณาใช้ email อื่น`);
+      toast.error(`These email addresses already exist: ${dupes} — Please use a different email.`, {
+        duration: 6000,
+      });
       return false;
     }
 
@@ -213,7 +216,7 @@ function CheckoutContent() {
           customerName: `${formData.firstName} ${formData.lastName}`,
           courseName,
           bookingDate: date,
-          classTime: slotName,
+          classTime: slotTime,
           quantity,
           slotName,
           totalPrice: total,
@@ -283,7 +286,7 @@ function CheckoutContent() {
               window.location.href = data.authorizeUri; // ✅ redirect ไปหน้า OTP
             } else {
               throw new Error(
-                data.failureMessage || "บัตรถูกปฏิเสธ กรุณาติดต่อธนาคาร",
+                data.failureMessage || "Your card was declined. Please contact your bank.",
               );
             }
           } catch (err) {
@@ -329,7 +332,6 @@ function CheckoutContent() {
             clearInterval(interval);
             setShowQR(false);
             await saveToSupabase(data.chargeId);
-            
             resolve();
           } else if (pollData.status === "failed" || attempts >= maxAttempts) {
             clearInterval(interval);
@@ -378,7 +380,7 @@ function CheckoutContent() {
     } catch (error: any) {
       console.log("🔴 error:", error.message);
       if (error.message !== "FORM_CLOSED") {
-        alert("เกิดข้อผิดพลาด: " + (error.message || "กรุณาลองใหม่อีกครั้ง"));
+        toast.error(error.message || "Please try again.");
       }
     } finally {
       setIsSubmitting(false);
@@ -387,6 +389,33 @@ function CheckoutContent() {
 
   return (
     <>
+      {/* Toaster — วางไว้ที่นี่เพื่อให้ toast แสดงผลได้ */}
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: "#1a1a1a",
+            color: "#fff",
+            borderRadius: "4px",
+            fontSize: "14px",
+            maxWidth: "480px",
+          },
+          error: {
+            iconTheme: {
+              primary: "#ef4444",
+              secondary: "#fff",
+            },
+          },
+          success: {
+            iconTheme: {
+              primary: "#22c55e",
+              secondary: "#fff",
+            },
+          },
+        }}
+      />
+
       <Script
         src="https://cdn.omise.co/omise.js"
         strategy="afterInteractive"

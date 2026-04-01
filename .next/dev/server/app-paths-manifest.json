@@ -6,6 +6,5 @@
   "/checkout/complete/page": "app/checkout/complete/page.js",
   "/checkout/page": "app/checkout/page.js",
   "/courses/[id]/page": "app/courses/[id]/page.js",
-  "/courses/page": "app/courses/page.js",
-  "/page": "app/page.js"
+  "/courses/page": "app/courses/page.js"
 }

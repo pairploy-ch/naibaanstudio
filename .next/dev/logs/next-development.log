@@ -1,336 +1,101 @@
-[00:00:01.675] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.851] Server  LOG     ✓ Ready in 1427ms
-[00:00:07.924] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:21.158] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T11:59:08.651Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:01:11.049] Server  LOG     ✓ Compiled in 58ms
-[00:01:49.887] Server  LOG     ✓ Compiled in 46ms
-[00:04:07.925] Server  LOG     ✓ Compiled in 76ms
-[00:04:24.968] Server  LOG     ✓ Compiled in 78ms
-[00:04:45.239] Server  LOG     ✓ Compiled in 81ms
-[00:04:48.655] Server  LOG     ✓ Compiled in 70ms
-[00:08:07.286] Server  LOG     ✓ Compiled in 49ms
-[00:08:18.211] Browser LOG     🔵 handleSubmit called
-[00:08:18.211] Browser LOG     isFormValid: true
-[00:08:18.211] Browser LOG     isSubmitting: false
-[00:08:18.211] Browser LOG     omiseReady: false
-[00:08:18.211] Browser LOG     🔵 calling validateBeforePayment...
-[00:08:19.009] Browser LOG     🔵 isValid: true
-[00:08:19.009] Browser LOG     🔵 calling handleCreditCard...
-[00:08:47.187] Server  LOG     ✓ Compiled in 43ms
-[00:09:28.167] Server  LOG     ✓ Compiled in 57ms
-[00:11:39.811] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:17:51.300] Server  LOG     ✓ Compiled in 58ms
-[00:21:12.480] Server  LOG     ✓ Compiled in 54ms
-[00:21:55.315] Server  LOG     ✓ Compiled in 44ms
-[01:18:29.626] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:19:18.100] Server  LOG     ✓ Compiled in 98ms
-[01:19:21.376] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:20:41.904] Browser LOG     🔵 handleSubmit called
-[01:20:41.904] Browser LOG     isFormValid: true
-[01:20:41.904] Browser LOG     isSubmitting: false
-[01:20:41.904] Browser LOG     omiseReady: false
-[01:20:41.904] Browser LOG     🔵 calling validateBeforePayment...
-[01:20:43.475] Browser LOG     🔵 isValid: true
-[01:20:43.475] Browser LOG     🔵 calling handleCreditCard...
-[01:23:14.194] Browser LOG     🔴 error: Could not find the 'omise_charge_id' column of 'bookings' in the schema cache
-[01:25:24.946] Server  LOG       Reload env: .env.local
-[01:25:25.138] Server  LOG     ✓ Compiled in 72ms
-[01:25:29.140] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:25:39.854] Browser LOG     🔵 handleSubmit called
-[01:25:39.854] Browser LOG     isFormValid: true
-[01:25:39.854] Browser LOG     isSubmitting: false
-[01:25:39.854] Browser LOG     omiseReady: false
-[01:25:39.854] Browser LOG     🔵 calling validateBeforePayment...
-[01:25:45.403] Browser LOG     🔵 isValid: false
-[01:25:52.921] Browser LOG     🔵 handleSubmit called
-[01:25:52.921] Browser LOG     isFormValid: true
-[01:25:52.921] Browser LOG     isSubmitting: false
-[01:25:52.921] Browser LOG     omiseReady: false
-[01:25:52.921] Browser LOG     🔵 calling validateBeforePayment...
-[01:25:53.207] Browser LOG     🔵 isValid: true
-[01:25:53.207] Browser LOG     🔵 calling handleCreditCard...
-[01:26:15.041] Server  LOG     ✓ Compiled in 78ms
-[01:26:24.006] Browser LOG     🔴 error: FORM_CLOSED
-[01:26:24.879] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:26:37.721] Browser LOG     🔵 handleSubmit called
-[01:26:37.721] Browser LOG     isFormValid: true
-[01:26:37.721] Browser LOG     isSubmitting: false
-[01:26:37.721] Browser LOG     omiseReady: false
-[01:26:37.721] Browser LOG     🔵 calling validateBeforePayment...
-[01:26:38.034] Browser LOG     🔵 isValid: true
-[01:26:38.034] Browser LOG     🔵 calling handleCreditCard...
-[01:26:57.702] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:26:57.845] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T13:25:45.350Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:26:58.917] Browser ERROR   Supabase error: {"code":"PGRST200","details":"Searched for a foreign key relationship between 'bookings' and 'courses' in the schema 'public', but no matches were found.","hint":"Perhaps you meant 'customers' instead of 'courses'.","message":"Could not find a relationship between 'bookings' and 'courses' in the schema cache"}
-[01:28:05.138] Server  LOG     ✓ Compiled in 35ms
-[01:28:08.111] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:28:08.276] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T13:26:55.806Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:28:08.949] Browser ERROR   Supabase error: {"code":"23505","details":null,"hint":null,"message":"duplicate key value violates unique constraint \"customers_email_key\""}
-[01:28:51.333] Server  LOG     ✓ Compiled in 29ms
-[01:29:22.193] Server  LOG     ✓ Compiled in 69ms
-[01:29:47.883] Server  LOG     ✓ Compiled in 50ms
-[01:30:26.948] Server  LOG     ✓ Compiled in 31ms
-[01:31:23.542] Server  LOG     ✓ Compiled in 71ms
-[01:31:31.170] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:31:31.302] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T13:30:18.833Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:31:32.055] Browser ERROR   Supabase error: {"code":"23505","details":null,"hint":null,"message":"duplicate key value violates unique constraint \"customers_email_key\""}
-[01:35:52.257] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:35:52.438] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T13:34:39.963Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:36:24.038] Browser LOG     🔵 handleSubmit called
-[01:36:24.038] Browser LOG     isFormValid: true
-[01:36:24.038] Browser LOG     isSubmitting: false
-[01:36:24.038] Browser LOG     omiseReady: false
-[01:36:24.038] Browser LOG     🔵 calling validateBeforePayment...
-[01:36:26.189] Browser LOG     🔵 isValid: false
-[01:36:29.123] Browser LOG     🔵 handleSubmit called
-[01:36:29.123] Browser LOG     isFormValid: true
-[01:36:29.123] Browser LOG     isSubmitting: false
-[01:36:29.123] Browser LOG     omiseReady: false
-[01:36:29.123] Browser LOG     🔵 calling validateBeforePayment...
-[01:36:35.271] Browser LOG     🔵 isValid: false
-[01:38:08.922] Browser LOG     🔵 handleSubmit called
-[01:38:08.922] Browser LOG     isFormValid: true
-[01:38:08.922] Browser LOG     isSubmitting: false
-[01:38:08.922] Browser LOG     omiseReady: false
-[01:38:08.923] Browser LOG     🔵 calling validateBeforePayment...
-[01:38:09.377] Browser LOG     🔵 isValid: true
-[01:38:09.377] Browser LOG     🔵 calling handleCreditCard...
-[01:39:59.790] Browser LOG     🔵 handleSubmit called
-[01:39:59.790] Browser LOG     isFormValid: true
-[01:39:59.791] Browser LOG     isSubmitting: false
-[01:39:59.791] Browser LOG     omiseReady: false
-[01:39:59.791] Browser LOG     🔵 calling validateBeforePayment...
-[01:40:00.060] Browser LOG     🔵 isValid: true
-[01:40:00.060] Browser LOG     🔵 calling handleCreditCard...
-[01:40:22.348] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:40:22.533] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T13:39:10.058Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:40:23.343] Browser ERROR   Supabase error: {"code":"PGRST200","details":"Searched for a foreign key relationship between 'bookings' and 'courses' in the schema 'public', but no matches were found.","hint":"Perhaps you meant 'customers' instead of 'courses'.","message":"Could not find a relationship between 'bookings' and 'courses' in the schema cache"}
-[01:44:12.821] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:44:12.987] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T13:43:00.515Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:44:13.753] Browser ERROR   Supabase error: {"code":"23505","details":null,"hint":null,"message":"duplicate key value violates unique constraint \"customers_email_key\""}
-[01:44:35.577] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:44:35.729] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T13:43:23.264Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:45:14.411] Browser LOG     🔵 handleSubmit called
-[01:45:14.411] Browser LOG     isFormValid: true
-[01:45:14.411] Browser LOG     isSubmitting: false
-[01:45:14.411] Browser LOG     omiseReady: false
-[01:45:14.411] Browser LOG     🔵 calling validateBeforePayment...
-[01:45:14.943] Browser LOG     🔵 isValid: true
-[01:45:14.943] Browser LOG     🔵 calling handleCreditCard...
-[01:45:36.015] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:45:36.136] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T13:44:23.671Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:45:37.071] Browser ERROR   Supabase error: {"code":"PGRST200","details":"Searched for a foreign key relationship between 'bookings' and 'courses' in the schema 'public', but no matches were found.","hint":"Perhaps you meant 'customers' instead of 'courses'.","message":"Could not find a relationship between 'bookings' and 'courses' in the schema cache"}
-[01:58:34.037] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:10:40.763] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:10:53.390] Browser LOG     🔵 handleSubmit called
-[02:10:53.390] Browser LOG     isFormValid: true
-[02:10:53.390] Browser LOG     isSubmitting: false
-[02:10:53.390] Browser LOG     omiseReady: false
-[02:10:53.390] Browser LOG     🔵 calling validateBeforePayment...
-[02:10:54.383] Browser LOG     🔵 isValid: true
-[02:10:54.383] Browser LOG     🔵 calling handleCreditCard...
-[02:11:09.248] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:11:09.248] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T14:09:56.924Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[02:11:10.020] Browser ERROR   Supabase error: {"code":"23503","details":"Key is not present in table \"courses\".","hint":null,"message":"insert or update on table \"bookings\" violates foreign key constraint \"bookings_course_id_fkey\""}
-[02:17:23.040] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:17:23.240] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T14:16:10.818Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[02:17:57.545] Browser LOG     🔵 handleSubmit called
-[02:17:57.545] Browser LOG     isFormValid: true
-[02:17:57.545] Browser LOG     isSubmitting: false
-[02:17:57.545] Browser LOG     omiseReady: false
-[02:17:57.545] Browser LOG     🔵 calling validateBeforePayment...
-[02:17:59.155] Browser LOG     🔵 isValid: false
-[02:18:05.008] Browser LOG     🔵 handleSubmit called
-[02:18:05.008] Browser LOG     isFormValid: true
-[02:18:05.008] Browser LOG     isSubmitting: false
-[02:18:05.008] Browser LOG     omiseReady: false
-[02:18:05.008] Browser LOG     🔵 calling validateBeforePayment...
-[02:18:05.199] Browser LOG     🔵 isValid: true
-[02:18:05.199] Browser LOG     🔵 calling handleCreditCard...
-[02:19:25.834] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:19:26.068] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T14:18:13.652Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[02:19:27.049] Browser ERROR   Supabase error: {"code":"23503","details":"Key is not present in table \"courses\".","hint":null,"message":"insert or update on table \"bookings\" violates foreign key constraint \"bookings_course_id_fkey\""}
-[02:20:54.091] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:20:54.219] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T14:19:41.800Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[02:21:44.953] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:21:45.129] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T14:20:32.673Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[02:27:52.953] Server  LOG     ✓ Compiled in 236ms
-[02:27:55.712] Browser LOG     Clicked day: "2026-04-05T17:00:00.000Z"
-[02:27:57.893] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:27:58.041] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T14:26:45.615Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[02:28:04.144] Browser LOG     Clicked day: "2026-04-19T17:00:00.000Z"
-[02:28:06.389] Browser LOG     Clicked day: "2026-04-12T17:00:00.000Z"
-[02:28:08.360] Browser LOG     Clicked day: "2026-04-05T17:00:00.000Z"
-[02:28:10.209] Browser LOG     Clicked day: "2026-04-26T17:00:00.000Z"
-[02:35:57.999] Server  LOG     ✓ Compiled in 86ms
-[02:36:01.405] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:36:01.540] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T14:34:49.122Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[02:36:07.261] Browser LOG     Clicked day: "2026-04-05T17:00:00.000Z"
-[02:36:11.545] Browser LOG     Checkout data: {"course":"Monday : No-Meat Time","courseId":"3","date":"06/04/2026","price":2196,"quantity":1,"slotId":7,"slotName":"Afternoon class","slotTime":"14:00 - 17:30","vat":154}
-[02:36:30.268] Browser LOG     Clicked day: "2026-04-26T17:00:00.000Z"
-[02:42:24.634] Server  LOG     ✓ Compiled in 82ms
-[02:42:28.123] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:42:28.424] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T14:41:16.049Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[02:42:34.546] Browser LOG     Clicked date: 2026-04-13
-[02:42:34.546] Browser LOG     Slots: [{"available":20,"end_time":"12:30:00","slot_id":6,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"end_time":"17:30:00","slot_id":7,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[02:49:36.731] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:49:36.892] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T14:48:24.507Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[02:52:16.228] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:52:16.445] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T14:51:04.075Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[02:52:21.379] Browser LOG     Clicked date: 2026-04-06
-[02:52:21.379] Browser LOG     Slots: [{"available":8,"end_time":"12:30:00","slot_id":6,"slot_name":"Morning class","start_time":"09:00:00","total":8}]
-[02:53:17.107] Server  LOG     ✓ Compiled in 91ms
-[02:56:58.953] Server  LOG     ✓ Compiled in 57ms
-[02:57:16.199] Server  LOG     ✓ Compiled in 48ms
-[02:57:36.673] Server  LOG     ✓ Compiled in 70ms
-[02:58:34.953] Server  LOG     ✓ Compiled in 45ms
-[02:58:37.303] Server  LOG     ✓ Compiled in 39ms
-[02:58:41.295] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:58:41.443] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T14:57:29.104Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[02:58:47.946] Browser LOG     Clicked date: 2026-04-06
-[02:58:47.946] Browser LOG     Slots: [{"available":8,"course_id":332,"end_time":"12:30:00","slot_id":6,"slot_name":"Morning class","start_time":"09:00:00","total":8}]
-[03:00:16.498] Browser LOG     Checkout data: {"course":"Monday : No-Meat Time","courseId":332,"date":"06/04/2026","price":2196,"quantity":1,"slotId":6,"slotName":"Morning class","slotTime":"09:00 - 12:30","vat":154}
-[03:01:46.189] Server  LOG     ✓ Compiled in 50ms
-[03:02:44.944] Browser LOG     🔵 handleSubmit called
-[03:02:44.944] Browser LOG     isFormValid: true
-[03:02:44.944] Browser LOG     isSubmitting: false
-[03:02:44.944] Browser LOG     omiseReady: false
-[03:02:44.944] Browser LOG     🔵 calling validateBeforePayment...
-[03:02:45.468] Browser LOG     🔵 isValid: true
-[03:02:45.468] Browser LOG     🔵 calling handleCreditCard...
-[03:02:59.161] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:02:59.300] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:01:46.968Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[03:02:59.975] Browser ERROR   Supabase error: {"code":"23503","details":"Key is not present in table \"courses\".","hint":null,"message":"insert or update on table \"bookings\" violates foreign key constraint \"bookings_course_id_fkey\""}
-[03:03:36.075] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:03:36.250] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:02:23.913Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[03:08:27.949] Browser LOG     Clicked date: 2026-04-06
-[03:08:27.949] Browser LOG     Slots: [{"available":8,"course_id":332,"end_time":"12:30:00","slot_id":6,"slot_name":"Morning class","start_time":"09:00:00","total":8}]
-[03:09:03.297] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:09:16.521] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:09:26.180] Browser LOG     🔵 handleSubmit called
-[03:09:26.180] Browser LOG     isFormValid: true
-[03:09:26.180] Browser LOG     isSubmitting: false
-[03:09:26.180] Browser LOG     omiseReady: false
-[03:09:26.180] Browser LOG     🔵 calling validateBeforePayment...
-[03:09:28.362] Browser LOG     🔵 isValid: false
-[03:09:32.930] Browser LOG     🔵 handleSubmit called
-[03:09:32.930] Browser LOG     isFormValid: true
-[03:09:32.930] Browser LOG     isSubmitting: false
-[03:09:32.930] Browser LOG     omiseReady: false
-[03:09:32.930] Browser LOG     🔵 calling validateBeforePayment...
-[03:09:33.179] Browser LOG     🔵 isValid: true
-[03:09:33.179] Browser LOG     🔵 calling handleCreditCard...
-[03:09:48.844] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:09:48.988] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:08:36.660Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[03:09:49.762] Browser ERROR   Supabase error: {"code":"PGRST200","details":"Searched for a foreign key relationship between 'bookings' and 'time_slots' in the schema 'public', but no matches were found.","hint":null,"message":"Could not find a relationship between 'bookings' and 'time_slots' in the schema cache"}
-[03:14:38.694] Server  LOG     ✓ Compiled in 76ms
-[03:16:49.637] Server  LOG     ✓ Compiled in 55ms
-[03:17:13.501] Server  LOG     ✓ Compiled in 74ms
-[03:17:16.167] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:17:16.305] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:16:03.936Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[03:17:17.410] Browser ERROR   Supabase error: {"code":"23505","details":null,"hint":null,"message":"duplicate key value violates unique constraint \"customers_email_key\""}
-[03:17:19.676] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:17:19.851] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:16:07.482Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[03:17:26.667] Browser LOG     Clicked date: 2026-04-06
-[03:17:26.667] Browser LOG     Slots: [{"available":8,"course_id":332,"end_time":"12:30:00","slot_id":6,"slot_name":"Morning class","start_time":"09:00:00","total":8}]
-[03:18:14.281] Browser LOG     🔵 handleSubmit called
-[03:18:14.281] Browser LOG     isFormValid: true
-[03:18:14.281] Browser LOG     isSubmitting: false
-[03:18:14.281] Browser LOG     omiseReady: false
-[03:18:14.281] Browser LOG     🔵 calling validateBeforePayment...
-[03:18:14.540] Browser LOG     🔵 isValid: true
-[03:18:14.540] Browser LOG     🔵 calling handleCreditCard...
-[03:18:26.081] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:18:26.257] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:17:13.889Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[03:18:26.756] Browser ERROR   Supabase error: {"code":"23503","details":"Key is not present in table \"courses\".","hint":null,"message":"insert or update on table \"bookings\" violates foreign key constraint \"bookings_course_id_fkey\""}
-[03:19:29.964] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:19:36.932] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:19:56.964] Browser LOG     🔵 handleSubmit called
-[03:19:56.964] Browser LOG     isFormValid: true
-[03:19:56.964] Browser LOG     isSubmitting: false
-[03:19:56.964] Browser LOG     omiseReady: false
-[03:19:56.964] Browser LOG     🔵 calling validateBeforePayment...
-[03:19:57.446] Browser LOG     🔵 isValid: true
-[03:19:57.446] Browser LOG     🔵 calling handleCreditCard...
-[03:20:15.528] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:20:15.669] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:19:03.301Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[03:20:16.364] Browser ERROR   Supabase error: {"code":"PGRST200","details":"Searched for a foreign key relationship between 'bookings' and 'course_time_slot' in the schema 'public', but no matches were found.","hint":"Perhaps you meant 'courses' instead of 'course_time_slot'.","message":"Could not find a relationship between 'bookings' and 'course_time_slot' in the schema cache"}
-[03:21:31.994] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:22:06.081] Browser LOG     🔵 handleSubmit called
-[03:22:06.081] Browser LOG     isFormValid: true
-[03:22:06.081] Browser LOG     isSubmitting: false
-[03:22:06.081] Browser LOG     omiseReady: false
-[03:22:06.081] Browser LOG     🔵 calling validateBeforePayment...
-[03:22:06.555] Browser LOG     🔵 isValid: true
-[03:22:06.555] Browser LOG     🔵 calling handleCreditCard...
-[03:22:21.443] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:22:21.638] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:21:09.221Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[03:22:22.481] Browser ERROR   Supabase error: {"code":"42703","details":null,"hint":"Perhaps you meant to reference the column \"courses_1.date\".","message":"column courses_1.name does not exist"}
-[03:27:35.564] Server  LOG     ✓ Compiled in 94ms
-[03:27:56.260] Server  LOG     ✓ Compiled in 91ms
-[03:28:24.935] Server  LOG     ✓ Compiled in 70ms
-[03:28:26.783] Browser ERROR   Supabase error: {"code":"23505","details":null,"hint":null,"message":"duplicate key value violates unique constraint \"customers_email_key\""}
-[03:28:29.734] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:28:32.344] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:28:51.462] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:29:08.982] Browser LOG     🔵 handleSubmit called
-[03:29:08.982] Browser LOG     isFormValid: true
-[03:29:08.982] Browser LOG     isSubmitting: false
-[03:29:08.982] Browser LOG     omiseReady: false
-[03:29:08.982] Browser LOG     🔵 calling validateBeforePayment...
-[03:29:09.247] Browser LOG     🔵 isValid: true
-[03:29:09.247] Browser LOG     🔵 calling handleCreditCard...
-[03:29:21.513] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:29:21.751] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:28:09.245Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[03:36:53.754] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:36:53.975] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:35:41.542Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[03:37:01.898] Browser LOG     Clicked date: 2026-04-06
-[03:37:01.898] Browser LOG     Slots: [{"available":8,"course_id":332,"end_time":"12:30:00","slot_id":6,"slot_name":"Morning class","start_time":"09:00:00","total":8}]
-[03:37:13.188] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:37:41.832] Browser LOG     🔵 handleSubmit called
-[03:37:41.832] Browser LOG     isFormValid: true
-[03:37:41.832] Browser LOG     isSubmitting: false
-[03:37:41.832] Browser LOG     omiseReady: false
-[03:37:41.832] Browser LOG     🔵 calling validateBeforePayment...
-[03:37:42.074] Browser LOG     🔵 isValid: true
-[03:37:42.074] Browser LOG     🔵 calling handleCreditCard...
-[03:37:53.529] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:37:53.684] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-03-31T15:36:41.281Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[03:39:17.906] Server  LOG     ✓ Compiled in 78ms
-[03:39:56.556] Server  LOG     ✓ Compiled in 74ms
-[03:40:05.512] Server  LOG     ✓ Compiled in 38ms
-[03:41:37.003] Server  LOG     ✓ Compiled in 71ms
-[16:26:15.092] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[16:41:41.829] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[16:43:22.087] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[16:43:36.235] Browser LOG     🔵 handleSubmit called
-[16:43:36.236] Browser LOG     isFormValid: true
-[16:43:36.236] Browser LOG     isSubmitting: false
-[16:43:36.236] Browser LOG     omiseReady: false
-[16:43:36.236] Browser LOG     🔵 calling validateBeforePayment...
-[16:43:36.468] Browser LOG     🔵 isValid: true
-[16:43:36.468] Browser LOG     🔵 calling handleCreditCard...
-[16:43:49.936] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[16:43:50.213] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T04:42:37.577Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[16:48:38.511] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[16:49:06.802] Browser LOG     🔵 handleSubmit called
-[16:49:06.803] Browser LOG     isFormValid: true
-[16:49:06.803] Browser LOG     isSubmitting: false
-[16:49:06.803] Browser LOG     omiseReady: false
-[16:49:06.803] Browser LOG     🔵 calling validateBeforePayment...
-[16:49:07.638] Browser LOG     🔵 isValid: true
-[16:49:07.638] Browser LOG     🔵 calling handleCreditCard...
-[16:49:20.588] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[16:49:20.724] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T04:48:08.229Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[18:36:45.725] Browser LOG     Clicked date: 2026-04-06
-[18:36:45.726] Browser LOG     Slots: [{"available":8,"course_id":332,"end_time":"12:30:00","slot_id":6,"slot_name":"Morning class","start_time":"09:00:00","total":8},{"available":20,"course_id":423,"end_time":"17:30:00","slot_id":7,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[18:37:02.257] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[18:37:12.979] Browser LOG     🔵 handleSubmit called
-[18:37:12.980] Browser LOG     isFormValid: true
-[18:37:12.980] Browser LOG     isSubmitting: false
-[18:37:12.980] Browser LOG     omiseReady: true
-[18:37:12.980] Browser LOG     🔵 calling validateBeforePayment...
-[18:37:13.245] Browser LOG     🔵 isValid: true
-[18:37:13.245] Browser LOG     🔵 calling handleCreditCard...
-[18:37:27.094] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[18:37:27.213] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T06:36:14.845Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:00:02.319] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:02.631] Server  LOG     ✓ Ready in 2s
+[00:00:05.898] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:17.538] Browser LOG     🔵 handleSubmit called
+[00:00:17.538] Browser LOG     isFormValid: true
+[00:00:17.538] Browser LOG     isSubmitting: false
+[00:00:17.538] Browser LOG     omiseReady: false
+[00:00:17.538] Browser LOG     🔵 calling validateBeforePayment...
+[00:00:20.339] Browser LOG     🔵 isValid: false
+[00:00:28.012] Server  LOG     ✓ Compiled in 257ms
+[00:00:31.405] Browser LOG     🔵 handleSubmit called
+[00:00:31.405] Browser LOG     isFormValid: true
+[00:00:31.405] Browser LOG     isSubmitting: false
+[00:00:31.405] Browser LOG     omiseReady: false
+[00:00:31.405] Browser LOG     🔵 calling validateBeforePayment...
+[00:00:31.580] Browser LOG     🔵 isValid: false
+[00:02:06.337] Server  LOG     ✓ Compiled in 76ms
+[00:02:09.739] Browser LOG     🔵 handleSubmit called
+[00:02:09.739] Browser LOG     isFormValid: true
+[00:02:09.739] Browser LOG     isSubmitting: false
+[00:02:09.740] Browser LOG     omiseReady: false
+[00:02:09.740] Browser LOG     🔵 calling validateBeforePayment...
+[00:02:09.944] Browser LOG     🔵 isValid: false
+[00:02:55.730] Server  LOG     ✓ Compiled in 66ms
+[00:03:16.613] Server  LOG     ✓ Compiled in 74ms
+[00:03:56.871] Server  LOG     ✓ Compiled in 90ms
+[00:04:36.803] Server  LOG     ✓ Compiled in 52ms
+[00:05:07.175] Server  LOG     ✓ Compiled in 68ms
+[00:09:15.640] Browser LOG     🔵 handleSubmit called
+[00:09:15.641] Browser LOG     isFormValid: true
+[00:09:15.641] Browser LOG     isSubmitting: false
+[00:09:15.641] Browser LOG     omiseReady: false
+[00:09:15.641] Browser LOG     🔵 calling validateBeforePayment...
+[00:09:16.260] Browser LOG     🔵 isValid: false
+[00:09:23.705] Browser LOG     🔵 handleSubmit called
+[00:09:23.706] Browser LOG     isFormValid: true
+[00:09:23.706] Browser LOG     isSubmitting: false
+[00:09:23.706] Browser LOG     omiseReady: false
+[00:09:23.706] Browser LOG     🔵 calling validateBeforePayment...
+[00:09:23.876] Browser LOG     🔵 isValid: false
+[00:13:54.072] Browser LOG     🔵 handleSubmit called
+[00:13:54.072] Browser LOG     isFormValid: true
+[00:13:54.072] Browser LOG     isSubmitting: false
+[00:13:54.072] Browser LOG     omiseReady: false
+[00:13:54.072] Browser LOG     🔵 calling validateBeforePayment...
+[00:13:54.707] Browser LOG     🔵 isValid: true
+[00:13:54.707] Browser LOG     🔵 calling handleCreditCard...
+[00:14:04.859] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:04.965] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T07:42:00.897Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:37:24.827] Browser LOG     Clicked date: 2026-05-03
+[00:37:24.827] Browser LOG     Slots: [{"available":20,"course_id":376,"end_time":"11:00:00","slot_id":1,"slot_name":"Section #1","start_time":"09:00:00","total":20},{"available":20,"course_id":389,"end_time":"15:00:00","slot_id":2,"slot_name":"Section #2","start_time":"13:00:00","total":20},{"available":20,"course_id":402,"end_time":"18:00:00","slot_id":3,"slot_name":"Section #3","start_time":"16:00:00","total":20}]
+[00:37:38.623] Browser LOG     🔵 handleSubmit called
+[00:37:38.623] Browser LOG     isFormValid: true
+[00:37:38.623] Browser LOG     isSubmitting: false
+[00:37:38.623] Browser LOG     omiseReady: false
+[00:37:38.623] Browser LOG     🔵 calling validateBeforePayment...
+[00:37:38.803] Browser LOG     🔵 isValid: true
+[00:37:38.803] Browser LOG     🔵 calling handleCreditCard...
+[00:37:50.125] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:37:50.228] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:05:46.157Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:39:24.715] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:43.508] Browser LOG     🔵 handleSubmit called
+[00:39:43.508] Browser LOG     isFormValid: true
+[00:39:43.508] Browser LOG     isSubmitting: false
+[00:39:43.508] Browser LOG     omiseReady: false
+[00:39:43.508] Browser LOG     🔵 calling validateBeforePayment...
+[00:39:43.983] Browser LOG     🔵 isValid: true
+[00:39:43.983] Browser LOG     🔵 calling handleCreditCard...
+[00:39:53.732] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:53.838] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:07:49.768Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:40:01.285] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:41:23.444] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:41:32.194] Browser LOG     🔵 handleSubmit called
+[00:41:32.194] Browser LOG     isFormValid: true
+[00:41:32.194] Browser LOG     isSubmitting: false
+[00:41:32.194] Browser LOG     omiseReady: false
+[00:41:32.194] Browser LOG     🔵 calling validateBeforePayment...
+[00:41:32.438] Browser LOG     🔵 isValid: false
+[00:41:36.676] Browser LOG     🔵 handleSubmit called
+[00:41:36.676] Browser LOG     isFormValid: true
+[00:41:36.676] Browser LOG     isSubmitting: false
+[00:41:36.676] Browser LOG     omiseReady: false
+[00:41:36.676] Browser LOG     🔵 calling validateBeforePayment...
+[00:41:36.892] Browser LOG     🔵 isValid: true
+[00:41:36.892] Browser LOG     🔵 calling handleCreditCard...
+[00:41:47.310] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:41:47.429] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:09:43.350Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:43:19.143] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:43:41.375] Server  LOG     ✓ Compiled in 126ms
+[00:43:45.189] Server  LOG     ✓ Compiled in 62ms
+[00:47:59.961] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:48:17.142] Browser LOG     🔵 handleSubmit called
+[00:48:17.142] Browser LOG     isFormValid: true
+[00:48:17.142] Browser LOG     isSubmitting: false
+[00:48:17.142] Browser LOG     omiseReady: false
+[00:48:17.142] Browser LOG     🔵 calling validateBeforePayment...
+[00:48:17.929] Browser LOG     🔵 isValid: true
+[00:48:17.929] Browser LOG     🔵 calling handleCreditCard...
+[00:48:38.429] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:48:38.570] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:16:34.519Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:48:39.517] Server  LOG     📧 classTime received: undefined

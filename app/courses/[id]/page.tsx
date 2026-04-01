@@ -538,11 +538,11 @@ export default function CoursePage({
 
             <div className="p-6 pt-0 flex justify-end">
               <Link
-            href={
-  selectedDate && selectedSlot
-    ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&quantity=${quantity}&price=${course.type_of_course?.price}&courseId=${id}&slotId=${selectedSlot.slot_id}&slotName=${encodeURIComponent(selectedSlot.slot_name)}&slotTime=${encodeURIComponent(`${selectedSlot.start_time.slice(0, 5)} - ${selectedSlot.end_time.slice(0, 5)}`)}&vat=${course.type_of_course?.vat ?? 0.07}`  
-    : "#"
-}
+                href={
+                  selectedDate && selectedSlot
+                    ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&quantity=${quantity}&price=${course.type_of_course?.price}&courseId=${selectedSlot.course_id}&slotId=${selectedSlot.slot_id}&slotName=${encodeURIComponent(selectedSlot.slot_name)}&slotTime=${encodeURIComponent(`${selectedSlot.start_time.slice(0, 5)} - ${selectedSlot.end_time.slice(0, 5)}`)}&vat=${course.type_of_course?.vat ?? 0.07}`
+                    : "#"
+                }
                 className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
                   !selectedDate || !selectedSlot
                     ? "opacity-50 pointer-events-none"
