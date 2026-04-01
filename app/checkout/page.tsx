@@ -20,7 +20,7 @@ function CheckoutContent() {
   const slotName = searchParams.get("slotName") || "";
   const slotTime = searchParams.get("slotTime") || "";
   const [countries, setCountries] = useState<string[]>([]);
-
+const [booking, setBooking] = useState<any>(null);
   const [bookingRef, setBookingRef] = useState<string | null>(null);
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
   const [showParticipants, setShowParticipants] = useState(false);
@@ -265,6 +265,24 @@ function CheckoutContent() {
       .insert(courseParticipantRows);
     if (cpErr) throw cpErr;
 
+    // ✅ เพิ่มตรงนี้ — ดึงข้อมูล booking กลับมาแสดงใน modal
+    const { data: bookingData } = await supabase
+      .from("bookings")
+      .select(`
+        id,
+        booking_date,
+        quantity,
+        total_price,
+        omise_charge_id,
+        customers (first_name, last_name, email),
+        courses (weekly_template (title)),
+        course_time_slot (slot_name, start_time, end_time)
+      `)
+      .eq("id", bookingId)
+      .single();
+
+    setBooking(bookingData);
+    
     // ส่งอีเมล
     try {
       await fetch("/api/send-confirmation-email", {
@@ -466,35 +484,37 @@ function CheckoutContent() {
 
       <div className="min-h-screen bg-[#8B7355] relative">
         {/* Payment Success Modal */}
-        {paymentSuccess && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-white p-8 rounded-lg max-w-md w-full mx-4 text-center">
-              <div className="text-6xl mb-4">✓</div>
-              <h2 className="text-3xl font-bold text-black mb-4">
-                Payment Successful!
-              </h2>
-              <p className="text-black mb-2">Your booking has been confirmed.</p>
-              <p className="text-sm text-gray-600 mb-6">
-                <b>Ref: {bookingRef}</b>
-                <br />
-                Course: {courseName}
-                <br />
-                Date: {date} ({slotName})<br />
-                {slotTime && `Time: ${slotTime}`}
-                <br />
-                Quantity: {quantity} ticket(s)
-                <br />
-                Total: ฿{total.toLocaleString()}.00
-              </p>
-              <Link
-                href="/"
-                className="block w-full bg-black text-white py-3 font-medium hover:opacity-80 transition-opacity"
-              >
-                Back to Home
-              </Link>
-            </div>
-          </div>
-        )}
+      {paymentSuccess && (
+  <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div className="bg-white p-8 rounded-lg max-w-md w-full mx-4 text-center">
+      <div className="text-6xl mb-4">✓</div>
+      <h2 className="text-3xl font-bold text-black mb-4">Payment Successful!</h2>
+      <p className="text-black mb-2">Your booking has been confirmed.</p>
+
+      {booking && (
+        <div className="text-sm text-gray-600 mb-6 text-left p-4 rounded">
+          <p><b>ID:</b> {booking.id}</p>
+          <p><b>Ref:</b> {booking.omise_charge_id}</p>
+          <p><b>Name:</b> {booking.customers.first_name} {booking.customers.last_name}</p>
+          <p><b>Email:</b> {booking.customers.email}</p>
+          <p><b>Course:</b> {booking.courses.weekly_template.title}</p>
+          <p><b>Date:</b> {new Date(booking.booking_date).toLocaleDateString("en-GB")}</p>
+          <p><b>Class:</b> {booking.course_time_slot.slot_name} ({booking.course_time_slot.start_time.slice(0,5)} - {booking.course_time_slot.end_time.slice(0,5)})</p>
+          <p><b>Quantity:</b> {booking.quantity} ticket(s)</p>
+          <p><b>Total:</b> ฿{booking.total_price.toLocaleString()}.00</p>
+        </div>
+      )}
+
+      <p className="text-sm text-gray-500 mb-4">
+        Please check your email for the booking confirmation.
+      </p>
+
+      <Link href="/" className="block w-full bg-black text-white py-3 font-medium hover:opacity-80 transition-opacity">
+        Back to Home
+      </Link>
+    </div>
+  </div>
+)}
 
         {/* QR PromptPay Modal */}
         {showQR && qrCodeUrl && (
