@@ -85,11 +85,7 @@ export async function POST(req: Request) {
               </div>
               <div style="padding:32px; border-top:1px solid #eee; text-align:center;">
   <h3 style="margin:0 0 12px 0; font-size:16px; color:#333;">Location</h3>
- <img 
-    src="https://naibaanstudio.com/logo-nb-wh.png"
-    alt="Location Map"
-    style="max-width:100%; border-radius:6px; margin-bottom:12px;"
-  />
+
   <img 
     src="https://naibaanstudio.com/maps-lo.png"
     alt="Location Map"
