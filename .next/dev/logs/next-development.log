@@ -99,3 +99,13 @@
 [00:48:38.429] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:48:38.570] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:16:34.519Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
 [00:48:39.517] Server  LOG     📧 classTime received: undefined
+[01:18:20.230] Browser LOG     Clicked date: 2026-04-14
+[01:18:20.230] Browser LOG     Slots: [{"available":20,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
+[01:19:35.497] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:19:35.654] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:47:31.608Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[01:19:36.630] Server  LOG     📧 classTime received: undefined
+[01:21:49.562] Server  LOG     ✓ Compiled in 97ms
+[01:22:16.293] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:23:12.226] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:23:12.226] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:51:08.275Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[01:23:13.469] Server  LOG     📧 classTime received: "09:00 - 12:30"

@@ -81,12 +81,14 @@ function CompleteContent() {
           courseName,
           date,
           slotName,
+          slotTime,
           courseId,
           slotId,
           quantity,
           total,
         } = pendingBooking;
 
+        // Insert main customer
         const { data: mainCustomerData, error: mainErr } = await supabase
           .from("customers")
           .insert([
@@ -103,35 +105,66 @@ function CompleteContent() {
           .select();
         if (mainErr) throw mainErr;
 
+        // Insert participants → เก็บ id ไว้
+        let participantIds: string[] = [];
         if (quantity > 1 && participantsData.length > 0) {
-          const { error: partErr } = await supabase.from("customers").insert(
-            participantsData.map((p: any) => ({
-              first_name: p.firstName.trim(),
-              last_name: p.lastName.trim(),
-              email: p.email.trim(),
-              phone: p.phone.trim(),
-              passport_num: p.passportId.trim(),
-              country: p.country.trim(),
-              address: formData.address.trim(),
-            })),
-          );
+          const { data: insertedParticipants, error: partErr } = await supabase
+            .from("customers")
+            .insert(
+              participantsData.map((p: any) => ({
+                first_name: p.firstName.trim(),
+                last_name: p.lastName.trim(),
+                email: p.email.trim(),
+                phone: p.phone.trim(),
+                passport_num: p.passportId.trim(),
+                country: p.country.trim(),
+                address: formData.address.trim(),
+              })),
+            )
+            .select();
           if (partErr) throw partErr;
+          participantIds = insertedParticipants.map((p: any) => p.id);
         }
 
-        const { error: bookingErr } = await supabase.from("bookings").insert([
-          {
-            customer_id: mainCustomerData[0].id,
-            course_id: courseId,
-            time_slot_id: slotId,
-            booking_date: convertDateFormat(date),
-            booking_status: "success",
-            quantity,
-            total_price: total,
-            omise_charge_id: chargeId,
-            created_at: new Date().toISOString(),
-          },
-        ]);
+        // Insert booking
+        const { data: bookingInserted, error: bookingErr } = await supabase
+          .from("bookings")
+          .insert([
+            {
+              customer_id: mainCustomerData[0].id,
+              course_id: courseId,
+              time_slot_id: slotId,
+              booking_date: convertDateFormat(date),
+              booking_status: "success",
+              quantity,
+              total_price: total,
+              omise_charge_id: chargeId,
+              created_at: new Date().toISOString(),
+            },
+          ])
+          .select();
         if (bookingErr) throw bookingErr;
+
+        const bookingId = bookingInserted[0].id;
+
+        // ✅ Insert course_participants — main customer + participants ทุกคน
+        const courseParticipantRows = [
+          {
+            course_id: Number(courseId),
+            customer_id: mainCustomerData[0].id,
+            booking_id: bookingId,
+          },
+          ...participantIds.map((pid) => ({
+            course_id: Number(courseId),
+            customer_id: pid,
+            booking_id: bookingId,
+          })),
+        ];
+
+        const { error: cpErr } = await supabase
+          .from("course_participants")
+          .insert(courseParticipantRows);
+        if (cpErr) throw cpErr;
 
         // ✅ ดึงข้อมูลจาก Supabase โดยใช้ chargeId
         const { data: bookingData, error: fetchErr } = await supabase
@@ -177,6 +210,7 @@ function CompleteContent() {
               customerName: `${formData.firstName} ${formData.lastName}`,
               courseName,
               bookingDate: date,
+              classTime: slotTime,
               slotName,
               quantity,
               totalPrice: total,
@@ -243,8 +277,8 @@ function CompleteContent() {
         <p className="text-black mb-2">Your booking has been confirmed.</p>
 
         {booking && (
-          <div className="text-sm text-gray-600 mb-6 text-left  p-4 rounded">
-             <p>
+          <div className="text-sm text-gray-600 mb-6 text-left p-4 rounded">
+            <p>
               <b>ID:</b> {booking.id}
             </p>
             <p>
@@ -277,10 +311,10 @@ function CompleteContent() {
           </div>
         )}
 
-  <p className="text-sm text-gray-500 mb-4">
-    Please check your email for the booking confirmation.
-  </p>
-  
+        <p className="text-sm text-gray-500 mb-4">
+          Please check your email for the booking confirmation.
+        </p>
+
         {errorMessage && (
           <p className="text-sm text-red-500 mb-4">{errorMessage}</p>
         )}
@@ -309,17 +343,3 @@ export default function CompletePage() {
     </Suspense>
   );
 }
-// ```
-
-// ---
-
-// **ข้อมูลที่แสดงในหน้า success ครับ:**
-// ```
-// Ref      : chrg_xxxxxxxx (Omise charge ID)
-// Name     : John Doe
-// Email    : john@example.com
-// Course   : Mastering Pad Thai Class
-// Date     : 06/04/2026
-// Class    : Morning class (09:00)
-// Quantity : 2 ticket(s)
-// Total    : ฿2,350.00

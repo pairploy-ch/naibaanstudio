@@ -113,7 +113,6 @@ function CheckoutContent() {
 
   // ===== Step 1: validate ทุกอย่างก่อนตัดเงิน =====
   const validateBeforePayment = async (): Promise<boolean> => {
-    // เช็คฟอร์มครบ
     if (!isFormValid()) {
       toast.error("Please fill in all required fields.");
       return false;
@@ -124,13 +123,11 @@ function CheckoutContent() {
       ...participantsData.map((p) => p.email.trim()),
     ];
 
-    // เช็ค email ซ้ำในฟอร์ม
     if (new Set(allEmails).size !== allEmails.length) {
       toast.error("Duplicate email addresses detected. Please use a unique email for each person.");
       return false;
     }
 
-    // เช็ค email ซ้ำใน DB
     const { data: existing, error } = await supabase
       .from("customers")
       .select("email")
@@ -171,20 +168,25 @@ function CheckoutContent() {
       .select();
     if (mainErr) throw mainErr;
 
-    // Insert participants
+    // Insert participants → เก็บ id ไว้
+    let participantIds: string[] = [];
     if (quantity > 1 && participantsData.length > 0) {
-      const { error: partErr } = await supabase.from("customers").insert(
-        participantsData.map((p) => ({
-          first_name: p.firstName.trim(),
-          last_name: p.lastName.trim(),
-          email: p.email.trim(),
-          phone: p.phone.trim(),
-          passport_num: p.passportId.trim(),
-          country: p.country.trim(),
-          address: formData.address.trim(),
-        })),
-      );
+      const { data: insertedParticipants, error: partErr } = await supabase
+        .from("customers")
+        .insert(
+          participantsData.map((p) => ({
+            first_name: p.firstName.trim(),
+            last_name: p.lastName.trim(),
+            email: p.email.trim(),
+            phone: p.phone.trim(),
+            passport_num: p.passportId.trim(),
+            country: p.country.trim(),
+            address: formData.address.trim(),
+          })),
+        )
+        .select();
       if (partErr) throw partErr;
+      participantIds = insertedParticipants.map((p: any) => p.id);
     }
 
     // Insert booking
@@ -206,6 +208,27 @@ function CheckoutContent() {
       .select();
     if (bookingErr) throw bookingErr;
 
+    const bookingId = bookingInserted[0].id;
+
+    // Insert course_participants — main customer + participants ทุกคน
+    const courseParticipantRows = [
+      {
+        course_id: Number(courseId),
+        customer_id: mainCustomerData[0].id,
+        booking_id: bookingId,
+      },
+      ...participantIds.map((pid) => ({
+        course_id: Number(courseId),
+        customer_id: pid,
+        booking_id: bookingId,
+      })),
+    ];
+
+    const { error: cpErr } = await supabase
+      .from("course_participants")
+      .insert(courseParticipantRows);
+    if (cpErr) throw cpErr;
+
     // ส่งอีเมล
     try {
       await fetch("/api/send-confirmation-email", {
@@ -220,7 +243,7 @@ function CheckoutContent() {
           quantity,
           slotName,
           totalPrice: total,
-          bookingId: bookingInserted[0].id,
+          bookingId,
         }),
       });
     } catch (emailErr) {
@@ -283,7 +306,7 @@ function CheckoutContent() {
                   total,
                 }),
               );
-              window.location.href = data.authorizeUri; // ✅ redirect ไปหน้า OTP
+              window.location.href = data.authorizeUri;
             } else {
               throw new Error(
                 data.failureMessage || "Your card was declined. Please contact your bank.",
@@ -351,34 +374,24 @@ function CheckoutContent() {
     });
   };
 
-  // ===== handleSubmit: เช็คก่อน → ตัดเงิน → บันทึก =====
+  // ===== handleSubmit =====
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("🔵 handleSubmit called");
-    console.log("isFormValid:", isFormValid());
-    console.log("isSubmitting:", isSubmitting);
-    console.log("omiseReady:", omiseReady);
-
     setIsSubmitting(true);
 
     try {
-      console.log("🔵 calling validateBeforePayment...");
       const isValid = await validateBeforePayment();
-      console.log("🔵 isValid:", isValid);
-
       if (!isValid) {
         setIsSubmitting(false);
         return;
       }
 
-      console.log("🔵 calling handleCreditCard...");
       if (paymentMethod === "credit-card") {
         await handleCreditCard();
       } else if (paymentMethod === "qr-promptpay") {
         await handlePromptPay();
       }
     } catch (error: any) {
-      console.log("🔴 error:", error.message);
       if (error.message !== "FORM_CLOSED") {
         toast.error(error.message || "Please try again.");
       }
@@ -389,7 +402,6 @@ function CheckoutContent() {
 
   return (
     <>
-      {/* Toaster — วางไว้ที่นี่เพื่อให้ toast แสดงผลได้ */}
       <Toaster
         position="top-center"
         toastOptions={{
@@ -402,16 +414,10 @@ function CheckoutContent() {
             maxWidth: "480px",
           },
           error: {
-            iconTheme: {
-              primary: "#ef4444",
-              secondary: "#fff",
-            },
+            iconTheme: { primary: "#ef4444", secondary: "#fff" },
           },
           success: {
-            iconTheme: {
-              primary: "#22c55e",
-              secondary: "#fff",
-            },
+            iconTheme: { primary: "#22c55e", secondary: "#fff" },
           },
         }}
       />
@@ -431,9 +437,7 @@ function CheckoutContent() {
               <h2 className="text-3xl font-bold text-black mb-4">
                 Payment Successful!
               </h2>
-              <p className="text-black mb-2">
-                Your booking has been confirmed.
-              </p>
+              <p className="text-black mb-2">Your booking has been confirmed.</p>
               <p className="text-sm text-gray-600 mb-6">
                 <b>Ref: {bookingRef}</b>
                 <br />
@@ -460,9 +464,7 @@ function CheckoutContent() {
         {showQR && qrCodeUrl && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-white p-8 rounded-lg max-w-sm w-full mx-4 text-center">
-              <h2 className="text-xl font-bold text-black mb-2">
-                QR PromptPay
-              </h2>
+              <h2 className="text-xl font-bold text-black mb-2">QR PromptPay</h2>
               <p className="text-sm text-gray-500 mb-4">
                 Amount ฿{total.toLocaleString()}
               </p>
@@ -471,9 +473,7 @@ function CheckoutContent() {
                 alt="QR PromptPay"
                 className="mx-auto w-64 h-64 mb-4"
               />
-              <p className="text-xs text-gray-400 mb-4">
-                Pending Payment...
-              </p>
+              <p className="text-xs text-gray-400 mb-4">Pending Payment...</p>
               <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-600 mx-auto mb-4" />
               <button
                 onClick={() => {
@@ -639,144 +639,104 @@ function CheckoutContent() {
 
                     {showParticipants && (
                       <div>
-                        {Array.from({ length: quantity - 1 }).map(
-                          (_, index) => (
-                            <div
-                              key={index}
-                              className="mb-8 p-6 bg-white border border-gray-300"
-                            >
-                              <h3 className="font-semibold text-black mb-4">
-                                Participant {index + 2}
-                              </h3>
-                              <div className="space-y-4">
-                                <div className="grid grid-cols-2 gap-4">
-                                  <div>
-                                    <label className="block text-sm font-medium text-black mb-2">
-                                      First Name{" "}
-                                      <span className="text-red-600">*</span>
-                                    </label>
-                                    <input
-                                      type="text"
-                                      value={
-                                        participantsData[index]?.firstName || ""
-                                      }
-                                      onChange={(e) =>
-                                        handleParticipantChange(
-                                          index,
-                                          "firstName",
-                                          e.target.value,
-                                        )
-                                      }
-                                      className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
-                                    />
-                                  </div>
-                                  <div>
-                                    <label className="block text-sm font-medium text-black mb-2">
-                                      Last Name{" "}
-                                      <span className="text-red-600">*</span>
-                                    </label>
-                                    <input
-                                      type="text"
-                                      value={
-                                        participantsData[index]?.lastName || ""
-                                      }
-                                      onChange={(e) =>
-                                        handleParticipantChange(
-                                          index,
-                                          "lastName",
-                                          e.target.value,
-                                        )
-                                      }
-                                      className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
-                                    />
-                                  </div>
-                                </div>
+                        {Array.from({ length: quantity - 1 }).map((_, index) => (
+                          <div
+                            key={index}
+                            className="mb-8 p-6 bg-white border border-gray-300"
+                          >
+                            <h3 className="font-semibold text-black mb-4">
+                              Participant {index + 2}
+                            </h3>
+                            <div className="space-y-4">
+                              <div className="grid grid-cols-2 gap-4">
                                 <div>
                                   <label className="block text-sm font-medium text-black mb-2">
-                                    E-mail Address{" "}
-                                    <span className="text-red-600">*</span>
-                                  </label>
-                                  <input
-                                    type="email"
-                                    value={participantsData[index]?.email || ""}
-                                    onChange={(e) =>
-                                      handleParticipantChange(
-                                        index,
-                                        "email",
-                                        e.target.value,
-                                      )
-                                    }
-                                    className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
-                                  />
-                                </div>
-                                <div>
-                                  <label className="block text-sm font-medium text-black mb-2">
-                                    Country{" "}
-                                    <span className="text-red-600">*</span>
-                                  </label>
-                                  <select
-                                    value={
-                                      participantsData[index]?.country || ""
-                                    }
-                                    onChange={(e) =>
-                                      handleParticipantChange(
-                                        index,
-                                        "country",
-                                        e.target.value,
-                                      )
-                                    }
-                                    className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
-                                  >
-                                    <option value="">Select Country</option>
-                                    {countries.map((c) => (
-                                      <option key={c} value={c}>
-                                        {c}
-                                      </option>
-                                    ))}
-                                  </select>
-                                </div>
-                                <div>
-                                  <label className="block text-sm font-medium text-black mb-2">
-                                    Passport Num / ID Number{" "}
-                                    <span className="text-red-600">*</span>
+                                    First Name <span className="text-red-600">*</span>
                                   </label>
                                   <input
                                     type="text"
-                                    value={
-                                      participantsData[index]?.passportId || ""
-                                    }
+                                    value={participantsData[index]?.firstName || ""}
                                     onChange={(e) =>
-                                      handleParticipantChange(
-                                        index,
-                                        "passportId",
-                                        e.target.value,
-                                      )
+                                      handleParticipantChange(index, "firstName", e.target.value)
                                     }
                                     className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                                   />
                                 </div>
                                 <div>
                                   <label className="block text-sm font-medium text-black mb-2">
-                                    Phone{" "}
-                                    <span className="text-red-600">*</span>
+                                    Last Name <span className="text-red-600">*</span>
                                   </label>
                                   <input
-                                    type="tel"
-                                    value={participantsData[index]?.phone || ""}
+                                    type="text"
+                                    value={participantsData[index]?.lastName || ""}
                                     onChange={(e) =>
-                                      handleParticipantChange(
-                                        index,
-                                        "phone",
-                                        e.target.value,
-                                      )
+                                      handleParticipantChange(index, "lastName", e.target.value)
                                     }
                                     className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                                   />
                                 </div>
                               </div>
+                              <div>
+                                <label className="block text-sm font-medium text-black mb-2">
+                                  E-mail Address <span className="text-red-600">*</span>
+                                </label>
+                                <input
+                                  type="email"
+                                  value={participantsData[index]?.email || ""}
+                                  onChange={(e) =>
+                                    handleParticipantChange(index, "email", e.target.value)
+                                  }
+                                  className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-sm font-medium text-black mb-2">
+                                  Country <span className="text-red-600">*</span>
+                                </label>
+                                <select
+                                  value={participantsData[index]?.country || ""}
+                                  onChange={(e) =>
+                                    handleParticipantChange(index, "country", e.target.value)
+                                  }
+                                  className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
+                                >
+                                  <option value="">Select Country</option>
+                                  {countries.map((c) => (
+                                    <option key={c} value={c}>
+                                      {c}
+                                    </option>
+                                  ))}
+                                </select>
+                              </div>
+                              <div>
+                                <label className="block text-sm font-medium text-black mb-2">
+                                  Passport Num / ID Number <span className="text-red-600">*</span>
+                                </label>
+                                <input
+                                  type="text"
+                                  value={participantsData[index]?.passportId || ""}
+                                  onChange={(e) =>
+                                    handleParticipantChange(index, "passportId", e.target.value)
+                                  }
+                                  className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-sm font-medium text-black mb-2">
+                                  Phone <span className="text-red-600">*</span>
+                                </label>
+                                <input
+                                  type="tel"
+                                  value={participantsData[index]?.phone || ""}
+                                  onChange={(e) =>
+                                    handleParticipantChange(index, "phone", e.target.value)
+                                  }
+                                  className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
+                                />
+                              </div>
                             </div>
-                          ),
-                        )}
+                          </div>
+                        ))}
                       </div>
                     )}
                   </div>
@@ -814,7 +774,6 @@ function CheckoutContent() {
               </div>
 
               <div className="space-y-6">
-                {/* Credit Card Option */}
                 <div>
                   <label className="flex items-center justify-between cursor-pointer">
                     <div className="flex items-center">
@@ -826,9 +785,7 @@ function CheckoutContent() {
                         onChange={(e) => setPaymentMethod(e.target.value)}
                         className="w-5 h-5 mr-3"
                       />
-                      <span className="font-medium text-black">
-                        Credit Card
-                      </span>
+                      <span className="font-medium text-black">Credit Card</span>
                     </div>
                     <div className="flex gap-4">
                       <img
@@ -845,7 +802,6 @@ function CheckoutContent() {
                   </label>
                 </div>
 
-                {/* QR PromptPay Option */}
                 <div>
                   <label className="flex items-center cursor-pointer">
                     <input
@@ -875,7 +831,7 @@ function CheckoutContent() {
                       : "bg-gray-400 text-gray-200 cursor-not-allowed"
                   }`}
                 >
-                  {isSubmitting ? "Processing..." : `Submit`}
+                  {isSubmitting ? "Processing..." : "Submit"}
                 </button>
               </div>
             </div>
