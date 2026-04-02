@@ -1,10 +1,6 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/omise-charge-status/route": "app/api/omise-charge-status/route.js",
-  "/api/omise-charge/route": "app/api/omise-charge/route.js",
-  "/api/send-confirmation-email/route": "app/api/send-confirmation-email/route.js",
-  "/checkout/complete/page": "app/checkout/complete/page.js",
-  "/checkout/page": "app/checkout/page.js",
+  "/about/page": "app/about/page.js",
   "/courses/[id]/page": "app/courses/[id]/page.js",
-  "/courses/page": "app/courses/page.js"
+  "/courses/page": "app/courses/page.js",
+  "/gallery/page": "app/gallery/page.js"
 }

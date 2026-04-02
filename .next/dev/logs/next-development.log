@@ -1,157 +1,28 @@
-[00:00:02.319] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:02.631] Server  LOG     ✓ Ready in 2s
-[00:00:05.898] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:17.538] Browser LOG     🔵 handleSubmit called
-[00:00:17.538] Browser LOG     isFormValid: true
-[00:00:17.538] Browser LOG     isSubmitting: false
-[00:00:17.538] Browser LOG     omiseReady: false
-[00:00:17.538] Browser LOG     🔵 calling validateBeforePayment...
-[00:00:20.339] Browser LOG     🔵 isValid: false
-[00:00:28.012] Server  LOG     ✓ Compiled in 257ms
-[00:00:31.405] Browser LOG     🔵 handleSubmit called
-[00:00:31.405] Browser LOG     isFormValid: true
-[00:00:31.405] Browser LOG     isSubmitting: false
-[00:00:31.405] Browser LOG     omiseReady: false
-[00:00:31.405] Browser LOG     🔵 calling validateBeforePayment...
-[00:00:31.580] Browser LOG     🔵 isValid: false
-[00:02:06.337] Server  LOG     ✓ Compiled in 76ms
-[00:02:09.739] Browser LOG     🔵 handleSubmit called
-[00:02:09.739] Browser LOG     isFormValid: true
-[00:02:09.739] Browser LOG     isSubmitting: false
-[00:02:09.740] Browser LOG     omiseReady: false
-[00:02:09.740] Browser LOG     🔵 calling validateBeforePayment...
-[00:02:09.944] Browser LOG     🔵 isValid: false
-[00:02:55.730] Server  LOG     ✓ Compiled in 66ms
-[00:03:16.613] Server  LOG     ✓ Compiled in 74ms
-[00:03:56.871] Server  LOG     ✓ Compiled in 90ms
-[00:04:36.803] Server  LOG     ✓ Compiled in 52ms
-[00:05:07.175] Server  LOG     ✓ Compiled in 68ms
-[00:09:15.640] Browser LOG     🔵 handleSubmit called
-[00:09:15.641] Browser LOG     isFormValid: true
-[00:09:15.641] Browser LOG     isSubmitting: false
-[00:09:15.641] Browser LOG     omiseReady: false
-[00:09:15.641] Browser LOG     🔵 calling validateBeforePayment...
-[00:09:16.260] Browser LOG     🔵 isValid: false
-[00:09:23.705] Browser LOG     🔵 handleSubmit called
-[00:09:23.706] Browser LOG     isFormValid: true
-[00:09:23.706] Browser LOG     isSubmitting: false
-[00:09:23.706] Browser LOG     omiseReady: false
-[00:09:23.706] Browser LOG     🔵 calling validateBeforePayment...
-[00:09:23.876] Browser LOG     🔵 isValid: false
-[00:13:54.072] Browser LOG     🔵 handleSubmit called
-[00:13:54.072] Browser LOG     isFormValid: true
-[00:13:54.072] Browser LOG     isSubmitting: false
-[00:13:54.072] Browser LOG     omiseReady: false
-[00:13:54.072] Browser LOG     🔵 calling validateBeforePayment...
-[00:13:54.707] Browser LOG     🔵 isValid: true
-[00:13:54.707] Browser LOG     🔵 calling handleCreditCard...
-[00:14:04.859] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:14:04.965] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T07:42:00.897Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:37:24.827] Browser LOG     Clicked date: 2026-05-03
-[00:37:24.827] Browser LOG     Slots: [{"available":20,"course_id":376,"end_time":"11:00:00","slot_id":1,"slot_name":"Section #1","start_time":"09:00:00","total":20},{"available":20,"course_id":389,"end_time":"15:00:00","slot_id":2,"slot_name":"Section #2","start_time":"13:00:00","total":20},{"available":20,"course_id":402,"end_time":"18:00:00","slot_id":3,"slot_name":"Section #3","start_time":"16:00:00","total":20}]
-[00:37:38.623] Browser LOG     🔵 handleSubmit called
-[00:37:38.623] Browser LOG     isFormValid: true
-[00:37:38.623] Browser LOG     isSubmitting: false
-[00:37:38.623] Browser LOG     omiseReady: false
-[00:37:38.623] Browser LOG     🔵 calling validateBeforePayment...
-[00:37:38.803] Browser LOG     🔵 isValid: true
-[00:37:38.803] Browser LOG     🔵 calling handleCreditCard...
-[00:37:50.125] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:37:50.228] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:05:46.157Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:39:24.715] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:39:43.508] Browser LOG     🔵 handleSubmit called
-[00:39:43.508] Browser LOG     isFormValid: true
-[00:39:43.508] Browser LOG     isSubmitting: false
-[00:39:43.508] Browser LOG     omiseReady: false
-[00:39:43.508] Browser LOG     🔵 calling validateBeforePayment...
-[00:39:43.983] Browser LOG     🔵 isValid: true
-[00:39:43.983] Browser LOG     🔵 calling handleCreditCard...
-[00:39:53.732] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:39:53.838] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:07:49.768Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:40:01.285] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:41:23.444] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:41:32.194] Browser LOG     🔵 handleSubmit called
-[00:41:32.194] Browser LOG     isFormValid: true
-[00:41:32.194] Browser LOG     isSubmitting: false
-[00:41:32.194] Browser LOG     omiseReady: false
-[00:41:32.194] Browser LOG     🔵 calling validateBeforePayment...
-[00:41:32.438] Browser LOG     🔵 isValid: false
-[00:41:36.676] Browser LOG     🔵 handleSubmit called
-[00:41:36.676] Browser LOG     isFormValid: true
-[00:41:36.676] Browser LOG     isSubmitting: false
-[00:41:36.676] Browser LOG     omiseReady: false
-[00:41:36.676] Browser LOG     🔵 calling validateBeforePayment...
-[00:41:36.892] Browser LOG     🔵 isValid: true
-[00:41:36.892] Browser LOG     🔵 calling handleCreditCard...
-[00:41:47.310] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:41:47.429] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:09:43.350Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:43:19.143] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:43:41.375] Server  LOG     ✓ Compiled in 126ms
-[00:43:45.189] Server  LOG     ✓ Compiled in 62ms
-[00:47:59.961] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:48:17.142] Browser LOG     🔵 handleSubmit called
-[00:48:17.142] Browser LOG     isFormValid: true
-[00:48:17.142] Browser LOG     isSubmitting: false
-[00:48:17.142] Browser LOG     omiseReady: false
-[00:48:17.142] Browser LOG     🔵 calling validateBeforePayment...
-[00:48:17.929] Browser LOG     🔵 isValid: true
-[00:48:17.929] Browser LOG     🔵 calling handleCreditCard...
-[00:48:38.429] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:48:38.570] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:16:34.519Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:48:39.517] Server  LOG     📧 classTime received: undefined
-[01:18:20.230] Browser LOG     Clicked date: 2026-04-14
-[01:18:20.230] Browser LOG     Slots: [{"available":20,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:19:35.497] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:19:35.654] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:47:31.608Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:19:36.630] Server  LOG     📧 classTime received: undefined
-[01:21:49.562] Server  LOG     ✓ Compiled in 97ms
-[01:22:16.293] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:23:12.226] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:23:12.226] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:51:08.275Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:23:13.469] Server  LOG     📧 classTime received: "09:00 - 12:30"
-[01:27:04.769] Server  LOG     ✓ Compiled in 132ms
-[01:27:11.198] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:27:13.344] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:55:09.161Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:27:20.695] Browser LOG     Clicked date: 2026-04-07
-[01:27:20.696] Browser LOG     Slots: [{"available":20,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:27:23.520] Browser LOG     Clicked date: 2026-04-14
-[01:27:23.520] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:27:24.545] Browser LOG     Clicked date: 2026-04-21
-[01:27:24.545] Browser LOG     Slots: [{"available":20,"course_id":438,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":451,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:27:25.111] Browser LOG     Clicked date: 2026-04-28
-[01:27:25.111] Browser LOG     Slots: [{"available":20,"course_id":439,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":452,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:27:25.696] Browser LOG     Clicked date: 2026-04-14
-[01:27:25.696] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:27:27.728] Browser LOG     Clicked date: 2026-04-07
-[01:27:27.728] Browser LOG     Slots: [{"available":20,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:27:28.245] Browser LOG     Clicked date: 2026-04-14
-[01:27:28.245] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:31:06.536] Server  LOG     ✓ Compiled in 89ms
-[01:31:11.058] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:31:11.251] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:59:07.159Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:31:13.994] Browser LOG     Clicked date: 2026-04-07
-[01:31:13.994] Browser LOG     Slots: [{"available":20,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:31:15.596] Browser LOG     Clicked date: 2026-04-14
-[01:31:15.596] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:31:17.661] Browser LOG     Clicked date: 2026-04-07
-[01:31:17.661] Browser LOG     Slots: [{"available":20,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:31:50.002] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:31:50.172] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:59:46.093Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:31:50.959] Server  LOG     📧 classTime received: "09:00 - 12:30"
-[01:31:58.384] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:31:59.142] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-01T08:59:55.043Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[01:32:02.463] Browser LOG     Clicked date: 2026-04-07
-[01:32:02.463] Browser LOG     Slots: [{"available":19,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:32:03.717] Browser LOG     Clicked date: 2026-04-14
-[01:32:03.717] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:32:04.278] Browser LOG     Clicked date: 2026-04-21
-[01:32:04.278] Browser LOG     Slots: [{"available":20,"course_id":438,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":451,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:32:04.728] Browser LOG     Clicked date: 2026-04-28
-[01:32:04.728] Browser LOG     Slots: [{"available":20,"course_id":439,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":452,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:33:09.036] Server  LOG     ✓ Compiled in 85ms
-[01:33:12.827] Browser LOG     Clicked date: 2026-04-14
-[01:33:12.827] Browser LOG     Slots: [{"available":18,"course_id":437,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":450,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:33:13.361] Browser LOG     Clicked date: 2026-04-07
-[01:33:13.361] Browser LOG     Slots: [{"available":19,"course_id":436,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":20},{"available":20,"course_id":449,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":20}]
-[01:45:02.504] Server  LOG     ✓ Compiled in 71ms
-[01:47:02.642] Server  LOG     ✓ Compiled in 59ms
+[00:00:04.262] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:04.643] Server  LOG     ✓ Ready in 3.4s
+[00:00:07.630] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:59.672] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:59.673] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:59.673] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:59.673] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:59.673] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:59.673] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:59.673] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:59.673] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:59.673] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:59.673] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:59.673] Browser WARN    Image with src "/album/11.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:03:59.673] Browser WARN    Image with src "/album/12.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:05:49.017] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-02T06:53:45.745Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
