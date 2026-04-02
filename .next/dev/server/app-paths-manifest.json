@@ -1,6 +1,4 @@
 {
-  "/about/page": "app/about/page.js",
-  "/courses/[id]/page": "app/courses/[id]/page.js",
-  "/courses/page": "app/courses/page.js",
-  "/gallery/page": "app/gallery/page.js"
+  "/api/omise-charge/route": "app/api/omise-charge/route.js",
+  "/checkout/page": "app/checkout/page.js"
 }

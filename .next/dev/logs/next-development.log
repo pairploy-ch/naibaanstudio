@@ -1,28 +1,3 @@
-[00:00:04.262] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:04.643] Server  LOG     ✓ Ready in 3.4s
-[00:00:07.630] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:59.672] Browser WARN    Image with src "/album/1.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:03:59.673] Browser WARN    Image with src "/album/2.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:03:59.673] Browser WARN    Image with src "/album/3.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:03:59.673] Browser WARN    Image with src "/album/4.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:03:59.673] Browser WARN    Image with src "/album/5.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:03:59.673] Browser WARN    Image with src "/album/6.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:03:59.673] Browser WARN    Image with src "/album/7.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:03:59.673] Browser WARN    Image with src "/album/8.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:03:59.673] Browser WARN    Image with src "/album/9.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:03:59.673] Browser WARN    Image with src "/album/10.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:03:59.673] Browser WARN    Image with src "/album/11.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:03:59.673] Browser WARN    Image with src "/album/12.jpg" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:05:49.017] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-02T06:53:45.745Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:00:00.784] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.892] Server  LOG     ✓ Ready in 645ms
+[00:00:01.714] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
