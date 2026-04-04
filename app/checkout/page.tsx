@@ -20,7 +20,7 @@ function CheckoutContent() {
   const slotName = searchParams.get("slotName") || "";
   const slotTime = searchParams.get("slotTime") || "";
   const [countries, setCountries] = useState<string[]>([]);
-const [booking, setBooking] = useState<any>(null);
+  const [booking, setBooking] = useState<any>(null);
   const [bookingRef, setBookingRef] = useState<string | null>(null);
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
   const [showParticipants, setShowParticipants] = useState(false);
@@ -124,7 +124,9 @@ const [booking, setBooking] = useState<any>(null);
     ];
 
     if (new Set(allEmails).size !== allEmails.length) {
-      toast.error("Duplicate email addresses detected. Please use a unique email for each person.");
+      toast.error(
+        "Duplicate email addresses detected. Please use a unique email for each person.",
+      );
       return false;
     }
 
@@ -134,19 +136,21 @@ const [booking, setBooking] = useState<any>(null);
       .in("email", allEmails);
 
     if (error) {
-      toast.error("An error occurred while validating the data. Please try again.");
+      toast.error(
+        "An error occurred while validating the data. Please try again.",
+      );
       return false;
     }
 
     if (existing && existing.length > 0) {
       const dupes = existing.map((c: any) => c.email).join(", ");
-      toast.error(`These email addresses already exist: ${dupes} — Please use a different email.`, {
-        duration: 6000,
-      });
+      toast.error(
+        `These email addresses already exist: ${dupes} — Please use a different email.`,
+        { duration: 6000 },
+      );
       return false;
     }
 
-    // ✅ เช็ค capacity คงเหลือก่อนตัดเงิน
     const { data: currentBookings, error: bookingErr } = await supabase
       .from("bookings")
       .select("quantity")
@@ -154,7 +158,9 @@ const [booking, setBooking] = useState<any>(null);
       .eq("booking_status", "success");
 
     if (bookingErr) {
-      toast.error("An error occurred while checking availability. Please try again.");
+      toast.error(
+        "An error occurred while checking availability. Please try again.",
+      );
       return false;
     }
 
@@ -165,11 +171,14 @@ const [booking, setBooking] = useState<any>(null);
       .single();
 
     if (courseErr) {
-      toast.error("An error occurred while checking availability. Please try again.");
+      toast.error(
+        "An error occurred while checking availability. Please try again.",
+      );
       return false;
     }
 
-    const totalBooked = currentBookings?.reduce((sum, b) => sum + b.quantity, 0) || 0;
+    const totalBooked =
+      currentBookings?.reduce((sum, b) => sum + b.quantity, 0) || 0;
     const remaining = (courseData?.capacity || 0) - totalBooked;
 
     if (quantity > remaining) {
@@ -187,7 +196,6 @@ const [booking, setBooking] = useState<any>(null);
 
   // ===== Step 2: บันทึก Supabase หลังตัดเงินสำเร็จ =====
   const saveToSupabase = async (chargeId: string) => {
-    // Insert main customer
     const { data: mainCustomerData, error: mainErr } = await supabase
       .from("customers")
       .insert([
@@ -204,7 +212,6 @@ const [booking, setBooking] = useState<any>(null);
       .select();
     if (mainErr) throw mainErr;
 
-    // Insert participants → เก็บ id ไว้
     let participantIds: string[] = [];
     if (quantity > 1 && participantsData.length > 0) {
       const { data: insertedParticipants, error: partErr } = await supabase
@@ -225,7 +232,6 @@ const [booking, setBooking] = useState<any>(null);
       participantIds = insertedParticipants.map((p: any) => p.id);
     }
 
-    // Insert booking
     const { data: bookingInserted, error: bookingErr } = await supabase
       .from("bookings")
       .insert([
@@ -241,12 +247,15 @@ const [booking, setBooking] = useState<any>(null);
           created_at: new Date().toISOString(),
         },
       ])
-      .select();
+      .select("id, booking_code, booking_date, quantity, total_price, omise_charge_id");
     if (bookingErr) throw bookingErr;
+
+    // ✅ DEBUG: ดูว่า booking_code ติดมาจาก insert เลยไหม
+    console.log("📦 bookingInserted[0]:", JSON.stringify(bookingInserted[0]));
+    console.log("🔑 booking_code from insert:", bookingInserted[0].booking_code);
 
     const bookingId = bookingInserted[0].id;
 
-    // Insert course_participants — main customer + participants ทุกคน
     const courseParticipantRows = [
       {
         course_id: Number(courseId),
@@ -265,24 +274,46 @@ const [booking, setBooking] = useState<any>(null);
       .insert(courseParticipantRows);
     if (cpErr) throw cpErr;
 
-    // ✅ เพิ่มตรงนี้ — ดึงข้อมูล booking กลับมาแสดงใน modal
-    const { data: bookingData } = await supabase
-      .from("bookings")
-      .select(`
-        id,
-        booking_date,
-        quantity,
-        total_price,
-        omise_charge_id,
-        customers (first_name, last_name, email),
-        courses (weekly_template (title)),
-        course_time_slot (slot_name, start_time, end_time)
-      `)
-      .eq("id", bookingId)
-      .single();
+    // ✅ ถ้า booking_code ติดมาจาก insert เลย ใช้ได้เลย ไม่ต้อง poll
+    // ✅ ถ้าไม่มี (undefined) ค่อย poll ดึงซ้ำ
+    let bookingData: any = bookingInserted[0].booking_code
+      ? bookingInserted[0]
+      : null;
 
-    setBooking(bookingData);
-    
+    if (!bookingData) {
+      console.log("⏳ booking_code not in insert result, polling...");
+      for (let attempt = 0; attempt < 10; attempt++) {
+        await new Promise((r) => setTimeout(r, 500));
+
+        const { data, error: fetchErr } = await supabase
+          .from("bookings")
+          .select("id, booking_code, booking_date, quantity, total_price, omise_charge_id")
+          .eq("id", bookingId)
+          .single();
+
+        console.log(`🔁 Attempt ${attempt + 1}:`, JSON.stringify(data));
+
+        if (data?.booking_code) {
+          bookingData = data;
+          break;
+        }
+        console.log(`⏳ Attempt ${attempt + 1}: not ready...`, fetchErr?.message);
+      }
+    }
+
+    if (!bookingData) throw new Error("booking_code was not generated after 5 seconds");
+
+    console.log("✅ Final booking_code:", bookingData.booking_code);
+
+    setBooking({
+      ...bookingData,
+      customerName: `${formData.firstName} ${formData.lastName}`,
+      customerEmail: formData.email,
+      courseName,
+      slotName,
+      slotTime,
+    });
+
     // ส่งอีเมล
     try {
       await fetch("/api/send-confirmation-email", {
@@ -298,6 +329,7 @@ const [booking, setBooking] = useState<any>(null);
           slotName,
           totalPrice: total,
           bookingId,
+          bookingCode: bookingData.booking_code,
         }),
       });
     } catch (emailErr) {
@@ -363,7 +395,8 @@ const [booking, setBooking] = useState<any>(null);
               window.location.href = data.authorizeUri;
             } else {
               throw new Error(
-                data.failureMessage || "Your card was declined. Please contact your bank.",
+                data.failureMessage ||
+                  "Your card was declined. Please contact your bank.",
               );
             }
           } catch (err) {
@@ -484,37 +517,42 @@ const [booking, setBooking] = useState<any>(null);
 
       <div className="min-h-screen bg-[#8B7355] relative">
         {/* Payment Success Modal */}
-      {paymentSuccess && (
-  <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-    <div className="bg-white p-8 rounded-lg max-w-md w-full mx-4 text-center">
-      <div className="text-6xl mb-4">✓</div>
-      <h2 className="text-3xl font-bold text-black mb-4">Payment Successful!</h2>
-      <p className="text-black mb-2">Your booking has been confirmed.</p>
+        {paymentSuccess && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+            <div className="bg-white p-8 rounded-lg max-w-md w-full mx-4 text-center">
+              <div className="text-6xl mb-4">✓</div>
+              <h2 className="text-3xl font-bold text-black mb-4">
+                Payment Successful!
+              </h2>
+              <p className="text-black mb-2">Your booking has been confirmed.</p>
 
-      {booking && (
-        <div className="text-sm text-gray-600 mb-6 text-left p-4 rounded">
-          <p><b>ID:</b> {booking.id}</p>
-          <p><b>Ref:</b> {booking.omise_charge_id}</p>
-          <p><b>Name:</b> {booking.customers.first_name} {booking.customers.last_name}</p>
-          <p><b>Email:</b> {booking.customers.email}</p>
-          <p><b>Course:</b> {booking.courses.weekly_template.title}</p>
-          <p><b>Date:</b> {new Date(booking.booking_date).toLocaleDateString("en-GB")}</p>
-          <p><b>Class:</b> {booking.course_time_slot.slot_name} ({booking.course_time_slot.start_time.slice(0,5)} - {booking.course_time_slot.end_time.slice(0,5)})</p>
-          <p><b>Quantity:</b> {booking.quantity} ticket(s)</p>
-          <p><b>Total:</b> ฿{booking.total_price.toLocaleString()}.00</p>
-        </div>
-      )}
+              {booking && (
+                <div className="text-sm text-gray-600 mb-6 text-left p-4 rounded">
+                  <p><b>Booking Code:</b> {booking.booking_code}</p>
+                  {/* <p><b>Ref:</b> {booking.omise_charge_id}</p> */}
+                  <p><b>Name:</b> {booking.customerName}</p>
+                  <p><b>Email:</b> {booking.customerEmail}</p>
+                  <p><b>Course:</b> {booking.courseName}</p>
+                  <p><b>Date:</b> {new Date(booking.booking_date).toLocaleDateString("en-GB")}</p>
+                  <p><b>Class:</b> {booking.slotName} {booking.slotTime && `(${booking.slotTime})`}</p>
+                  <p><b>Quantity:</b> {booking.quantity} ticket(s)</p>
+                  <p><b>Total:</b> ฿{booking.total_price.toLocaleString()}.00</p>
+                </div>
+              )}
 
-      <p className="text-sm text-gray-500 mb-4">
-        Please check your email for the booking confirmation.
-      </p>
+              <p className="text-sm text-gray-500 mb-4">
+                Please check your email for the booking confirmation.
+              </p>
 
-      <Link href="/" className="block w-full bg-black text-white py-3 font-medium hover:opacity-80 transition-opacity">
-        Back to Home
-      </Link>
-    </div>
-  </div>
-)}
+              <Link
+                href="/"
+                className="block w-full bg-black text-white py-3 font-medium hover:opacity-80 transition-opacity"
+              >
+                Back to Home
+              </Link>
+            </div>
+          </div>
+        )}
 
         {/* QR PromptPay Modal */}
         {showQR && qrCodeUrl && (
@@ -695,104 +733,112 @@ const [booking, setBooking] = useState<any>(null);
 
                     {showParticipants && (
                       <div>
-                        {Array.from({ length: quantity - 1 }).map((_, index) => (
-                          <div
-                            key={index}
-                            className="mb-8 p-6 bg-white border border-gray-300"
-                          >
-                            <h3 className="font-semibold text-black mb-4">
-                              Participant {index + 2}
-                            </h3>
-                            <div className="space-y-4">
-                              <div className="grid grid-cols-2 gap-4">
+                        {Array.from({ length: quantity - 1 }).map(
+                          (_, index) => (
+                            <div
+                              key={index}
+                              className="mb-8 p-6 bg-white border border-gray-300"
+                            >
+                              <h3 className="font-semibold text-black mb-4">
+                                Participant {index + 2}
+                              </h3>
+                              <div className="space-y-4">
+                                <div className="grid grid-cols-2 gap-4">
+                                  <div>
+                                    <label className="block text-sm font-medium text-black mb-2">
+                                      First Name{" "}
+                                      <span className="text-red-600">*</span>
+                                    </label>
+                                    <input
+                                      type="text"
+                                      value={participantsData[index]?.firstName || ""}
+                                      onChange={(e) =>
+                                        handleParticipantChange(index, "firstName", e.target.value)
+                                      }
+                                      className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
+                                    />
+                                  </div>
+                                  <div>
+                                    <label className="block text-sm font-medium text-black mb-2">
+                                      Last Name{" "}
+                                      <span className="text-red-600">*</span>
+                                    </label>
+                                    <input
+                                      type="text"
+                                      value={participantsData[index]?.lastName || ""}
+                                      onChange={(e) =>
+                                        handleParticipantChange(index, "lastName", e.target.value)
+                                      }
+                                      className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
+                                    />
+                                  </div>
+                                </div>
                                 <div>
                                   <label className="block text-sm font-medium text-black mb-2">
-                                    First Name <span className="text-red-600">*</span>
+                                    E-mail Address{" "}
+                                    <span className="text-red-600">*</span>
                                   </label>
                                   <input
-                                    type="text"
-                                    value={participantsData[index]?.firstName || ""}
+                                    type="email"
+                                    value={participantsData[index]?.email || ""}
                                     onChange={(e) =>
-                                      handleParticipantChange(index, "firstName", e.target.value)
+                                      handleParticipantChange(index, "email", e.target.value)
                                     }
                                     className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                                   />
                                 </div>
                                 <div>
                                   <label className="block text-sm font-medium text-black mb-2">
-                                    Last Name <span className="text-red-600">*</span>
+                                    Country{" "}
+                                    <span className="text-red-600">*</span>
+                                  </label>
+                                  <select
+                                    value={participantsData[index]?.country || ""}
+                                    onChange={(e) =>
+                                      handleParticipantChange(index, "country", e.target.value)
+                                    }
+                                    className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
+                                  >
+                                    <option value="">Select Country</option>
+                                    {countries.map((c) => (
+                                      <option key={c} value={c}>
+                                        {c}
+                                      </option>
+                                    ))}
+                                  </select>
+                                </div>
+                                <div>
+                                  <label className="block text-sm font-medium text-black mb-2">
+                                    Passport Num / ID Number{" "}
+                                    <span className="text-red-600">*</span>
                                   </label>
                                   <input
                                     type="text"
-                                    value={participantsData[index]?.lastName || ""}
+                                    value={participantsData[index]?.passportId || ""}
                                     onChange={(e) =>
-                                      handleParticipantChange(index, "lastName", e.target.value)
+                                      handleParticipantChange(index, "passportId", e.target.value)
                                     }
                                     className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                                   />
                                 </div>
-                              </div>
-                              <div>
-                                <label className="block text-sm font-medium text-black mb-2">
-                                  E-mail Address <span className="text-red-600">*</span>
-                                </label>
-                                <input
-                                  type="email"
-                                  value={participantsData[index]?.email || ""}
-                                  onChange={(e) =>
-                                    handleParticipantChange(index, "email", e.target.value)
-                                  }
-                                  className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
-                                />
-                              </div>
-                              <div>
-                                <label className="block text-sm font-medium text-black mb-2">
-                                  Country <span className="text-red-600">*</span>
-                                </label>
-                                <select
-                                  value={participantsData[index]?.country || ""}
-                                  onChange={(e) =>
-                                    handleParticipantChange(index, "country", e.target.value)
-                                  }
-                                  className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
-                                >
-                                  <option value="">Select Country</option>
-                                  {countries.map((c) => (
-                                    <option key={c} value={c}>
-                                      {c}
-                                    </option>
-                                  ))}
-                                </select>
-                              </div>
-                              <div>
-                                <label className="block text-sm font-medium text-black mb-2">
-                                  Passport Num / ID Number <span className="text-red-600">*</span>
-                                </label>
-                                <input
-                                  type="text"
-                                  value={participantsData[index]?.passportId || ""}
-                                  onChange={(e) =>
-                                    handleParticipantChange(index, "passportId", e.target.value)
-                                  }
-                                  className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
-                                />
-                              </div>
-                              <div>
-                                <label className="block text-sm font-medium text-black mb-2">
-                                  Phone <span className="text-red-600">*</span>
-                                </label>
-                                <input
-                                  type="tel"
-                                  value={participantsData[index]?.phone || ""}
-                                  onChange={(e) =>
-                                    handleParticipantChange(index, "phone", e.target.value)
-                                  }
-                                  className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
-                                />
+                                <div>
+                                  <label className="block text-sm font-medium text-black mb-2">
+                                    Phone{" "}
+                                    <span className="text-red-600">*</span>
+                                  </label>
+                                  <input
+                                    type="tel"
+                                    value={participantsData[index]?.phone || ""}
+                                    onChange={(e) =>
+                                      handleParticipantChange(index, "phone", e.target.value)
+                                    }
+                                    className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
+                                  />
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        ))}
+                          ),
+                        )}
                       </div>
                     )}
                   </div>

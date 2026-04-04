@@ -8,6 +8,7 @@ import { supabase } from "@/lib/supabaseClient";
 interface BookingDetail {
   id: string;
   booking_date: string;
+  booking_code: string;
   quantity: number;
   total_price: number;
   omise_charge_id: string;
@@ -173,6 +174,7 @@ function CompleteContent() {
             `
   id,
   booking_date,
+  booking_code,
   quantity,
   total_price,
   omise_charge_id,
@@ -215,6 +217,7 @@ function CompleteContent() {
               quantity,
               totalPrice: total,
               bookingId: bookingData.id,
+              bookingCode: bookingData.booking_code
             }),
           });
         } catch (emailErr) {
@@ -279,11 +282,11 @@ function CompleteContent() {
         {booking && (
           <div className="text-sm text-gray-600 mb-6 text-left p-4 rounded">
             <p>
-              <b>ID:</b> {booking.id}
+              <b>Booking Code:</b> {booking.booking_code}
             </p>
-            <p>
+            {/* <p>
               <b>Ref:</b> {booking.omise_charge_id}
-            </p>
+            </p> */}
             <p>
               <b>Name:</b> {(booking.customers as any).first_name}{" "}
               {(booking.customers as any).last_name}

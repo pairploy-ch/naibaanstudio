@@ -2,6 +2,17 @@ import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
+function formatDate(dateString: string) {
+  const date = new Date(dateString)
+
+  return date.toLocaleDateString("en-US", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Asia/Bangkok"
+  })
+}
 
 export async function POST(req: Request) {
   try {
@@ -15,14 +26,17 @@ export async function POST(req: Request) {
       quantity,
       totalPrice,
       bookingId,
+      bookingCode
     } = await req.json()
-    console.log("📧 classTime received:", classTime)
+    console.log("📧 classTime received:", bookingCode)
 
+
+    const formattedDate = formatDate(bookingDate)
 
     const { data, error } = await resend.emails.send({
       from: 'Nai Baan Studio <booking@naibaanstudio.com>',
       to: [to],
-      cc: ['naibaanstudio@gmail.com'], 
+      cc: ['naibaanstudio@gmail.com'],
       subject: `Booking Confirmed – Nai Baan Studio`,
       html: `
         <!DOCTYPE html>
@@ -58,8 +72,8 @@ export async function POST(req: Request) {
                 <p>Thank you for booking with us! Here are your booking details:</p>
 
                 <div class="row">
-                  <span class="label">Booking ID</span>
-                  <span class="value" style="margin-left: 5px;">#${bookingId}</span>
+                 <span class="label">Booking Code</span>
+<span class="value" style="margin-left: 5px;">${bookingCode}</span>
                 </div>
                 <div class="row">
                   <span class="label">Course</span>
@@ -67,8 +81,12 @@ export async function POST(req: Request) {
                 </div>
                 <div class="row">
                   <span class="label">Date</span>
-                  <span class="value" style="margin-left: 5px;">${bookingDate}</span>
+                  <span class="value" style="margin-left: 5px;">${formattedDate}</span>
                 </div>
+                <div class="row">
+  <span class="label">Time</span>
+  <span class="value" style="margin-left: 5px;">${classTime}</span>
+</div>
                 <div class="row">
                   <span class="label">Class</span>
                   <span class="value" style="margin-left: 5px;">${slotName}</span>
