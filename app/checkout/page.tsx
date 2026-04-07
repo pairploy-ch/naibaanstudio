@@ -247,12 +247,17 @@ function CheckoutContent() {
           created_at: new Date().toISOString(),
         },
       ])
-      .select("id, booking_code, booking_date, quantity, total_price, omise_charge_id");
+      .select(
+        "id, booking_code, booking_date, quantity, total_price, omise_charge_id",
+      );
     if (bookingErr) throw bookingErr;
 
     // ✅ DEBUG: ดูว่า booking_code ติดมาจาก insert เลยไหม
     console.log("📦 bookingInserted[0]:", JSON.stringify(bookingInserted[0]));
-    console.log("🔑 booking_code from insert:", bookingInserted[0].booking_code);
+    console.log(
+      "🔑 booking_code from insert:",
+      bookingInserted[0].booking_code,
+    );
 
     const bookingId = bookingInserted[0].id;
 
@@ -287,7 +292,9 @@ function CheckoutContent() {
 
         const { data, error: fetchErr } = await supabase
           .from("bookings")
-          .select("id, booking_code, booking_date, quantity, total_price, omise_charge_id")
+          .select(
+            "id, booking_code, booking_date, quantity, total_price, omise_charge_id",
+          )
           .eq("id", bookingId)
           .single();
 
@@ -297,11 +304,15 @@ function CheckoutContent() {
           bookingData = data;
           break;
         }
-        console.log(`⏳ Attempt ${attempt + 1}: not ready...`, fetchErr?.message);
+        console.log(
+          `⏳ Attempt ${attempt + 1}: not ready...`,
+          fetchErr?.message,
+        );
       }
     }
 
-    if (!bookingData) throw new Error("booking_code was not generated after 5 seconds");
+    if (!bookingData)
+      throw new Error("booking_code was not generated after 5 seconds");
 
     console.log("✅ Final booking_code:", bookingData.booking_code);
 
@@ -323,7 +334,14 @@ function CheckoutContent() {
           to: formData.email.trim(),
           customerName: `${formData.firstName} ${formData.lastName}`,
           courseName,
-          bookingDate: date,
+          bookingDate: (() => {
+            const [d, m, y] = date.split("/");
+            return new Date(`${y}-${m}-${d}`).toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            });
+          })(),
           classTime: slotTime,
           quantity,
           slotName,
@@ -524,19 +542,46 @@ function CheckoutContent() {
               <h2 className="text-3xl font-bold text-black mb-4">
                 Payment Successful!
               </h2>
-              <p className="text-black mb-2">Your booking has been confirmed.</p>
+              <p className="text-black mb-2">
+                Your booking has been confirmed.
+              </p>
 
               {booking && (
                 <div className="text-sm text-gray-600 mb-6 text-left p-4 rounded">
-                  <p><b>Booking Code:</b> {booking.booking_code}</p>
+                  <p>
+                    <b>Booking Code:</b> {booking.booking_code}
+                  </p>
                   {/* <p><b>Ref:</b> {booking.omise_charge_id}</p> */}
-                  <p><b>Name:</b> {booking.customerName}</p>
-                  <p><b>Email:</b> {booking.customerEmail}</p>
-                  <p><b>Course:</b> {booking.courseName}</p>
-                  <p><b>Date:</b> {new Date(booking.booking_date).toLocaleDateString("en-GB")}</p>
-                  <p><b>Class:</b> {booking.slotName} {booking.slotTime && `(${booking.slotTime})`}</p>
-                  <p><b>Quantity:</b> {booking.quantity} ticket(s)</p>
-                  <p><b>Total:</b> ฿{booking.total_price.toLocaleString()}.00</p>
+                  <p>
+                    <b>Name:</b> {booking.customerName}
+                  </p>
+                  <p>
+                    <b>Email:</b> {booking.customerEmail}
+                  </p>
+                  <p>
+                    <b>Course:</b> {booking.courseName}
+                  </p>
+                  <p>
+                    <b>Date:</b>{" "}
+                    {new Date(booking.booking_date).toLocaleDateString(
+                      "en-GB",
+                      {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      },
+                    )}
+                  </p>
+                  <p>
+                    <b>Class:</b> {booking.slotName}{" "}
+                    {booking.slotTime && `(${booking.slotTime})`}
+                  </p>
+                  <p>
+                    <b>Quantity:</b> {booking.quantity} ticket(s)
+                  </p>
+                  <p>
+                    <b>Total:</b> ฿{booking.total_price.toLocaleString()}.00
+                  </p>
                 </div>
               )}
 
@@ -558,7 +603,9 @@ function CheckoutContent() {
         {showQR && qrCodeUrl && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-white p-8 rounded-lg max-w-sm w-full mx-4 text-center">
-              <h2 className="text-xl font-bold text-black mb-2">QR PromptPay</h2>
+              <h2 className="text-xl font-bold text-black mb-2">
+                QR PromptPay
+              </h2>
               <p className="text-sm text-gray-500 mb-4">
                 Amount ฿{total.toLocaleString()}
               </p>
@@ -751,9 +798,15 @@ function CheckoutContent() {
                                     </label>
                                     <input
                                       type="text"
-                                      value={participantsData[index]?.firstName || ""}
+                                      value={
+                                        participantsData[index]?.firstName || ""
+                                      }
                                       onChange={(e) =>
-                                        handleParticipantChange(index, "firstName", e.target.value)
+                                        handleParticipantChange(
+                                          index,
+                                          "firstName",
+                                          e.target.value,
+                                        )
                                       }
                                       className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                                     />
@@ -765,9 +818,15 @@ function CheckoutContent() {
                                     </label>
                                     <input
                                       type="text"
-                                      value={participantsData[index]?.lastName || ""}
+                                      value={
+                                        participantsData[index]?.lastName || ""
+                                      }
                                       onChange={(e) =>
-                                        handleParticipantChange(index, "lastName", e.target.value)
+                                        handleParticipantChange(
+                                          index,
+                                          "lastName",
+                                          e.target.value,
+                                        )
                                       }
                                       className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                                     />
@@ -782,7 +841,11 @@ function CheckoutContent() {
                                     type="email"
                                     value={participantsData[index]?.email || ""}
                                     onChange={(e) =>
-                                      handleParticipantChange(index, "email", e.target.value)
+                                      handleParticipantChange(
+                                        index,
+                                        "email",
+                                        e.target.value,
+                                      )
                                     }
                                     className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                                   />
@@ -793,9 +856,15 @@ function CheckoutContent() {
                                     <span className="text-red-600">*</span>
                                   </label>
                                   <select
-                                    value={participantsData[index]?.country || ""}
+                                    value={
+                                      participantsData[index]?.country || ""
+                                    }
                                     onChange={(e) =>
-                                      handleParticipantChange(index, "country", e.target.value)
+                                      handleParticipantChange(
+                                        index,
+                                        "country",
+                                        e.target.value,
+                                      )
                                     }
                                     className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                                   >
@@ -814,9 +883,15 @@ function CheckoutContent() {
                                   </label>
                                   <input
                                     type="text"
-                                    value={participantsData[index]?.passportId || ""}
+                                    value={
+                                      participantsData[index]?.passportId || ""
+                                    }
                                     onChange={(e) =>
-                                      handleParticipantChange(index, "passportId", e.target.value)
+                                      handleParticipantChange(
+                                        index,
+                                        "passportId",
+                                        e.target.value,
+                                      )
                                     }
                                     className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                                   />
@@ -830,7 +905,11 @@ function CheckoutContent() {
                                     type="tel"
                                     value={participantsData[index]?.phone || ""}
                                     onChange={(e) =>
-                                      handleParticipantChange(index, "phone", e.target.value)
+                                      handleParticipantChange(
+                                        index,
+                                        "phone",
+                                        e.target.value,
+                                      )
                                     }
                                     className="w-full px-4 py-2 border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                                   />
@@ -855,8 +934,18 @@ function CheckoutContent() {
                   <div>
                     <div className="font-bold text-black">{courseName}</div>
                     <div className="text-sm text-black italic mt-1">
-                      {date} · {slotName} {slotTime && `(${slotTime})`} x{" "}
-                      {quantity}
+                      {(() => {
+                        const [d, m, y] = date.split("/");
+                        return new Date(`${y}-${m}-${d}`).toLocaleDateString(
+                          "en-GB",
+                          {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                          },
+                        );
+                      })()}{" "}
+                      · {slotName} {slotTime && `(${slotTime})`} x {quantity}
                     </div>
                   </div>
                   <div className="font-bold text-black">
@@ -887,7 +976,9 @@ function CheckoutContent() {
                         onChange={(e) => setPaymentMethod(e.target.value)}
                         className="w-5 h-5 mr-3"
                       />
-                      <span className="font-medium text-black">Credit Card</span>
+                      <span className="font-medium text-black">
+                        Credit Card
+                      </span>
                     </div>
                     <div className="flex gap-4">
                       <img

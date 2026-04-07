@@ -3,14 +3,19 @@ import { NextResponse } from 'next/server'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 function formatDate(dateString: string) {
-  const date = new Date(dateString)
-
-  return date.toLocaleDateString("en-US", {
+  let date: Date
+  if (dateString.includes("/")) {
+    const [day, month, year] = dateString.split("/")
+    date = new Date(`${year}-${month}-${day}`)
+  } else {
+    date = new Date(dateString)
+  }
+  return date.toLocaleDateString("en-GB", {
     weekday: "long",
     day: "numeric",
     month: "long",
     year: "numeric",
-    timeZone: "Asia/Bangkok"
+    timeZone: "Asia/Bangkok",
   })
 }
 
