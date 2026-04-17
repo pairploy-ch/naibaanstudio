@@ -141,7 +141,11 @@ async function generateBookingPDF(data: {
   }
 
   // Meta block (right) — No. / Date / Booking Code
-  const invoiceNo = data.bookingCode || data.bookingId
+  const now = new Date()
+const thaiYear = now.getFullYear() + 543
+const mm = String(now.getMonth() + 1).padStart(2, '0')
+const dd = String(now.getDate()).padStart(2, '0')
+const invoiceNo = `IV${thaiYear}${mm}${dd}`
   const metaRows: [string, string][] = [
     ['No. :', invoiceNo],
     ['Date :', new Date().toLocaleDateString('en-GB', {
