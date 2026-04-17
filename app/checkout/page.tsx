@@ -327,29 +327,34 @@ function CheckoutContent() {
 
     // ส่งอีเมล
     try {
-      await fetch("/api/send-confirmation-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          to: formData.email.trim(),
-          customerName: `${formData.firstName} ${formData.lastName}`,
-          courseName,
-          bookingDate: (() => {
-            const [d, m, y] = date.split("/");
-            return new Date(`${y}-${m}-${d}`).toLocaleDateString("en-GB", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            });
-          })(),
-          classTime: slotTime,
-          quantity,
-          slotName,
-          totalPrice: total,
-          bookingId,
-          bookingCode: bookingData.booking_code,
-        }),
+await fetch("/api/send-confirmation-email", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    to: formData.email.trim(),
+    customerName: `${formData.firstName} ${formData.lastName}`,
+    courseName,
+    bookingDate: (() => {
+      const [d, m, y] = date.split("/");
+      return new Date(`${y}-${m}-${d}`).toLocaleDateString("en-GB", {
+        day: "numeric", month: "long", year: "numeric",
       });
+    })(),
+    classTime: slotTime,
+    quantity,
+    slotName,
+    totalPrice: total,
+    bookingId,
+    bookingCode: bookingData.booking_code,
+    // ── invoice extra fields ──
+    customerPhone: formData.phone.trim(),
+    customerAddress: formData.address.trim(),
+    customerCountry: formData.country.trim(),
+    passportId: formData.passportId.trim(),
+    unitPrice: price,          // ราคาต่อคน (ก่อน VAT)
+    vatAmount: vat,            // VAT รวม
+  }),
+});
     } catch (emailErr) {
       console.error("Email error:", emailErr);
     }
@@ -757,6 +762,20 @@ function CheckoutContent() {
                     type="email"
                     name="email"
                     value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-2 border border-black bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
+                  />
+                </div>
+
+                 <div>
+                  <label className="block text-sm font-medium text-black mb-2">
+                    Reference Code
+                  </label>
+                  <input
+                    type="text"
+                    name="code"
+                   
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-2 border border-black bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
