@@ -58,13 +58,9 @@ export function generateInvoicePdf(data: InvoiceData): Buffer {
   doc.setTextColor(40, 40, 40);
   doc.setFontSize(9);
   doc.setFont("helvetica", "normal");
-  const billLines = [
-    `${data.customerName}`,
-    `Email: ${data.customerEmail}`,
-    `Phone: ${data.customerPhone}`,
-    `Passport / ID: ${data.passportId}`,
-    `${data.customerAddress}, ${data.customerCountry}`,
-  ];
+const billLines = [
+  `${data.customerName}`,
+];
   billLines.forEach((line, i) => doc.text(line, 14, 42 + i * 5));
 
   // ── Items table ──────────────────────────────────────────
