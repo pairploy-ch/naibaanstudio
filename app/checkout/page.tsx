@@ -14,7 +14,8 @@ function CheckoutContent() {
   const courseName = searchParams.get("course") || "Mastering Pad Thai Class";
   const date = searchParams.get("date") || "17/12/2025";
   const quantity = parseInt(searchParams.get("quantity") || "1");
-  const price = parseInt(searchParams.get("price") || "3000");
+  const price = parseFloat(searchParams.get("price") || "0");
+
   const courseId = searchParams.get("courseId") || "2";
   const slotId = searchParams.get("slotId") || "";
   const slotName = searchParams.get("slotName") || "";
@@ -77,7 +78,8 @@ function CheckoutContent() {
   };
 
   const subtotal = price * quantity;
-  const vat = parseInt(searchParams.get("vat") || "0") * quantity;
+ const vat = parseFloat(searchParams.get("vat") || "0") * quantity;
+
   const total = subtotal + vat;
 
   const isFormValid = () => {
@@ -968,18 +970,21 @@ await fetch("/api/send-confirmation-email", {
                     </div>
                   </div>
                   <div className="font-bold text-black">
-                    ฿{subtotal.toLocaleString()}.00
+                    ฿{subtotal.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+
                   </div>
                 </div>
 
                 <div className="flex justify-between items-center">
                   <div className="text-black">Vat 7%</div>
-                  <div className="text-black">฿{vat.toFixed(2)}</div>
+                  <div className="text-black">฿{vat.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+
+                  </div>
                 </div>
 
                 <div className="flex justify-between items-center font-bold text-lg pt-4 border-t border-black">
                   <div className="text-black">Total</div>
-                  <div className="text-black">฿{total.toLocaleString()}.00</div>
+                  <div className="text-black">฿{total.toLocaleString("en-US", { minimumFractionDigits: 2 })}</div>
                 </div>
               </div>
 
