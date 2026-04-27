@@ -68,6 +68,7 @@ async function generateBookingPDF(data: {
   passportId?: string
   unitPrice?: number
   vatAmount?: number
+   menus?: string[]
 }): Promise<Uint8Array> {
   const pdfDoc = await PDFDocument.create()
   const page = pdfDoc.addPage([595, 842]) // A4
@@ -256,6 +257,10 @@ const quantity   = data.quantity
     { text: data.slotName, bold: false },
     ...(data.classTime ? [{ text: `Time: ${data.classTime}`, bold: false }] : []),
     { text: `Date: ${formatDate(data.bookingDate)}`, bold: false },
+    ...(data.menus?.length
+  ? [{ text: `Menu: ${data.menus.join(", ")}`, bold: false }]
+  : []),
+    
   ]
 
   const rowLineH = 13
@@ -463,6 +468,7 @@ export async function POST(req: Request) {
       passportId,
       unitPrice,
       vatAmount,
+      menus,
     } = body
 
     const formattedDate = formatDate(bookingDate)
@@ -472,7 +478,7 @@ export async function POST(req: Request) {
       to, customerName, courseName, bookingDate, slotName, classTime,
       quantity, totalPrice, bookingId, bookingCode,
       customerPhone, customerAddress, customerCountry,
-      passportId, unitPrice, vatAmount,
+      passportId, unitPrice, vatAmount, menus,
     })
 
     const pdfBase64 = Buffer.from(pdfBytes).toString('base64')
@@ -517,6 +523,10 @@ export async function POST(req: Request) {
 
                 <div class="row"><span class="label">Booking Code</span><span class="value">${bookingCode}</span></div>
                 <div class="row"><span class="label">Course</span><span class="value">${courseName}</span></div>
+                <div class="row">
+  <span class="label">Menu</span>
+  <span class="value">${menus && menus.length > 0 ? menus.join(", ") : "-"}</span>
+</div>
                 <div class="row"><span class="label">Date</span><span class="value">${formattedDate}</span></div>
                 <div class="row"><span class="label">Time</span><span class="value">${classTime}</span></div>
                 <div class="row"><span class="label">Class</span><span class="value">${slotName}</span></div>

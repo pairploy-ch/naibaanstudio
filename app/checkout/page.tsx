@@ -15,7 +15,8 @@ function CheckoutContent() {
   const date = searchParams.get("date") || "17/12/2025";
   const quantity = parseInt(searchParams.get("quantity") || "1");
   const price = parseFloat(searchParams.get("price") || "0");
-
+const menuId = searchParams.get("menuId");
+const menuName = searchParams.get("menuName");
   const courseId = searchParams.get("courseId") || "2";
   const slotId = searchParams.get("slotId") || "";
   const slotName = searchParams.get("slotName") || "";
@@ -246,6 +247,8 @@ function CheckoutContent() {
           quantity,
           total_price: total,
           omise_charge_id: chargeId,
+          menu_id: menuId ? parseInt(menuId) : null,
+
           created_at: new Date().toISOString(),
         },
       ])
@@ -355,6 +358,7 @@ await fetch("/api/send-confirmation-email", {
     passportId: formData.passportId.trim(),
     unitPrice: price,          // ราคาต่อคน (ก่อน VAT)
     vatAmount: vat,            // VAT รวม
+    menus: menuName ? [decodeURIComponent(menuName)] : [], 
   }),
 });
     } catch (emailErr) {
@@ -415,6 +419,8 @@ await fetch("/api/send-confirmation-email", {
                   slotId,
                   quantity,
                   total,
+                   menuId,        // ← เพิ่มตรงนี้
+    menuName, 
                 }),
               );
               window.location.href = data.authorizeUri;
@@ -568,6 +574,9 @@ await fetch("/api/send-confirmation-email", {
                   <p>
                     <b>Course:</b> {booking.courseName}
                   </p>
+                     {menuName && (                                      
+      <p><b>Menu:</b> {decodeURIComponent(menuName)}</p>   
+    )} 
                   <p>
                     <b>Date:</b>{" "}
                     {new Date(booking.booking_date).toLocaleDateString(
@@ -949,11 +958,18 @@ await fetch("/api/send-confirmation-email", {
             {/* Right - Order Summary + Payment */}
             <div className="bg-[#F5F1EC] p-8">
               <h2 className="text-4xl font-bold text-black mb-8">Your Order</h2>
-
+{}
               <div className="space-y-6 mb-8">
                 <div className="flex justify-between items-start pb-6 border-b border-black">
                   <div>
-                    <div className="font-bold text-black">{courseName}</div>
+                    <div className="font-bold text-black">
+  {courseName}
+  {menuName && (
+    <div className="text-sm font-normal italic mt-1">
+      Menu: {decodeURIComponent(menuName)}
+    </div>
+  )}
+</div>
                     <div className="text-sm text-black italic mt-1">
                       {(() => {
                         const [d, m, y] = date.split("/");

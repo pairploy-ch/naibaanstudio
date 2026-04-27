@@ -1,19 +1,409 @@
-[00:00:01.308] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.447] Server  LOG     ✓ Ready in 1136ms
-[00:00:04.228] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:07.034] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-26T09:10:25.400Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:00:13.330] Browser LOG     Clicked date: 2026-05-03
-[00:00:13.330] Browser LOG     Slots: [{"available":8,"course_id":1065,"end_time":"10:30:00","slot_id":10,"slot_name":"Section #1","start_time":"09:00:00","total":8},{"available":8,"course_id":1079,"end_time":"13:00:00","slot_id":11,"slot_name":"Section #2","start_time":"11:30:00","total":8},{"available":8,"course_id":1093,"end_time":"15:30:00","slot_id":12,"slot_name":"Section #3","start_time":"14:00:00","total":8},{"available":8,"course_id":1107,"end_time":"17:30:00","slot_id":13,"slot_name":"Section #4","start_time":"16:00:00","total":8}]
-[00:00:37.278] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:37.386] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-26T09:10:55.753Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[07:26:41.772] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[07:26:41.879] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-26T16:37:00.363Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[07:29:42.828] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[07:29:42.932] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-26T16:40:01.417Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[07:29:56.744] Browser LOG     Clicked date: 2026-05-03
-[07:29:56.744] Browser LOG     Slots: [{"available":8,"course_id":1065,"end_time":"10:30:00","slot_id":10,"slot_name":"Section #1","start_time":"09:00:00","total":8},{"available":8,"course_id":1079,"end_time":"13:00:00","slot_id":11,"slot_name":"Section #2","start_time":"11:30:00","total":8},{"available":7,"course_id":1093,"end_time":"15:30:00","slot_id":12,"slot_name":"Section #3","start_time":"14:00:00","total":8},{"available":8,"course_id":1107,"end_time":"17:30:00","slot_id":13,"slot_name":"Section #4","start_time":"16:00:00","total":8}]
-[07:32:11.007] Server  LOG     ✓ Compiled in 195ms
-[07:32:22.716] Server  LOG     ✓ Compiled in 42ms
-[07:33:09.593] Server  LOG     ✓ Compiled in 50ms
-[07:33:21.927] Browser LOG     Clicked date: 2026-05-18
-[07:33:21.928] Browser LOG     Slots: [{"available":8,"course_id":989,"end_time":"12:30:00","slot_id":6,"slot_name":"Morning class","start_time":"09:00:00","total":8},{"available":8,"course_id":1002,"end_time":"17:30:00","slot_id":7,"slot_name":"Afternoon class","start_time":"14:00:00","total":8}]
+[00:00:01.291] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.427] Server  LOG     ✓ Ready in 1133ms
+[00:00:03.521] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:57.471] Server  LOG     ✓ Compiled in 401ms
+[00:05:29.127] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T13:51:58.915Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:06:20.940] Server  LOG     ✓ Compiled in 91ms
+[00:06:32.597] Server  LOG     ✓ Compiled in 47ms
+[00:06:44.417] Server  LOG     ✓ Compiled in 49ms
+[00:06:50.865] Server  LOG     ✓ Compiled in 98ms
+[00:07:05.858] Server  LOG     ✓ Compiled in 47ms
+[00:07:27.013] Server  LOG     ✓ Compiled in 91ms
+[00:08:46.181] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:46.328] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T13:55:16.123Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:10:54.891] Server  LOG     ✓ Compiled in 125ms
+[00:10:58.247] Server  LOG     ✓ Compiled in 42ms
+[00:11:10.111] Server  LOG     ✓ Compiled in 34ms
+[00:11:15.034] Server  LOG     ✓ Compiled in 42ms
+[00:11:25.729] Server  LOG     ✓ Compiled in 61ms
+[00:12:28.651] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:28.795] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T13:58:58.591Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:15:01.902] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:06.232] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T14:01:36.032Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:16:00.777] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:01.000] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T14:02:30.798Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:17:02.106] Browser LOG     Clicked date: 2026-05-03
+[00:17:02.107] Browser LOG     Slots: [{"available":8,"course_id":1065,"end_time":"10:30:00","slot_id":10,"slot_name":"Section #1","start_time":"09:00:00","total":8},{"available":8,"course_id":1079,"end_time":"13:00:00","slot_id":11,"slot_name":"Section #2","start_time":"11:30:00","total":8},{"available":6,"course_id":1093,"end_time":"15:30:00","slot_id":12,"slot_name":"Section #3","start_time":"14:00:00","total":8},{"available":8,"course_id":1107,"end_time":"17:30:00","slot_id":13,"slot_name":"Section #4","start_time":"16:00:00","total":8}]
+[00:18:15.956] Server  LOG     ✓ Compiled in 189ms
+[00:18:21.137] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:21.303] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T14:04:51.099Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:20:08.037] Browser LOG     Clicked date: 2026-05-03
+[00:20:08.037] Browser LOG     Slots: [{"available":8,"course_id":1065,"end_time":"10:30:00","slot_id":10,"slot_name":"Section #1","start_time":"09:00:00","total":8},{"available":8,"course_id":1079,"end_time":"13:00:00","slot_id":11,"slot_name":"Section #2","start_time":"11:30:00","total":8},{"available":6,"course_id":1093,"end_time":"15:30:00","slot_id":12,"slot_name":"Section #3","start_time":"14:00:00","total":8},{"available":8,"course_id":1107,"end_time":"17:30:00","slot_id":13,"slot_name":"Section #4","start_time":"16:00:00","total":8}]
+[00:22:40.354] Server  LOG     ✓ Compiled in 251ms
+[00:22:54.921] Server  LOG     ✓ Compiled in 67ms
+[00:23:37.667] Server  LOG     ✓ Compiled in 80ms
+[00:25:49.128] Server  LOG     ✓ Compiled in 131ms
+[00:25:49.836] Browser ERROR   ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+[00:25:53.785] Server  ERROR   ⨯ ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+
+[00:25:53.898] Browser ERROR   ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+[00:25:54.502] Browser ERROR   ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+[00:25:54.622] Browser ERROR   ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+[00:25:54.997] Browser ERROR   uncaughtError: Error: ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+
+[00:25:55.134] Browser ERROR   ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+[00:25:55.250] Browser ERROR   ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+[00:25:56.089] Server  ERROR   ⨯ ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+
+[00:25:56.236] Browser ERROR   uncaughtError: Error: ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+
+[00:25:56.398] Browser ERROR   ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+[00:25:56.398] Browser ERROR   ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+[00:25:57.316] Server  ERROR   ⨯ ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+
+[00:25:57.458] Browser ERROR   uncaughtError: Error: ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+
+[00:25:57.614] Browser ERROR   ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+[00:25:57.614] Browser ERROR   ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx:541:13
+Parsing ecmascript source code failed
+  539 |               const query = selectedDate && selectedSlot
+  540 |   ? new URLSearchParams({
+> 541 |       course: course.title,
+      |             ^
+  542 |       date: selectedDate.toLocaleDateString("en-GB"),
+  543 |       quantity: String(quantity),
+  544 |       price: String(course.type_of_course?.price ?? 0),
+
+Expected '</', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component Browser]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Client Component SSR]
+    ./Downloads/thaicookingclasses/app/courses/[id]/page.tsx [Server Component]
+[00:26:52.129] Server  LOG     ✓ Compiled in 95ms
+[00:26:52.674] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:26:53.838] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T14:13:22.670Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:26:57.910] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:26:58.065] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T14:13:27.864Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:27:01.671] Browser LOG     Clicked date: 2026-05-03
+[00:27:01.671] Browser LOG     Slots: [{"available":8,"course_id":1065,"end_time":"10:30:00","slot_id":10,"slot_name":"Section #1","start_time":"09:00:00","total":8},{"available":8,"course_id":1079,"end_time":"13:00:00","slot_id":11,"slot_name":"Section #2","start_time":"11:30:00","total":8},{"available":6,"course_id":1093,"end_time":"15:30:00","slot_id":12,"slot_name":"Section #3","start_time":"14:00:00","total":8},{"available":8,"course_id":1107,"end_time":"17:30:00","slot_id":13,"slot_name":"Section #4","start_time":"16:00:00","total":8}]
+[00:28:16.065] Server  LOG     ✓ Compiled in 125ms
+[00:30:27.263] Server  LOG     ✓ Compiled in 80ms
+[00:30:37.110] Server  LOG     ✓ Compiled in 51ms
+[00:30:54.633] Server  LOG     ✓ Compiled in 47ms
+[00:31:12.627] Server  LOG     ✓ Compiled in 60ms
+[00:35:39.733] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:50.124] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:50.241] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T14:23:19.983Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:38:06.516] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:46:06.691] Server  LOG     ✓ Compiled in 304ms
+[00:46:32.122] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:46:55.601] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:46:55.737] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T14:33:25.481Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:49:31.101] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:50:39.760] Server  LOG     ✓ Compiled in 65ms
+[00:50:45.277] Server  LOG     ✓ Compiled in 53ms
+[00:52:48.003] Server  LOG     ✓ Compiled in 75ms
+[00:53:15.203] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:53:42.671] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:54:23.214] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:54:23.390] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T14:40:53.179Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:57:14.374] Server  LOG     ✓ Compiled in 36ms
+[00:57:39.372] Server  LOG     ✓ Compiled in 67ms
+[00:58:49.368] Server  LOG     ✓ Compiled in 56ms
+[00:59:21.259] Server  LOG     ✓ Compiled in 74ms
+[00:59:53.696] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:59:54.792] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:00:19.575] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:00:19.780] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T14:46:49.571Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[01:01:19.759] Server  LOG     ✓ Compiled in 45ms
+[01:01:37.734] Server  LOG     ✓ Compiled in 49ms
+[01:02:03.273] Browser LOG     Clicked date: 2026-05-12
+[01:02:03.273] Browser LOG     Slots: [{"available":8,"course_id":1014,"end_time":"12:30:00","slot_id":8,"slot_name":"Morning class","start_time":"09:00:00","total":8},{"available":8,"course_id":1027,"end_time":"17:30:00","slot_id":9,"slot_name":"Afternoon class","start_time":"14:00:00","total":8}]
+[01:02:36.891] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:02:37.138] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-04-27T14:49:06.841Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.

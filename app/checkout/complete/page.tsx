@@ -33,7 +33,7 @@ function CompleteContent() {
   );
   const [errorMessage, setErrorMessage] = useState("");
   const [booking, setBooking] = useState<BookingDetail | null>(null);
-
+const [menuName, setMenuName] = useState<string | null>(null);
   const convertDateFormat = (dateStr: string): string => {
     const [day, month, year] = dateStr.split("/");
     return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
@@ -86,6 +86,8 @@ const formatDate = (dateStr: string): string => {
           slotId,
           quantity,
           total,
+           menuId,   
+           menuName
         } = pendingBooking;
 
         // Insert main customer
@@ -139,6 +141,7 @@ const formatDate = (dateStr: string): string => {
               quantity,
               total_price: total,
               omise_charge_id: chargeId,
+               menu_id: menuId ? parseInt(menuId) : null, 
               created_at: new Date().toISOString(),
             },
           ])
@@ -216,12 +219,15 @@ const formatDate = (dateStr: string): string => {
               quantity,
               totalPrice: total,
               bookingId: bookingData.id,
-              bookingCode: bookingData.booking_code
+              bookingCode: bookingData.booking_code,
+              menus: pendingBooking.menuName ? [decodeURIComponent(pendingBooking.menuName)] : [],
             }),
           });
         } catch (emailErr) {
           console.error("Email error:", emailErr);
-        }
+        }if (pendingBooking.menuName) {
+  setMenuName(decodeURIComponent(pendingBooking.menuName));
+}
 
         // ✅ เคลียร์ sessionStorage
         sessionStorage.removeItem("pendingChargeId");
@@ -281,34 +287,35 @@ const formatDate = (dateStr: string): string => {
         {booking && (
           <div className="text-sm text-gray-600 mb-6 text-left p-4 rounded">
             <p>
-              <b>Booking Code:</b> {booking.booking_code}
+              <b className="mr-2">Booking Code:</b> {booking.booking_code}
             </p>
             {/* <p>
               <b>Ref:</b> {booking.omise_charge_id}
             </p> */}
             <p>
-              <b>Name:</b> {(booking.customers as any).first_name}{" "}
+              <b className="mr-2">Name:</b> {(booking.customers as any).first_name}{" "}
               {(booking.customers as any).last_name}
             </p>
             <p>
-              <b>Email:</b> {(booking.customers as any).email}
+              <b className="mr-2">Email:</b> {(booking.customers as any).email}
             </p>
             <p>
-              <b>Course:</b> {(booking.courses as any).weekly_template.title}
+              <b className="mr-2">Course:</b> {(booking.courses as any).weekly_template.title}
+            </p>
+            {menuName && <p><b className="mr-2">Menu:</b> {menuName}</p>}
+            <p>
+              <b className="mr-2">Date:</b> {formatDate(booking.booking_date)}
             </p>
             <p>
-              <b>Date:</b> {formatDate(booking.booking_date)}
-            </p>
-            <p>
-              <b>Class:</b> {(booking.course_time_slot as any).slot_name}(
+              <b className="mr-2">Class:</b> {(booking.course_time_slot as any).slot_name}(
               {(booking.course_time_slot as any).start_time} -{" "}
               {(booking.course_time_slot as any).end_time})
             </p>
             <p>
-              <b>Quantity:</b> {booking.quantity} ticket(s)
+              <b className="mr-2">Quantity:</b> {booking.quantity} ticket(s)
             </p>
             <p>
-              <b>Total:</b> ฿{booking.total_price.toLocaleString()}.00
+              <b className="mr-2">Total:</b> ฿{booking.total_price.toLocaleString()}.00
             </p>
           </div>
         )}

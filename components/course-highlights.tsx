@@ -15,7 +15,6 @@ type Course = {
 
 export function CourseHighlights() {
 
-  // ✅ ใส่ type ให้ useState (แก้ error never[])
   const [courses, setCourses] = useState<Course[]>([])
 
   useEffect(() => {
@@ -33,7 +32,7 @@ export function CourseHighlights() {
       }
 
       if (data) {
-        setCourses(data as Course[]) // ✅ กัน TS error
+        setCourses(data as Course[])
       }
     }
 
@@ -50,33 +49,37 @@ export function CourseHighlights() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* ✅ ปรับเป็น 5 columns + ลด gap */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3">
           {courses.map((course) => (
             <div key={course.id}>
 
               <div className="relative">
-            <div className="relative w-full aspect-[3/4] overflow-hidden ">
-  <img
-    src={course.cover || "/placeholder.svg"}
-    alt={course.name}
-    className="w-full h-full object-cover object-center"
-  />
-</div>
+                {/* ✅ ปรับ aspect ratio ให้ไม่สูงเกิน */}
+                <div className="relative w-full aspect-[4/5] overflow-hidden">
+                  <img
+                    src={course.cover || "/placeholder.svg"}
+                    alt={course.name}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
               </div>
 
-              <div className="p-2 text-center pt-[20px]">
+              {/* ✅ ลด padding + font size */}
+              <div className="p-1 text-center pt-3">
 
-                <h3 className="font-bold text-xl mb-2 text-black">
+                <h3 className="font-bold text-lg mb-1 text-black">
                   {course.name}
                 </h3>
 
-                <p className="text-black text-sm mb-3 opacity-80 h-[100px]">
+                {/* ✅ จำกัดความสูง + ใช้ line clamp */}
+                <p className="text-black text-xs mb-2 opacity-80">
                   {course.description}
                 </p>
 
                 <Link
                   href={`/courses?category=${course.type}`}
-                  className="text-[#919077] font-medium underline hover:opacity-70 transition-opacity inline-block"
+                  className="text-[#919077] text-sm font-medium underline hover:opacity-70 transition-opacity inline-block"
                 >
                   Book a Class
                 </Link>

@@ -1,6 +1,31 @@
 globalThis.__BUILD_MANIFEST = {
   "pages": {
-    "/_app": []
+    "/_app": [
+      "static/chunks/503b1_next_dist_compiled_1f62f20c._.js",
+      "static/chunks/503b1_next_dist_shared_lib_eb1860fb._.js",
+      "static/chunks/503b1_next_dist_client_40b16c7e._.js",
+      "static/chunks/503b1_next_dist_cf929016._.js",
+      "static/chunks/503b1_next_app_9ac2a0af.js",
+      "static/chunks/[next]_entry_page-loader_ts_3b7695f2._.js",
+      "static/chunks/503b1_react-dom_56a26c97._.js",
+      "static/chunks/503b1_e99ad012._.js",
+      "static/chunks/[root-of-the-server]__4b52a50b._.js",
+      "static/chunks/Downloads_thaicookingclasses_pages__app_2da965e7._.js",
+      "static/chunks/turbopack-Downloads_thaicookingclasses_pages__app_c3ac5a32._.js"
+    ],
+    "/_error": [
+      "static/chunks/503b1_next_dist_compiled_1f62f20c._.js",
+      "static/chunks/503b1_next_dist_shared_lib_8de9c649._.js",
+      "static/chunks/503b1_next_dist_client_40b16c7e._.js",
+      "static/chunks/503b1_next_dist_18c3c5f4._.js",
+      "static/chunks/503b1_next_error_caa78f47.js",
+      "static/chunks/[next]_entry_page-loader_ts_73682fd5._.js",
+      "static/chunks/503b1_react-dom_56a26c97._.js",
+      "static/chunks/503b1_e99ad012._.js",
+      "static/chunks/[root-of-the-server]__84541597._.js",
+      "static/chunks/Downloads_thaicookingclasses_pages__error_2da965e7._.js",
+      "static/chunks/turbopack-Downloads_thaicookingclasses_pages__error_21e470f2._.js"
+    ]
   },
   "devFiles": [],
   "polyfillFiles": [

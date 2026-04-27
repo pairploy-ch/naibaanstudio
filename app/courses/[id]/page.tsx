@@ -69,6 +69,7 @@ export default function CoursePage({
   const [quantity, setQuantity] = useState(1);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedSlot, setSelectedSlot] = useState<Slot | null>(null);
+  const [selectedMenu, setSelectedMenu] = useState<Menu | null>(null);
 
   useEffect(() => {
     const fetchCourse = async () => {
@@ -230,6 +231,7 @@ export default function CoursePage({
   const handleDateChange = (value: Date) => {
     setSelectedDate(value);
     setSelectedSlot(null); // ✅ reset slot เมื่อเปลี่ยนวัน
+    setSelectedMenu(null);
     setQuantity(1);
   };
 
@@ -248,9 +250,31 @@ export default function CoursePage({
       </div>
     );
   }
+  const isMenuRequired = course.type_of_course_id === 5;
 
   const priceWithVat =
     (course.type_of_course?.price ?? 0) + (course.type_of_course?.vat ?? 0);
+
+    const query =
+  selectedDate && selectedSlot
+    ? new URLSearchParams({
+        course: course.title,
+        date: selectedDate.toLocaleDateString("en-GB"),
+        quantity: String(quantity),
+        price: String(course.type_of_course?.price ?? 0),
+        courseId: String(selectedSlot.course_id),
+        slotId: String(selectedSlot.slot_id),
+        slotName: selectedSlot.slot_name,
+        slotTime: `${selectedSlot.start_time.slice(0, 5)} - ${selectedSlot.end_time.slice(0, 5)}`,
+        vat: String(course.type_of_course?.vat ?? 0.07),
+        ...(isMenuRequired && selectedMenu
+          ? {
+              menuId: String(selectedMenu.id),
+              menuName: selectedMenu.name,
+            }
+          : {}),
+      }).toString()
+    : "";
 
   return (
     <div className="min-h-screen bg-[#F5F1EC]">
@@ -277,7 +301,9 @@ export default function CoursePage({
             </div>
             {course.menu && course.menu.length > 0 && (
               <div>
-                <h2 className="font-bold text-2xl mb-4 text-black">Menus:</h2>
+                <h2 className="font-bold text-2xl mb-4 text-black">
+                  Menus {course.type_of_course_id === 5 ? "(Option)" : ""} :
+                </h2>
                 <ul className="space-y-2">
                   {course.menu.map((item: Menu) => (
                     <li key={item.id} className="flex items-start">
@@ -310,7 +336,9 @@ export default function CoursePage({
                 <h2 className="font-bold text-2xl mb-4 text-black">
                   What you'll experience:
                 </h2>
-                <p className="text-black leading-relaxed">{course.experience}</p>
+                <p className="text-black leading-relaxed">
+                  {course.experience}
+                </p>
               </div>
             )}
           </div>
@@ -371,6 +399,9 @@ export default function CoursePage({
                 </div>
               </>
             )}
+            <div className="mt-5" style={{ fontWeight: 600 }}>
+              <i>For special event, please contact us directly.</i>
+            </div>
           </div>
         </div>
 
@@ -417,6 +448,7 @@ export default function CoursePage({
                     disabled={isFull}
                     onClick={() => {
                       setSelectedSlot(slot);
+                      setSelectedMenu(null);
                       setQuantity(1);
                     }}
                     className={`
@@ -441,15 +473,43 @@ export default function CoursePage({
                     </div>
                     {/* ✅ แสดงที่นั่งคงเหลือ */}
                     <span className="text-sm font-medium">
-                      {isFull
-                        ? "Full"
-                        : ``}
+                      {isFull ? "Full" : ``}
                     </span>
                   </button>
                 );
               })}
             </div>
           )}
+
+          {isMenuRequired &&
+            selectedDate &&
+            availability[formatDate(selectedDate)] && (
+              <div className="mt-8 space-y-3">
+                <h3 className="font-bold text-xl text-black">Select Menu:</h3>
+
+                {course.menu?.map((item: Menu) => {
+                  const isSelected = selectedMenu?.id === item.id;
+
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => setSelectedMenu(item)}
+                      className={`
+            w-full border p-4 text-left transition
+            ${isSelected ? "bg-[#919077] text-white" : "bg-white"}
+          `}
+                    >
+                      <div className="font-medium">{item.name}</div>
+                      {item.description && (
+                        <div className="text-sm opacity-70 mt-1">
+                          {item.description}
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
         </div>
 
         <hr className="border-black mb-16" />
@@ -496,22 +556,18 @@ export default function CoursePage({
               </div>
             </div>
 
-            <div className="p-6 pt-0 flex justify-end">
-              <Link
-                href={
-                  selectedDate && selectedSlot
-                    ? `/checkout?course=${encodeURIComponent(course.title)}&date=${selectedDate.toLocaleDateString("en-GB")}&quantity=${quantity}&price=${course.type_of_course?.price}&courseId=${selectedSlot.course_id}&slotId=${selectedSlot.slot_id}&slotName=${encodeURIComponent(selectedSlot.slot_name)}&slotTime=${encodeURIComponent(`${selectedSlot.start_time.slice(0, 5)} - ${selectedSlot.end_time.slice(0, 5)}`)}&vat=${course.type_of_course?.vat ?? 0.07}`
-                    : "#"
-                }
-                className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
-                  !selectedDate || !selectedSlot
-                    ? "opacity-50 pointer-events-none"
-                    : ""
-                }`}
-              >
-                Checkout Now
-              </Link>
-            </div>
+         <div className="p-6 pt-0 flex justify-end">
+  <Link
+    href={selectedDate && selectedSlot ? `/checkout?${query}` : "#"}
+    className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
+      !selectedDate || !selectedSlot || (isMenuRequired && !selectedMenu)
+        ? "opacity-50 pointer-events-none"
+        : ""
+    }`}
+  >
+    Checkout Now
+  </Link>
+</div>
           </div>
         </div>
 
