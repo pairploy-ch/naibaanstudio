@@ -521,20 +521,40 @@ export async function POST(req: Request) {
                 <p>Dear <strong>${customerName}</strong>,</p>
                 <p>Thank you for booking with us! Your booking confirmation is attached as a PDF. Here's a summary:</p>
 
-                <div class="row"><span class="label">Booking Code</span><span class="value">${bookingCode}</span></div>
-                <div class="row"><span class="label">Course</span><span class="value">${courseName}</span></div>
-                <div class="row">
-  <span class="label">Menu</span>
+           <div class="row">
+  <span class="label" style="margin-right: 8px;">Booking Code</span>
+  <span class="value">${bookingCode}</span>
+</div>
+
+<div class="row">
+  <span class="label" style="margin-right: 8px;">Course</span>
+  <span class="value">${courseName}</span>
+</div>
+
+<div class="row">
+  <span class="label" style="margin-right: 8px;">Menu</span>
   <span class="value">${menus && menus.length > 0 ? menus.join(", ") : "-"}</span>
 </div>
-                <div class="row"><span class="label">Date</span><span class="value">${formattedDate}</span></div>
-                <div class="row"><span class="label">Time</span><span class="value">${classTime}</span></div>
-                <div class="row"><span class="label">Class</span><span class="value">${slotName}</span></div>
-                <div class="row"><span class="label">Quantity</span><span class="value">${quantity} ticket(s)</span></div>
-                <div class="total-row">
-                  <span class="total-label">Total Paid</span>
-                  <span class="total-value">฿${Number(totalPrice).toLocaleString()}.00</span>
-                </div>
+
+<div class="row">
+  <span class="label" style="margin-right: 8px;">Date</span>
+  <span class="value">${formattedDate}</span>
+</div>
+
+<div class="row">
+  <span class="label" style="margin-right: 8px;">Time</span>
+  <span class="value">${classTime}</span>
+</div>
+
+<div class="row">
+  <span class="label" style="margin-right: 8px;">Class</span>
+  <span class="value">${slotName}</span>
+</div>
+
+<div class="row">
+  <span class="label" style="margin-right: 8px;">Quantity</span>
+  <span class="value">${quantity} ticket(s)</span>
+</div>
 
                 <p style="margin-top: 24px; color: #666; font-size: 14px;">
                   Please arrive 10 minutes before the class starts. See you soon! 🙏
