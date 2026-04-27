@@ -531,10 +531,12 @@ export async function POST(req: Request) {
   <span class="value">${courseName}</span>
 </div>
 
-<div class="row">
-  <span class="label" style="margin-right: 8px;">Menu</span>
-  <span class="value">${menus && menus.length > 0 ? menus.join(", ") : "-"}</span>
-</div>
+${menus && menus.length > 0 ? `
+  <div class="row">
+    <span class="label" style="margin-right: 8px;">Menu</span>
+    <span class="value">${menus.join(", ")}</span>
+  </div>
+` : ""}
 
 <div class="row">
   <span class="label" style="margin-right: 8px;">Date</span>
