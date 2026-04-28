@@ -88,6 +88,9 @@ export function CourseHighlights() {
             </div>
           ))}
         </div>
+             <div className="mt-7 text-center" style={{ fontWeight: 600 }}>
+              <i>For special event, please contact us directly.</i>
+            </div>
       </div>
     </section>
   )

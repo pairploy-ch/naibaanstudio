@@ -577,6 +577,7 @@ ${menus && menus.length > 0 ? `
                 <p style="font-size:13px; color:#333; font-weight:bold; margin-bottom:8px;">Distance from Nai Baan Studio</p>
                 <p style="font-size:13px; color:#666; line-height:1.6; margin:0;">
                   2 km to River City Bangkok<br/>2.6 km to Talat Noi<br/>
+                  2.9 km to Siam<br/>
                   3.1 km to Central Yaowarat<br/>4.4 km to Central Songwat
                 </p>
               </div>

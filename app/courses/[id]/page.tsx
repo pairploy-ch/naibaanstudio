@@ -399,9 +399,7 @@ export default function CoursePage({
                 </div>
               </>
             )}
-            <div className="mt-5" style={{ fontWeight: 600 }}>
-              <i>For special event, please contact us directly.</i>
-            </div>
+       
           </div>
         </div>
 
