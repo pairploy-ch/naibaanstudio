@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
-          amount: amount.toString(),
+          amount: Math.round(amount * 100).toString(),
           currency: 'thb',
           card: token,
           description,
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
-          amount: amount.toString(),
+          amount: Math.round(amount * 100).toString(),
           currency: 'thb',
           type: 'promptpay',
         }),
@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
-          amount: amount.toString(),
+          amount: Math.round(amount * 100).toString(),
           currency: 'thb',
           source: source.id,
           description,
