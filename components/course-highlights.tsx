@@ -68,12 +68,12 @@ export function CourseHighlights() {
               {/* ✅ ลด padding + font size */}
               <div className="p-1 text-center pt-3">
 
-                <h3 className="font-bold text-lg mb-1 text-black">
+                <h3 className="font-bold text-lg mb-1 text-black lg:h-[56px]">
                   {course.name}
                 </h3>
 
                 {/* ✅ จำกัดความสูง + ใช้ line clamp */}
-                <p className="text-black text-xs mb-2 opacity-80">
+                <p className="text-black text-xs mb-2 opacity-80  lg:h-[48px]">
                   {course.description}
                 </p>
 
