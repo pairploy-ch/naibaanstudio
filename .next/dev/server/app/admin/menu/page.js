@@ -7,7 +7,7 @@ R.c("server/chunks/ssr/503b1_@swc_helpers_cjs__interop_require_wildcard_cjs_eba5
 R.c("server/chunks/ssr/[externals]__f0336b73._.js")
 R.c("server/chunks/ssr/Downloads_thaicookingclasses_app_7ec33528._.js")
 R.c("server/chunks/ssr/503b1_next_dist_client_components_builtin_global-error_c8dfef91.js")
-R.c("server/chunks/ssr/[root-of-the-server]__913267fe._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__c85b045a._.js")
 R.c("server/chunks/ssr/503b1_next_dist_client_components_53d15701._.js")
 R.c("server/chunks/ssr/503b1_next_dist_client_components_builtin_forbidden_66609c12.js")
 R.c("server/chunks/ssr/503b1_next_dist_client_components_builtin_unauthorized_e142e40d.js")

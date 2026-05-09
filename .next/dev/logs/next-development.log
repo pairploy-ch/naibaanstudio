@@ -1,41 +1,61 @@
-[00:00:03.037] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:03.209] Server  LOG     ✓ Ready in 2.8s
-[00:02:09.992] Server  LOG     ✓ Compiled in 183ms
-[00:02:20.480] Server  LOG     ✓ Compiled in 83ms
-[00:02:24.753] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/Downloads...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="inter_fd091ad6-module__giF-bG__variable playfair_display_fa6c7a-module__e6LDAG_..."
--                           cz-shortcut-listen="true"
-                          >
-                  ...
-
+[00:00:02.987] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:03.127] Server  LOG     ✓ Ready in 2.7s
+[00:00:03.798] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:11.582] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:17.659] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:36.703] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:19.164] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:46.674] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:08.993] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:39.322] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:57.259] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:10:28.538Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:14:20.156] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:2 (2.89.0) 2026-05-09T17:10:51.426Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:14:20.156] Browser LOG     Starting to load menus...
+[00:14:20.156] Browser LOG     Fetching menus from Supabase...
+[00:14:20.156] Browser LOG     Starting to load menus...
+[00:14:20.156] Browser LOG     Fetching menus from Supabase...
+[00:14:20.731] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
+[00:14:20.731] Browser ERROR   Service error: {}
+[00:14:20.731] Browser ERROR   Failed to load menus: {}
+[00:14:20.855] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
+[00:14:20.855] Browser ERROR   Service error: {}
+[00:14:20.855] Browser ERROR   Failed to load menus: {}
+[00:14:22.709] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:22.835] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:10:54.114Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:14:43.107] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:2 (2.89.0) 2026-05-09T17:11:14.371Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:14:43.107] Browser LOG     Starting to load menus...
+[00:14:43.107] Browser LOG     Fetching menus from Supabase...
+[00:14:43.107] Browser LOG     Starting to load menus...
+[00:14:43.107] Browser LOG     Fetching menus from Supabase...
+[00:14:43.455] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
+[00:14:43.455] Browser ERROR   Service error: {}
+[00:14:43.455] Browser ERROR   Failed to load menus: {}
+[00:14:43.587] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
+[00:14:43.587] Browser ERROR   Service error: {}
+[00:14:43.587] Browser ERROR   Failed to load menus: {}
+[00:15:30.112] Server  LOG     ✓ Compiled in 867ms
+[00:15:32.885] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:33.012] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:12:04.292Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:15:45.366] Server  LOG     ✓ Compiled in 66ms
+[00:15:51.941] Server  LOG     ✓ Compiled in 39ms
+[00:28:22.917] Server  LOG     ✓ Compiled in 69ms
+[00:28:26.583] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:27.612] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:24:58.895Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:43:36.829] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:43:36.849] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:43:37.074] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:40:08.330Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:43:47.003] Server  LOG     ✓ Compiled in 237ms
+[00:44:38.946] Server  LOG     ✓ Compiled in 88ms
+[00:56:26.838] Server  LOG     ✓ Compiled in 148ms
+[00:56:35.021] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:56:35.152] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:53:06.438Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:57:57.003] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./Downloads/thaicookingclasses/app/admin/courses/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:57:57.008] Server  LOG     ✓ Compiled in 111ms
+[00:57:57.579] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:57:58.017] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:54:29.027Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:58:18.753] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./Downloads/thaicookingclasses/app/admin/booking/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:58:18.754] Server  LOG     ✓ Compiled in 100ms
+[00:58:19.012] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:58:20.067] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:54:50.452Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:59:34.711] Server  LOG     ✓ Compiled in 79ms
+[01:00:38.155] Server  LOG     ✓ Compiled in 93ms

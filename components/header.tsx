@@ -28,11 +28,12 @@ export default function Header() {
 
   const menuItems = isAdmin
     ? [
-        { name: "Course", href: "/admin/course" },
+        // { name: "Course", href: "/admin/course" },
+        // { name: "Courses", href: "/admin/courses" },
         { name: "Customer", href: "/admin/customer" },
-        { name: "Menu", href: "/admin/menu" },
+        // { name: "Menu", href: "/admin/menu" },
         { name: "Booking", href: "/admin/booking" },
-        { name: "Dashboard", href: "/admin/dashboard" },
+        // { name: "Dashboard", href: "/admin/dashboard" },
       ]
     : [
         { name: "Home", href: "/" },

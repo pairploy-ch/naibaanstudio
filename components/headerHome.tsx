@@ -17,7 +17,7 @@ export default function Header() {
     ? [
         { name: 'Course', href: '/admin/course' },
         { name: 'Customer', href: '/admin/customer' },
-        { name: 'Menu', href: '/admin/menu' },
+        // { name: 'Menu', href: '/admin/menu' },
         { name: 'Booking', href: '/admin/booking' },
         { name: 'Dashboard', href: '/admin/dashboard' },
       ]
