@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   ],
   generator: "v0.app",
   icons: {
-    icon: "/logo-nb.png", // ✅ เปลี่ยนตรงนี้
-    apple: "/logo-nb.png",
+    icon: "/icon.png", // ✅ เปลี่ยนตรงนี้
+    apple: "/icon.png",
   },
 };
 

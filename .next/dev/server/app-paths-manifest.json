@@ -7,5 +7,6 @@
   "/admin/dashboard/page": "app/admin/dashboard/page.js",
   "/admin/login/page": "app/admin/login/page.js",
   "/admin/menu/page": "app/admin/menu/page.js",
+  "/courses/page": "app/courses/page.js",
   "/page": "app/page.js"
 }
