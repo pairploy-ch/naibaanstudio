@@ -1,67 +1,33 @@
-[00:00:02.987] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:03.127] Server  LOG     ✓ Ready in 2.7s
-[00:00:03.798] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:11.582] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:17.659] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:36.703] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:19.164] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:46.674] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:12:08.993] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:12:39.322] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:13:57.259] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:10:28.538Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:14:20.156] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:2 (2.89.0) 2026-05-09T17:10:51.426Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:14:20.156] Browser LOG     Starting to load menus...
-[00:14:20.156] Browser LOG     Fetching menus from Supabase...
-[00:14:20.156] Browser LOG     Starting to load menus...
-[00:14:20.156] Browser LOG     Fetching menus from Supabase...
-[00:14:20.731] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
-[00:14:20.731] Browser ERROR   Service error: {}
-[00:14:20.731] Browser ERROR   Failed to load menus: {}
-[00:14:20.855] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
-[00:14:20.855] Browser ERROR   Service error: {}
-[00:14:20.855] Browser ERROR   Failed to load menus: {}
-[00:14:22.709] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:14:22.835] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:10:54.114Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:14:43.107] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:2 (2.89.0) 2026-05-09T17:11:14.371Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:14:43.107] Browser LOG     Starting to load menus...
-[00:14:43.107] Browser LOG     Fetching menus from Supabase...
-[00:14:43.107] Browser LOG     Starting to load menus...
-[00:14:43.107] Browser LOG     Fetching menus from Supabase...
-[00:14:43.455] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
-[00:14:43.455] Browser ERROR   Service error: {}
-[00:14:43.455] Browser ERROR   Failed to load menus: {}
-[00:14:43.587] Browser ERROR   Supabase error: {"code":"PGRST205","details":null,"hint":"Perhaps you meant the table 'public.menu'","message":"Could not find the table 'public.menus' in the schema cache"}
-[00:14:43.587] Browser ERROR   Service error: {}
-[00:14:43.587] Browser ERROR   Failed to load menus: {}
-[00:15:30.112] Server  LOG     ✓ Compiled in 867ms
-[00:15:32.885] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:15:33.012] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:12:04.292Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:15:45.366] Server  LOG     ✓ Compiled in 66ms
-[00:15:51.941] Server  LOG     ✓ Compiled in 39ms
-[00:28:22.917] Server  LOG     ✓ Compiled in 69ms
-[00:28:26.583] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:28:27.612] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:24:58.895Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:43:36.829] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:43:36.849] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:43:37.074] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:40:08.330Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:43:47.003] Server  LOG     ✓ Compiled in 237ms
-[00:44:38.946] Server  LOG     ✓ Compiled in 88ms
-[00:56:26.838] Server  LOG     ✓ Compiled in 148ms
-[00:56:35.021] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:56:35.152] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:53:06.438Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:57:57.003] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./Downloads/thaicookingclasses/app/admin/courses/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:57:57.008] Server  LOG     ✓ Compiled in 111ms
-[00:57:57.579] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:57:58.017] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:54:29.027Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:58:18.753] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./Downloads/thaicookingclasses/app/admin/booking/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:58:18.754] Server  LOG     ✓ Compiled in 100ms
-[00:58:19.012] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:58:20.067] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-09T17:54:50.452Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[00:59:34.711] Server  LOG     ✓ Compiled in 79ms
-[01:00:38.155] Server  LOG     ✓ Compiled in 93ms
-[16:52:03.650] Browser ERROR   {"__isAuthError":true,"code":"refresh_token_not_found","name":"AuthApiError","status":400}
-[26:25:03.916] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[26:25:09.473] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-10T19:21:40.686Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[36:38:36.987] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[36:38:37.193] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-05-11T05:35:08.581Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
-[37:24:25.754] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:02.672] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:02.770] Server  LOG     ✓ Ready in 2.5s
+[00:00:10.394] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:14.002] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-06-21T13:33:09.985Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:00:19.187] Browser LOG     Clicked date: 2026-06-29
+[00:00:19.187] Browser LOG     Slots: [{"available":8,"course_id":995,"end_time":"13:00:00","slot_id":6,"slot_name":"Morning class","start_time":"09:30:00","total":8},{"available":8,"course_id":1008,"end_time":"17:30:00","slot_id":7,"slot_name":"Afternoon class","start_time":"14:00:00","total":8}]
+[00:00:22.130] Browser ERROR   unhandledRejection: TypeError: Failed to fetch
+[00:00:22.130] Browser ERROR   unhandledRejection: TypeError: Failed to fetch
+[00:15:54.696] Browser LOG     Clicked date: 2026-07-05
+[00:15:54.699] Browser LOG     Slots: [{"available":8,"course_id":1074,"end_time":"10:30:00","slot_id":10,"slot_name":"Section #1","start_time":"09:00:00","total":8},{"available":8,"course_id":1088,"end_time":"12:30:00","slot_id":11,"slot_name":"Section #2","start_time":"11:00:00","total":8},{"available":8,"course_id":1102,"end_time":"15:30:00","slot_id":12,"slot_name":"Section #3","start_time":"14:00:00","total":8},{"available":8,"course_id":1116,"end_time":"17:30:00","slot_id":13,"slot_name":"Section #4","start_time":"16:00:00","total":8}]
+[00:16:00.675] Browser ERROR   unhandledRejection: TypeError: Failed to fetch
+[00:16:00.675] Browser ERROR   unhandledRejection: TypeError: Failed to fetch
+[00:17:58.164] Server  LOG     ✓ Compiled in 166ms
+[00:18:41.464] Browser LOG     Clicked date: 2026-07-05
+[00:18:41.465] Browser LOG     Slots: [{"available":8,"course_id":1074,"end_time":"10:30:00","slot_id":10,"slot_name":"Section #1","start_time":"09:00:00","total":8},{"available":8,"course_id":1088,"end_time":"12:30:00","slot_id":11,"slot_name":"Section #2","start_time":"11:00:00","total":8},{"available":8,"course_id":1102,"end_time":"15:30:00","slot_id":12,"slot_name":"Section #3","start_time":"14:00:00","total":8},{"available":8,"course_id":1116,"end_time":"17:30:00","slot_id":13,"slot_name":"Section #4","start_time":"16:00:00","total":8}]
+[00:19:01.103] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:01.206] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-06-21T13:51:57.205Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:19:04.209] Browser LOG     Clicked date: 2026-07-05
+[00:19:04.209] Browser LOG     Slots: [{"available":8,"course_id":1074,"end_time":"10:30:00","slot_id":10,"slot_name":"Section #1 ก","start_time":"09:00:00","total":8},{"available":8,"course_id":1088,"end_time":"12:30:00","slot_id":11,"slot_name":"Section #2","start_time":"11:00:00","total":8},{"available":8,"course_id":1102,"end_time":"15:30:00","slot_id":12,"slot_name":"Section #3","start_time":"14:00:00","total":8},{"available":8,"course_id":1116,"end_time":"17:30:00","slot_id":13,"slot_name":"Section #4","start_time":"16:00:00","total":8}]
+[00:20:05.594] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:05.700] Browser WARN    GoTrueClient@sb-pcfjwqwrnzuobwrdvhan-auth-token:1 (2.89.0) 2026-06-21T13:53:01.699Z Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.
+[00:20:06.118] Server  LOG     ✓ Compiled in 91ms
+[00:20:12.593] Server  LOG     ✓ Compiled in 40ms
+[00:20:15.825] Browser LOG     Clicked date: 2026-06-28
+[00:20:15.825] Browser LOG     Slots: [{"available":8,"course_id":1073,"end_time":"10:30:00","slot_id":10,"slot_name":"Section #1 ","start_time":"09:00:00","total":8},{"available":8,"course_id":1087,"end_time":"12:30:00","slot_id":11,"slot_name":"Section #2","start_time":"11:00:00","total":8},{"available":8,"course_id":1101,"end_time":"15:30:00","slot_id":12,"slot_name":"Section #3","start_time":"14:00:00","total":8},{"available":8,"course_id":1115,"end_time":"17:30:00","slot_id":13,"slot_name":"Section #4","start_time":"16:00:00","total":8}]
+[00:20:19.853] Browser ERROR   unhandledRejection: TypeError: Failed to fetch
+[00:20:19.853] Browser ERROR   unhandledRejection: TypeError: Failed to fetch
+[00:20:19.997] Browser LOG     ✅ Loaded discount codes: [{"code":"WELCOME10","percent":10},{"code":"THAI20","percent":20},{"code":"SUMMER15","percent":15}]
+[00:20:20.128] Browser LOG     ✅ Loaded discount codes: [{"code":"WELCOME10","percent":10},{"code":"THAI20","percent":20},{"code":"SUMMER15","percent":15}]
+[00:21:21.979] Server  LOG     ✓ Compiled in 49ms
+[00:21:38.269] Server  LOG     ✓ Compiled in 55ms
+[00:21:38.935] Browser ERROR   unhandledRejection: TypeError: Failed to fetch
+[02:04:27.826] Server  LOG     ✓ Finished filesystem cache database compaction in 11.2s

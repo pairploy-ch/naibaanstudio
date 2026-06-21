@@ -479,35 +479,6 @@ export default function CoursePage({
             </div>
           )}
 
-          {isMenuRequired &&
-            selectedDate &&
-            availability[formatDate(selectedDate)] && (
-              <div className="mt-8 space-y-3">
-                <h3 className="font-bold text-xl text-black">Select Menu:</h3>
-
-                {course.menu?.map((item: Menu) => {
-                  const isSelected = selectedMenu?.id === item.id;
-
-                  return (
-                    <button
-                      key={item.id}
-                      onClick={() => setSelectedMenu(item)}
-                      className={`
-            w-full border p-4 text-left transition
-            ${isSelected ? "bg-[#919077] text-white" : "bg-white"}
-          `}
-                    >
-                      <div className="font-medium">{item.name}</div>
-                      {item.description && (
-                        <div className="text-sm opacity-70 mt-1">
-                          {item.description}
-                        </div>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
         </div>
 
         <hr className="border-black mb-16" />
@@ -558,7 +529,7 @@ export default function CoursePage({
   <Link
     href={selectedDate && selectedSlot ? `/checkout?${query}` : "#"}
     className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
-      !selectedDate || !selectedSlot || (isMenuRequired && !selectedMenu)
+      !selectedDate || !selectedSlot
         ? "opacity-50 pointer-events-none"
         : ""
     }`}

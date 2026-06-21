@@ -33,6 +33,7 @@ export default function Header() {
         { name: "Customer", href: "/admin/customer" },
         // { name: "Menu", href: "/admin/menu" },
         { name: "Booking", href: "/admin/booking" },
+        { name: "Discount", href: "/admin/discount" },
         // { name: "Dashboard", href: "/admin/dashboard" },
       ]
     : [

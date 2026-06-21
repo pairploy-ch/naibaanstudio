@@ -32,6 +32,51 @@ const menuName = searchParams.get("menuName");
   const [showQR, setShowQR] = useState(false);
   const [omiseReady, setOmiseReady] = useState(false);
 
+  // ===== Discount codes (managed in admin → Supabase) =====
+  const [discountInput, setDiscountInput] = useState("");
+  const [appliedDiscount, setAppliedDiscount] = useState<{
+    code: string;
+    percent: number;
+  } | null>(null);
+
+  const applyDiscount = async () => {
+    const input = discountInput.trim();
+    if (!input) {
+      toast.error("Please enter a discount code.");
+      return;
+    }
+
+    // ตรวจกับ Supabase โดยตรง เพื่อให้ได้คำตอบที่แน่นอนและเห็น error จริง
+    const { data, error } = await supabase
+      .from("discount_codes")
+      .select("code, percent")
+      .ilike("code", input) // case-insensitive exact match
+      .eq("is_active", true)
+      .maybeSingle();
+
+    if (error) {
+      console.error("❌ Discount validation error:", error);
+      toast.error(
+        "Could not validate the code (database access blocked). Please check RLS policy.",
+      );
+      return;
+    }
+
+    if (!data) {
+      setAppliedDiscount(null);
+      toast.error("Invalid discount code.");
+      return;
+    }
+
+    setAppliedDiscount(data as { code: string; percent: number });
+    toast.success(`Discount "${data.code}" (${data.percent}%) applied!`);
+  };
+
+  const removeDiscount = () => {
+    setAppliedDiscount(null);
+    setDiscountInput("");
+  };
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -81,7 +126,10 @@ const menuName = searchParams.get("menuName");
   const subtotal = price * quantity;
  const vat = parseFloat(searchParams.get("vat") || "0") * quantity;
 
-  const total = subtotal + vat;
+  const discountPercent = appliedDiscount?.percent || 0;
+  const discountAmount = (subtotal * discountPercent) / 100;
+
+  const total = subtotal + vat - discountAmount;
 
   const isFormValid = () => {
     const main =
@@ -246,6 +294,8 @@ const menuName = searchParams.get("menuName");
           booking_status: "success",
           quantity,
           total_price: total,
+          discount_code: appliedDiscount?.code || null,
+          discount_amount: discountAmount,
           omise_charge_id: chargeId,
           menu_id: menuId ? parseInt(menuId) : null,
 
@@ -998,10 +1048,55 @@ await fetch("/api/send-confirmation-email", {
                   </div>
                 </div>
 
+                {appliedDiscount && (
+                  <div className="flex justify-between items-center text-green-700">
+                    <div>
+                      Discount ({appliedDiscount.code} −{appliedDiscount.percent}%)
+                    </div>
+                    <div>
+                      −฿{discountAmount.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex justify-between items-center font-bold text-lg pt-4 border-t border-black">
                   <div className="text-black">Total</div>
                   <div className="text-black">฿{total.toLocaleString("en-US", { minimumFractionDigits: 2 })}</div>
                 </div>
+              </div>
+
+              {/* Discount Code */}
+              <div className="mb-8">
+                <label className="block text-sm font-medium text-black mb-2">
+                  Discount Code
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={discountInput}
+                    onChange={(e) => setDiscountInput(e.target.value)}
+                    placeholder="Enter discount code"
+                    className="flex-1 px-4 py-2 border border-black bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
+                  />
+                  {appliedDiscount ? (
+                    <button
+                      type="button"
+                      onClick={removeDiscount}
+                      className="px-5 py-2 bg-red-600 text-white font-medium hover:opacity-80 transition-opacity"
+                    >
+                      Remove
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={applyDiscount}
+                      className="px-5 py-2 bg-black text-white font-medium hover:opacity-80 transition-opacity"
+                    >
+                      Apply
+                    </button>
+                  )}
+                </div>
+
               </div>
 
               <div className="space-y-6">

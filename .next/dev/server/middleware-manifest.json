@@ -3,12 +3,11 @@
   "middleware": {
     "/": {
       "files": [
-        "server/edge/chunks/503b1_next_dist_4b10c689._.js",
-        "server/edge/chunks/node_modules_@opentelemetry_api_build_esm_4557a825._.js",
+        "server/edge/chunks/503b1_next_dist_6e5d6319._.js",
         "server/edge/chunks/503b1_@supabase_auth-js_dist_module_5b8aa8a0._.js",
         "server/edge/chunks/503b1_b9b37772._.js",
         "server/edge/chunks/[root-of-the-server]__f65291ea._.js",
-        "server/edge/chunks/42eaf_next_dist_esm_build_templates_edge-wrapper_51b2d38d.js"
+        "server/edge/chunks/42eaf_next_dist_esm_build_templates_edge-wrapper_f10545eb.js"
       ],
       "name": "middleware",
       "page": "/",
@@ -27,9 +26,9 @@
       "env": {
         "__NEXT_BUILD_ID": "development",
         "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "YDsfrT5Ah3Aq3ne+CvXqe/vMu/tHKE/rc+SoCpcsJ9w=",
-        "__NEXT_PREVIEW_MODE_ID": "8b50b1588bef90123a69603a5aff2e20",
-        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "5a39dc830a2fb5e7a253d4659e47854ee84006e59ba1ae1379b5d737a489091b",
-        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "e5984192d3891cc2b188db3af9ac15dfc7397ba79c82551a7eaaef11a82e3d72"
+        "__NEXT_PREVIEW_MODE_ID": "becb86b872f42ec6676c5dfc90a134c6",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "635195f3a1301b96c99e39e6767d616ff387cf3a493c957b6a22a4d17f744b82",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "3ee31a7c2274747808a4e36ad3904f9c2e5c127363d70dc2e0f743bd64ad0a37"
       }
     }
   },
