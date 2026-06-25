@@ -20,6 +20,7 @@ export default function Header() {
         // { name: 'Menu', href: '/admin/menu' },
         { name: 'Booking', href: '/admin/booking' },
         { name: 'Discount', href: '/admin/discount' },
+        { name: 'Review', href: '/admin/review' },
         { name: 'Dashboard', href: '/admin/dashboard' },
       ]
     : [
