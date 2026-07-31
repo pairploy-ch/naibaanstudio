@@ -146,24 +146,33 @@ export default function CustomerReview() {
                   </p>
 
                   {review.image_urls && review.image_urls.length > 0 && (
-                    <div className="flex gap-2 mb-4 flex-wrap">
-                      {review.image_urls.map((url, i) => (
-                        <button
-                          key={i}
-                          type="button"
-                          onClick={() => openLightbox(review.image_urls as string[], i)}
-                          className="w-14 h-14 border-2 border-black overflow-hidden"
-                        >
-                          <img
-                            src={url}
-                            alt={`${review.name} review photo ${i + 1}`}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              ;(e.target as HTMLImageElement).src = FALLBACK_IMAGE
-                            }}
-                          />
-                        </button>
-                      ))}
+                    <div className="grid grid-cols-3 gap-2 mb-4">
+                      {review.image_urls.slice(0, 3).map((url, i) => {
+                        const remaining = review.image_urls!.length - 3
+                        const isLastVisible = i === 2 && remaining > 0
+                        return (
+                          <button
+                            key={i}
+                            type="button"
+                            onClick={() => openLightbox(review.image_urls as string[], i)}
+                            className="relative aspect-square border-2 border-black overflow-hidden"
+                          >
+                            <img
+                              src={url}
+                              alt={`${review.name} review photo ${i + 1}`}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                ;(e.target as HTMLImageElement).src = FALLBACK_IMAGE
+                              }}
+                            />
+                            {isLastVisible && (
+                              <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold text-lg">
+                                +{remaining}
+                              </div>
+                            )}
+                          </button>
+                        )
+                      })}
                     </div>
                   )}
 
