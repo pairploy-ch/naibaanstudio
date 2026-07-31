@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Edit3, Plus, Trash2, Search, AlertCircle, Loader2 } from 'lucide-react';
+import { Edit3, Plus, Trash2, Search, AlertCircle, Loader2, ImageIcon } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 
 // ============================================================================
@@ -22,6 +22,7 @@ interface Review {
   rating: number;
   comment: string;
   image_url?: string | null;
+  image_urls?: string[] | null;
   is_active?: boolean;
   created_at?: string;
   updated_at?: string;
@@ -33,7 +34,9 @@ interface ReviewFormState {
   rating: number;
   comment: string;
   imageUrl: string;
+  imageUrls: string[];
   isActive: boolean;
+  reviewDate: string; // yyyy-mm-dd, shown/edited as a plain date input
 }
 
 // ============================================================================
@@ -49,7 +52,7 @@ const reviewService = {
     return data || [];
   },
 
-  async addReview(payload: Omit<Review, 'id' | 'created_at' | 'updated_at'>): Promise<Review> {
+  async addReview(payload: Omit<Review, 'id' | 'updated_at'>): Promise<Review> {
     const { data, error } = await supabase
       .from('reviews')
       .insert([payload])
@@ -93,13 +96,18 @@ const reviewService = {
 // ============================================================================
 // CONSTANTS
 // ============================================================================
+const toDateInputValue = (iso?: string) => (iso ? iso.slice(0, 10) : '');
+const todayDateInputValue = () => new Date().toISOString().slice(0, 10);
+
 const emptyFormState: ReviewFormState = {
   name: '',
   country: '',
   rating: 5,
   comment: '',
   imageUrl: '',
+  imageUrls: [],
   isActive: true,
+  reviewDate: '',
 };
 
 const FALLBACK_IMAGE = '/placeholder.jpg';
@@ -124,6 +132,8 @@ export default function ManageReviewPage() {
   const [page, setPage] = useState(1);
   const [deleteConfirm, setDeleteConfirm] = useState<{ id: string; name: string } | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
+  // Parallel to formState.imageUrls: null = existing uploaded URL, File = new file pending upload
+  const [galleryFiles, setGalleryFiles] = useState<(File | null)[]>([]);
   const [uploadingImage, setUploadingImage] = useState(false);
 
   // ============================================================================
@@ -197,8 +207,9 @@ export default function ManageReviewPage() {
   // ============================================================================
   const openAddForm = () => {
     setEditingId(null);
-    setFormState(emptyFormState);
+    setFormState({ ...emptyFormState, reviewDate: todayDateInputValue() });
     setImageFile(null);
+    setGalleryFiles([]);
     setFormError(null);
     setShowForm(true);
   };
@@ -211,9 +222,12 @@ export default function ManageReviewPage() {
       rating: review.rating,
       comment: review.comment,
       imageUrl: review.image_url ?? '',
+      imageUrls: review.image_urls ?? [],
       isActive: review.is_active ?? true,
+      reviewDate: toDateInputValue(review.created_at) || todayDateInputValue(),
     });
     setImageFile(null);
+    setGalleryFiles((review.image_urls ?? []).map(() => null));
     setFormError(null);
     setShowForm(true);
   };
@@ -228,6 +242,28 @@ export default function ManageReviewPage() {
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  const handleGalleryFilesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
+    if (files.length === 0) return;
+
+    files.forEach((file) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormState((prev) => ({ ...prev, imageUrls: [...prev.imageUrls, reader.result as string] }));
+        setGalleryFiles((prev) => [...prev, file]);
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Allow re-selecting the same file(s) again later
+    e.target.value = '';
+  };
+
+  const removeGalleryImage = (index: number) => {
+    setFormState((prev) => ({ ...prev, imageUrls: prev.imageUrls.filter((_, i) => i !== index) }));
+    setGalleryFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleSave = async () => {
@@ -251,13 +287,27 @@ export default function ManageReviewPage() {
         finalImageUrl = await reviewService.uploadImage(imageFile);
       }
 
+      // Upload any newly added gallery photos; keep already-uploaded URLs as-is
+      let finalImageUrls = formState.imageUrls;
+      if (galleryFiles.some((f) => f)) {
+        setUploadingImage(true);
+        finalImageUrls = await Promise.all(
+          formState.imageUrls.map((url, i) => {
+            const file = galleryFiles[i];
+            return file ? reviewService.uploadImage(file) : Promise.resolve(url);
+          }),
+        );
+      }
+
       const payload = {
         name: formState.name.trim(),
         country: formState.country.trim() || null,
         rating: formState.rating,
         comment: formState.comment.trim(),
         image_url: finalImageUrl || null,
+        image_urls: finalImageUrls,
         is_active: formState.isActive,
+        created_at: new Date(formState.reviewDate || todayDateInputValue()).toISOString(),
       };
 
       if (editingId) {
@@ -272,6 +322,7 @@ export default function ManageReviewPage() {
       setFormState(emptyFormState);
       setEditingId(null);
       setImageFile(null);
+      setGalleryFiles([]);
     } catch (err: any) {
       setFormError(err?.message || 'Failed to save review.');
     } finally {
@@ -379,6 +430,12 @@ export default function ManageReviewPage() {
                               {review.country && (
                                 <p className="text-xs" style={{ color: '#8b6f47' }}>
                                   {review.country}
+                                </p>
+                              )}
+                              {(review.image_urls?.length ?? 0) > 0 && (
+                                <p className="flex items-center gap-1 text-xs mt-0.5" style={{ color: '#8b6f47' }}>
+                                  <ImageIcon size={12} />
+                                  {review.image_urls!.length} photo{review.image_urls!.length > 1 ? 's' : ''}
                                 </p>
                               )}
                             </div>
@@ -572,7 +629,23 @@ export default function ManageReviewPage() {
 
               <div>
                 <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
-                  Photo
+                  Review date *
+                </label>
+                <input
+                  type="date"
+                  value={formState.reviewDate}
+                  onChange={(e) => setFormState((prev) => ({ ...prev, reviewDate: e.target.value }))}
+                  className="w-full border px-4 py-2"
+                  style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
+                />
+                <p className="mt-1 text-xs" style={{ color: '#b6a188' }}>
+                  Shown on the home page as relative time (e.g. "5 months ago")
+                </p>
+              </div>
+
+              <div>
+                <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
+                  Avatar (reviewer's photo)
                 </label>
                 <input
                   type="file"
@@ -591,6 +664,45 @@ export default function ManageReviewPage() {
                         (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
                       }}
                     />
+                  </div>
+                )}
+              </div>
+
+              <div>
+                <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
+                  Review images (photos the customer shared)
+                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={handleGalleryFilesChange}
+                  className="w-full border px-4 py-2"
+                  style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
+                />
+                {formState.imageUrls.length > 0 && (
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {formState.imageUrls.map((url, index) => (
+                      <div key={index} className="relative border p-1" style={{ borderColor: '#e5dcd4' }}>
+                        <img
+                          src={url}
+                          alt={`Review photo ${index + 1}`}
+                          className="w-20 h-20 object-cover"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
+                          }}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => removeGalleryImage(index)}
+                          className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-white border text-xs flex items-center justify-center"
+                          style={{ borderColor: '#e5dcd4', color: '#c1513b' }}
+                          aria-label={`Remove review photo ${index + 1}`}
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
@@ -616,6 +728,7 @@ export default function ManageReviewPage() {
                   setFormState(emptyFormState);
                   setEditingId(null);
                   setImageFile(null);
+                  setGalleryFiles([]);
                   setFormError(null);
                 }}
                 disabled={isLoading || uploadingImage}

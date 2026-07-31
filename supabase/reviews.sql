@@ -1,4 +1,6 @@
 -- Customer reviews managed by admin and shown on the home page
+-- image_url    = reviewer's avatar (single photo, shown as the round profile picture)
+-- image_urls   = review photos (multiple photos the customer shared, e.g. of the dish/class)
 create table if not exists public.reviews (
   id uuid primary key default gen_random_uuid(),
   name text not null,
@@ -6,10 +8,15 @@ create table if not exists public.reviews (
   rating int not null default 5 check (rating >= 1 and rating <= 5),
   comment text not null,
   image_url text,
+  image_urls text[] not null default '{}'::text[],
   is_active boolean not null default true,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+-- Safe to re-run on an existing table that predates the image_urls column
+alter table public.reviews
+  add column if not exists image_urls text[] not null default '{}'::text[];
 
 -- This project's pages use the anon key for both read and admin writes
 -- (same pattern as the `menus` / `discount_codes` tables), so keep RLS off.

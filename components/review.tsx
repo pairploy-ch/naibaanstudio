@@ -2,6 +2,12 @@
 
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabaseClient'
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 type Review = {
   id: string
@@ -10,6 +16,7 @@ type Review = {
   rating: number
   comment: string
   image_url?: string | null
+  image_urls?: string[] | null
   created_at?: string
 }
 
@@ -20,6 +27,17 @@ export default function CustomerReview() {
   const [loading, setLoading] = useState(true)
   const [currentIndex, setCurrentIndex] = useState(0)
   const reviewsPerPage = 3
+
+  // Lightbox for viewing a review's photos full-size
+  const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null)
+  const openLightbox = (images: string[], index: number) => setLightbox({ images, index })
+  const closeLightbox = () => setLightbox(null)
+  const showPrevImage = () =>
+    setLightbox((prev) =>
+      prev ? { ...prev, index: (prev.index - 1 + prev.images.length) % prev.images.length } : prev
+    )
+  const showNextImage = () =>
+    setLightbox((prev) => (prev ? { ...prev, index: (prev.index + 1) % prev.images.length } : prev))
 
   useEffect(() => {
     supabase
@@ -54,14 +72,26 @@ export default function CustomerReview() {
     </div>
   )
 
-  const formatDate = (iso?: string) =>
-    iso
-      ? new Date(iso).toLocaleDateString('en-US', {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric',
-        })
-      : ''
+  // แสดงเป็นเวลาสัมพัทธ์ เช่น "5 months ago" (ใช้ created_at ที่แอดมินตั้งได้เองในหน้า /admin/review)
+  const formatDate = (iso?: string) => {
+    if (!iso) return ''
+    const seconds = Math.floor((Date.now() - new Date(iso).getTime()) / 1000)
+    if (seconds < 60) return 'Just now'
+
+    const units: [string, number][] = [
+      ['year', 60 * 60 * 24 * 365],
+      ['month', 60 * 60 * 24 * 30],
+      ['week', 60 * 60 * 24 * 7],
+      ['day', 60 * 60 * 24],
+      ['hour', 60 * 60],
+      ['minute', 60],
+    ]
+    for (const [label, secondsInUnit] of units) {
+      const count = Math.floor(seconds / secondsInUnit)
+      if (count >= 1) return `${count} ${label}${count > 1 ? 's' : ''} ago`
+    }
+    return 'Just now'
+  }
 
   return (
     <div className="bg-[#E8DCD0] py-16">
@@ -115,6 +145,28 @@ export default function CustomerReview() {
                     "{review.comment}"
                   </p>
 
+                  {review.image_urls && review.image_urls.length > 0 && (
+                    <div className="flex gap-2 mb-4 flex-wrap">
+                      {review.image_urls.map((url, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => openLightbox(review.image_urls as string[], i)}
+                          className="w-14 h-14 border-2 border-black overflow-hidden"
+                        >
+                          <img
+                            src={url}
+                            alt={`${review.name} review photo ${i + 1}`}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              ;(e.target as HTMLImageElement).src = FALLBACK_IMAGE
+                            }}
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
                   <p className="text-sm text-gray-500 italic">
                     {formatDate(review.created_at)}
                   </p>
@@ -155,6 +207,48 @@ export default function CustomerReview() {
           </>
         )}
       </div>
+
+      {/* Lightbox for review photos */}
+      <Dialog open={lightbox !== null} onOpenChange={(open) => !open && closeLightbox()}>
+        <DialogContent className="sm:max-w-2xl bg-black border-black p-2">
+          <DialogTitle className="sr-only">Review photo</DialogTitle>
+          {lightbox && (
+            <div className="relative flex items-center justify-center min-h-[50vh]">
+              <img
+                src={lightbox.images[lightbox.index]}
+                alt="Review photo"
+                className="max-h-[80vh] w-auto mx-auto object-contain"
+                onError={(e) => {
+                  ;(e.target as HTMLImageElement).src = FALLBACK_IMAGE
+                }}
+              />
+              {lightbox.images.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={showPrevImage}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center"
+                    aria-label="Previous photo"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={showNextImage}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center"
+                    aria-label="Next photo"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-white text-xs bg-black/60 px-2 py-1 rounded-full">
+                    {lightbox.index + 1} / {lightbox.images.length}
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

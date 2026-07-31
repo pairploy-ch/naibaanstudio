@@ -20,6 +20,7 @@ interface DiscountCode {
   code: string;
   percent: number;
   is_active?: boolean;
+  single_use?: boolean;
   created_at?: string;
   updated_at?: string;
 }
@@ -28,6 +29,7 @@ interface DiscountFormState {
   code: string;
   percent: string;
   isActive: boolean;
+  singleUse: boolean;
 }
 
 // ============================================================================
@@ -77,6 +79,7 @@ const emptyFormState: DiscountFormState = {
   code: '',
   percent: '',
   isActive: true,
+  singleUse: false,
 };
 
 const ITEMS_PER_PAGE = 10;
@@ -177,6 +180,7 @@ export default function ManageDiscountPage() {
       code: code.code,
       percent: String(code.percent ?? ''),
       isActive: code.is_active ?? true,
+      singleUse: code.single_use ?? false,
     });
     setFormError(null);
     setShowForm(true);
@@ -205,7 +209,12 @@ export default function ManageDiscountPage() {
     try {
       setIsLoading(true);
       setFormError(null);
-      const payload = { code, percent, is_active: formState.isActive };
+      const payload = {
+        code,
+        percent,
+        is_active: formState.isActive,
+        single_use: formState.singleUse,
+      };
 
       if (editingId) {
         const updated = await discountService.updateCode(editingId, payload);
@@ -297,6 +306,7 @@ export default function ManageDiscountPage() {
                     <tr style={{ backgroundColor: '#f9f5f0', color: '#8b6f47' }}>
                       <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Code</th>
                       <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Discount</th>
+                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Usage</th>
                       <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Status</th>
                       <th className="px-4 py-3 text-right text-xs uppercase tracking-[0.2em]">Actions</th>
                     </tr>
@@ -309,6 +319,18 @@ export default function ManageDiscountPage() {
                         </td>
                         <td className="px-4 py-3 align-middle" style={{ color: '#7a5f3d' }}>
                           {code.percent}%
+                        </td>
+                        <td className="px-4 py-3 align-middle">
+                          <span
+                            className="inline-block px-2 py-1 text-xs rounded"
+                            style={
+                              code.single_use
+                                ? { backgroundColor: '#f0e8d8', color: '#8b6f2f' }
+                                : { backgroundColor: '#e8eef0', color: '#3f6a7a' }
+                            }
+                          >
+                            {code.single_use ? 'Single use' : 'Unlimited'}
+                          </span>
                         </td>
                         <td className="px-4 py-3 align-middle">
                           <span
@@ -346,7 +368,7 @@ export default function ManageDiscountPage() {
                     ))}
                     {filteredCodes.length === 0 && (
                       <tr>
-                        <td colSpan={4} className="px-4 py-10 text-center text-sm" style={{ color: '#8b6f47' }}>
+                        <td colSpan={5} className="px-4 py-10 text-center text-sm" style={{ color: '#8b6f47' }}>
                           No discount codes found.
                         </td>
                       </tr>
@@ -453,6 +475,38 @@ export default function ManageDiscountPage() {
                   style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
                   placeholder="10"
                 />
+              </div>
+
+              <div>
+                <label className="block text-xs uppercase tracking-wide mb-2" style={{ color: '#8b6f47' }}>
+                  Usage
+                </label>
+                <div className="space-y-2">
+                  <label className="flex items-start gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="singleUse"
+                      checked={!formState.singleUse}
+                      onChange={() => setFormState((prev) => ({ ...prev, singleUse: false }))}
+                      className="w-4 h-4 mt-0.5"
+                    />
+                    <span className="text-sm" style={{ color: '#3d2817' }}>
+                      Unlimited — stays active until you turn it off yourself
+                    </span>
+                  </label>
+                  <label className="flex items-start gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="singleUse"
+                      checked={formState.singleUse}
+                      onChange={() => setFormState((prev) => ({ ...prev, singleUse: true }))}
+                      className="w-4 h-4 mt-0.5"
+                    />
+                    <span className="text-sm" style={{ color: '#3d2817' }}>
+                      Single use — automatically switches to Inactive right after it's used once at checkout
+                    </span>
+                  </label>
+                </div>
               </div>
 
               <div className="flex items-center gap-2">

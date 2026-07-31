@@ -37,6 +37,7 @@ const menuName = searchParams.get("menuName");
   const [appliedDiscount, setAppliedDiscount] = useState<{
     code: string;
     percent: number;
+    single_use: boolean;
   } | null>(null);
 
   const applyDiscount = async () => {
@@ -49,7 +50,7 @@ const menuName = searchParams.get("menuName");
     // ตรวจกับ Supabase โดยตรง เพื่อให้ได้คำตอบที่แน่นอนและเห็น error จริง
     const { data, error } = await supabase
       .from("discount_codes")
-      .select("code, percent")
+      .select("code, percent, single_use")
       .ilike("code", input) // case-insensitive exact match
       .eq("is_active", true)
       .maybeSingle();
@@ -68,7 +69,7 @@ const menuName = searchParams.get("menuName");
       return;
     }
 
-    setAppliedDiscount(data as { code: string; percent: number });
+    setAppliedDiscount(data as { code: string; percent: number; single_use: boolean });
     toast.success(`Discount "${data.code}" (${data.percent}%) applied!`);
   };
 
@@ -306,6 +307,19 @@ const menuName = searchParams.get("menuName");
         "id, booking_code, booking_date, quantity, total_price, omise_charge_id",
       );
     if (bookingErr) throw bookingErr;
+
+    // ถ้าโค้ดนี้ตั้งไว้ว่า "ใช้ครั้งเดียว" ให้ปิดใช้งานทันทีหลังจองสำเร็จ
+    // (เช็ค is_active: true ด้วยตอน update กันกรณีมีคนใช้โค้ดเดียวกันพร้อมกันซ้ำ)
+    if (appliedDiscount?.single_use) {
+      const { error: deactivateErr } = await supabase
+        .from("discount_codes")
+        .update({ is_active: false, updated_at: new Date().toISOString() })
+        .ilike("code", appliedDiscount.code)
+        .eq("is_active", true);
+      if (deactivateErr) {
+        console.error("⚠️ Failed to deactivate single-use discount code:", deactivateErr);
+      }
+    }
 
     // ✅ DEBUG: ดูว่า booking_code ติดมาจาก insert เลยไหม
     console.log("📦 bookingInserted[0]:", JSON.stringify(bookingInserted[0]));
