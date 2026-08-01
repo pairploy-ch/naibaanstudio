@@ -5,6 +5,8 @@ import { About } from "@/components/about";
 import { CourseHighlights } from "@/components/course-highlights";
 import { CTA } from "@/components/cta";
 import  Review  from "@/components/review";
+import Faq from "@/components/faq";
+import BlogSection from "@/components/blog-section";
 
 
 export default function Home() {
@@ -15,8 +17,10 @@ export default function Home() {
       <About />
       <CourseHighlights />
       <Review />
+      <BlogSection />
+      <Faq />
       <CTA />
-     
+
     </main>
   );
 }

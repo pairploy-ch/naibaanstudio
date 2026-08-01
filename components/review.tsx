@@ -141,7 +141,7 @@ export default function CustomerReview() {
                     <StarRating rating={review.rating} />
                   </div>
 
-                  <p className="text-black leading-relaxed mb-4 flex-grow">
+                  <p className="text-black leading-relaxed mb-4 flex-grow whitespace-pre-wrap">
                     "{review.comment}"
                   </p>
 

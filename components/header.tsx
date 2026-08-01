@@ -35,6 +35,8 @@ export default function Header() {
         { name: "Booking", href: "/admin/booking" },
         { name: "Discount", href: "/admin/discount" },
         { name: "Review", href: "/admin/review" },
+        { name: "FAQ", href: "/admin/faq" },
+        { name: "Blog", href: "/admin/blog" },
         // { name: "Dashboard", href: "/admin/dashboard" },
       ]
     : [
@@ -42,6 +44,7 @@ export default function Header() {
         { name: "About", href: "/about" },
         { name: "Photo Gallery", href: "/gallery" },
         { name: "Courses", href: "/courses" },
+        { name: "Blogs", href: "/blogs" },
         { name: "Contact", href: "/contact" },
       ];
 
