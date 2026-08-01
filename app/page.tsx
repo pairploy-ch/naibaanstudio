@@ -17,8 +17,8 @@ export default function Home() {
       <About />
       <CourseHighlights />
       <Review />
-      <BlogSection />
       <Faq />
+      <BlogSection />
       <CTA />
 
     </main>
