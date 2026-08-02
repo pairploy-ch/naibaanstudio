@@ -22,8 +22,8 @@ export function Hero() {
           Experience Thailand Through Its Flavors
         </h1>
         <p className="text-white/90 text-sm md:text-xl mb-8 max-w-6xl mx-auto text-balance leading-[1.2] md:leading-relaxed">
-          Discover authentic Thai cooking in a serene, home-style studio located in the ancient wooden house.
-Learn traditional recipes, local ingredients, and Thai cooking techniques from a passionate culinary host.
+          Our classes are suitable for everyone – no cooking experience required.
+All of our recipes are MSG-free. Vegetarian, allergy-friendly options are available upon request.
         </p>
       <a
   href="#courses"
