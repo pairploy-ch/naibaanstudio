@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabaseClient'
 
@@ -57,10 +58,12 @@ export function CourseHighlights() {
               <div className="relative">
                 {/* ✅ ปรับ aspect ratio ให้ไม่สูงเกิน */}
                 <div className="relative w-full aspect-[4/5] overflow-hidden">
-                  <img
+                  <Image
                     src={course.cover || "/placeholder.svg"}
                     alt={course.name}
-                    className="w-full h-full object-cover object-center"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover object-center"
                   />
                 </div>
               </div>

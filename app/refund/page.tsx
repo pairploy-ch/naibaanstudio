@@ -1,4 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Refund & Cancellation Policy",
+  description:
+    "Learn how cancellations, rescheduling, and refunds are handled for course bookings at Nai Baan Studio.",
+  alternates: { canonical: "/refund" },
+  robots: { index: false, follow: true },
+};
 
 export default function AboutPage() {
   return (
@@ -20,7 +29,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">1. Booking Confirmation</h1>
+          <h2 className="text-bold font-bold">1. Booking Confirmation</h2>
           <br />
           <p>
             A booking is considered confirmed only after successful payment
@@ -30,7 +39,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">2. Cancellation by Customer</h1>
+          <h2 className="text-bold font-bold">2. Cancellation by Customer</h2>
           <br />
           <p>
             <br />• Cancellation requests must be submitted via email.
@@ -44,7 +53,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">3. Refund Eligibility</h1>
+          <h2 className="text-bold font-bold">3. Refund Eligibility</h2>
           <br />
           <p>
             Refunds may be granted under the following conditions:
@@ -59,7 +68,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">4. Non-Refundable Situations</h1>
+          <h2 className="text-bold font-bold">4. Non-Refundable Situations</h2>
           <br />
           <p>
             Refunds may not be provided in the following cases:
@@ -71,7 +80,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">5. Rescheduling</h1>
+          <h2 className="text-bold font-bold">5. Rescheduling</h2>
           <br />
           <p>
             Rescheduling requests are subject to availability and must be made
@@ -82,9 +91,9 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">
+          <h2 className="text-bold font-bold">
             6. Cancellation by Nai Baan Studio
-          </h1>
+          </h2>
           <br />
           <p>
             We reserve the right to cancel or reschedule courses due to:
@@ -100,7 +109,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">7. Payment Fees</h1>
+          <h2 className="text-bold font-bold">7. Payment Fees</h2>
           <br />
           <p>
             Transaction fees charged by payment providers or banks may be
@@ -110,7 +119,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">8. Final Decision</h1>
+          <h2 className="text-bold font-bold">8. Final Decision</h2>
           <br />
           <p>
             All refund decisions are final and subject to review based on the
@@ -120,7 +129,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">9. Contact</h1>
+          <h2 className="text-bold font-bold">9. Contact</h2>
           <br />
           <p>Email: naibaanstudio@gmail.com</p>
         </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function About() {
   return (
@@ -6,11 +7,12 @@ export function About() {
 
       {/* Image - ซ้ายบน desktop, ล่างบน mobile */}
       <div className="relative min-h-[400px] md:min-h-full w-full order-2 md:order-1">
-        <img
-          style={{ objectPosition: 'bottom' }}
-          src="/new/about.jpg"
+        <Image
+          src="/new/thai-cooking-class-home-preview.jpg"
           alt="Traditional Thai cooking utensils"
-          className="w-full h-full object-cover"
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          style={{ objectFit: "cover", objectPosition: "bottom" }}
         />
       </div>
 

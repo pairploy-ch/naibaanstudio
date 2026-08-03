@@ -1,4 +1,12 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Get in touch with Nai Baan Studio — Thai cooking classes in Bangkok. Find our address, phone number, email, and opening hours.",
+  alternates: { canonical: "/contact" },
+}
 
 export default function ContactPage() {
   return (
@@ -53,7 +61,7 @@ export default function ContactPage() {
       <section className="bg-[#F6EFE7]">
         <div className="container max-w-[90%] mx-auto px-6 py-12">
           <img
-            src="/new/bg-contact.jpg"
+            src="/new/thai-cooking-studio-interior-contact.jpg"
             alt="Thai cooking studio interior with warm ambiance"
             className="w-full h-auto object-cover "
           />

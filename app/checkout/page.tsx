@@ -745,7 +745,7 @@ await fetch("/api/send-confirmation-email", {
         <div
           className="absolute inset-0 opacity-40"
           style={{
-            backgroundImage: "url(/new/cta.jpg)",
+            backgroundImage: "url(/new/thai-cooking-class-booking-cta.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

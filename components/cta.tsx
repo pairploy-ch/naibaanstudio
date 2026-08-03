@@ -1,16 +1,18 @@
 import { Button } from '@/components/ui/button'
 import Link from "next/link";
+import Image from "next/image";
 
 export function CTA() {
   return (
     <section className="relative h-[500px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
-        // style={{objectPosition: 'center'}}
-          src="/new/cta.jpg"
+        <Image
+          src="/new/thai-cooking-class-booking-cta.jpg"
           alt="Thai cooking pots"
-          className="w-full h-full object-center md:[object-position:center_80%] object-cover"
+          fill
+          sizes="100vw"
+          className="object-center md:[object-position:center_80%] object-cover"
         />
         <div className="absolute inset-0 bg-black/20" />
       </div>

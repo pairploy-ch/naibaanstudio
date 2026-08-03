@@ -35,8 +35,27 @@ export default function Faq() {
 
   if (!loading && faqs.length === 0) return null
 
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+
   return (
     <div className="bg-[#F6EFE7] py-16">
+      {faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <div className="container mx-auto px-6 max-w-3xl">
         <h2 className="text-5xl font-bold text-black mb-4 text-center">
           Frequently Asked Questions

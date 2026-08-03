@@ -55,7 +55,7 @@ export default function LoginPage() {
         {/* Header */}
         <div className="text-center">
           <div style={{ display: 'flex', justifyContent: 'center'}}>
-            <img src={'/logo-nb.png'} style={{ width: '200px' }} alt="Logo" />
+            <img src={'/naibaan-studio-logo.png'} style={{ width: '200px' }} alt="Nai Baan Studio logo" />
           </div>
         </div>
 

@@ -515,7 +515,7 @@ export async function POST(req: Request) {
           <body>
             <div class="container">
               <div class="header">
-                <img src="https://naibaanstudio.com/logo-nb-wh.png" alt="Logo" style="max-width: 120px;" />
+                <img src="https://naibaanstudio.com/naibaan-studio-logo-white.png" alt="Nai Baan Studio logo" style="max-width: 120px;" />
               </div>
               <div style="padding: 32px;">
                 <p>Dear <strong>${customerName}</strong>,</p>

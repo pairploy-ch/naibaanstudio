@@ -1,4 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms and Conditions",
+  description:
+    "Read the terms and conditions governing course bookings and use of the Nai Baan Studio website.",
+  alternates: { canonical: "/terms" },
+  robots: { index: false, follow: true },
+};
 
 export default function AboutPage() {
   return (
@@ -19,7 +28,7 @@ export default function AboutPage() {
 
   <br /><br />
 
-  <h1 className="text-bold font-bold">1. Use of Website</h1>
+  <h2 className="text-bold font-bold">1. Use of Website</h2>
   <br />
   <p>
     Users agree to use this website only for lawful purposes and must not
@@ -29,7 +38,7 @@ export default function AboutPage() {
 
   <br /><br />
 
-  <h1 className="text-bold font-bold">2. Course Booking</h1>
+  <h2 className="text-bold font-bold">2. Course Booking</h2>
   <br />
   <p>
     <br />• Course availability is subject to confirmation.
@@ -40,7 +49,7 @@ export default function AboutPage() {
 
   <br /><br />
 
-  <h1 className="text-bold font-bold">3. Payments</h1>
+  <h2 className="text-bold font-bold">3. Payments</h2>
   <br />
   <p>
     <br />• All payments must be completed through the website checkout system.
@@ -51,7 +60,7 @@ export default function AboutPage() {
 
   <br /><br />
 
-  <h1 className="text-bold font-bold">4. Cancellation and Refunds</h1>
+  <h2 className="text-bold font-bold">4. Cancellation and Refunds</h2>
   <br />
   <p>
     Cancellation and refund eligibility follow the Refund & Cancellation Policy
@@ -61,7 +70,7 @@ export default function AboutPage() {
 
   <br /><br />
 
-  <h1 className="text-bold font-bold">5. Rescheduling and No-Show Policy</h1>
+  <h2 className="text-bold font-bold">5. Rescheduling and No-Show Policy</h2>
   <br />
   <p>
     <br />• Rescheduling requests are subject to availability.
@@ -71,7 +80,7 @@ export default function AboutPage() {
 
   <br /><br />
 
-  <h1 className="text-bold font-bold">6. Intellectual Property</h1>
+  <h2 className="text-bold font-bold">6. Intellectual Property</h2>
   <br />
   <p>
     All content, including text, images, graphics, and branding, is the
@@ -81,7 +90,7 @@ export default function AboutPage() {
 
   <br /><br />
 
-  <h1 className="text-bold font-bold">7. Limitation of Liability</h1>
+  <h2 className="text-bold font-bold">7. Limitation of Liability</h2>
   <br />
   <p>
     We are not responsible for service interruptions, technical issues caused
@@ -91,7 +100,7 @@ export default function AboutPage() {
 
   <br /><br />
 
-  <h1 className="text-bold font-bold">8. User Responsibilities</h1>
+  <h2 className="text-bold font-bold">8. User Responsibilities</h2>
   <br />
   <p>
     Users are responsible for ensuring that their provided information is
@@ -101,7 +110,7 @@ export default function AboutPage() {
 
   <br /><br />
 
-  <h1 className="text-bold font-bold">9. Modifications</h1>
+  <h2 className="text-bold font-bold">9. Modifications</h2>
   <br />
   <p>
     We reserve the right to update or modify these Terms at any time.
@@ -110,7 +119,7 @@ export default function AboutPage() {
 
   <br /><br />
 
-  <h1 className="text-bold font-bold">10. Governing Law</h1>
+  <h2 className="text-bold font-bold">10. Governing Law</h2>
   <br />
   <p>
     These Terms shall be governed by the laws of Thailand.
@@ -118,7 +127,7 @@ export default function AboutPage() {
 
   <br /><br />
 
-  <h1 className="text-bold font-bold">11. Contact</h1>
+  <h2 className="text-bold font-bold">11. Contact</h2>
   <br />
   <p>
     Email: naibaanstudio@gmail.com

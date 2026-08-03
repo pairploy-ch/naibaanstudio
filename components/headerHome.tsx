@@ -64,7 +64,7 @@ export default function Header() {
       >
         <div className="max-w-[90%] mx-auto py-4 flex items-center justify-between">
           <Link href={isAdmin ? '/admin/dashboard' : '/'} className="flex items-center gap-2">
-            <img src="/logo-nb-wh.png" className="w-[100px] md:w-[150px]" alt="Logo" />
+            <img src="/naibaan-studio-logo-white.png" className="w-[100px] md:w-[150px]" alt="Nai Baan Studio logo" />
           </Link>
 
           {/* Desktop menu */}

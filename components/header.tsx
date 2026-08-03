@@ -92,7 +92,7 @@ export default function Header() {
             href={isAdmin ? "/admin/dashboard" : "/"}
             style={{ display: "flex", alignItems: "center" }}
           >
-           <img src="/logo-nb.png" className="w-[100px] md:w-[150px]" alt="Logo" />
+           <img src="/naibaan-studio-logo.png" className="w-[100px] md:w-[150px]" alt="Nai Baan Studio logo" />
           </Link>
 
           {/* Desktop menu */}

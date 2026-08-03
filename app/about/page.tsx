@@ -1,4 +1,13 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Nai Baan Studio is a home-style Thai cooking studio in Bangkok, sharing family recipes passed down through three generations. No cooking experience required.",
+  alternates: { canonical: "/about" },
+}
 
 export default function AboutPage() {
   return (
@@ -17,11 +26,13 @@ export default function AboutPage() {
             </p>
           </div>
           {/* Right: Image — บนบน mobile */}
-          <div className="order-1 md:order-2">
-            <img
-              src="/new/about-1.jpg"
+          <div className="relative order-1 md:order-2 aspect-square w-full">
+            <Image
+              src="/new/family-cooking-together-thai-kitchen.jpg"
               alt="Family cooking together in Thai kitchen"
-              className="w-full aspect-square object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
           </div>
         </div>
@@ -33,7 +44,7 @@ export default function AboutPage() {
           {/* Left: Image */}
           <div className="w-full md:w-[90%]">
             <img
-              src="/new/about-2.jpg"
+              src="/new/cooking-wok-fresh-thai-ingredients.jpg"
               alt="Cooking in wok with fresh ingredients"
               className="w-full h-auto object-cover"
             />
@@ -68,12 +79,13 @@ export default function AboutPage() {
 
       {/* Bottom Image Section */}
       <section className="pb-12 md:pb-16">
-        <div className="max-w-[90%] mx-auto">
-          <img
-            src="/new/about-3.jpg"
+        <div className="relative max-w-[90%] mx-auto aspect-video">
+          <Image
+            src="/new/thai-cooking-studio-interior.jpg"
             alt="Thai cooking studio interior"
-            className="w-full object-cover"
-            style={{ height: 'auto', aspectRatio: '16/9' }}
+            fill
+            sizes="90vw"
+            className="object-cover"
           />
         </div>
       </section>

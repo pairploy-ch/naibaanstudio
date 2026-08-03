@@ -1,4 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Read the Nai Baan Studio privacy policy to learn how we collect, use, and protect your personal information.",
+  alternates: { canonical: "/policy" },
+  robots: { index: false, follow: true },
+};
 
 export default function AboutPage() {
   return (
@@ -20,7 +29,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">1. Information We Collect</h1>
+          <h2 className="text-bold font-bold">1. Information We Collect</h2>
           <br />
           <p>
             We may collect personal information including:
@@ -30,16 +39,16 @@ export default function AboutPage() {
             <br />• Nationality or country of residence (if provided)
             <br />• Billing and payment information
             <br />• Booking details and course selections
-      
+
             <br />• Cookies and analytics data
           </p>
 
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">
+          <h2 className="text-bold font-bold">
             2. How We Use Your Information
-          </h1>
+          </h2>
           <br />
           <p>
             We use your information to:
@@ -55,7 +64,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">3. Payment Processing</h1>
+          <h2 className="text-bold font-bold">3. Payment Processing</h2>
           <br />
           <p>
             Payments are processed through third-party payment providers. We do
@@ -67,9 +76,9 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">
+          <h2 className="text-bold font-bold">
             4. Cookies and Tracking Technologies
-          </h1>
+          </h2>
           <br />
           <p>
             We use cookies and similar technologies to:
@@ -83,7 +92,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">5. Third-Party Services</h1>
+          <h2 className="text-bold font-bold">5. Third-Party Services</h2>
           <br />
           <p>
             We may use third-party services including analytics providers,
@@ -94,7 +103,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">6. Data Retention</h1>
+          <h2 className="text-bold font-bold">6. Data Retention</h2>
           <br />
           <p>
             We retain personal data only as long as necessary for operational,
@@ -104,7 +113,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">7. Data Security</h1>
+          <h2 className="text-bold font-bold">7. Data Security</h2>
           <br />
           <p>
             We implement industry-standard technical and organizational
@@ -115,7 +124,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">8. International Users</h1>
+          <h2 className="text-bold font-bold">8. International Users</h2>
           <br />
           <p>
             As our services are available to international users, your
@@ -126,7 +135,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">9. Your Rights</h1>
+          <h2 className="text-bold font-bold">9. Your Rights</h2>
           <br />
           <p>
             Depending on applicable laws, you may have the right to:
@@ -140,14 +149,14 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">10. Data Controller</h1>
+          <h2 className="text-bold font-bold">10. Data Controller</h2>
           <br />
           <p>Data Controller: Nai Baan Studio</p>
 
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">11. Changes to This Policy</h1>
+          <h2 className="text-bold font-bold">11. Changes to This Policy</h2>
           <br />
           <p>
             We may update this Privacy Policy from time to time. Updates will be
@@ -157,7 +166,7 @@ export default function AboutPage() {
           <br />
           <br />
 
-          <h1 className="text-bold font-bold">12. Contact</h1>
+          <h2 className="text-bold font-bold">12. Contact</h2>
           <br />
           <p>Email: naibaanstudio@gmail.com</p>
         </div>

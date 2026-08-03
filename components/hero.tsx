@@ -1,17 +1,20 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 export function Hero() {
   return (
     <section className="relative h-[50vh] md:h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-   <img
-   style={{objectPosition: 'bottom'}}
-  src="/new/bg.jpg"
-  alt="Thai cooking studio interior"
-  className="w-full h-full object-cover"
-/>
+        <Image
+          src="/new/thai-cooking-studio-hero-background.jpg"
+          alt="Thai cooking studio interior"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "bottom" }}
+        />
 
         <div className="absolute inset-0 bg-black/50" />
       </div>

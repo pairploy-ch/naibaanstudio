@@ -1,578 +1,78 @@
-"use client";
-import { useState, use, useEffect } from "react";
-import Link from "next/link";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
+import type { Metadata } from "next";
 import { supabase } from "@/lib/supabaseClient";
+import CourseClient from "./CourseClient";
 
-// --- Types ---
-type Menu = {
-  id: number;
-  name: string;
-  cover: string;
-  description: string;
-};
-
-type Course = {
-  id: number;
-  title: string;
-  description: string;
-  cover: string;
-  date: string;
-  price: number;
-  learning: string;
-  experience: string;
-  type_of_course_id: number;
-  type_of_course?: {
-    type: string;
-    price: number;
-    vat: number;
-  };
-  menu?: Menu[];
-};
-
-export default function CoursePage({
-  params,
-}: {
+type Props = {
   params: Promise<{ id: string }>;
-}) {
-  const { id } = use(params);
+};
 
-  const [course, setCourse] = useState<Course | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [availability, setAvailability] = useState<
-    Record<
-      string,
-      {
-        course_id: number;
-        slot_id: number;
-        slot_name: string;
-        available: number;
-        total: number;
-        start_time: string;
-        end_time: string;
-      }[]
-    >
-  >({});
-
-  type Slot = {
-    course_id: number;
-    slot_id: number;
-    slot_name: string;
-    start_time: string;
-    end_time: string;
-    available: number;
-    total: number;
-  };
-
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [quantity, setQuantity] = useState(1);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [selectedSlot, setSelectedSlot] = useState<Slot | null>(null);
-  const [selectedMenu, setSelectedMenu] = useState<Menu | null>(null);
-
-  useEffect(() => {
-    const fetchCourse = async () => {
-      setLoading(true);
-
-      const { data, error } = await supabase
-        .from("weekly_template")
-        .select(
-          `
-    *,
-    type_of_course (type, price, vat),
-    menu (id, name, cover, description, sort_order),
-    courses (
-      id,
-      date,
-      capacity,
-      status,
-      time_slot:course_time_slot (
-        id,
-        slot_name,
-        start_time,
-        end_time
-      )
-    )
-  `,
-        )
-        .eq("id", id)
-        .order("sort_order", { foreignTable: "menu", ascending: true })
-        .single();
-
-      if (error) {
-        console.error("Error fetching course:", error);
-        setLoading(false);
-        return;
-      }
-
-      setCourse(data);
-
-      // ✅ ดึง bookings ที่ success แล้วมานับ quantity ต่อ course_id
-      const courseIds = data?.courses?.map((c: any) => c.id) || [];
-
-      const { data: bookingCounts } = await supabase
-        .from("bookings")
-        .select("course_id, quantity")
-        .in("course_id", courseIds)
-        .eq("booking_status", "success");
-
-      // รวม quantity ที่จองแล้วต่อ course_id
-      const bookedMap: Record<number, number> = {};
-      bookingCounts?.forEach((b: any) => {
-        bookedMap[b.course_id] = (bookedMap[b.course_id] || 0) + b.quantity;
-      });
-
-      // 🔥 convert courses -> calendar availability พร้อมหัก booked
-      const newAvailability: Record<
-        string,
-        {
-          course_id: number;
-          slot_id: number;
-          slot_name: string;
-          available: number;
-          total: number;
-          start_time: string;
-          end_time: string;
-        }[]
-      > = {};
-
-      data?.courses?.forEach((c: any) => {
-        const dateStr = c.date;
-
-        if (!newAvailability[dateStr]) {
-          newAvailability[dateStr] = [];
-        }
-
-        const booked = bookedMap[c.id] || 0;
-
-        newAvailability[dateStr].push({
-          course_id: c.id,
-          slot_id: c.time_slot?.id,
-          slot_name: c.time_slot?.slot_name,
-          start_time: c.time_slot?.start_time,
-          end_time: c.time_slot?.end_time,
-          total: c.capacity,
-          available: Math.max(0, c.capacity - booked), // ✅ หักที่จองแล้ว
-        });
-      });
-
-      setAvailability(newAvailability);
-      setLoading(false);
-    };
-
-    if (id) {
-      fetchCourse();
-    }
-  }, [id]);
-
-  const formatDate = (date: Date) => {
-    const offset = date.getTimezoneOffset();
-    const localDate = new Date(date.getTime() - offset * 60000);
-    return localDate.toISOString().split("T")[0];
-  };
-
-  const tileContent = ({ date, view }: { date: Date; view: string }) => {
-    if (view === "month") {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-
-      const checkDate = new Date(date);
-      checkDate.setHours(0, 0, 0, 0);
-
-      if (checkDate < today) return null;
-
-      const dateStr = formatDate(date);
-      const dayAvailability = availability[dateStr];
-
-      if (dayAvailability) {
-        const allFull = dayAvailability.every(
-          (slot: any) => slot.available === 0,
-        );
-
-        return (
-          <div className="text-[8px] md:text-xs py-1 px-1 mt-1 bg-[#919077] text-white">
-            {allFull ? "Full" : "Available"}
-          </div>
-        );
-      }
-    }
-
-    return null;
-  };
-
-  const tileDisabled = ({ date, view }: { date: Date; view: string }) => {
-    if (view === "month") {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const minBookingDate = new Date(today);
-      minBookingDate.setDate(today.getDate() + 2);
-
-      const checkDate = new Date(date);
-      checkDate.setHours(0, 0, 0, 0);
-
-      if (checkDate <= minBookingDate) {
-        return true;
-      }
-
-      const dateStr = formatDate(date);
-      const dayAvailability = availability[dateStr];
-      if (dayAvailability) {
-        const allFull = dayAvailability.every(
-          (slot: any) => slot.available === 0,
-        );
-        return allFull;
-      }
-      return true;
-    }
-    return false;
-  };
-
-  const handleDateChange = (value: Date) => {
-    setSelectedDate(value);
-    setSelectedSlot(null); // ✅ reset slot เมื่อเปลี่ยนวัน
-    setSelectedMenu(null);
-    setQuantity(1);
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[#F5F1EC] flex items-center justify-center">
-        <p className="text-black text-xl">Loading...</p>
-      </div>
-    );
-  }
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const { data: course } = await supabase
+    .from("weekly_template")
+    .select("title, description, cover")
+    .eq("id", id)
+    .maybeSingle();
 
   if (!course) {
-    return (
-      <div className="min-h-screen bg-[#F5F1EC] flex items-center justify-center">
-        <p className="text-black text-xl">Course not found.</p>
-      </div>
-    );
+    return { title: "Course not found" };
   }
-  const isMenuRequired = course.type_of_course_id === 5;
 
-  const priceWithVat =
-    (course.type_of_course?.price ?? 0) + (course.type_of_course?.vat ?? 0);
+  const description = course.description
+    ? course.description.slice(0, 160)
+    : `Book the ${course.title} Thai cooking class at Nai Baan Studio in Bangkok.`;
 
-    const query =
-  selectedDate && selectedSlot
-    ? new URLSearchParams({
-        course: course.title,
-        date: selectedDate.toLocaleDateString("en-GB"),
-        quantity: String(quantity),
-        price: String(course.type_of_course?.price ?? 0),
-        courseId: String(selectedSlot.course_id),
-        slotId: String(selectedSlot.slot_id),
-        slotName: selectedSlot.slot_name,
-        slotTime: `${selectedSlot.start_time.slice(0, 5)} - ${selectedSlot.end_time.slice(0, 5)}`,
-        vat: String(course.type_of_course?.vat ?? 0.07),
-        ...(isMenuRequired && selectedMenu
-          ? {
-              menuId: String(selectedMenu.id),
-              menuName: selectedMenu.name,
-            }
-          : {}),
-      }).toString()
-    : "";
+  return {
+    title: course.title,
+    description,
+    alternates: { canonical: `/courses/${id}` },
+    openGraph: {
+      title: `${course.title} | Nai Baan Studio`,
+      description,
+      type: "website",
+      images: course.cover ? [{ url: course.cover }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${course.title} | Nai Baan Studio`,
+      description,
+      images: course.cover ? [course.cover] : undefined,
+    },
+  };
+}
+
+export default async function CoursePage({ params }: Props) {
+  const { id } = await params;
+  const { data: course } = await supabase
+    .from("weekly_template")
+    .select("title, description, cover")
+    .eq("id", id)
+    .maybeSingle();
+
+  const courseJsonLd = course
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        name: course.title,
+        description: course.description,
+        provider: {
+          "@type": "Organization",
+          name: "Nai Baan Studio",
+          sameAs: "https://naibaanstudio.com",
+        },
+        image: course.cover || undefined,
+      }
+    : null;
 
   return (
-    <div className="min-h-screen bg-[#F5F1EC]">
-      <div className="container mx-auto px-6 py-8 max-w-[90%]">
-        <Link
-          href="/courses"
-          className="inline-flex items-center text-black hover:opacity-70 transition-opacity mb-8"
-        >
-          <span className="mr-2">←</span>
-          <span className="underline">Back</span>
-        </Link>
-
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="space-y-8">
-            <h1 className="text-5xl font-bold text-[#919077]">
-              {course.title}
-            </h1>
-            <div className="text-black leading-relaxed space-y-4">
-              {course.description
-                .split("\n\n")
-                .map((paragraph: string, index: number) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-            </div>
-            {course.menu && course.menu.length > 0 && (
-              <div>
-                <h2 className="font-bold text-2xl mb-4 text-black">
-                  Menus {course.type_of_course_id === 5 ? "(Option)" : ""} :
-                </h2>
-                <ul className="space-y-2">
-                  {course.menu.map((item: Menu) => (
-                    <li key={item.id} className="flex items-start">
-                      <span className="mr-3 mt-1">•</span>
-                      <span className="text-black">{item.name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {course.learning && (
-              <div>
-                <h2 className="font-bold text-2xl mb-4 text-black">
-                  In this class, you will learn:
-                </h2>
-                <ul className="space-y-2">
-                  {course.learning
-                    .split("\n")
-                    .filter(Boolean)
-                    .map((point: string, index: number) => (
-                      <li key={index} className="flex items-start">
-                        <span className="text-black">{point}</span>
-                      </li>
-                    ))}
-                </ul>
-              </div>
-            )}
-            {course.experience && (
-              <div>
-                <h2 className="font-bold text-2xl mb-4 text-black">
-                  What you'll experience:
-                </h2>
-                <p className="text-black leading-relaxed">
-                  {course.experience}
-                </p>
-              </div>
-            )}
-          </div>
-          <div className="relative w-full overflow-hidden">
-            {course.menu && course.menu.length > 0 ? (
-              course.menu.map((item: Menu, index: number) => (
-                <img
-                  key={item.id}
-                  src={item.cover || "/placeholder.svg"}
-                  alt={item.name}
-                  className={`w-full h-auto object-cover transition-opacity duration-500 ${
-                    index === currentSlide
-                      ? "block opacity-100"
-                      : "hidden opacity-0"
-                  }`}
-                />
-              ))
-            ) : (
-              <img
-                src={course.cover || "/placeholder.svg"}
-                alt={course.title}
-                className="w-full h-auto object-cover"
-              />
-            )}
-
-            {course.menu && course.menu.length > 1 && (
-              <>
-                <button
-                  onClick={() =>
-                    setCurrentSlide((prev) =>
-                      prev === 0 ? course.menu!.length - 1 : prev - 1,
-                    )
-                  }
-                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white w-8 h-8 flex items-center justify-center transition-colors"
-                >
-                  ←
-                </button>
-                <button
-                  onClick={() =>
-                    setCurrentSlide((prev) =>
-                      prev === course.menu!.length - 1 ? 0 : prev + 1,
-                    )
-                  }
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white w-8 h-8 flex items-center justify-center transition-colors"
-                >
-                  →
-                </button>
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-                  {course.menu.map((_: Menu, index: number) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentSlide(index)}
-                      className={`w-2 h-2 transition-colors ${
-                        index === currentSlide ? "bg-white" : "bg-white/50"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
-       
-          </div>
-        </div>
-
-        <hr className="border-black mb-16" />
-
-        <div className="mb-16">
-          <h2 className="font-bold text-3xl mb-8 text-black">Book a Class:</h2>
-
-          <div className="calendar-wrapper w-full">
-            <Calendar
-              value={selectedDate}
-              onChange={(value) => handleDateChange(value as Date)}
-              tileContent={tileContent}
-              tileDisabled={tileDisabled}
-              onClickDay={(value) => {
-                const clickedDate = formatDate(value);
-                console.log("Clicked date:", clickedDate);
-                console.log("Slots:", availability[clickedDate]);
-              }}
-              minDate={(() => {
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                const minDate = new Date(today);
-                minDate.setDate(today.getDate() + 2);
-                return minDate;
-              })()}
-              className="border-2 border-black"
-            />
-          </div>
-
-          {selectedDate && availability[formatDate(selectedDate)] && (
-            <div className="mt-6 space-y-3">
-              <h3 className="font-bold text-xl text-black">
-                Select Time Slot:
-              </h3>
-
-              {availability[formatDate(selectedDate)].map((slot: any) => {
-                const isFull = slot.available === 0;
-                const isSelected = selectedSlot?.slot_id === slot.slot_id;
-
-                return (
-                  <button
-                    key={slot.slot_id}
-                    disabled={isFull}
-                    onClick={() => {
-                      setSelectedSlot(slot);
-                      setSelectedMenu(null);
-                      setQuantity(1);
-                    }}
-                    className={`
-                      w-full border
-                      p-3 sm:p-4
-                      text-left transition
-                      flex flex-col sm:flex-row
-                      sm:items-center sm:justify-between
-                      gap-2 sm:gap-0
-                      ${isSelected ? "bg-[#919077] text-white" : "bg-white"}
-                      ${isFull ? "opacity-40 cursor-not-allowed" : ""}
-                    `}
-                  >
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="font-medium">{slot.slot_name}</span>
-                      {slot.start_time && slot.end_time && (
-                        <span className="text-sm opacity-70 whitespace-nowrap">
-                          ({slot.start_time.slice(0, 5)} -{" "}
-                          {slot.end_time.slice(0, 5)})
-                        </span>
-                      )}
-                    </div>
-                    {/* ✅ แสดงที่นั่งคงเหลือ */}
-                    <span className="text-sm font-medium">
-                      {isFull ? "Full" : ``}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          )}
-
-        </div>
-
-        <hr className="border-black mb-16" />
-
-        <div className="mb-16">
-          <h2 className="font-bold text-3xl mb-8 text-black">Buy Ticket</h2>
-          <div className="bg-white border border-gray-300">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between p-6 border-b border-gray-300 gap-4">
-              <div className="font-medium text-black">{course.title} Class</div>
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-8 h-8 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
-                >
-                  -
-                </button>
-                <span className="font-bold">{quantity}</span>
-                <button
-                  onClick={() => {
-                    if (selectedSlot) {
-                      setQuantity(
-                        Math.min(selectedSlot.available, quantity + 1),
-                      );
-                    }
-                  }}
-                  disabled={!selectedSlot}
-                  className="w-8 h-8 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                >
-                  +
-                </button>
-                <div className="ml-4 font-bold">
-                  ฿ {(priceWithVat * quantity).toLocaleString()}
-                </div>
-              </div>
-            </div>
-
-            <div className="p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-              <div className="text-black">
-                <span className="font-semibold">Quantity:</span> {quantity}
-              </div>
-              <div className="text-black">
-                <span className="font-semibold">Total:</span> ฿{" "}
-                {(priceWithVat * quantity).toLocaleString()}
-              </div>
-            </div>
-
-         <div className="p-6 pt-0 flex justify-end">
-  <Link
-    href={selectedDate && selectedSlot ? `/checkout?${query}` : "#"}
-    className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
-      !selectedDate || !selectedSlot
-        ? "opacity-50 pointer-events-none"
-        : ""
-    }`}
-  >
-    Checkout Now
-  </Link>
-</div>
-          </div>
-        </div>
-
-        <hr className="border-black mb-16" />
-      </div>
-
-      <style jsx global>{`
-        .react-calendar {
-          width: 100% !important;
-          max-width: 100%;
-          background: white;
-          border: none !important;
-          font-family: inherit;
-          line-height: 1.125em;
-        }
-
-        .react-calendar__tile {
-          height: 80px;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: center;
-          padding: 10px 6px;
-        }
-
-        .react-calendar__navigation button {
-          min-width: 44px;
-          background: none;
-          font-size: 16px;
-          margin-top: 8px;
-        }
-
-        .react-calendar__month-view__days__day--weekend {
-          color: black !important;
-        }
-      `}</style>
-    </div>
+    <>
+      {courseJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
+        />
+      )}
+      <CourseClient params={params} />
+    </>
   );
 }
