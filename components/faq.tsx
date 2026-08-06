@@ -49,7 +49,7 @@ export default function Faq() {
   }
 
   return (
-    <div className="bg-[#F6EFE7] py-16">
+    <div id="faq" className="bg-[#F6EFE7] py-16 scroll-mt-24">
       {faqs.length > 0 && (
         <script
           type="application/ld+json"

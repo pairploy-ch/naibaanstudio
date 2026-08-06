@@ -14,6 +14,32 @@ create table if not exists public.blogs (
 -- (same pattern as the `reviews` / `discount_codes` tables), so keep RLS off.
 alter table public.blogs disable row level security;
 
+-- ============================================================================
+-- SLUG MIGRATION (run once) — adds a URL-friendly slug used by /blogs/[slug]
+-- instead of the raw uuid, and backfills any existing rows from their title.
+-- ============================================================================
+alter table public.blogs add column if not exists slug text;
+
+update public.blogs b
+set slug = base.slug || case when base.rn > 1 then '-' || base.rn::text else '' end
+from (
+  select
+    id,
+    trim(both '-' from regexp_replace(lower(title), '[^a-z0-9]+', '-', 'g')) as slug,
+    row_number() over (
+      partition by trim(both '-' from regexp_replace(lower(title), '[^a-z0-9]+', '-', 'g'))
+      order by created_at
+    ) as rn
+  from public.blogs
+) base
+where b.id = base.id and b.slug is null;
+
+alter table public.blogs alter column slug set not null;
+
+drop index if exists blogs_slug_key;
+alter table public.blogs drop constraint if exists blogs_slug_unique;
+alter table public.blogs add constraint blogs_slug_unique unique (slug);
+
 -- Storage bucket for blog cover images (run once; ignore error if it already exists)
 insert into storage.buckets (id, name, public)
 values ('blogs', 'blogs', true)

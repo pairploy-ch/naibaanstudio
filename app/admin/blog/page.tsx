@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import { Edit3, Plus, Trash2, Search, AlertCircle, Loader2, Upload, X } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
+import RichTextEditor from '@/components/RichTextEditor';
 
 // ============================================================================
 // SUPABASE SETUP
@@ -18,6 +19,7 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 interface Blog {
   id: string;
   title: string;
+  slug: string;
   excerpt: string | null;
   content: string;
   cover_image: string | null;
@@ -28,6 +30,8 @@ interface Blog {
 
 interface BlogFormState {
   title: string;
+  slug: string;
+  slugEdited: boolean;
   excerpt: string;
   content: string;
   isActive: boolean;
@@ -37,6 +41,8 @@ interface BlogFormState {
 
 const emptyFormState: BlogFormState = {
   title: '',
+  slug: '',
+  slugEdited: false,
   excerpt: '',
   content: '',
   isActive: true,
@@ -45,6 +51,14 @@ const emptyFormState: BlogFormState = {
 };
 
 const ITEMS_PER_PAGE = 10;
+
+function slugify(input: string): string {
+  return input
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
 
 // ============================================================================
 // SUPABASE SERVICE
@@ -69,6 +83,34 @@ const blogService = {
 
     const { data } = supabase.storage.from('blogs').getPublicUrl(filePath);
     return data.publicUrl;
+  },
+
+  async uploadContentImage(file: File): Promise<string> {
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${Date.now()}_${Math.random().toString(36).substring(7)}.${fileExt}`;
+    const filePath = `content/${fileName}`;
+
+    const { error: uploadError } = await supabase.storage.from('blogs').upload(filePath, file);
+    if (uploadError) throw new Error(uploadError.message || 'Failed to upload image');
+
+    const { data } = supabase.storage.from('blogs').getPublicUrl(filePath);
+    return data.publicUrl;
+  },
+
+  async findUniqueSlug(desiredSlug: string, excludeId: string | null): Promise<string> {
+    const base = desiredSlug || 'post';
+    let candidate = base;
+    let suffix = 2;
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      let query = supabase.from('blogs').select('id').eq('slug', candidate);
+      if (excludeId) query = query.neq('id', excludeId);
+      const { data, error } = await query.maybeSingle();
+      if (error && error.code !== 'PGRST116') throw new Error(error.message);
+      if (!data) return candidate;
+      candidate = `${base}-${suffix}`;
+      suffix += 1;
+    }
   },
 
   async addBlog(payload: Omit<Blog, 'id' | 'created_at' | 'updated_at'>): Promise<Blog> {
@@ -197,6 +239,8 @@ export default function ManageBlogPage() {
     setEditingId(blog.id);
     setFormState({
       title: blog.title,
+      slug: blog.slug ?? slugify(blog.title),
+      slugEdited: true,
       excerpt: blog.excerpt ?? '',
       content: blog.content,
       isActive: blog.is_active ?? true,
@@ -235,12 +279,13 @@ export default function ManageBlogPage() {
   const handleSave = async () => {
     const title = formState.title.trim();
     const content = formState.content.trim();
+    const hasContentText = content.replace(/<[^>]*>/g, '').trim().length > 0;
 
     if (!title) {
       setFormError('Title is required.');
       return;
     }
-    if (!content) {
+    if (!hasContentText) {
       setFormError('Content is required.');
       return;
     }
@@ -256,8 +301,12 @@ export default function ManageBlogPage() {
         coverImage = await blogService.uploadCover(formState.file);
       }
 
+      const desiredSlug = slugify(formState.slug.trim() || title);
+      const slug = await blogService.findUniqueSlug(desiredSlug, editingId);
+
       const payload = {
         title,
+        slug,
         excerpt: formState.excerpt.trim() || null,
         content,
         cover_image: coverImage,
@@ -476,7 +525,7 @@ export default function ManageBlogPage() {
       {/* Add/Edit Form Modal */}
       {showForm && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4 py-8 overflow-y-auto">
-          <div className="bg-white shadow-xl max-w-2xl w-full p-6 space-y-5 max-h-[90vh] overflow-y-auto" style={{ backgroundColor: '#fffaf4' }}>
+          <div className="bg-white shadow-xl max-w-3xl w-full p-6 space-y-5 max-h-[90vh] overflow-y-auto" style={{ backgroundColor: '#fffaf4' }}>
             <div className="flex items-center justify-between">
               <h3 className="text-2xl font-light" style={{ color: '#3d2817' }}>
                 {editingId ? 'Edit post' : 'New blog post'}
@@ -535,11 +584,41 @@ export default function ManageBlogPage() {
                 <input
                   type="text"
                   value={formState.title}
-                  onChange={(e) => setFormState((prev) => ({ ...prev, title: e.target.value }))}
+                  onChange={(e) => {
+                    const title = e.target.value;
+                    setFormState((prev) => ({
+                      ...prev,
+                      title,
+                      slug: prev.slugEdited ? prev.slug : slugify(title),
+                    }));
+                  }}
                   className="w-full border px-4 py-2"
                   style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
                   placeholder="5 tips for your first Thai cooking class"
                 />
+              </div>
+
+              <div>
+                <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
+                  URL slug
+                </label>
+                <div className="flex items-center gap-1 text-sm" style={{ color: '#8b6f47' }}>
+                  <span className="whitespace-nowrap">/blogs/</span>
+                  <input
+                    type="text"
+                    value={formState.slug}
+                    onChange={(e) =>
+                      setFormState((prev) => ({
+                        ...prev,
+                        slug: slugify(e.target.value),
+                        slugEdited: true,
+                      }))
+                    }
+                    className="w-full border px-3 py-2 text-sm"
+                    style={{ borderColor: '#e5dcd4', backgroundColor: '#fff', color: '#3d2817' }}
+                    placeholder="auto-generated-from-title"
+                  />
+                </div>
               </div>
 
               <div>
@@ -560,13 +639,10 @@ export default function ManageBlogPage() {
                 <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
                   Content *
                 </label>
-                <textarea
+                <RichTextEditor
                   value={formState.content}
-                  onChange={(e) => setFormState((prev) => ({ ...prev, content: e.target.value }))}
-                  rows={10}
-                  className="w-full border px-4 py-2 text-sm"
-                  style={{ borderColor: '#e5dcd4', backgroundColor: '#fff' }}
-                  placeholder="Write the full post here..."
+                  onChange={(html) => setFormState((prev) => ({ ...prev, content: html }))}
+                  uploadImage={(file) => blogService.uploadContentImage(file)}
                 />
               </div>
 

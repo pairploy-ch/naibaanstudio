@@ -3,15 +3,15 @@ import { supabase } from "@/lib/supabaseClient";
 import BlogPostClient from "./BlogPostClient";
 
 type Props = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
+  const { slug } = await params;
   const { data: blog } = await supabase
     .from("blogs")
     .select("title, excerpt, cover_image")
-    .eq("id", id)
+    .eq("slug", slug)
     .eq("is_active", true)
     .maybeSingle();
 
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: blog.title,
     description,
-    alternates: { canonical: `/blogs/${id}` },
+    alternates: { canonical: `/blogs/${slug}` },
     openGraph: {
       title: blog.title,
       description,

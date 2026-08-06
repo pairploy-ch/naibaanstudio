@@ -44,6 +44,8 @@ export default function Header() {
         { name: "About", href: "/about" },
         { name: "Photo Gallery", href: "/gallery" },
         { name: "Courses", href: "/courses" },
+        { name: "Review", href: "/#review" },
+        { name: "FAQ", href: "/#faq" },
         { name: "Blogs", href: "/blogs" },
         { name: "Contact", href: "/contact" },
       ];

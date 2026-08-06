@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const [{ data: courses }, { data: blogs }] = await Promise.all([
     supabase.from("weekly_template").select("id"),
-    supabase.from("blogs").select("id, updated_at").eq("is_active", true),
+    supabase.from("blogs").select("slug, updated_at").eq("is_active", true),
   ]);
 
   const courseRoutes: MetadataRoute.Sitemap = (courses ?? []).map((c) => ({
@@ -34,7 +34,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const blogRoutes: MetadataRoute.Sitemap = (blogs ?? []).map((b) => ({
-    url: `${siteUrl}/blogs/${b.id}`,
+    url: `${siteUrl}/blogs/${b.slug}`,
     lastModified: b.updated_at ? new Date(b.updated_at) : new Date(),
     changeFrequency: "monthly",
     priority: 0.6,

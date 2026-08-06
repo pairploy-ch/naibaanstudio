@@ -6,6 +6,7 @@ import { supabase } from "@/lib/supabaseClient";
 
 type Blog = {
   id: string;
+  slug: string;
   title: string;
   excerpt: string | null;
   content: string;
@@ -18,9 +19,9 @@ const FALLBACK_IMAGE = "/placeholder.jpg";
 export default function BlogPostClient({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { id } = use(params);
+  const { slug } = use(params);
   const [blog, setBlog] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -29,7 +30,7 @@ export default function BlogPostClient({
     supabase
       .from("blogs")
       .select("*")
-      .eq("id", id)
+      .eq("slug", slug)
       .eq("is_active", true)
       .maybeSingle()
       .then(({ data, error }) => {
@@ -38,7 +39,7 @@ export default function BlogPostClient({
         else setNotFound(true);
         setLoading(false);
       });
-  }, [id]);
+  }, [slug]);
 
   const formatDate = (iso?: string) => {
     if (!iso) return "";
@@ -91,9 +92,16 @@ export default function BlogPostClient({
           />
         </div>
 
-        <div className="text-black leading-relaxed whitespace-pre-wrap text-lg">
-          {blog.content}
-        </div>
+        {/^\s*<[a-z][\s\S]*>/i.test(blog.content) ? (
+          <div
+            className="blog-content text-lg"
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
+        ) : (
+          <div className="text-black leading-relaxed whitespace-pre-wrap text-lg">
+            {blog.content}
+          </div>
+        )}
       </article>
     </main>
   );

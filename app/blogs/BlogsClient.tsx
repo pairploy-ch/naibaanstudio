@@ -7,6 +7,7 @@ import { supabase } from "@/lib/supabaseClient";
 
 type Blog = {
   id: string;
+  slug: string;
   title: string;
   excerpt: string | null;
   cover_image: string | null;
@@ -22,7 +23,7 @@ export default function BlogsClient() {
   useEffect(() => {
     supabase
       .from("blogs")
-      .select("id, title, excerpt, cover_image, created_at")
+      .select("id, slug, title, excerpt, cover_image, created_at")
       .eq("is_active", true)
       .order("created_at", { ascending: false })
       .then(({ data, error }) => {
@@ -60,7 +61,7 @@ export default function BlogsClient() {
             {blogs.map((blog) => (
               <Link
                 key={blog.id}
-                href={`/blogs/${blog.id}`}
+                href={`/blogs/${blog.slug}`}
                 className="bg-white border-2 border-black flex flex-col hover:-translate-y-1 transition-transform"
               >
                 <div className="relative aspect-video overflow-hidden border-b-2 border-black">
