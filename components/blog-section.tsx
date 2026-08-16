@@ -9,11 +9,8 @@ type Blog = {
   slug: string
   title: string
   excerpt: string | null
-  cover_image: string | null
   created_at?: string
 }
-
-const FALLBACK_IMAGE = '/placeholder.jpg'
 
 export default function BlogSection() {
   const [blogs, setBlogs] = useState<Blog[]>([])
@@ -22,7 +19,7 @@ export default function BlogSection() {
   useEffect(() => {
     supabase
       .from('blogs')
-      .select('id, slug, title, excerpt, cover_image, created_at')
+      .select('id, slug, title, excerpt, created_at')
       .eq('is_active', true)
       .order('created_at', { ascending: false })
       .limit(3)
@@ -56,16 +53,6 @@ export default function BlogSection() {
                   href={`/blogs/${blog.slug}`}
                   className="bg-white border-2 border-black flex flex-col hover:-translate-y-1 transition-transform"
                 >
-                  <div className="aspect-video overflow-hidden border-b-2 border-black">
-                    <img
-                      src={blog.cover_image || FALLBACK_IMAGE}
-                      alt={blog.title}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        ;(e.target as HTMLImageElement).src = FALLBACK_IMAGE
-                      }}
-                    />
-                  </div>
                   <div className="p-6 flex flex-col flex-grow">
                     <h3 className="font-bold text-black text-lg mb-2">
                       {blog.title}

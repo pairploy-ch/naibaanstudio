@@ -10,11 +10,8 @@ type Blog = {
   title: string;
   excerpt: string | null;
   content: string;
-  cover_image: string | null;
   created_at?: string;
 };
-
-const FALLBACK_IMAGE = "/placeholder.jpg";
 
 export default function BlogPostClient({
   params,
@@ -80,17 +77,6 @@ export default function BlogPostClient({
 
         <h1 className="text-4xl font-bold text-black mt-6 mb-2">{blog.title}</h1>
         <p className="text-sm text-gray-500 mb-8">{formatDate(blog.created_at)}</p>
-
-        <div className="border-2 border-black mb-8 overflow-hidden">
-          <img
-            src={blog.cover_image || FALLBACK_IMAGE}
-            alt={blog.title}
-            className="w-full h-auto object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
-            }}
-          />
-        </div>
 
         {/^\s*<[a-z][\s\S]*>/i.test(blog.content) ? (
           <div

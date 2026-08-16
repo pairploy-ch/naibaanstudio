@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { supabase } from "@/lib/supabaseClient";
 
 type Blog = {
@@ -10,11 +9,8 @@ type Blog = {
   slug: string;
   title: string;
   excerpt: string | null;
-  cover_image: string | null;
   created_at?: string;
 };
-
-const FALLBACK_IMAGE = "/placeholder.jpg";
 
 export default function BlogsClient() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -23,7 +19,7 @@ export default function BlogsClient() {
   useEffect(() => {
     supabase
       .from("blogs")
-      .select("id, slug, title, excerpt, cover_image, created_at")
+      .select("id, slug, title, excerpt, created_at")
       .eq("is_active", true)
       .order("created_at", { ascending: false })
       .then(({ data, error }) => {
@@ -64,15 +60,6 @@ export default function BlogsClient() {
                 href={`/blogs/${blog.slug}`}
                 className="bg-white border-2 border-black flex flex-col hover:-translate-y-1 transition-transform"
               >
-                <div className="relative aspect-video overflow-hidden border-b-2 border-black">
-                  <Image
-                    src={blog.cover_image || FALLBACK_IMAGE}
-                    alt={blog.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover"
-                  />
-                </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <p className="text-sm text-gray-500 mb-2">
                     {formatDate(blog.created_at)}

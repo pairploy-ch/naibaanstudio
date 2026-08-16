@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Edit3, Plus, Trash2, Search, AlertCircle, Loader2, Upload, X } from 'lucide-react';
+import { Edit3, Plus, Trash2, Search, AlertCircle, Loader2, X } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 import RichTextEditor from '@/components/RichTextEditor';
 
@@ -22,7 +22,6 @@ interface Blog {
   slug: string;
   excerpt: string | null;
   content: string;
-  cover_image: string | null;
   is_active: boolean;
   created_at?: string;
   updated_at?: string;
@@ -35,8 +34,6 @@ interface BlogFormState {
   excerpt: string;
   content: string;
   isActive: boolean;
-  file: File | null;
-  previewUrl: string;
 }
 
 const emptyFormState: BlogFormState = {
@@ -46,8 +43,6 @@ const emptyFormState: BlogFormState = {
   excerpt: '',
   content: '',
   isActive: true,
-  file: null,
-  previewUrl: '',
 };
 
 const ITEMS_PER_PAGE = 10;
@@ -71,18 +66,6 @@ const blogService = {
       .order('created_at', { ascending: false });
     if (error) throw new Error(error.message || 'Failed to fetch blogs');
     return data || [];
-  },
-
-  async uploadCover(file: File): Promise<string> {
-    const fileExt = file.name.split('.').pop();
-    const fileName = `${Date.now()}_${Math.random().toString(36).substring(7)}.${fileExt}`;
-    const filePath = `covers/${fileName}`;
-
-    const { error: uploadError } = await supabase.storage.from('blogs').upload(filePath, file);
-    if (uploadError) throw new Error(uploadError.message || 'Failed to upload cover image');
-
-    const { data } = supabase.storage.from('blogs').getPublicUrl(filePath);
-    return data.publicUrl;
   },
 
   async uploadContentImage(file: File): Promise<string> {
@@ -244,36 +227,16 @@ export default function ManageBlogPage() {
       excerpt: blog.excerpt ?? '',
       content: blog.content,
       isActive: blog.is_active ?? true,
-      file: null,
-      previewUrl: blog.cover_image ?? '',
     });
     setFormError(null);
     setShowForm(true);
   };
 
   const closeForm = () => {
-    if (formState.file && formState.previewUrl) URL.revokeObjectURL(formState.previewUrl);
     setShowForm(false);
     setFormState(emptyFormState);
     setEditingId(null);
     setFormError(null);
-  };
-
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    if (!file.type.startsWith('image/')) {
-      setFormError('Please select an image file.');
-      return;
-    }
-    if (file.size > 5 * 1024 * 1024) {
-      setFormError('File size must be less than 5MB.');
-      return;
-    }
-
-    const previewUrl = URL.createObjectURL(file);
-    setFormState((prev) => ({ ...prev, file, previewUrl }));
   };
 
   const handleSave = async () => {
@@ -294,13 +257,6 @@ export default function ManageBlogPage() {
       setIsLoading(true);
       setFormError(null);
 
-      let coverImage = editingId
-        ? blogs.find((b) => b.id === editingId)?.cover_image ?? null
-        : null;
-      if (formState.file) {
-        coverImage = await blogService.uploadCover(formState.file);
-      }
-
       const desiredSlug = slugify(formState.slug.trim() || title);
       const slug = await blogService.findUniqueSlug(desiredSlug, editingId);
 
@@ -309,7 +265,6 @@ export default function ManageBlogPage() {
         slug,
         excerpt: formState.excerpt.trim() || null,
         content,
-        cover_image: coverImage,
         is_active: formState.isActive,
       };
 
@@ -399,7 +354,6 @@ export default function ManageBlogPage() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr style={{ backgroundColor: '#f9f5f0', color: '#8b6f47' }}>
-                      <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Cover</th>
                       <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Title</th>
                       <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Excerpt</th>
                       <th className="px-4 py-3 text-left text-xs uppercase tracking-[0.2em]">Status</th>
@@ -409,18 +363,6 @@ export default function ManageBlogPage() {
                   <tbody>
                     {paginatedBlogs.map((blog) => (
                       <tr key={blog.id} className="border-t hover:bg-[#fffbf7] transition-colors" style={{ borderColor: '#f1e6db' }}>
-                        <td className="px-4 py-3 align-middle">
-                          <div
-                            className="w-16 h-12 bg-[#f1e6db] border overflow-hidden flex items-center justify-center"
-                            style={{ borderColor: '#e5dcd4' }}
-                          >
-                            {blog.cover_image ? (
-                              <img src={blog.cover_image} alt={blog.title} className="w-full h-full object-cover" />
-                            ) : (
-                              <span className="text-[10px]" style={{ color: '#b29373' }}>No image</span>
-                            )}
-                          </div>
-                        </td>
                         <td className="px-4 py-3 align-middle font-medium" style={{ color: '#3d2817' }}>
                           {blog.title}
                         </td>
@@ -463,7 +405,7 @@ export default function ManageBlogPage() {
                     ))}
                     {filteredBlogs.length === 0 && (
                       <tr>
-                        <td colSpan={5} className="px-4 py-10 text-center text-sm" style={{ color: '#8b6f47' }}>
+                        <td colSpan={4} className="px-4 py-10 text-center text-sm" style={{ color: '#8b6f47' }}>
                           No blog posts found.
                         </td>
                       </tr>
@@ -543,40 +485,6 @@ export default function ManageBlogPage() {
             )}
 
             <div className="space-y-4">
-              {/* Cover image */}
-              <div>
-                <label className="block text-xs uppercase tracking-wide mb-2" style={{ color: '#8b6f47' }}>
-                  Cover image
-                </label>
-                <div className="border-2 border-dashed p-6 text-center" style={{ borderColor: '#e5dcd4' }}>
-                  {formState.previewUrl ? (
-                    <div className="space-y-3">
-                      <img src={formState.previewUrl} alt="Preview" className="max-h-48 mx-auto object-cover" />
-                      <button
-                        onClick={() => {
-                          if (formState.file) URL.revokeObjectURL(formState.previewUrl);
-                          setFormState((prev) => ({ ...prev, file: null, previewUrl: '' }));
-                        }}
-                        className="text-xs text-red-600 hover:text-red-700"
-                      >
-                        Remove
-                      </button>
-                    </div>
-                  ) : (
-                    <label className="cursor-pointer">
-                      <Upload size={32} className="mx-auto mb-2" style={{ color: '#b29373' }} />
-                      <p className="text-sm mb-1" style={{ color: '#3d2817' }}>
-                        Click to upload a cover image
-                      </p>
-                      <p className="text-xs" style={{ color: '#8b6f47' }}>
-                        PNG, JPG, GIF up to 5MB
-                      </p>
-                      <input type="file" accept="image/*" onChange={handleFileSelect} className="hidden" />
-                    </label>
-                  )}
-                </div>
-              </div>
-
               <div>
                 <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
                   Title *
