@@ -71,6 +71,30 @@ export default function CourseClient({
   const [selectedSlot, setSelectedSlot] = useState<Slot | null>(null);
   const [selectedMenu, setSelectedMenu] = useState<Menu | null>(null);
 
+  // ===== Checkout add-on (e.g. NaiBaan Sweets & Tea) =====
+  const [addon, setAddon] = useState<{
+    id: string;
+    name: string;
+    price: number;
+    description: string | null;
+    image_urls: string[];
+    available_days: string[];
+  } | null>(null);
+  const [addonSelected, setAddonSelected] = useState(false);
+  const [addonImageIndex, setAddonImageIndex] = useState(0);
+
+  useEffect(() => {
+    supabase
+      .from("addons")
+      .select("id, name, price, description, image_urls, available_days")
+      .eq("is_active", true)
+      .limit(1)
+      .maybeSingle()
+      .then(({ data }) => {
+        if (data) setAddon(data);
+      });
+  }, []);
+
   useEffect(() => {
     const fetchCourse = async () => {
       setLoading(true);
@@ -255,6 +279,11 @@ export default function CourseClient({
   const priceWithVat =
     (course.type_of_course?.price ?? 0) + (course.type_of_course?.vat ?? 0);
 
+  const addonEligible =
+    !!addon && (addon.available_days.length === 0 || addon.available_days.includes(course.date));
+  const addonUnitPrice = addon?.price ?? 0;
+  const addonTotal = addonEligible && addonSelected ? addonUnitPrice * quantity : 0;
+
     const query =
   selectedDate && selectedSlot
     ? new URLSearchParams({
@@ -274,6 +303,7 @@ export default function CourseClient({
               menuName: selectedMenu.name,
             }
           : {}),
+        ...(addonTotal > 0 ? { addonSelected: "1" } : {}),
       }).toString()
     : "";
 
@@ -511,10 +541,65 @@ export default function CourseClient({
                   +
                 </button>
                 <div className="ml-4 font-bold">
-                  ฿ {(priceWithVat * quantity).toLocaleString()}
+                  ฿ {(priceWithVat * quantity + addonTotal).toLocaleString()}
                 </div>
               </div>
             </div>
+
+            {addonEligible && addon && (
+              <div className="p-6 border-b border-gray-300">
+                <div className="flex gap-4">
+                  <div className="relative w-20 h-20 flex-shrink-0">
+                    <img
+                      src={addon.image_urls[addonImageIndex] || "/placeholder.jpg"}
+                      alt={addon.name}
+                      className="w-20 h-20 object-cover"
+                    />
+                    {addon.image_urls.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setAddonImageIndex(
+                              (prev) => (prev - 1 + addon.image_urls.length) % addon.image_urls.length,
+                            )
+                          }
+                          className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-white/80 hover:bg-white flex items-center justify-center text-xs"
+                        >
+                          ‹
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setAddonImageIndex((prev) => (prev + 1) % addon.image_urls.length)
+                          }
+                          className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-white/80 hover:bg-white flex items-center justify-center text-xs"
+                        >
+                          ›
+                        </button>
+                      </>
+                    )}
+                  </div>
+                  <label className="flex items-start gap-2 cursor-pointer flex-1">
+                    <input
+                      type="checkbox"
+                      checked={addonSelected}
+                      onChange={(e) => setAddonSelected(e.target.checked)}
+                      className="w-5 h-5 mt-0.5"
+                    />
+                    <div>
+                      <div className="font-bold text-black">Add {addon.name}</div>
+                      <div className="text-sm text-black/70">
+                        ฿{addonUnitPrice.toLocaleString()} / person (VAT included)
+                      </div>
+                      {addon.description && (
+                        <p className="text-sm text-black/60 mt-1">{addon.description}</p>
+                      )}
+                    </div>
+                  </label>
+                </div>
+              </div>
+            )}
 
             <div className="p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
               <div className="text-black">
@@ -522,7 +607,7 @@ export default function CourseClient({
               </div>
               <div className="text-black">
                 <span className="font-semibold">Total:</span> ฿{" "}
-                {(priceWithVat * quantity).toLocaleString()}
+                {(priceWithVat * quantity + addonTotal).toLocaleString()}
               </div>
             </div>
 

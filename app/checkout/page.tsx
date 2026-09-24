@@ -77,7 +77,7 @@ const menuName = searchParams.get("menuName");
     image_urls: string[];
     available_days: string[];
   } | null>(null);
-  const [addonSelected, setAddonSelected] = useState(false);
+  const [addonSelected, setAddonSelected] = useState(searchParams.get("addonSelected") === "1");
   const [addonImageIndex, setAddonImageIndex] = useState(0);
 
   useEffect(() => {
