@@ -5,13 +5,12 @@ import Link from 'next/link'
 type DayEntry = {
   day: string
   classType: string
-  weeklyTemplateId?: number
+  weeklyTemplateId: number
 }
 
 const DAYS: DayEntry[] = [
   { day: 'Monday', classType: 'short but long lasting', weeklyTemplateId: 3 },
   { day: 'Tuesday', classType: 'short but long lasting', weeklyTemplateId: 7 },
-  { day: 'Wednesday', classType: 'close' },
   { day: 'Thursday', classType: 'full course happiness', weeklyTemplateId: 5 },
   { day: 'Friday', classType: 'short but long lasting', weeklyTemplateId: 6 },
   { day: 'Saturday', classType: 'happiness on street', weeklyTemplateId: 1 },
@@ -28,7 +27,7 @@ export function CourseHighlights() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {DAYS.map(({ day, classType, weeklyTemplateId }) => (
             <div
               key={day}
@@ -37,16 +36,12 @@ export function CourseHighlights() {
               <h3 className="font-bold text-lg mb-1 text-black">{day}</h3>
               <p className="text-black text-sm mb-4 opacity-80">{classType}</p>
 
-              {weeklyTemplateId ? (
-                <Link
-                  href={`/courses/${weeklyTemplateId}`}
-                  className="text-[#919077] text-sm font-medium underline hover:opacity-70 transition-opacity inline-block"
-                >
-                  Book a Class
-                </Link>
-              ) : (
-                <span className="text-black/40 text-sm">Closed</span>
-              )}
+              <Link
+                href={`/courses/${weeklyTemplateId}`}
+                className="text-[#919077] text-sm font-medium underline hover:opacity-70 transition-opacity inline-block"
+              >
+                Book a Class
+              </Link>
             </div>
           ))}
         </div>
