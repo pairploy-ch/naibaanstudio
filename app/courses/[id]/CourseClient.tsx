@@ -267,6 +267,7 @@ export default function CourseClient({
         slotName: selectedSlot.slot_name,
         slotTime: `${selectedSlot.start_time.slice(0, 5)} - ${selectedSlot.end_time.slice(0, 5)}`,
         vat: String(course.type_of_course?.vat ?? 0.07),
+        dayOfWeek: course.date,
         ...(isMenuRequired && selectedMenu
           ? {
               menuId: String(selectedMenu.id),

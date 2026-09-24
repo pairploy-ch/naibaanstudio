@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useState, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Script from "next/script";
 import { supabase } from "@/lib/supabaseClient";
 import toast, { Toaster } from "react-hot-toast";
@@ -65,7 +65,36 @@ const menuName = searchParams.get("menuName");
   const slotId = searchParams.get("slotId") || "";
   const slotName = searchParams.get("slotName") || "";
   const slotTime = searchParams.get("slotTime") || "";
+  const dayOfWeek = searchParams.get("dayOfWeek") || "";
   const [countries] = useState<string[]>(COUNTRIES);
+
+  // ===== Checkout add-on (e.g. NaiBaan Sweets & Tea) =====
+  const [addon, setAddon] = useState<{
+    id: string;
+    name: string;
+    price: number;
+    description: string | null;
+    image_urls: string[];
+    available_days: string[];
+  } | null>(null);
+  const [addonSelected, setAddonSelected] = useState(false);
+
+  useEffect(() => {
+    supabase
+      .from("addons")
+      .select("id, name, price, description, image_urls, available_days")
+      .eq("is_active", true)
+      .limit(1)
+      .maybeSingle()
+      .then(({ data }) => {
+        if (data) setAddon(data);
+      });
+  }, []);
+
+  const addonEligible =
+    !!addon && (addon.available_days.length === 0 || addon.available_days.includes(dayOfWeek));
+  const addonUnitPrice = addon?.price ?? 0;
+  const addonTotal = addonEligible && addonSelected ? addonUnitPrice * quantity : 0;
   const [booking, setBooking] = useState<any>(null);
   const [bookingRef, setBookingRef] = useState<string | null>(null);
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
@@ -164,7 +193,7 @@ const menuName = searchParams.get("menuName");
   const discountPercent = appliedDiscount?.percent || 0;
   const discountAmount = (subtotal * discountPercent) / 100;
 
-  const total = subtotal + vat - discountAmount;
+  const total = subtotal + vat - discountAmount + addonTotal;
 
   const isFormValid = () => {
     const main =
@@ -334,6 +363,9 @@ const menuName = searchParams.get("menuName");
           discount_amount: discountAmount,
           omise_charge_id: chargeId,
           menu_id: menuId ? parseInt(menuId) : null,
+          addon_name: addonTotal > 0 ? addon?.name : null,
+          addon_quantity: addonTotal > 0 ? quantity : null,
+          addon_total: addonTotal,
 
           created_at: new Date().toISOString(),
         },
@@ -458,7 +490,9 @@ await fetch("/api/send-confirmation-email", {
     foodAllergy: formData.foodAllergy.trim(),
     unitPrice: price,          // ราคาต่อคน (ก่อน VAT)
     vatAmount: vat,            // VAT รวม
-    menus: menuName ? [decodeURIComponent(menuName)] : [], 
+    menus: menuName ? [decodeURIComponent(menuName)] : [],
+    addonName: addonTotal > 0 ? addon?.name : null,
+    addonTotal,
   }),
 });
     } catch (emailErr) {
@@ -1072,7 +1106,36 @@ await fetch("/api/send-confirmation-email", {
             {/* Right - Order Summary + Payment */}
             <div className="bg-[#F5F1EC] p-8">
               <h2 className="text-4xl font-bold text-black mb-8">Your Order</h2>
-{}
+
+              {addonEligible && addon && (
+                <div className="mb-8 border border-black bg-white p-4 flex gap-4">
+                  <img
+                    src={addon.image_urls[0] || "/placeholder.jpg"}
+                    alt={addon.name}
+                    className="w-24 h-24 object-cover flex-shrink-0"
+                  />
+                  <div className="flex-1">
+                    <label className="flex items-start gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={addonSelected}
+                        onChange={(e) => setAddonSelected(e.target.checked)}
+                        className="w-5 h-5 mt-0.5"
+                      />
+                      <div>
+                        <div className="font-bold text-black">{addon.name}</div>
+                        <div className="text-sm text-black/70">
+                          ฿{addonUnitPrice.toLocaleString()} / person (VAT included)
+                        </div>
+                        {addon.description && (
+                          <p className="text-sm text-black/60 mt-1">{addon.description}</p>
+                        )}
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              )}
+
               <div className="space-y-6 mb-8">
                 <div className="flex justify-between items-start pb-6 border-b border-black">
                   <div>
@@ -1111,6 +1174,17 @@ await fetch("/api/send-confirmation-email", {
 
                   </div>
                 </div>
+
+                {addonTotal > 0 && (
+                  <div className="flex justify-between items-center">
+                    <div className="text-black">
+                      {addon?.name} x {quantity}
+                    </div>
+                    <div className="text-black">
+                      ฿{addonTotal.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                    </div>
+                  </div>
+                )}
 
                 {appliedDiscount && (
                   <div className="flex justify-between items-center text-green-700">

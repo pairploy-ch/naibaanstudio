@@ -470,6 +470,8 @@ export async function POST(req: Request) {
       vatAmount,
       menus,
       foodAllergy,
+      addonName,
+      addonTotal,
     } = body
 
     const formattedDate = formatDate(bookingDate)
@@ -563,6 +565,13 @@ ${foodAllergy ? `
   <div class="row">
     <span class="label" style="margin-right: 8px;">Food Allergy</span>
     <span class="value">${foodAllergy}</span>
+  </div>
+` : ""}
+
+${addonName ? `
+  <div class="row">
+    <span class="label" style="margin-right: 8px;">Add-on</span>
+    <span class="value">${addonName} (+฿${Number(addonTotal).toLocaleString()})</span>
   </div>
 ` : ""}
 
