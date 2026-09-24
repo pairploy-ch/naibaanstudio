@@ -78,6 +78,7 @@ const menuName = searchParams.get("menuName");
     available_days: string[];
   } | null>(null);
   const [addonSelected, setAddonSelected] = useState(false);
+  const [addonImageIndex, setAddonImageIndex] = useState(0);
 
   useEffect(() => {
     supabase
@@ -1107,35 +1108,6 @@ await fetch("/api/send-confirmation-email", {
             <div className="bg-[#F5F1EC] p-8">
               <h2 className="text-4xl font-bold text-black mb-8">Your Order</h2>
 
-              {addonEligible && addon && (
-                <div className="mb-8 border border-black bg-white p-4 flex gap-4">
-                  <img
-                    src={addon.image_urls[0] || "/placeholder.jpg"}
-                    alt={addon.name}
-                    className="w-24 h-24 object-cover flex-shrink-0"
-                  />
-                  <div className="flex-1">
-                    <label className="flex items-start gap-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={addonSelected}
-                        onChange={(e) => setAddonSelected(e.target.checked)}
-                        className="w-5 h-5 mt-0.5"
-                      />
-                      <div>
-                        <div className="font-bold text-black">{addon.name}</div>
-                        <div className="text-sm text-black/70">
-                          ฿{addonUnitPrice.toLocaleString()} / person (VAT included)
-                        </div>
-                        {addon.description && (
-                          <p className="text-sm text-black/60 mt-1">{addon.description}</p>
-                        )}
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              )}
-
               <div className="space-y-6 mb-8">
                 <div className="flex justify-between items-start pb-6 border-b border-black">
                   <div>
@@ -1236,6 +1208,80 @@ await fetch("/api/send-confirmation-email", {
                 </div>
 
               </div>
+
+              {addonEligible && addon && (
+                <div className="mb-8 border border-black bg-white p-4">
+                  <div className="flex gap-4">
+                    <div className="relative w-24 h-24 flex-shrink-0">
+                      <img
+                        src={addon.image_urls[addonImageIndex] || "/placeholder.jpg"}
+                        alt={addon.name}
+                        className="w-24 h-24 object-cover"
+                      />
+                      {addon.image_urls.length > 1 && (
+                        <>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setAddonImageIndex(
+                                (prev) => (prev - 1 + addon.image_urls.length) % addon.image_urls.length,
+                              )
+                            }
+                            className="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 bg-white/80 hover:bg-white flex items-center justify-center text-xs"
+                          >
+                            ‹
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setAddonImageIndex((prev) => (prev + 1) % addon.image_urls.length)
+                            }
+                            className="absolute right-0 top-1/2 -translate-y-1/2 w-6 h-6 bg-white/80 hover:bg-white flex items-center justify-center text-xs"
+                          >
+                            ›
+                          </button>
+                        </>
+                      )}
+                    </div>
+                    <div className="flex-1">
+                      <label className="flex items-start gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={addonSelected}
+                          onChange={(e) => setAddonSelected(e.target.checked)}
+                          className="w-5 h-5 mt-0.5"
+                        />
+                        <div>
+                          <div className="font-bold text-black">{addon.name}</div>
+                          <div className="text-sm text-black/70">
+                            ฿{addonUnitPrice.toLocaleString()} / person (VAT included)
+                          </div>
+                          {addon.description && (
+                            <p className="text-sm text-black/60 mt-1">{addon.description}</p>
+                          )}
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  {addon.image_urls.length > 1 && (
+                    <div className="flex gap-2 mt-3">
+                      {addon.image_urls.map((url, i) => (
+                        <button
+                          type="button"
+                          key={url + i}
+                          onClick={() => setAddonImageIndex(i)}
+                          className={`w-12 h-12 flex-shrink-0 border-2 ${
+                            i === addonImageIndex ? "border-black" : "border-transparent"
+                          }`}
+                        >
+                          <img src={url} alt="" className="w-full h-full object-cover" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
 
               <div className="space-y-6">
                 <div>
