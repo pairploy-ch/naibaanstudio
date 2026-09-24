@@ -130,6 +130,7 @@ const menuName = searchParams.get("menuName");
     country: "",
     address: "",
     email: "",
+    foodAllergy: "",
   });
 
   const [participantsData, setParticipantsData] = useState(
@@ -292,6 +293,7 @@ const menuName = searchParams.get("menuName");
           passport_num: formData.passportId.trim(),
           country: formData.country.trim(),
           address: formData.address.trim(),
+          food_allergy: formData.foodAllergy.trim() || null,
         },
       ])
       .select();
@@ -453,6 +455,7 @@ await fetch("/api/send-confirmation-email", {
     customerAddress: formData.address.trim(),
     customerCountry: formData.country.trim(),
     passportId: formData.passportId.trim(),
+    foodAllergy: formData.foodAllergy.trim(),
     unitPrice: price,          // ราคาต่อคน (ก่อน VAT)
     vatAmount: vat,            // VAT รวม
     menus: menuName ? [decodeURIComponent(menuName)] : [], 
@@ -872,6 +875,20 @@ await fetch("/api/send-confirmation-email", {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
+                    className="w-full px-4 py-2 border border-black bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-black mb-2">
+                    Food Allergy
+                  </label>
+                  <input
+                    type="text"
+                    name="foodAllergy"
+                    value={formData.foodAllergy}
+                    onChange={handleInputChange}
+                    placeholder="e.g. peanuts, shellfish, none"
                     className="w-full px-4 py-2 border border-black bg-white focus:outline-none focus:ring-2 focus:ring-[#8B7355]"
                   />
                 </div>

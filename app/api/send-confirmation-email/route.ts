@@ -469,6 +469,7 @@ export async function POST(req: Request) {
       unitPrice,
       vatAmount,
       menus,
+      foodAllergy,
     } = body
 
     const formattedDate = formatDate(bookingDate)
@@ -557,6 +558,13 @@ ${menus && menus.length > 0 ? `
   <span class="label" style="margin-right: 8px;">Quantity</span>
   <span class="value">${quantity} ticket(s)</span>
 </div>
+
+${foodAllergy ? `
+  <div class="row">
+    <span class="label" style="margin-right: 8px;">Food Allergy</span>
+    <span class="value">${foodAllergy}</span>
+  </div>
+` : ""}
 
                 <p style="margin-top: 24px; color: #666; font-size: 14px;">
                   Please arrive 10 minutes before the class starts. See you soon! 🙏

@@ -1,46 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabaseClient'
 
-// 👉 กำหนด type ของ table
-type Course = {
-  id: number
-  name: string
-  description: string
-  cover: string
-  type: string
+type DayEntry = {
+  day: string
+  classType: string
+  weeklyTemplateId?: number
 }
 
+const DAYS: DayEntry[] = [
+  { day: 'Monday', classType: 'short but long lasting', weeklyTemplateId: 3 },
+  { day: 'Tuesday', classType: 'short but long lasting', weeklyTemplateId: 7 },
+  { day: 'Wednesday', classType: 'close' },
+  { day: 'Thursday', classType: 'full course happiness', weeklyTemplateId: 5 },
+  { day: 'Friday', classType: 'short but long lasting', weeklyTemplateId: 6 },
+  { day: 'Saturday', classType: 'happiness on street', weeklyTemplateId: 1 },
+  { day: 'Sunday', classType: 'sweet your day', weeklyTemplateId: 2 },
+]
+
 export function CourseHighlights() {
-
-  const [courses, setCourses] = useState<Course[]>([])
-
-  useEffect(() => {
-
-    const fetchCourses = async () => {
-
-      const { data, error } = await supabase
-        .from('type_of_course')
-        .select('*')
-        .order('sort_order', { ascending: true })
-
-      if (error) {
-        console.error(error)
-        return
-      }
-
-      if (data) {
-        setCourses(data as Course[])
-      }
-    }
-
-    fetchCourses()
-
-  }, [])
-
   return (
     <section className="py-18 bg-[#F6EFE7]" id="courses">
       <div className="container mx-auto px-6 max-w-[90%]">
@@ -50,50 +28,32 @@ export function CourseHighlights() {
           </h2>
         </div>
 
-        {/* ✅ ปรับเป็น 5 columns + ลด gap */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3">
-          {courses.map((course) => (
-            <div key={course.id}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {DAYS.map(({ day, classType, weeklyTemplateId }) => (
+            <div
+              key={day}
+              className="border border-black/10 bg-white p-6 text-center"
+            >
+              <h3 className="font-bold text-lg mb-1 text-black">{day}</h3>
+              <p className="text-black text-sm mb-4 opacity-80">{classType}</p>
 
-              <div className="relative">
-                {/* ✅ ปรับ aspect ratio ให้ไม่สูงเกิน */}
-                <div className="relative w-full aspect-[4/5] overflow-hidden">
-                  <Image
-                    src={course.cover || "/placeholder.svg"}
-                    alt={course.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 20vw"
-                    className="object-cover object-center"
-                  />
-                </div>
-              </div>
-
-              {/* ✅ ลด padding + font size */}
-              <div className="p-1 text-center pt-3">
-
-                <h3 className="font-bold text-lg mb-1 text-black lg:h-[56px]">
-                  {course.name}
-                </h3>
-
-                {/* ✅ จำกัดความสูง + ใช้ line clamp */}
-                <p className="text-black text-xs mb-2 opacity-80  lg:h-[48px]">
-                  {course.description}
-                </p>
-
+              {weeklyTemplateId ? (
                 <Link
-                  href={`/courses?category=${course.type}`}
+                  href={`/courses/${weeklyTemplateId}`}
                   className="text-[#919077] text-sm font-medium underline hover:opacity-70 transition-opacity inline-block"
                 >
                   Book a Class
                 </Link>
-
-              </div>
+              ) : (
+                <span className="text-black/40 text-sm">Closed</span>
+              )}
             </div>
           ))}
         </div>
-             <div className="mt-7 text-center" style={{ fontWeight: 600 }}>
-              <i>For special event, please contact us directly.</i>
-            </div>
+
+        <div className="mt-7 text-center" style={{ fontWeight: 600 }}>
+          <i>For special event, please contact us directly.</i>
+        </div>
       </div>
     </section>
   )

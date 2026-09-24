@@ -310,12 +310,17 @@ export default function ManageReviewPage() {
         created_at: new Date(formState.reviewDate || todayDateInputValue()).toISOString(),
       };
 
+      const sortByDateDesc = (list: Review[]) =>
+        [...list].sort(
+          (a, b) => new Date(b.created_at ?? 0).getTime() - new Date(a.created_at ?? 0).getTime(),
+        );
+
       if (editingId) {
         const updated = await reviewService.updateReview(editingId, payload);
-        setReviews((prev) => prev.map((r) => (r.id === editingId ? updated : r)));
+        setReviews((prev) => sortByDateDesc(prev.map((r) => (r.id === editingId ? updated : r))));
       } else {
         const created = await reviewService.addReview(payload);
-        setReviews((prev) => [created, ...prev]);
+        setReviews((prev) => sortByDateDesc([created, ...prev]));
       }
 
       setShowForm(false);

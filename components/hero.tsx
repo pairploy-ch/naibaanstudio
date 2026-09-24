@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative h-[50vh] md:h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-[80vh] md:h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -20,7 +20,7 @@ export function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 text-center px-6 max-w-7xl mx-auto mt-10 md:mt-0">
+      <div className="relative z-10 text-center px-6 max-w-7xl mx-auto mt-20 md:mt-0">
         <h1 className="text-white text-2xl md:text-8xl font-semibold mb-6 text-balance">
           Experience Thailand Through Its Flavors
         </h1>

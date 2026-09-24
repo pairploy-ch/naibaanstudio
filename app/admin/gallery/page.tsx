@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { Upload, Trash2, Search, Loader2, X, ImageIcon, ZoomIn } from 'lucide-react';
+import { Upload, Trash2, Search, Loader2, X, ImageIcon, ZoomIn, ArrowUp, ArrowDown } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 
 interface GalleryImage {
@@ -11,6 +11,7 @@ interface GalleryImage {
   image_url: string;
   file_name: string;
   file_size: number;
+  sort_order: number;
   created_at?: string;
 }
 
@@ -40,6 +41,7 @@ export default function ImageGalleryPage() {
   const [page, setPage] = useState(1);
   const [deleteConfirm, setDeleteConfirm] = useState<{ id: string; title: string; imageUrl: string } | null>(null);
   const [viewImage, setViewImage] = useState<GalleryImage | null>(null);
+  const [reorderingId, setReorderingId] = useState<string | null>(null);
 
   // Fetch images from Supabase
   const fetchImages = async () => {
@@ -48,7 +50,7 @@ export default function ImageGalleryPage() {
       const { data, error } = await supabase
         .from('gallery_images')
         .select('*')
-        .order('created_at', { ascending: false });
+        .order('sort_order', { ascending: true });
 
       if (error) throw error;
 
@@ -58,6 +60,36 @@ export default function ImageGalleryPage() {
       alert('Failed to load images. Please try again.');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const moveImage = async (image: GalleryImage, direction: 'up' | 'down') => {
+    const index = images.findIndex((img) => img.id === image.id);
+    const swapIndex = direction === 'up' ? index - 1 : index + 1;
+    if (index === -1 || swapIndex < 0 || swapIndex >= images.length) return;
+
+    const other = images[swapIndex];
+    try {
+      setReorderingId(image.id);
+      const [{ error: err1 }, { error: err2 }] = await Promise.all([
+        supabase.from('gallery_images').update({ sort_order: other.sort_order }).eq('id', image.id),
+        supabase.from('gallery_images').update({ sort_order: image.sort_order }).eq('id', other.id),
+      ]);
+      if (err1 || err2) throw err1 || err2;
+
+      setImages((prev) => {
+        const next = prev.map((img) => {
+          if (img.id === image.id) return { ...img, sort_order: other.sort_order };
+          if (img.id === other.id) return { ...img, sort_order: image.sort_order };
+          return img;
+        });
+        return [...next].sort((a, b) => a.sort_order - b.sort_order);
+      });
+    } catch (error) {
+      console.error('Error reordering images:', error);
+      alert('Failed to reorder images. Please try again.');
+    } finally {
+      setReorderingId(null);
     }
   };
 
@@ -168,12 +200,14 @@ export default function ImageGalleryPage() {
       console.log('Public URL:', publicUrl);
 
       // Save image metadata to database
+      const nextSortOrder = images.length > 0 ? Math.max(...images.map((img) => img.sort_order)) + 1 : 0;
       const payload = {
         title: formState.title.trim(),
         description: formState.description.trim(),
         image_url: publicUrl,
         file_name: formState.file.name,
-        file_size: formState.file.size
+        file_size: formState.file.size,
+        sort_order: nextSortOrder
       };
 
       console.log('Inserting to database:', payload);
@@ -333,18 +367,38 @@ export default function ImageGalleryPage() {
                         </div>
                         
                         <div className="flex items-center justify-between">
-                          <button
-                            onClick={() => setViewImage(image)}
-                            className="p-2 bg-white/20 hover:bg-white/30 text-white rounded"
-                          >
-                            <ZoomIn size={16} />
-                          </button>
-                          <button
-                            onClick={() => handleDelete(image.id, image.title, image.image_url)}
-                            className="p-2 bg-red-500/80 hover:bg-red-500 text-white rounded"
-                          >
-                            <Trash2 size={16} />
-                          </button>
+                          <div className="flex items-center gap-1">
+                            <button
+                              onClick={() => moveImage(image, 'up')}
+                              disabled={!!search || reorderingId !== null || images.findIndex((img) => img.id === image.id) === 0}
+                              className="p-2 bg-white/20 hover:bg-white/30 text-white rounded disabled:opacity-30"
+                              title="Move earlier"
+                            >
+                              <ArrowUp size={16} />
+                            </button>
+                            <button
+                              onClick={() => moveImage(image, 'down')}
+                              disabled={!!search || reorderingId !== null || images.findIndex((img) => img.id === image.id) === images.length - 1}
+                              className="p-2 bg-white/20 hover:bg-white/30 text-white rounded disabled:opacity-30"
+                              title="Move later"
+                            >
+                              <ArrowDown size={16} />
+                            </button>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <button
+                              onClick={() => setViewImage(image)}
+                              className="p-2 bg-white/20 hover:bg-white/30 text-white rounded"
+                            >
+                              <ZoomIn size={16} />
+                            </button>
+                            <button
+                              onClick={() => handleDelete(image.id, image.title, image.image_url)}
+                              className="p-2 bg-red-500/80 hover:bg-red-500 text-white rounded"
+                            >
+                              <Trash2 size={16} />
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
