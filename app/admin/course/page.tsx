@@ -37,6 +37,7 @@ interface Day {
   max_capacity: number;
   type_of_course_id: number;
   type_name: string;
+  category: string;
   price: number;
   vat: number;
   hours: number;
@@ -58,7 +59,7 @@ export default function ManageCoursePage() {
       setError(null);
       const { data: templates, error: tErr } = await supabase
         .from('weekly_template')
-        .select('*, type_of_course(id,name,price,vat,hours), menu(id,name,cover,sort_order)')
+        .select('*, type_of_course(id,name,type,price,vat,hours), menu(id,name,cover,sort_order)')
         .order('sort', { ascending: true });
       if (tErr) throw new Error(tErr.message);
 
@@ -81,6 +82,7 @@ export default function ManageCoursePage() {
         max_capacity: t.max_capacity,
         type_of_course_id: t.type_of_course_id,
         type_name: t.type_of_course?.name ?? '',
+        category: t.type_of_course?.type ?? 'short-course',
         price: t.type_of_course?.price ?? 0,
         vat: t.type_of_course?.vat ?? 0,
         hours: t.type_of_course?.hours ?? 0,
@@ -276,7 +278,14 @@ function DayEditor({ day, onClose, onSaved }: { day: Day; onClose: () => void; o
 
       const { error: tocErr } = await supabase
         .from('type_of_course')
-        .update({ price: form.price, vat: form.vat, hours: form.hours, updated_at: new Date().toISOString() })
+        .update({
+          name: form.type_name,
+          type: form.category,
+          price: form.price,
+          vat: form.vat,
+          hours: form.hours,
+          updated_at: new Date().toISOString(),
+        })
         .eq('id', form.type_of_course_id);
       if (tocErr) throw new Error(tocErr.message);
 
@@ -405,6 +414,42 @@ function DayEditor({ day, onClose, onSaved }: { day: Day; onClose: () => void; o
           style={{ borderColor: '#e5dcd4' }}
         />
       </div>
+
+      {/* Homepage label / Category */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
+            Class label (shown on homepage & course type)
+          </label>
+          <input
+            type="text"
+            value={form.type_name}
+            onChange={(e) => setForm((prev) => ({ ...prev, type_name: e.target.value }))}
+            className="w-full border px-4 py-2"
+            style={{ borderColor: '#e5dcd4' }}
+          />
+        </div>
+        <div>
+          <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
+            Category (used for /courses filter)
+          </label>
+          <select
+            value={form.category}
+            onChange={(e) => setForm((prev) => ({ ...prev, category: e.target.value }))}
+            className="w-full border px-4 py-2 bg-white"
+            style={{ borderColor: '#e5dcd4' }}
+          >
+            <option value="full-course">Full Course</option>
+            <option value="veggie">Veggie</option>
+            <option value="zero-waste">Zero Waste</option>
+            <option value="short-course">Short Course</option>
+            <option value="dessert">Dessert</option>
+          </select>
+        </div>
+      </div>
+      <p className="text-xs -mt-3" style={{ color: '#b6a188' }}>
+        Label and category apply to every day sharing this course type ({form.type_name}).
+      </p>
 
       {/* Price / VAT / Hours / Capacity */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

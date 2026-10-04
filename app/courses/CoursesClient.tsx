@@ -146,6 +146,7 @@ export default function CoursesClient() {
                 <option value="veggie">Veggie</option>
                 <option value="zero-waste">Zero Waste</option>
                 <option value="short-course">Short Course</option>
+                <option value="dessert">Dessert</option>
               </select>
             </div>
           </div>
@@ -198,7 +199,9 @@ export default function CoursesClient() {
                               (a, b) =>
                                 (a.sort_order ?? 0) - (b.sort_order ?? 0),
                             )
-                            .map((m) => m.name)
+                            .map((m) =>
+                              m.name.replace(/^(Morning|Afternoon):\s*/i, ""),
+                            )
                             .join(", ")
                         : ""}{" "}
                       

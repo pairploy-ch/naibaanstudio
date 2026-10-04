@@ -6,27 +6,27 @@ import { supabase } from '@/lib/supabaseClient'
 
 type DayEntry = {
   day: string
-  classType: string
   weeklyTemplateId: number
 }
 
 const DAYS: DayEntry[] = [
-  { day: 'Monday', classType: 'short but long lasting', weeklyTemplateId: 3 },
-  { day: 'Tuesday', classType: 'short but long lasting', weeklyTemplateId: 7 },
-  { day: 'Thursday', classType: 'full course happiness', weeklyTemplateId: 5 },
-  { day: 'Friday', classType: 'short but long lasting', weeklyTemplateId: 6 },
-  { day: 'Saturday', classType: 'happiness on street', weeklyTemplateId: 1 },
-  { day: 'Sunday', classType: 'sweet your day', weeklyTemplateId: 2 },
+  { day: 'Monday', weeklyTemplateId: 3 },
+  { day: 'Tuesday', weeklyTemplateId: 7 },
+  { day: 'Thursday', weeklyTemplateId: 5 },
+  { day: 'Friday', weeklyTemplateId: 6 },
+  { day: 'Saturday', weeklyTemplateId: 1 },
+  { day: 'Sunday', weeklyTemplateId: 2 },
 ]
 
 export function CourseHighlights() {
   const [covers, setCovers] = useState<Record<number, string>>({})
+  const [classTypes, setClassTypes] = useState<Record<number, string>>({})
 
   useEffect(() => {
-    const fetchCovers = async () => {
+    const fetchData = async () => {
       const { data, error } = await supabase
         .from('weekly_template')
-        .select('id, cover')
+        .select('id, cover, type_of_course(name)')
         .in('id', DAYS.map((d) => d.weeklyTemplateId))
 
       if (error) {
@@ -34,14 +34,17 @@ export function CourseHighlights() {
         return
       }
 
-      const map: Record<number, string> = {}
-      for (const row of data ?? []) {
-        if (row.cover) map[row.id] = row.cover
+      const coverMap: Record<number, string> = {}
+      const typeMap: Record<number, string> = {}
+      for (const row of (data ?? []) as any[]) {
+        if (row.cover) coverMap[row.id] = row.cover
+        if (row.type_of_course?.name) typeMap[row.id] = row.type_of_course.name.toLowerCase()
       }
-      setCovers(map)
+      setCovers(coverMap)
+      setClassTypes(typeMap)
     }
 
-    fetchCovers()
+    fetchData()
   }, [])
 
   return (
@@ -54,7 +57,7 @@ export function CourseHighlights() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {DAYS.map(({ day, classType, weeklyTemplateId }) => (
+          {DAYS.map(({ day, weeklyTemplateId }) => (
             <div
               key={day}
               className="border border-black/10 bg-white text-center overflow-hidden"
@@ -71,7 +74,7 @@ export function CourseHighlights() {
 
               <div className="p-6">
                 <h3 className="font-bold text-lg mb-1 text-black">{day}</h3>
-                <p className="text-black text-sm mb-4 opacity-80">{classType}</p>
+                <p className="text-black text-sm mb-4 opacity-80">{classTypes[weeklyTemplateId]}</p>
 
                 <Link
                   href={`/courses/${weeklyTemplateId}`}
