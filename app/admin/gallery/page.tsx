@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Upload, Trash2, Search, Loader2, X, ImageIcon, ZoomIn, ArrowUp, ArrowDown, RefreshCw } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
+import { ImageCropModal } from '@/components/admin/ImageCropModal';
 
 interface GalleryImage {
   id: string;
@@ -45,6 +46,7 @@ export default function ImageGalleryPage() {
   const [replacingId, setReplacingId] = useState<string | null>(null);
   const replaceInputRef = useRef<HTMLInputElement>(null);
   const replaceTargetRef = useRef<GalleryImage | null>(null);
+  const [cropTarget, setCropTarget] = useState<{ file: File; mode: 'upload' | 'replace' } | null>(null);
 
   // Fetch images from Supabase
   const fetchImages = async () => {
@@ -143,22 +145,32 @@ export default function ImageGalleryPage() {
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      // Validate file type
-      if (!file.type.startsWith('image/')) {
-        alert('Please select an image file');
-        return;
-      }
-      
-      // Validate file size (max 5MB)
-      if (file.size > 5 * 1024 * 1024) {
-        alert('File size must be less than 5MB');
-        return;
-      }
+    e.target.value = '';
+    if (!file) return;
 
-      const previewUrl = URL.createObjectURL(file);
-      setFormState((prev) => ({ ...prev, file, previewUrl }));
+    if (!file.type.startsWith('image/')) {
+      alert('Please select an image file');
+      return;
     }
+
+    if (file.size > 20 * 1024 * 1024) {
+      alert('File size must be less than 20MB');
+      return;
+    }
+
+    setCropTarget({ file, mode: 'upload' });
+  };
+
+  const handleCropped = (croppedFile: File) => {
+    if (!cropTarget) return;
+    if (cropTarget.mode === 'upload') {
+      if (formState.previewUrl) URL.revokeObjectURL(formState.previewUrl);
+      const previewUrl = URL.createObjectURL(croppedFile);
+      setFormState((prev) => ({ ...prev, file: croppedFile, previewUrl }));
+    } else {
+      void uploadReplacement(croppedFile);
+    }
+    setCropTarget(null);
   };
 
   const handleUpload = async () => {
@@ -250,18 +262,24 @@ export default function ImageGalleryPage() {
 
   const handleReplaceFileSelected = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    const target = replaceTargetRef.current;
     e.target.value = '';
-    if (!file || !target) return;
+    if (!file) return;
 
     if (!file.type.startsWith('image/')) {
       alert('Please select an image file');
       return;
     }
-    if (file.size > 5 * 1024 * 1024) {
-      alert('File size must be less than 5MB');
+    if (file.size > 20 * 1024 * 1024) {
+      alert('File size must be less than 20MB');
       return;
     }
+
+    setCropTarget({ file, mode: 'replace' });
+  };
+
+  const uploadReplacement = async (file: File) => {
+    const target = replaceTargetRef.current;
+    if (!target) return;
 
     try {
       setReplacingId(target.id);
@@ -586,7 +604,7 @@ export default function ImageGalleryPage() {
                         Click to upload or drag and drop
                       </p>
                       <p className="text-xs" style={{ color: '#8b6f47' }}>
-                        PNG, JPG, GIF up to 5MB
+                        You'll crop it to a 1:1 square next — it's resized and compressed automatically
                       </p>
                       <input
                         type="file"
@@ -661,6 +679,15 @@ export default function ImageGalleryPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Crop Modal */}
+      {cropTarget && (
+        <ImageCropModal
+          file={cropTarget.file}
+          onCancel={() => setCropTarget(null)}
+          onCropped={handleCropped}
+        />
       )}
 
       {/* Delete Confirmation Modal */}

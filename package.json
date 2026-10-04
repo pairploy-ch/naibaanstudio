@@ -70,6 +70,7 @@
     "react-calendar": "latest",
     "react-day-picker": "latest",
     "react-dom": "^19.2.3",
+    "react-easy-crop": "^6.2.3",
     "react-hook-form": "latest",
     "react-hot-toast": "^2.6.0",
     "react-resizable-panels": "latest",
