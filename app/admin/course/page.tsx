@@ -26,6 +26,13 @@ interface MenuItem {
   cover: string | null;
 }
 
+interface CategoryCover {
+  slug: string;
+  label: string;
+  cover: string | null;
+  sort_order: number;
+}
+
 interface Day {
   id: number; // weekly_template id
   date: string;
@@ -126,6 +133,8 @@ export default function ManageCoursePage() {
           )}
         </header>
 
+        {!editingDay && <CategoryCoversEditor />}
+
         {!isLoaded ? (
           <div className="px-6 py-12 text-center">
             <Loader2 size={32} className="animate-spin mx-auto" style={{ color: '#8b6f47' }} />
@@ -172,6 +181,144 @@ export default function ManageCoursePage() {
         )}
       </div>
     </div>
+  );
+}
+
+// ============================================================================
+// CATEGORY COVERS (shown on the homepage "All Category" cards)
+// ============================================================================
+function CategoryCoversEditor() {
+  const [categories, setCategories] = useState<CategoryCover[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [savingSlug, setSavingSlug] = useState<string | null>(null);
+  const [pendingFiles, setPendingFiles] = useState<Record<string, File>>({});
+  const [previews, setPreviews] = useState<Record<string, string>>({});
+
+  const load = useCallback(async () => {
+    try {
+      setError(null);
+      const { data, error: err } = await supabase
+        .from('course_categories')
+        .select('*')
+        .order('sort_order', { ascending: true });
+      if (err) throw new Error(err.message);
+      setCategories(data ?? []);
+      setIsLoaded(true);
+    } catch (err: any) {
+      setError(err?.message || 'Failed to load categories.');
+      setIsLoaded(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  const handleFileChange = (slug: string, e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setPendingFiles((prev) => ({ ...prev, [slug]: file }));
+    setPreviews((prev) => ({ ...prev, [slug]: URL.createObjectURL(file) }));
+  };
+
+  const handleLabelChange = (slug: string, label: string) => {
+    setCategories((prev) => prev.map((c) => (c.slug === slug ? { ...c, label } : c)));
+  };
+
+  const handleSave = async (category: CategoryCover) => {
+    try {
+      setSavingSlug(category.slug);
+      let cover = category.cover;
+
+      const file = pendingFiles[category.slug];
+      if (file) {
+        const ext = file.name.split('.').pop();
+        const fileName = `category-covers/${category.slug}-${Date.now()}.${ext}`;
+        const { error: uploadError } = await supabase.storage.from('courses').upload(fileName, file);
+        if (uploadError) throw new Error(uploadError.message);
+        const { data } = supabase.storage.from('courses').getPublicUrl(fileName);
+        cover = data.publicUrl;
+      }
+
+      const { error: updErr } = await supabase
+        .from('course_categories')
+        .update({ label: category.label, cover })
+        .eq('slug', category.slug);
+      if (updErr) throw new Error(updErr.message);
+
+      setPendingFiles((prev) => {
+        const next = { ...prev };
+        delete next[category.slug];
+        return next;
+      });
+      await load();
+    } catch (err: any) {
+      setError(err?.message || 'Failed to save category.');
+    } finally {
+      setSavingSlug(null);
+    }
+  };
+
+  if (!isLoaded) return null;
+
+  if (categories.length === 0) {
+    return error ? (
+      <div className="bg-white border p-4 text-sm text-red-600" style={{ borderColor: '#e5dcd4' }}>
+        {error} — run supabase/course_categories.sql in the Supabase SQL editor first.
+      </div>
+    ) : null;
+  }
+
+  return (
+    <section className="bg-white border p-6 space-y-4" style={{ borderColor: '#e5dcd4' }}>
+      <div>
+        <h2 className="text-xl font-light" style={{ color: '#3d2817' }}>
+          Category covers
+        </h2>
+        <p className="text-xs mt-1" style={{ color: '#8b6f47' }}>
+          Shown on the homepage "All Category" cards. Separate from each day's course cover. Recommended square, 1:1.
+        </p>
+        {error && <p className="text-xs mt-1 text-red-600">{error}</p>}
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {categories.map((category) => (
+          <div key={category.slug} className="border p-3 space-y-2" style={{ borderColor: '#f1e6db' }}>
+            <img
+              src={previews[category.slug] || category.cover || FALLBACK_IMAGE}
+              alt={category.label}
+              className="w-full aspect-square object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
+              }}
+            />
+            <input
+              type="text"
+              value={category.label}
+              onChange={(e) => handleLabelChange(category.slug, e.target.value)}
+              className="w-full border px-2 py-1 text-sm"
+              style={{ borderColor: '#e5dcd4' }}
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => handleFileChange(category.slug, e)}
+              className="text-xs w-full"
+            />
+            <button
+              onClick={() => handleSave(category)}
+              disabled={savingSlug === category.slug}
+              className="w-full px-3 py-1.5 text-sm text-white inline-flex items-center justify-center gap-2 disabled:opacity-50"
+              style={{ backgroundColor: '#3d2817' }}
+            >
+              {savingSlug === category.slug && <Loader2 size={14} className="animate-spin" />}
+              Save
+            </button>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -354,7 +501,7 @@ function DayEditor({ day, onClose, onSaved }: { day: Day; onClose: () => void; o
       {/* Cover */}
       <div>
         <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
-          Cover photo (used on the "All Courses" homepage card — recommended square, 1:1)
+          Cover photo (used on the course detail page for this day)
         </label>
         <div className="flex items-center gap-4">
           <img src={coverPreview || FALLBACK_IMAGE} alt="Cover" className="w-24 h-24 object-cover border" style={{ borderColor: '#e5dcd4' }} />

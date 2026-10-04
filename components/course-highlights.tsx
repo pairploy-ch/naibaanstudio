@@ -4,47 +4,31 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabaseClient'
 
-type DayEntry = {
-  day: string
-  weeklyTemplateId: number
+type CategoryCard = {
+  slug: string
+  label: string
+  cover: string | null
 }
 
-const DAYS: DayEntry[] = [
-  { day: 'Monday', weeklyTemplateId: 3 },
-  { day: 'Tuesday', weeklyTemplateId: 7 },
-  { day: 'Thursday', weeklyTemplateId: 5 },
-  { day: 'Friday', weeklyTemplateId: 6 },
-  { day: 'Saturday', weeklyTemplateId: 1 },
-  { day: 'Sunday', weeklyTemplateId: 2 },
-]
-
 export function CourseHighlights() {
-  const [covers, setCovers] = useState<Record<number, string>>({})
-  const [classTypes, setClassTypes] = useState<Record<number, string>>({})
+  const [categories, setCategories] = useState<CategoryCard[]>([])
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCategories = async () => {
       const { data, error } = await supabase
-        .from('weekly_template')
-        .select('id, cover, type_of_course(name)')
-        .in('id', DAYS.map((d) => d.weeklyTemplateId))
+        .from('course_categories')
+        .select('slug, label, cover')
+        .order('sort_order', { ascending: true })
 
       if (error) {
         console.error(error)
         return
       }
 
-      const coverMap: Record<number, string> = {}
-      const typeMap: Record<number, string> = {}
-      for (const row of (data ?? []) as any[]) {
-        if (row.cover) coverMap[row.id] = row.cover
-        if (row.type_of_course?.name) typeMap[row.id] = row.type_of_course.name.toLowerCase()
-      }
-      setCovers(coverMap)
-      setClassTypes(typeMap)
+      setCategories(data ?? [])
     }
 
-    fetchData()
+    fetchCategories()
   }, [])
 
   return (
@@ -52,32 +36,31 @@ export function CourseHighlights() {
       <div className="container mx-auto px-6 max-w-[90%]">
         <div className="flex items-start justify-between mb-12">
           <h2 className="text-5xl font-bold text-black">
-            All Courses
+            All Category
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {DAYS.map(({ day, weeklyTemplateId }) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {categories.map(({ slug, label, cover }) => (
             <div
-              key={day}
+              key={slug}
               className="border border-black/10 bg-white text-center overflow-hidden"
             >
-              {covers[weeklyTemplateId] && (
+              {cover && (
                 <div className="relative w-full aspect-square">
                   <img
-                    src={covers[weeklyTemplateId]}
-                    alt={day}
+                    src={cover}
+                    alt={label}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
               )}
 
               <div className="p-6">
-                <h3 className="font-bold text-lg mb-1 text-black">{day}</h3>
-                <p className="text-black text-sm mb-4 opacity-80">{classTypes[weeklyTemplateId]}</p>
+                <h3 className="font-bold text-lg mb-4 text-black">{label}</h3>
 
                 <Link
-                  href={`/courses/${weeklyTemplateId}`}
+                  href={`/courses?category=${slug}`}
                   className="text-[#919077] text-sm font-medium underline hover:opacity-70 transition-opacity inline-block"
                 >
                   Book a Class
