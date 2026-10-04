@@ -153,8 +153,8 @@ export default function ImageGalleryPage() {
       return;
     }
 
-    if (file.size > 20 * 1024 * 1024) {
-      alert('File size must be less than 20MB');
+    if (file.size > 50 * 1024 * 1024) {
+      alert('File size must be less than 50MB');
       return;
     }
 
@@ -269,8 +269,8 @@ export default function ImageGalleryPage() {
       alert('Please select an image file');
       return;
     }
-    if (file.size > 20 * 1024 * 1024) {
-      alert('File size must be less than 20MB');
+    if (file.size > 50 * 1024 * 1024) {
+      alert('File size must be less than 50MB');
       return;
     }
 
