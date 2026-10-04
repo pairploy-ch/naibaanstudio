@@ -79,6 +79,7 @@ const menuName = searchParams.get("menuName");
   } | null>(null);
   const [addonSelected, setAddonSelected] = useState(searchParams.get("addonSelected") === "1");
   const [addonImageIndex, setAddonImageIndex] = useState(0);
+  const [addonLightboxOpen, setAddonLightboxOpen] = useState(false);
 
   useEffect(() => {
     supabase
@@ -1216,7 +1217,8 @@ await fetch("/api/send-confirmation-email", {
                       <img
                         src={addon.image_urls[addonImageIndex] || "/placeholder.jpg"}
                         alt={addon.name}
-                        className="w-24 h-24 object-cover"
+                        className="w-24 h-24 object-cover cursor-pointer"
+                        onClick={() => setAddonLightboxOpen(true)}
                       />
                       {addon.image_urls.length > 1 && (
                         <>
@@ -1259,6 +1261,15 @@ await fetch("/api/send-confirmation-email", {
                           {addon.description && (
                             <p className="text-sm text-black/60 mt-1">{addon.description}</p>
                           )}
+                          {addon.image_urls.length > 0 && (
+                            <button
+                              type="button"
+                              onClick={() => setAddonLightboxOpen(true)}
+                              className="text-xs underline mt-1 text-black/60 hover:text-black"
+                            >
+                              View photos
+                            </button>
+                          )}
                         </div>
                       </label>
                     </div>
@@ -1280,6 +1291,57 @@ await fetch("/api/send-confirmation-email", {
                       ))}
                     </div>
                   )}
+                </div>
+              )}
+
+              {addonLightboxOpen && addon && (
+                <div
+                  className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 px-4"
+                  onClick={() => setAddonLightboxOpen(false)}
+                >
+                  <button
+                    onClick={() => setAddonLightboxOpen(false)}
+                    className="absolute top-4 right-4 text-white hover:text-gray-300 text-3xl leading-none"
+                  >
+                    ×
+                  </button>
+                  <div className="max-w-2xl w-full relative" onClick={(e) => e.stopPropagation()}>
+                    <img
+                      src={addon.image_urls[addonImageIndex] || "/placeholder.jpg"}
+                      alt={addon.name}
+                      className="w-full h-auto max-h-[75vh] object-contain"
+                    />
+                    {addon.image_urls.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setAddonImageIndex(
+                              (prev) => (prev - 1 + addon.image_urls.length) % addon.image_urls.length,
+                            )
+                          }
+                          className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white flex items-center justify-center text-xl"
+                        >
+                          ‹
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setAddonImageIndex((prev) => (prev + 1) % addon.image_urls.length)
+                          }
+                          className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white flex items-center justify-center text-xl"
+                        >
+                          ›
+                        </button>
+                      </>
+                    )}
+                    <div className="mt-4 text-center text-white">
+                      <h3 className="text-lg font-medium">{addon.name}</h3>
+                      <p className="text-sm text-white/80 mt-1">
+                        ฿{addonUnitPrice.toLocaleString()} / person (VAT included)
+                      </p>
+                    </div>
+                  </div>
                 </div>
               )}
 

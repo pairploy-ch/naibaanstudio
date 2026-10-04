@@ -6,7 +6,7 @@ export function About() {
     <section className="grid grid-cols-1 md:grid-cols-2">
 
       {/* Image - ซ้ายบน desktop, ล่างบน mobile */}
-      <div className="relative min-h-[400px] md:min-h-full w-full order-2 md:order-1">
+      <div className="relative w-full order-2 md:order-1 aspect-[1365/2048]">
         <Image
           src="/new/thai-cooking-class-home-preview.jpg"
           alt="Traditional Thai cooking utensils"
