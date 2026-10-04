@@ -1,6 +1,8 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { supabase } from '@/lib/supabaseClient'
 
 type DayEntry = {
   day: string
@@ -18,6 +20,30 @@ const DAYS: DayEntry[] = [
 ]
 
 export function CourseHighlights() {
+  const [covers, setCovers] = useState<Record<number, string>>({})
+
+  useEffect(() => {
+    const fetchCovers = async () => {
+      const { data, error } = await supabase
+        .from('weekly_template')
+        .select('id, cover')
+        .in('id', DAYS.map((d) => d.weeklyTemplateId))
+
+      if (error) {
+        console.error(error)
+        return
+      }
+
+      const map: Record<number, string> = {}
+      for (const row of data ?? []) {
+        if (row.cover) map[row.id] = row.cover
+      }
+      setCovers(map)
+    }
+
+    fetchCovers()
+  }, [])
+
   return (
     <section className="py-18 bg-[#F6EFE7]" id="courses">
       <div className="container mx-auto px-6 max-w-[90%]">
@@ -31,17 +57,29 @@ export function CourseHighlights() {
           {DAYS.map(({ day, classType, weeklyTemplateId }) => (
             <div
               key={day}
-              className="border border-black/10 bg-white p-6 text-center"
+              className="border border-black/10 bg-white text-center overflow-hidden"
             >
-              <h3 className="font-bold text-lg mb-1 text-black">{day}</h3>
-              <p className="text-black text-sm mb-4 opacity-80">{classType}</p>
+              {covers[weeklyTemplateId] && (
+                <div className="relative w-full aspect-square">
+                  <img
+                    src={covers[weeklyTemplateId]}
+                    alt={day}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+              )}
 
-              <Link
-                href={`/courses/${weeklyTemplateId}`}
-                className="text-[#919077] text-sm font-medium underline hover:opacity-70 transition-opacity inline-block"
-              >
-                Book a Class
-              </Link>
+              <div className="p-6">
+                <h3 className="font-bold text-lg mb-1 text-black">{day}</h3>
+                <p className="text-black text-sm mb-4 opacity-80">{classType}</p>
+
+                <Link
+                  href={`/courses/${weeklyTemplateId}`}
+                  className="text-[#919077] text-sm font-medium underline hover:opacity-70 transition-opacity inline-block"
+                >
+                  Book a Class
+                </Link>
+              </div>
             </div>
           ))}
         </div>

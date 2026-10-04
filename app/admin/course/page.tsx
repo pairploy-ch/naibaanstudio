@@ -144,7 +144,7 @@ export default function ManageCoursePage() {
                 <img
                   src={day.cover || FALLBACK_IMAGE}
                   alt={day.title}
-                  className="w-full h-40 object-cover"
+                  className="w-full aspect-square object-cover"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
                   }}
@@ -345,10 +345,10 @@ function DayEditor({ day, onClose, onSaved }: { day: Day; onClose: () => void; o
       {/* Cover */}
       <div>
         <label className="block text-xs uppercase tracking-wide mb-1" style={{ color: '#8b6f47' }}>
-          Cover photo
+          Cover photo (used on the "All Courses" homepage card — recommended square, 1:1)
         </label>
         <div className="flex items-center gap-4">
-          <img src={coverPreview || FALLBACK_IMAGE} alt="Cover" className="w-32 h-24 object-cover border" style={{ borderColor: '#e5dcd4' }} />
+          <img src={coverPreview || FALLBACK_IMAGE} alt="Cover" className="w-24 h-24 object-cover border" style={{ borderColor: '#e5dcd4' }} />
           <input type="file" accept="image/*" onChange={handleCoverChange} />
         </div>
       </div>
