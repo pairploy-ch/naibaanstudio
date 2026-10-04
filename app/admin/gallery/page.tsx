@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
-import { Upload, Trash2, Search, Loader2, X, ImageIcon, ZoomIn, ArrowUp, ArrowDown } from 'lucide-react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { Upload, Trash2, Search, Loader2, X, ImageIcon, ZoomIn, ArrowUp, ArrowDown, RefreshCw } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 
 interface GalleryImage {
@@ -42,6 +42,9 @@ export default function ImageGalleryPage() {
   const [deleteConfirm, setDeleteConfirm] = useState<{ id: string; title: string; imageUrl: string } | null>(null);
   const [viewImage, setViewImage] = useState<GalleryImage | null>(null);
   const [reorderingId, setReorderingId] = useState<string | null>(null);
+  const [replacingId, setReplacingId] = useState<string | null>(null);
+  const replaceInputRef = useRef<HTMLInputElement>(null);
+  const replaceTargetRef = useRef<GalleryImage | null>(null);
 
   // Fetch images from Supabase
   const fetchImages = async () => {
@@ -240,6 +243,66 @@ export default function ImageGalleryPage() {
     }
   };
 
+  const startReplace = (image: GalleryImage) => {
+    replaceTargetRef.current = image;
+    replaceInputRef.current?.click();
+  };
+
+  const handleReplaceFileSelected = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    const target = replaceTargetRef.current;
+    e.target.value = '';
+    if (!file || !target) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert('Please select an image file');
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      alert('File size must be less than 5MB');
+      return;
+    }
+
+    try {
+      setReplacingId(target.id);
+
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Date.now()}_${Math.random().toString(36).substring(7)}.${fileExt}`;
+      const filePath = `gallery/${fileName}`;
+
+      const { error: uploadError } = await supabase.storage.from('images').upload(filePath, file);
+      if (uploadError) throw uploadError;
+
+      const { data: { publicUrl } } = supabase.storage.from('images').getPublicUrl(filePath);
+
+      const { error: updateError } = await supabase
+        .from('gallery_images')
+        .update({ image_url: publicUrl, file_name: file.name, file_size: file.size })
+        .eq('id', target.id);
+      if (updateError) throw updateError;
+
+      // Best-effort cleanup of the old file so storage doesn't accumulate orphans
+      // (old rows seeded from local /album paths aren't absolute URLs, so skip those)
+      try {
+        const oldUrl = new URL(target.image_url);
+        const oldPathMatch = oldUrl.pathname.match(/\/storage\/v1\/object\/public\/images\/(.+)$/);
+        if (oldPathMatch) {
+          await supabase.storage.from('images').remove([oldPathMatch[1]]);
+        }
+      } catch {
+        // not a Supabase storage URL — nothing to clean up
+      }
+
+      await fetchImages();
+    } catch (error) {
+      console.error('Error replacing image:', error);
+      alert('Failed to replace image. Please try again.');
+    } finally {
+      setReplacingId(null);
+      replaceTargetRef.current = null;
+    }
+  };
+
   const handleDelete = (id: string, title: string, imageUrl: string) => {
     setDeleteConfirm({ id, title, imageUrl });
   };
@@ -297,6 +360,13 @@ export default function ImageGalleryPage() {
           
           </div>
           <div className="flex flex-wrap gap-3">
+            <input
+              ref={replaceInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleReplaceFileSelected}
+              className="hidden"
+            />
             <button
               onClick={() => setShowForm(true)}
               className="inline-flex items-center gap-2 px-4 py-2 text-sm text-white border"
@@ -352,7 +422,13 @@ export default function ImageGalleryPage() {
                         className="w-full h-full object-cover cursor-pointer"
                         onClick={() => setViewImage(image)}
                       />
-                      
+
+                      {replacingId === image.id && (
+                        <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                          <Loader2 size={24} className="animate-spin text-white" />
+                        </div>
+                      )}
+
                       {/* Hover overlay */}
                       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-between p-3">
                         <div>
@@ -391,6 +467,14 @@ export default function ImageGalleryPage() {
                               className="p-2 bg-white/20 hover:bg-white/30 text-white rounded"
                             >
                               <ZoomIn size={16} />
+                            </button>
+                            <button
+                              onClick={() => startReplace(image)}
+                              disabled={replacingId !== null}
+                              className="p-2 bg-white/20 hover:bg-white/30 text-white rounded disabled:opacity-30"
+                              title="Replace image"
+                            >
+                              <RefreshCw size={16} />
                             </button>
                             <button
                               onClick={() => handleDelete(image.id, image.title, image.image_url)}
