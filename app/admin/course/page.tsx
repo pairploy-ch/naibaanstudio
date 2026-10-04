@@ -82,7 +82,7 @@ export default function ManageCoursePage() {
         max_capacity: t.max_capacity,
         type_of_course_id: t.type_of_course_id,
         type_name: t.type_of_course?.name ?? '',
-        category: t.type_of_course?.type ?? 'short-course',
+        category: t.type_of_course?.type ?? 'short-but-long-lasting',
         price: t.type_of_course?.price ?? 0,
         vat: t.type_of_course?.vat ?? 0,
         hours: t.type_of_course?.hours ?? 0,
@@ -439,11 +439,10 @@ function DayEditor({ day, onClose, onSaved }: { day: Day; onClose: () => void; o
             className="w-full border px-4 py-2 bg-white"
             style={{ borderColor: '#e5dcd4' }}
           >
-            <option value="full-course">Full Course</option>
-            <option value="veggie">Veggie</option>
-            <option value="zero-waste">Zero Waste</option>
-            <option value="short-course">Short Course</option>
-            <option value="dessert">Dessert</option>
+            <option value="short-but-long-lasting">Short but Long Lasting</option>
+            <option value="full-course-happiness">Full Course Happiness</option>
+            <option value="happiness-on-street">Happiness on Street</option>
+            <option value="sweet-your-day">Sweet Your Day</option>
           </select>
         </div>
       </div>

@@ -142,11 +142,10 @@ export default function CoursesClient() {
                 className="w-full px-4 py-3 border-2 border-black bg-white text-black"
               >
                 <option value="all">All Categories</option>
-                <option value="full-course">Full Course</option>
-                <option value="veggie">Veggie</option>
-                <option value="zero-waste">Zero Waste</option>
-                <option value="short-course">Short Course</option>
-                <option value="dessert">Dessert</option>
+                <option value="short-but-long-lasting">Short but Long Lasting</option>
+                <option value="full-course-happiness">Full Course Happiness</option>
+                <option value="happiness-on-street">Happiness on Street</option>
+                <option value="sweet-your-day">Sweet Your Day</option>
               </select>
             </div>
           </div>
