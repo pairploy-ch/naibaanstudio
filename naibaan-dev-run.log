@@ -1,0 +1,22 @@
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.173:3000
+- Environments: .env.local
+
+✓ Starting...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 1674ms
+ GET / 200 in 990ms (compile: 452ms, render: 538ms)
+ GET / 200 in 199ms (compile: 18ms, render: 180ms)
+ GET /courses 200 in 1553ms (compile: 1471ms, render: 82ms)
+ GET /courses 200 in 90ms (compile: 12ms, render: 78ms)
+ GET /courses/3 200 in 3.2s (compile: 2.8s, render: 355ms)
+ GET /checkout?course=Monday+%3A+No-Meat+Time&date=31%2F08%2F2026&quantity=1&price=2196.26&courseId=1239&slotId=6&slotName=Morning+class&slotTime=09%3A30+-+13%3A00&vat=153.74 200 in 1146ms (compile: 1070ms, render: 77ms)
+✓ Compiled in 268ms
+✓ Compiled in 222ms
+✓ Compiled in 234ms
+✓ Compiled in 217ms
+ GET / 200 in 155ms (compile: 9ms, render: 146ms)
+ GET /checkout?courseId=1&course=Test&date=17/12/2025&quantity=1&price=990&slotId=1&slotName=Morning 200 in 549ms (compile: 186ms, render: 364ms)
+ GET /checkout?courseId=1&course=Test&date=17/12/2025&quantity=1&price=990&slotId=1&slotName=Morning 200 in 96ms (compile: 7ms, render: 90ms)

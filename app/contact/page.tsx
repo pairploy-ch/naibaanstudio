@@ -30,7 +30,7 @@ export default function ContactPage() {
             <div>
               <p className="text-gray-600 text-sm font-medium mb-2">tel</p>
               <a href="tel:+66" className="text-gray-900 font-semibold hover:text-gray-600 transition-colors">
-                0926100542, 0941656352
+                0941656352, 0926100542
               </a>
             </div>
             <div>

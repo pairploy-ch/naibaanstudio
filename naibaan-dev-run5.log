@@ -1,0 +1,14 @@
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.100:3000
+- Environments: .env.local
+
+✓ Starting...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 2.1s
+ GET / 200 in 147ms (compile: 17ms, render: 131ms)
+ GET /checkout?course=Saturday+Thai+HIT&date=26/09/2026&quantity=2&price=1542.06&courseId=1490&slotId=20&slotName=Class+%231+%3A+Tom+Yum+Goong&slotTime=08:00+-+10:00&vat=107.94&dayOfWeek=Saturday 200 in 655ms (compile: 345ms, render: 310ms)
+ GET /checkout?course=Saturday+Thai+HIT&date=26/09/2026&quantity=2&price=1542.06&courseId=1490&slotId=20&slotName=Class+%231+%3A+Tom+Yum+Goong&slotTime=08:00+-+10:00&vat=107.94&dayOfWeek=Saturday 200 in 124ms (compile: 10ms, render: 114ms)
+ GET /checkout?course=Monday+Short&date=28/09/2026&quantity=1&price=1542.06&courseId=1&slotId=14&slotName=Section+%231&slotTime=09:30+-+11:30&vat=107.94&dayOfWeek=Monday 200 in 170ms (compile: 9ms, render: 162ms)
+[?25h

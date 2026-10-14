@@ -1,0 +1,14 @@
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.100:3000
+- Environments: .env.local
+
+✓ Starting...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 2.3s
+ GET / 200 in 119ms (compile: 10ms, render: 109ms)
+ GET /courses/2 200 in 2.1s (compile: 1382ms, render: 741ms)
+ GET /courses/2 200 in 441ms (compile: 22ms, render: 419ms)
+ GET /checkout?course=Sunday+%3A+Sweet+your+day&date=27%2F09%2F2026&quantity=1&price=925.23&courseId=1494&slotId=10&slotName=Class+%231+%3A+Taro+Dumplings+in+Coconut+Milk+%28Bua+Loy%29&slotTime=08%3A00+-+10%3A00&vat=64.77&dayOfWeek=Sunday&addonSelected=1 200 in 316ms (compile: 129ms, render: 187ms)
+[?25h
