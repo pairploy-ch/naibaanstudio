@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Read the Nai Baan Studio privacy policy to learn how we collect, use, and protect your personal information.",
+    "Read the NaiBaan Studio privacy policy to learn how we collect, use, and protect your personal information.",
   alternates: { canonical: "/policy" },
   robots: { index: false, follow: true },
 };
@@ -151,7 +151,7 @@ export default function AboutPage() {
 
           <h2 className="text-bold font-bold">10. Data Controller</h2>
           <br />
-          <p>Data Controller: Nai Baan Studio</p>
+          <p>Data Controller: NaiBaan Studio</p>
 
           <br />
           <br />

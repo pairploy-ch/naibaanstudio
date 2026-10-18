@@ -31,6 +31,38 @@ type Course = {
   menu?: Menu[];
 };
 
+type Slot = {
+  course_id: number;
+  slot_id: number;
+  slot_name: string;
+  start_time: string;
+  end_time: string;
+  available: number;
+  total: number;
+};
+
+// แปลงเวลา "09:30:00" -> "09.30 AM"
+const formatTime12 = (t?: string) => {
+  if (!t) return "";
+  const [h, m] = t.split(":").map(Number);
+  const period = h >= 12 ? "PM" : "AM";
+  const h12 = h % 12 === 0 ? 12 : h % 12;
+  return `${String(h12).padStart(2, "0")}.${String(m).padStart(2, "0")} ${period}`;
+};
+
+// "Section #1 : Tom Kha Gai, Water Chestnuts..." -> "Tom Kha Gai + Water Chestnuts..."
+const slotMenuText = (slotName?: string) => {
+  if (!slotName) return "";
+  const withoutPrefix = slotName.includes(":")
+    ? slotName.slice(slotName.indexOf(":") + 1)
+    : slotName;
+  return withoutPrefix
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .join(" + ");
+};
+
 export default function CourseClient({
   params,
 }: {
@@ -40,30 +72,7 @@ export default function CourseClient({
 
   const [course, setCourse] = useState<Course | null>(null);
   const [loading, setLoading] = useState(true);
-  const [availability, setAvailability] = useState<
-    Record<
-      string,
-      {
-        course_id: number;
-        slot_id: number;
-        slot_name: string;
-        available: number;
-        total: number;
-        start_time: string;
-        end_time: string;
-      }[]
-    >
-  >({});
-
-  type Slot = {
-    course_id: number;
-    slot_id: number;
-    slot_name: string;
-    start_time: string;
-    end_time: string;
-    available: number;
-    total: number;
-  };
+  const [availability, setAvailability] = useState<Record<string, Slot[]>>({});
 
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [quantity, setQuantity] = useState(1);
@@ -149,18 +158,7 @@ export default function CourseClient({
       });
 
       // 🔥 convert courses -> calendar availability พร้อมหัก booked
-      const newAvailability: Record<
-        string,
-        {
-          course_id: number;
-          slot_id: number;
-          slot_name: string;
-          available: number;
-          total: number;
-          start_time: string;
-          end_time: string;
-        }[]
-      > = {};
+      const newAvailability: Record<string, Slot[]> = {};
 
       data?.courses?.forEach((c: any) => {
         const dateStr = c.date;
@@ -280,33 +278,68 @@ export default function CourseClient({
   const priceWithVat =
     (course.type_of_course?.price ?? 0) + (course.type_of_course?.vat ?? 0);
 
-  const addonEligible =
-    !!addon && (addon.available_days.length === 0 || addon.available_days.includes(course.date));
-  const addonUnitPrice = addon?.price ?? 0;
-  const addonTotal = addonEligible && addonSelected ? addonUnitPrice * quantity : 0;
+  // ===== เมนูแบบ "เวลา : menu1 + menu2" =====
+  // ใช้ข้อมูลชุดเดียวกับ "Select Time Slot" (รอบของวันที่เลือก)
+  // ถ้ายังไม่ได้เลือกวัน → รวมรอบที่ไม่ซ้ำจากทุกวันแทน
+  // นับเฉพาะรอบที่ slot_name มีเมนู (รูปแบบ "Section #1 : เมนู...")
+  // รอบอย่าง "Morning class" / "Afternoon class" จะไม่ถูกแสดง
+  const hasMenu = (s: Slot) => !!s.start_time && !!s.slot_name?.includes(":");
 
-    const query =
-  selectedDate && selectedSlot
-    ? new URLSearchParams({
-        course: course.title,
-        date: selectedDate.toLocaleDateString("en-GB"),
-        quantity: String(quantity),
-        price: String(course.type_of_course?.price ?? 0),
-        courseId: String(selectedSlot.course_id),
-        slotId: String(selectedSlot.slot_id),
-        slotName: selectedSlot.slot_name,
-        slotTime: `${selectedSlot.start_time.slice(0, 5)} - ${selectedSlot.end_time.slice(0, 5)}`,
-        vat: String(course.type_of_course?.vat ?? 0.07),
-        dayOfWeek: course.date,
-        ...(isMenuRequired && selectedMenu
-          ? {
-              menuId: String(selectedMenu.id),
-              menuName: selectedMenu.name,
-            }
-          : {}),
-        ...(addonTotal > 0 ? { addonSelected: "1" } : {}),
-      }).toString()
-    : "";
+  // เมนูของแต่ละวันไม่เหมือนกัน จึงไม่รวมทุกวันเข้าด้วยกัน
+  // - เลือกวันแล้ว → ใช้รอบของวันที่เลือก (เหมือน Select Time Slot)
+  // - ยังไม่เลือกวัน → ใช้วันแรกที่จองได้ (ตามกฎจองล่วงหน้า > 2 วัน)
+  const minBookingDay = new Date();
+  minBookingDay.setHours(0, 0, 0, 0);
+  minBookingDay.setDate(minBookingDay.getDate() + 2);
+
+  const sortedDates = Object.keys(availability).sort();
+  const firstBookableDate =
+    sortedDates.find(
+      (d) =>
+        new Date(`${d}T00:00:00`) > minBookingDay &&
+        availability[d].some((s) => s.available > 0 && hasMenu(s)),
+    ) ?? sortedDates.find((d) => availability[d].some(hasMenu));
+
+  const displayDate = selectedDate
+    ? formatDate(selectedDate)
+    : firstBookableDate;
+
+  const uniqueSlots = (displayDate ? (availability[displayDate] ?? []) : [])
+    .filter(hasMenu)
+    .sort((a, b) => a.start_time.localeCompare(b.start_time));
+
+  const menuText = (course.menu ?? []).map((m) => m.name).join(" + ");
+
+  const addonEligible =
+    !!addon &&
+    (addon.available_days.length === 0 ||
+      addon.available_days.includes(course.date));
+  const addonUnitPrice = addon?.price ?? 0;
+  const addonTotal =
+    addonEligible && addonSelected ? addonUnitPrice * quantity : 0;
+
+  const query =
+    selectedDate && selectedSlot
+      ? new URLSearchParams({
+          course: course.title,
+          date: selectedDate.toLocaleDateString("en-GB"),
+          quantity: String(quantity),
+          price: String(course.type_of_course?.price ?? 0),
+          courseId: String(selectedSlot.course_id),
+          slotId: String(selectedSlot.slot_id),
+          slotName: selectedSlot.slot_name,
+          slotTime: `${selectedSlot.start_time.slice(0, 5)} - ${selectedSlot.end_time.slice(0, 5)}`,
+          vat: String(course.type_of_course?.vat ?? 0.07),
+          dayOfWeek: course.date,
+          ...(isMenuRequired && selectedMenu
+            ? {
+                menuId: String(selectedMenu.id),
+                menuName: selectedMenu.name,
+              }
+            : {}),
+          ...(addonTotal > 0 ? { addonSelected: "1" } : {}),
+        }).toString()
+      : "";
 
   return (
     <div className="min-h-screen bg-[#F5F1EC]">
@@ -334,15 +367,26 @@ export default function CourseClient({
             {course.menu && course.menu.length > 0 && (
               <div>
                 <h2 className="font-bold text-2xl mb-4 text-black">
-                  Menus {course.type_of_course_id === 5 ? "(Option)" : ""} :
+                  Menus {isMenuRequired ? "(Option)" : ""} :
                 </h2>
                 <ul className="space-y-2">
-                  {course.menu.map((item: Menu) => (
-                    <li key={item.id} className="flex items-start">
+                  {uniqueSlots.length > 0 ? (
+                    uniqueSlots.map((slot) => (
+                      <li key={slot.slot_id} className="flex items-start">
+                        <span className="mr-3 mt-1">•</span>
+                        <span className="text-black">
+                          {formatTime12(slot.start_time)} :{" "}
+                          {slotMenuText(slot.slot_name) || menuText}
+                        </span>
+                      </li>
+                    ))
+                  ) : (
+                    // ยังไม่มีรอบเวลา → แสดงเมนูอย่างเดียว
+                    <li className="flex items-start">
                       <span className="mr-3 mt-1">•</span>
-                      <span className="text-black">{item.name}</span>
+                      <span className="text-black">{menuText}</span>
                     </li>
-                  ))}
+                  )}
                 </ul>
               </div>
             )}
@@ -431,7 +475,6 @@ export default function CourseClient({
                 </div>
               </>
             )}
-       
           </div>
         </div>
 
@@ -510,7 +553,6 @@ export default function CourseClient({
               })}
             </div>
           )}
-
         </div>
 
         <hr className="border-black mb-16" />
@@ -552,7 +594,9 @@ export default function CourseClient({
                 <div className="flex gap-4">
                   <div className="relative w-20 h-20 flex-shrink-0">
                     <img
-                      src={addon.image_urls[addonImageIndex] || "/placeholder.jpg"}
+                      src={
+                        addon.image_urls[addonImageIndex] || "/placeholder.jpg"
+                      }
                       alt={addon.name}
                       className="w-20 h-20 object-cover cursor-pointer"
                       onClick={() => setAddonLightboxOpen(true)}
@@ -563,7 +607,9 @@ export default function CourseClient({
                           type="button"
                           onClick={() =>
                             setAddonImageIndex(
-                              (prev) => (prev - 1 + addon.image_urls.length) % addon.image_urls.length,
+                              (prev) =>
+                                (prev - 1 + addon.image_urls.length) %
+                                addon.image_urls.length,
                             )
                           }
                           className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-white/80 hover:bg-white flex items-center justify-center text-xs"
@@ -573,7 +619,9 @@ export default function CourseClient({
                         <button
                           type="button"
                           onClick={() =>
-                            setAddonImageIndex((prev) => (prev + 1) % addon.image_urls.length)
+                            setAddonImageIndex(
+                              (prev) => (prev + 1) % addon.image_urls.length,
+                            )
                           }
                           className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-white/80 hover:bg-white flex items-center justify-center text-xs"
                         >
@@ -590,12 +638,17 @@ export default function CourseClient({
                       className="w-5 h-5 mt-0.5"
                     />
                     <div>
-                      <div className="font-bold text-black">Add {addon.name}</div>
+                      <div className="font-bold text-black">
+                        Add {addon.name}
+                      </div>
                       <div className="text-sm text-black/70">
-                        ฿{addonUnitPrice.toLocaleString()} / person (VAT included)
+                        ฿{addonUnitPrice.toLocaleString()} / person (VAT
+                        included)
                       </div>
                       {addon.description && (
-                        <p className="text-sm text-black/60 mt-1">{addon.description}</p>
+                        <p className="text-sm text-black/60 mt-1">
+                          {addon.description}
+                        </p>
                       )}
                       {addon.image_urls.length > 0 && (
                         <button
@@ -623,9 +676,14 @@ export default function CourseClient({
                 >
                   ×
                 </button>
-                <div className="max-w-2xl w-full relative" onClick={(e) => e.stopPropagation()}>
+                <div
+                  className="max-w-2xl w-full relative"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <img
-                    src={addon.image_urls[addonImageIndex] || "/placeholder.jpg"}
+                    src={
+                      addon.image_urls[addonImageIndex] || "/placeholder.jpg"
+                    }
                     alt={addon.name}
                     className="w-full h-auto max-h-[75vh] object-contain"
                   />
@@ -635,7 +693,9 @@ export default function CourseClient({
                         type="button"
                         onClick={() =>
                           setAddonImageIndex(
-                            (prev) => (prev - 1 + addon.image_urls.length) % addon.image_urls.length,
+                            (prev) =>
+                              (prev - 1 + addon.image_urls.length) %
+                              addon.image_urls.length,
                           )
                         }
                         className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white flex items-center justify-center text-xl"
@@ -645,7 +705,9 @@ export default function CourseClient({
                       <button
                         type="button"
                         onClick={() =>
-                          setAddonImageIndex((prev) => (prev + 1) % addon.image_urls.length)
+                          setAddonImageIndex(
+                            (prev) => (prev + 1) % addon.image_urls.length,
+                          )
                         }
                         className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white flex items-center justify-center text-xl"
                       >
@@ -673,18 +735,18 @@ export default function CourseClient({
               </div>
             </div>
 
-         <div className="p-6 pt-0 flex justify-end">
-  <Link
-    href={selectedDate && selectedSlot ? `/checkout?${query}` : "#"}
-    className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
-      !selectedDate || !selectedSlot
-        ? "opacity-50 pointer-events-none"
-        : ""
-    }`}
-  >
-    Checkout Now
-  </Link>
-</div>
+            <div className="p-6 pt-0 flex justify-end">
+              <Link
+                href={selectedDate && selectedSlot ? `/checkout?${query}` : "#"}
+                className={`w-full md:w-auto text-center bg-[#919077] text-white px-12 py-3 font-medium hover:opacity-80 transition-opacity ${
+                  !selectedDate || !selectedSlot
+                    ? "opacity-50 pointer-events-none"
+                    : ""
+                }`}
+              >
+                Checkout Now
+              </Link>
+            </div>
           </div>
         </div>
 

@@ -9,7 +9,7 @@ type GalleryImage = { src: string; alt: string };
 // Shown until the admin has uploaded photos via /admin/gallery, and kept as a
 // fallback if that table is ever empty.
 const fallbackGalleryImages: GalleryImage[] = [
-  { src: "/album/two-people-cooking-together.jpg", alt: "Two people cooking together at Nai Baan Studio" },
+  { src: "/album/two-people-cooking-together.jpg", alt: "Two people cooking together at NaiBaan Studio" },
   { src: "/album/group-cooking-class.jpg", alt: "Group Thai cooking class in session" },
   { src: "/album/close-up-cooking-in-wok.jpg", alt: "Close-up of cooking in a wok" },
   { src: "/album/cooking-class-with-instructor.jpg", alt: "Cooking class with instructor" },
@@ -42,7 +42,7 @@ export default function GalleryClient() {
 
       if (data && data.length > 0) {
         setAllGalleryImages(
-          data.map((img) => ({ src: img.image_url, alt: img.title || "Nai Baan Studio gallery photo" })),
+          data.map((img) => ({ src: img.image_url, alt: img.title || "NaiBaan Studio gallery photo" })),
         );
       }
     };

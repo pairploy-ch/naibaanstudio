@@ -24,8 +24,8 @@ const siteUrl = "https://naibaanstudio.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nai Baan Studio | Thai Cooking Class in Bangkok",
-    template: "%s | Nai Baan Studio",
+    default: "NaiBaan Studio | Thai Cooking Class in Bangkok",
+    template: "%s | NaiBaan Studio",
   },
   description:
     "Discover authentic Thai cooking in a serene, home-style studio located in a 100-year-old wooden house in Bangkok. Learn traditional recipes, local ingredients, and Thai cooking techniques from a passionate culinary host — no experience required.",
@@ -50,8 +50,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Nai Baan Studio",
-    title: "Nai Baan Studio | Thai Cooking Class in Bangkok",
+    siteName: "NaiBaan Studio",
+    title: "NaiBaan Studio | Thai Cooking Class in Bangkok",
     description:
       "Discover authentic Thai cooking in a serene, home-style studio located in a 100-year-old wooden house in Bangkok. No cooking experience required.",
     images: [
@@ -59,13 +59,13 @@ export const metadata: Metadata = {
         url: "/new/thai-cooking-studio-hero-background.jpg",
         width: 1200,
         height: 630,
-        alt: "Nai Baan Studio Thai cooking class",
+        alt: "NaiBaan Studio Thai cooking class",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nai Baan Studio | Thai Cooking Class in Bangkok",
+    title: "NaiBaan Studio | Thai Cooking Class in Bangkok",
     description:
       "Discover authentic Thai cooking in a serene, home-style studio in Bangkok. No cooking experience required.",
     images: ["/new/thai-cooking-studio-hero-background.jpg"],
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Nai Baan Studio",
+  name: "NaiBaan Studio",
   description:
     "Home-style Thai cooking studio in Bangkok offering hands-on Thai cooking classes. No cooking experience required, MSG-free recipes, vegetarian and allergy-friendly options available.",
   url: siteUrl,

@@ -37,7 +37,7 @@ export function generateInvoicePdf(data: InvoiceData): Buffer {
   doc.text("Abbreviated Tax Invoice / Receipt", pageW / 2, 12, { align: "center" });
   doc.setFontSize(9);
   doc.setFont("helvetica", "normal");
-  doc.text("Nai Baan Studio Co., Ltd.", pageW / 2, 20, { align: "center" });
+  doc.text("NaiBaan Studio Co., Ltd.", pageW / 2, 20, { align: "center" });
   doc.text("35 Moo 11, Bang Kru, Phra Pradaeng, Samut Prakan  |  Tax ID: 0115567006780", pageW / 2, 25, { align: "center" });
 
   // ── Invoice meta (top-right) ─────────────────────────────
@@ -144,7 +144,7 @@ const billLines = [
   doc.setFontSize(8);
   doc.setTextColor(255, 255, 255);
   doc.setFont("helvetica", "normal");
-  doc.text("Thank you for booking with Nai Baan Studio!", pageW / 2, footerY + 2, { align: "center" });
+  doc.text("Thank you for booking with NaiBaan Studio!", pageW / 2, footerY + 2, { align: "center" });
   doc.text("For inquiries: info@naibaanstudio.com", pageW / 2, footerY + 6.5, { align: "center" });
 
   return Buffer.from(doc.output("arraybuffer"));

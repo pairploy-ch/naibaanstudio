@@ -4,7 +4,7 @@ import GalleryClient from "./GalleryClient";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Browse photos from Nai Baan Studio's Thai cooking classes in Bangkok — students, dishes, and moments from our home-style cooking studio.",
+    "Browse photos from NaiBaan Studio's Thai cooking classes in Bangkok — students, dishes, and moments from our home-style cooking studio.",
   alternates: { canonical: "/gallery" },
 };
 

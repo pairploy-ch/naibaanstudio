@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms and Conditions",
   description:
-    "Read the terms and conditions governing course bookings and use of the Nai Baan Studio website.",
+    "Read the terms and conditions governing course bookings and use of the NaiBaan Studio website.",
   alternates: { canonical: "/terms" },
   robots: { index: false, follow: true },
 };
@@ -84,7 +84,7 @@ export default function AboutPage() {
   <br />
   <p>
     All content, including text, images, graphics, and branding, is the
-    property of Nai Baan Studio and may not be copied, reproduced, or
+    property of NaiBaan Studio and may not be copied, reproduced, or
     distributed without permission.
   </p>
 

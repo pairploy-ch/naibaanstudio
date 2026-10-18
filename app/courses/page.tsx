@@ -5,7 +5,7 @@ import CoursesClient from './CoursesClient'
 export const metadata: Metadata = {
   title: "Thai Cooking Classes",
   description:
-    "Browse all Thai cooking classes at Nai Baan Studio in Bangkok. Choose a course, pick a date, and book your seat online.",
+    "Browse all Thai cooking classes at NaiBaan Studio in Bangkok. Choose a course, pick a date, and book your seat online.",
   alternates: { canonical: "/courses" },
 }
 

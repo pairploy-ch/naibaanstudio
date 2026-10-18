@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Post not found" };
   }
 
-  const description = blog.excerpt || "Read this post on the Nai Baan Studio blog.";
+  const description = blog.excerpt || "Read this post on the NaiBaan Studio blog.";
 
   return {
     title: blog.title,

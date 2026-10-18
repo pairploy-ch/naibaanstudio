@@ -20,21 +20,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const description = course.description
     ? course.description.slice(0, 160)
-    : `Book the ${course.title} Thai cooking class at Nai Baan Studio in Bangkok.`;
+    : `Book the ${course.title} Thai cooking class at NaiBaan Studio in Bangkok.`;
 
   return {
     title: course.title,
     description,
     alternates: { canonical: `/courses/${id}` },
     openGraph: {
-      title: `${course.title} | Nai Baan Studio`,
+      title: `${course.title} | NaiBaan Studio`,
       description,
       type: "website",
       images: course.cover ? [{ url: course.cover }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${course.title} | Nai Baan Studio`,
+      title: `${course.title} | NaiBaan Studio`,
       description,
       images: course.cover ? [course.cover] : undefined,
     },
@@ -57,7 +57,7 @@ export default async function CoursePage({ params }: Props) {
         description: course.description,
         provider: {
           "@type": "Organization",
-          name: "Nai Baan Studio",
+          name: "NaiBaan Studio",
           sameAs: "https://naibaanstudio.com",
         },
         image: course.cover || undefined,

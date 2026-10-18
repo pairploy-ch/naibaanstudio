@@ -512,7 +512,7 @@ await fetch("/api/send-confirmation-email", {
       OmiseCard.configure({
         publicKey: process.env.NEXT_PUBLIC_OMISE_PUBLIC_KEY,
         currency: "THB",
-        frameLabel: "Nai Baan Studio",
+        frameLabel: "NaiBaan Studio",
         submitLabel: "Pay",
         buttonLabel: "Pay with Omise",
       });

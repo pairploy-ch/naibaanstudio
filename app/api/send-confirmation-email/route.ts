@@ -122,7 +122,7 @@ async function generateBookingPDF(data: {
   const metaColX  = width - margin - 200  // right column ~200px wide
 
   // Company block (left)
-  page.drawText('Nai Baan Studio Co., Ltd.', {
+  page.drawText('NaiBaan Studio Co., Ltd.', {
     x: margin, y: headerTop, size: 11, font: fontBold, color: colorBlack,
   })
   const companyLines = [
@@ -487,10 +487,10 @@ export async function POST(req: Request) {
     const pdfBase64 = Buffer.from(pdfBytes).toString('base64')
 
     const { data, error } = await resend.emails.send({
-      from: 'Nai Baan Studio <booking@naibaanstudio.com>',
+      from: 'NaiBaan Studio <booking@naibaanstudio.com>',
       to: [to],
       cc: ['naibaanstudio@gmail.com'],
-      subject: `Booking Confirmed – Nai Baan Studio`,
+      subject: `Booking Confirmed – NaiBaan Studio`,
       attachments: [
         {
           filename: `booking-${bookingCode || bookingId}.pdf`,
@@ -518,7 +518,7 @@ export async function POST(req: Request) {
           <body>
             <div class="container">
               <div class="header">
-                <img src="https://naibaanstudio.com/naibaan-studio-logo-white.png" alt="Nai Baan Studio logo" style="max-width: 120px;" />
+                <img src="https://naibaanstudio.com/naibaan-studio-logo-white.png" alt="NaiBaan Studio logo" style="max-width: 120px;" />
               </div>
               <div style="padding: 32px;">
                 <p>Dear <strong>${customerName}</strong>,</p>
@@ -591,7 +591,7 @@ ${addonName ? `
                   style="display:inline-block;margin-bottom:20px;padding:10px 18px;background:#8D9075;color:white;text-decoration:none;border-radius:4px;font-size:13px;font-weight:bold;">
                   Open in Google Maps
                 </a>
-                <p style="font-size:13px; color:#333; font-weight:bold; margin-bottom:8px;">Distance from Nai Baan Studio</p>
+                <p style="font-size:13px; color:#333; font-weight:bold; margin-bottom:8px;">Distance from NaiBaan Studio</p>
                 <p style="font-size:13px; color:#666; line-height:1.6; margin:0;">
                   2 km to River City Bangkok<br/>2.6 km to Talat Noi<br/>
                   2.9 km to Siam<br/>
@@ -599,7 +599,7 @@ ${addonName ? `
                 </p>
               </div>
 
-              <div class="footer">Nai Baan Studio · If you have questions, reply to this email.</div>
+              <div class="footer">NaiBaan Studio · If you have questions, reply to this email.</div>
             </div>
           </body>
         </html>

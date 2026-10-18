@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Refund & Cancellation Policy",
   description:
-    "Learn how cancellations, rescheduling, and refunds are handled for course bookings at Nai Baan Studio.",
+    "Learn how cancellations, rescheduling, and refunds are handled for course bookings at NaiBaan Studio.",
   alternates: { canonical: "/refund" },
   robots: { index: false, follow: true },
 };
@@ -33,7 +33,7 @@ export default function AboutPage() {
           <br />
           <p>
             A booking is considered confirmed only after successful payment
-            verification and receipt of confirmation from Nai Baan Studio.
+            verification and receipt of confirmation from NaiBaan Studio.
           </p>
 
           <br />
@@ -92,7 +92,7 @@ export default function AboutPage() {
           <br />
 
           <h2 className="text-bold font-bold">
-            6. Cancellation by Nai Baan Studio
+            6. Cancellation by NaiBaan Studio
           </h2>
           <br />
           <p>

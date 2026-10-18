@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Nai Baan Studio — Thai cooking classes in Bangkok. Find our address, phone number, email, and opening hours.",
+    "Get in touch with NaiBaan Studio — Thai cooking classes in Bangkok. Find our address, phone number, email, and opening hours.",
   alternates: { canonical: "/contact" },
 }
 
